@@ -12,7 +12,8 @@ import (
 )
 
 var (
-	IfMedia *sql.Stmt
+	ifMedia   *sql.Stmt
+	linkMedia *sql.Stmt
 )
 
 const (
@@ -29,19 +30,23 @@ var mediaDataFileName string
 var imageFileName string
 
 func PrepareDir() {
-	mediaMetaFileName = dataDir + multiMediaDataFileName
-	CheckAndMakeDir(dataDir + multiMediaDataDir)
-	mediaDataFileName = dataDir + multiMediaPieceFileName
-	CheckAndMakeDir(dataDir + multiMediaPieceDir)
-	imageFileName = dataDir + imageDataFileName
-	CheckAndMakeDir(dataDir + imageDataDir)
+	mediaMetaFileName = DataDir + multiMediaDataFileName
+	CheckAndMakeDir(DataDir + multiMediaDataDir)
+	mediaDataFileName = DataDir + multiMediaPieceFileName
+	CheckAndMakeDir(DataDir + multiMediaPieceDir)
+	imageFileName = DataDir + imageDataFileName
+	CheckAndMakeDir(DataDir + imageDataDir)
 }
 
 func PrepareMultiMediaSQL() (uint8, error) {
 	var err error
-	IfMedia, err = SQLPrepare("select id from link_media where passage_id = $1")
+	ifMedia, err = SQLPrepare("select id from link_media where passage_id = $1")
 	if err != nil {
 		return 0, err
+	}
+	linkMedia, err = Database.Prepare("insert into link_media (passage_id) VALUES ($1) returning id")
+	if err != nil {
+		return 1, err
 	}
 	return 0, nil
 }
@@ -70,7 +75,7 @@ func RecycleMultiMediaMetadata(m *MultiMediaMetadata) {
 }
 
 func LoadMultiMediaMetadata(passageId int64) (*MultiMediaMetadata, error) {
-	r := IfMedia.QueryRow(passageId)
+	r := ifMedia.QueryRow(passageId)
 	var id int64
 	err := r.Scan(&id)
 	if err != nil {
@@ -110,6 +115,53 @@ func LoadMultiMediaMetadata(passageId int64) (*MultiMediaMetadata, error) {
 	goal.DataIds = *((*[]int64)(unsafe.Pointer(&buffer)))
 	goal.Id = id
 	return goal, nil
+}
+
+func SaveMultiMediaMetadata(tx *sql.Tx, passageId int64, media *MultiMediaMetadata) error {
+	var id int64
+	r := tx.Stmt(linkMedia).QueryRow(passageId)
+	err := r.Scan(&id)
+	if err != nil {
+		err = tx.Rollback()
+		if err != nil {
+			log.Println(err)
+		}
+		return err
+	}
+	f, err := os.Create(fmt.Sprintf(mediaMetaFileName, id))
+	if err != nil {
+		err = tx.Rollback()
+		if err != nil {
+			log.Println(err)
+		}
+		return err
+	}
+	err = binary.Write(f, binary.LittleEndian, media.Type)
+	if err != nil {
+		err = tx.Rollback()
+		if err != nil {
+			log.Println(err)
+		}
+		return err
+	}
+	err = binary.Write(f, binary.LittleEndian, media.Length)
+	if err != nil {
+		err = tx.Rollback()
+		if err != nil {
+			log.Println(err)
+		}
+		return err
+	}
+	err = binary.Write(f, binary.LittleEndian, media.DataIds)
+	if err != nil {
+		err = tx.Rollback()
+		if err != nil {
+			log.Println(err)
+		}
+		return err
+	}
+	media.Id = id
+	return nil
 }
 
 type data struct {

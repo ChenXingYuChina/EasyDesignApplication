@@ -80,7 +80,7 @@ var (
 	deleteStudentInfo   *sql.Stmt
 	deleteDesignerInfo  *sql.Stmt
 	updatePublicInfo    *sql.Stmt
-
+	loadUser *sql.Stmt
 )
 
 
@@ -178,6 +178,12 @@ func UserSQLPrepare() (int, error) {
 	}
 	position++
 
+	loadUser, err = SQLPrepare("select Email, name, phone_number, coin, fans_number, follower_number, passage_number, head_image, back_image, identity_type from Users where id = $1")
+	if err != nil {
+		return position, err
+	}
+	position++
+
 	return 0, nil
 }
 
@@ -216,7 +222,7 @@ func (u *UserBase) ChangeEmail(email Email) uint8 {
 	//r, err := changeEmail.Query(string(email), u.ID)
 	r, err := changeEmail.Exec(string(email), u.ID)
 	if err != nil {
-		if strings.Compare(string(err.(pq.Error).Code) ,"23505") == 0 {
+		if strings.Compare(string(err.(*pq.Error).Code) ,"23505") == 0 {
 			return 1  // email 重复
 		}
 		log.Println(err)
@@ -412,6 +418,15 @@ func (u *UserBase) loadIdentity(identityType uint8) uint8 {
 	return state
 }
 
+func (u *UserBase) ToMini() *UserMini {
+	um := MakeUserMini()
+	um.Identity = u.Identity
+	um.HeadImage = u.HeadImage
+	um.UserName = u.UserName
+	um.UserId = u.ID
+	return um
+}
+
 func loadIdentity(identityType uint8, id int64) (goal Identity, state uint8) {
 	var r *sql.Rows
 	var err error
@@ -506,7 +521,32 @@ func LoginByEmail(email Email, password Password) (*UserBase, uint8) {
 }
 
 func LoginById(id int64, password Password) (*UserBase, uint8) {
-	r, err := loginById.Query(string(id), string(password))
+	r, err := loginById.Query(id, string(password))
+	if err != nil {
+		log.Println(err)
+		return nil, 255 // 未知错误
+	}
+	goal := GetUser()
+	var identityType uint8
+	if r.Next() {
+		err = r.Scan(&(goal.Email), &(goal.UserName), &(goal.Phone), &(goal.Coin), &(goal.FansNumber), &(goal.FollowerNumber), &(goal.PassageNumber), &(goal.HeadImage), &(goal.BackImage), &identityType)
+		if err != nil {
+			log.Println(err)
+			return nil, 255
+		}
+	} else {
+		return nil, 3  // 账户不存在
+	}
+	if goal.loadIdentity(identityType) != 0 {
+		RecycleUser(goal)
+		return nil, 255  // 未知错误
+	}
+	goal.ID = id
+	return goal, 0
+}
+
+func LoadUser(id int64) (*UserBase, uint8) {
+	r, err := loadUser.Query(id)
 	if err != nil {
 		log.Println(err)
 		return nil, 255 // 未知错误

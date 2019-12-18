@@ -7,18 +7,21 @@ import (
 
 var (
 	makePassageStepInsert *sql.Stmt
-	makePassageStepUndate *sql.Stmt
-	likePassage *sql.Stmt
-	changePassageTitle *sql.Stmt
+	makePassageStepUpdate *sql.Stmt
+	likePassage           *sql.Stmt
+	changePassageTitle    *sql.Stmt
 )
 
 func PreparePassageSQL() (uint8, error) {
 	var err error
-	makePassageStepInsert, err = SQLPrepare("insert into passages (title, owner) values ($1, $2)")
+	makePassageStepInsert, err = SQLPrepare("insert into passages (title, owner) values ($1, $2) returning id")
 	if err != nil {
 		return 0, nil
 	}
-	makePassageStepUndate, err = SQLPrepare("update users set passage_number = passage_number + 1 where id = $1")
+	makePassageStepUpdate, err = SQLPrepare("update users set passage_number = passage_number + 1 where id = $1")
+	if err != nil {
+		return 4, err
+	}
 	likePassage, err = SQLPrepare("update passages set like_number = like_number + 1 where id = $1")
 	if err != nil {
 		return 2, err
@@ -38,7 +41,7 @@ type PassageBase struct {
 	CommentNumber uint32
 }
 
-var passagePool *sync.Pool
+var passagePool = new(sync.Pool)
 
 func init() {
 	passagePool.New = func() interface{} {
@@ -75,26 +78,31 @@ func LoadPassagesBase(rows *sql.Rows) (*PassageBase, error) {
 	return passage, nil
 }
 
-func MakePassage(owner int64, title string) error {
+func MakePassage(owner int64, title string) (*sql.Tx, int64, error) {
 	tx, err := Database.Begin()
-	_, err = tx.Stmt(makePassageStepInsert).Exec(title, owner)
 	if err != nil {
 		_ = tx.Rollback()
-		return err
+		return nil, 0, err
 	}
-	r, err := tx.Stmt(makePassageStepUndate).Exec(owner)
+	row := tx.Stmt(makePassageStepInsert).QueryRow(title, owner)
+	var pId int64
+	err = row.Scan(&pId)
+	if err != nil {
+		return nil, 0, err
+	}
+	r, err := tx.Stmt(makePassageStepUpdate).Exec(owner)
 	if err != nil {
 		_ = tx.Rollback()
-		return err
+		return nil, 0, err
 	}
 	if line, err := r.RowsAffected(); err != nil {
 		_ = tx.Rollback()
-		return err
+		return nil, 0, err
 	} else if line != 1 {
 		_ = tx.Rollback()
-		return UnknownError
+		return nil, 0, UnknownError
 	}
-	return err
+	return tx, pId, err
 }
 
 func LikePassage(id int64) error {
