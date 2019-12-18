@@ -8,32 +8,32 @@
     android:background="@drawable/beijing1">
 
 
-    <TextureView
-        android:id="@+id/textureView"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.1"
-        >
-    </TextureView>
-
-<!--    <ImageView-->
-<!--        android:id="@+id/touxiang"-->
-<!--        android:layout_width="100dp"-->
-<!--        android:layout_height="100dp"-->
-<!--        android:src="@drawable/touxiang"-->
-<!--        android:layout_centerHorizontal="true"-->
-
-
+<!--    <TextureView-->
+<!--        android:id="@+id/textureView"-->
+<!--        android:layout_width="200dp"-->
+<!--        android:layout_height="200dp"-->
 <!--        app:layout_constraintEnd_toEndOf="parent"-->
 <!--        app:layout_constraintStart_toStartOf="parent"-->
 <!--        app:layout_constraintBottom_toBottomOf="parent"-->
 <!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:layout_constraintVertical_bias="0.1">-->
-<!--    </ImageView>-->
+<!--        app:layout_constraintVertical_bias="0.1"-->
+<!--        >-->
+<!--    </TextureView>-->
+
+    <ImageView
+        android:id="@+id/touxiang"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/touxiang"
+        android:layout_centerHorizontal="true"
+
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.1">
+    </ImageView>
 
     <Spinner
         android:layout_width="200dp"
