@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"io"
 	"os"
+	"sync"
 )
 
 type resources struct {
@@ -79,12 +80,11 @@ func LoadComplexString(r io.Reader) (goal *ComplexString, err error) {
 	}
 	lLow := int(int32(help))
 	lHigh := int(int32(help >> 32))
-	goal = &ComplexString{
-		Content:string(make([]byte, lLow)),
-		Positions:make([]int32, lHigh),
-		Widths:make([]int32, lHigh),
-		ResourcesId:resources{r:make([]int64, lHigh)},
-	}
+	goal = NewComplexString()
+	goal.Content = string(make([]byte, lLow))
+	goal.Positions = make([]int32, lHigh)
+	goal.Widths = make([]int32, lHigh)
+	goal.ResourcesId = resources{r:make([]int64, lHigh)}
 	_, err = r.Read([]byte(goal.Content))
 	if err != nil {
 		return nil, err
@@ -104,4 +104,19 @@ func LoadComplexString(r io.Reader) (goal *ComplexString, err error) {
 	return goal, nil
 }
 
+var complexStringPool = new(sync.Pool)
 
+func init() {
+	complexStringPool.New = func() interface{} {
+		return &ComplexString{}
+	}
+}
+
+
+func NewComplexString() *ComplexString {
+	return complexStringPool.Get().(*ComplexString)
+}
+
+func RecycleComplexString(c *ComplexString) {
+	complexStringPool.Put(c)
+}

@@ -10,7 +10,7 @@ var Database *sql.DB
 
 func SqlInit(sqlName, databaseName, password, userName, host string) error {
 	var err error
-	Database, err = sql.Open("postgres", fmt.Sprintf("dbname=%s user=%s host=%s password=%s sslmode=disable", databaseName, userName, host, password))
+	Database, err = sql.Open(sqlName, fmt.Sprintf("dbname=%s user=%s host=%s password=%s sslmode=disable", databaseName, userName, host, password))
 	if err != nil {
 		return err
 	}

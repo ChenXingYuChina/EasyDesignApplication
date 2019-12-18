@@ -37,12 +37,12 @@ const (
 const ColorNumber = 5
 
 var resFileName string
-var dataDir string
+var DataDir string
 
 func init() {
-	flag.StringVar(&dataDir, "o", "./", "数据文件存储的目录 默认当前文件夹")
-	resFileName = dataDir + varyResourcesFileName
-	CheckAndMakeDir(dataDir + varyResourceDirName)
+	flag.StringVar(&DataDir, "o", "./", "数据文件存储的目录 默认当前文件夹")
+	resFileName = DataDir + varyResourcesFileName
+	CheckAndMakeDir(DataDir + varyResourceDirName)
 }
 
 func CheckAndMakeDir(name string) {
