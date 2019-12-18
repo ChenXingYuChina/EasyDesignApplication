@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.login2"
+    android:background="@drawable/beijing1">
+
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/logo"
+        android:layout_centerHorizontal="true"
+
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.1">
+    </ImageView>
+
+    <EditText
+        android:id="@+id/zhanghao"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:hint="账号"
+        android:textSize="20dp"
+        android:background="@drawable/round_corner"
+        android:layout_marginTop="100dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logo"
+        ></EditText>
+
+    <EditText
+        android:id="@+id/mima"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:hint="密码"
+        android:textSize="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/round_corner"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/zhanghao"
+        ></EditText>
+
+    <Button
+        android:id="@+id/denglu"
+        android:layout_width="100dp"
+        android:layout_height="20dp"
+        android:text="登录"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/round_corner"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mima"
+        ></Button>
+
+    <LinearLayout
+        android:id="@+id/wangjiheyouke"
+        android:layout_width="120dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="10dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/denglu">
+
+        <TextView
+        android:id="@+id/wangji"
+        android:text="忘记密码"
+        android:layout_width="0dp"
+        android:layout_weight="5"
+        android:layout_height="wrap_content"
+        android:textSize="10dp"
+        android:gravity="center"></TextView>
+
+        <TextView
+            android:text="|"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="wrap_content"
+            android:textSize="10dp"
+            android:gravity="center"></TextView>
+
+        <TextView
+            android:id="@+id/youke"
+            android:text="随便逛逛"
+            android:layout_width="0dp"
+            android:layout_weight="5"
+            android:layout_height="wrap_content"
+            android:textSize="10dp"
+            android:gravity="center"></TextView>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/disanfang"
+        android:layout_width="120dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="30dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/wangjiheyouke">
+
+        <ImageView
+            android:id="@+id/qq"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:src="@drawable/qqdenglu"></ImageView>
+
+        <ImageView
+            android:id="@+id/weixin"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:src="@drawable/weixindenglu"></ImageView>
+
+        <ImageView
+            android:id="@+id/weibo"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:src="@drawable/weibodenglu"></ImageView>
+
+
+    </LinearLayout>
+
+
+
+    <ImageView
+        android:id="@+id/next"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/next"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.94"
+        app:layout_constraintHorizontal_bias="0.86"/>
+
+        <TextView
+            android:id="@+id/zhuce"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="立即注册"
+            android:textSize="20dp"
+
+            app:layout_constraintEnd_toEndOf="@id/next"
+            app:layout_constraintStart_toStartOf="@id/next"
+            app:layout_constraintTop_toBottomOf="@id/next"
+            ></TextView>
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.login4"
+    android:background="@drawable/beijing1">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/logo"
+        android:layout_centerHorizontal="true"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.1"
+        app:layout_constraintHorizontal_bias="0.5">
+    </ImageView>
+
+    <EditText
+        android:id="@+id/nicheng"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:hint="昵称"
+        android:textSize="20dp"
+        android:background="@drawable/round_corner"
+        android:layout_below="@+id/logo"
+        android:layout_marginTop="50dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logo"
+        ></EditText>
+
+    <EditText
+        android:id="@+id/shengri"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:hint="生日"
+        android:textSize="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/zhanghao"
+        android:background="@drawable/round_corner"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/nicheng"
+        ></EditText>
+
+    <EditText
+        android:id="@+id/buzhidao"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:hint="不知道"
+        android:textSize="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/zhanghao"
+        android:background="@drawable/round_corner"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/shengri"
+        ></EditText>
+
+    <EditText
+        android:id="@+id/xingqu"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:hint="兴趣？"
+        android:textSize="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/zhanghao"
+        android:background="@drawable/round_corner"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/buzhidao"
+        ></EditText>
+
+
+    <ImageView
+        android:id="@+id/next"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/next"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.94"
+        app:layout_constraintHorizontal_bias="0.86"/>
+
+    <TextView
+        android:id="@+id/zhuce"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="下一步"
+        android:textSize="20dp"
+
+        app:layout_constraintEnd_toEndOf="@id/next"
+        app:layout_constraintStart_toStartOf="@id/next"
+        app:layout_constraintTop_toBottomOf="@id/next"
+        ></TextView>
+</androidx.constraintlayout.widget.ConstraintLayout>
