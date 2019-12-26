@@ -60,8 +60,8 @@ type WorkShopBase struct {
 	Level         int16
 }
 
-func OpenWorkShop(who int64, name string, headImage int64) (*WorkShopBase, uint8) {
-	row := Database.QueryRow("select true from unauthorized, users where (id = $1 and identity_type = 1) and user_id = $1", who)
+func OpenWorkShop(tx *sql.Tx, who int64, name string, headImage int64) (*WorkShopBase, uint8) {
+	row := tx.QueryRow("select true from unauthorized, users where (id = $1 and identity_type = 1) and user_id = $1", who)
 	var s bool
 	err := row.Scan(&s)
 	if err == nil && s {
@@ -70,29 +70,18 @@ func OpenWorkShop(who int64, name string, headImage int64) (*WorkShopBase, uint8
 	if strings.Compare(err.Error(), "sql: no rows in result set") != 0 {
 		return nil, 255  //  未知错误
 	}
-	tx, err := Database.Begin()
 	row = tx.QueryRow("insert into workshop (name, head_image) values ($1, $2) returning id", name, headImage)
 	var workshopId int64
 	err = row.Scan(&workshopId)
 	if err != nil {
-		err = tx.Rollback()
-		if err != nil {
-			log.Println(err)
-		}
 		return nil, 255
 	}
 
 	r, err := tx.Exec("insert into workshop_member_link (workshop_id, user_id, position) values ($1, $2, 1)", workshopId, who)
 	line, err := r.RowsAffected()
 	if err != nil || line != 1 {
-		err = tx.Rollback()
-		if err != nil {
-			log.Println(err)
-		}
 		return nil, 255
 	}
-
-	err = tx.Commit()
 	if err != nil {
 		return nil, 255  // 未知原因
 	}

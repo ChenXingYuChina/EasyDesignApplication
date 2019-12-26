@@ -13,21 +13,22 @@ var (
 	searchPassageByTitle *sql.Stmt
 )
 
+// &(passage.Title), &(passage.CommentNumber), &(passage.Like), &(passage.Owner), &(passage.Id), &(passage.ListImage)
 func PreparePassageListSQL() (uint8, error) {
 	var err error
-	getWorkshopPassageList, err = base.Database.Prepare("select wp.passage_id, p.owner, pt.passage_type, p.title, p.comment_number, p.like_number from passage_type pt, workshop_passage wp, passages p where (wp.workshop_id = $1 and wp.passage_id = pt.passage_id and p.id = wp.passage_id) order by wp.passage_id desc limit $2 offset $3")
+	getWorkshopPassageList, err = base.Database.Prepare("select $1, pt.passage_type, p.title, p.comment_number, p.like_number, p.owner, wp.passage_id, p.list_image from passage_type pt, workshop_passage wp, passages p where (wp.workshop_id = $1 and wp.passage_id = pt.passage_id and p.id = wp.passage_id) order by wp.passage_id desc limit $2 offset $3")
 	if err != nil {
 		return 0, err
 	}
-	getPassageListByType, err = base.Database.Prepare("select pt.passage_id, wp.workshop_id, p.owner, p.like_number, p.comment_number, p.title from passage_type pt, passages p left join workshop_passage wp on p.id = wp.passage_id where pt.passage_type = $1 and pt.passage_id = p.id order by pt.passage_id desc limit $2 offset $3")
+	getPassageListByType, err = base.Database.Prepare("select wp.workshop_id, $1, p.title, p.comment_number, p.like_number, p.owner, wp.passage_id, p.list_image from passage_type pt, passages p left join workshop_passage wp on p.id = wp.passage_id where pt.passage_type = $1 and pt.passage_id = p.id order by pt.passage_id desc limit $2 offset $3")
 	if err != nil {
 		return 1, err
 	}
-	getPassageListByUserAndType, err = base.Database.Prepare("select pt.passage_id, wp.workshop_id, p.like_number, p.comment_number, p.title from passage_type pt, passages p left join workshop_passage wp on p.id = wp.passage_id where p.owner = $1 and pt.passage_type = $2 and pt.passage_id = p.id order by pt.passage_id desc limit $3 offset $4")
+	getPassageListByUserAndType, err = base.Database.Prepare("select wp.workshop_id, $2, p.title, p.comment_number, p.like_number, $1, wp.passage_id, p.list_image from passage_type pt, passages p left join workshop_passage wp on p.id = wp.passage_id where p.owner = $1 and pt.passage_type = $2 and pt.passage_id = p.id order by pt.passage_id desc limit $3 offset $4")
 	if err != nil {
 		return 2, err
 	}
-	searchPassageByTitle, err = base.Database.Prepare("select p.id, wp.workshop_id, pt.passage_type, p.owner, p.like_number, p.comment_number, p.title from passage_type pt, passages p left join workshop_passage wp on p.id = wp.passage_id where p.title like '%'+$1+'%' and pt.passage_id = p.id order by pt.passage_id desc limit $2 offset $3")
+	searchPassageByTitle, err = base.Database.Prepare("select wp.workshop_id, pt.passage_type, p.title, p.comment_number, p.like_number, p.owner, wp.passage_id, p.list_image from passage_type pt, passages p left join workshop_passage wp on p.id = wp.passage_id where p.title like '%'+$1+'%' and pt.passage_id = p.id order by pt.passage_id desc limit $2 offset $3")
 	return 0, nil
 }
 
@@ -48,21 +49,9 @@ func LoadPassageListByType(t int16, length uint8, offset int64) (PassageList, er
 	if err != nil {
 		return nil, err
 	}
-	goal := make([]PassageListItem, length)
-	for i := 0; r.Next(); i++ {
-		goal[i].PassageBase = base.GetPassage()
-		err = r.Scan(&(goal[i].Id), &(goal[i].WorkshopId), &(goal[i].Owner), &(goal[i].Like), &(goal[i].CommentNumber), &(goal[i].Title))
-		if err != nil {
-			err = r.Close()
-			if err != nil {
-				log.Println(err)
-			}
-			for ; i >= 0; i-- {
-				base.RecyclePassage(goal[i].PassageBase)
-			}
-			return nil, err
-		}
-		goal[i].PassageType = t
+	goal, err := loadPassageList(r, length)
+	if err != nil {
+		return nil, err
 	}
 	err = r.Close()
 	if err != nil {
@@ -76,21 +65,10 @@ func LoadPassageListByWorkshop(workshopId int64, length uint8, offset int64) (Pa
 	if err != nil {
 		return nil, err
 	}
-	goal := make([]PassageListItem, length)
-	for i := 0; r.Next(); i++ {
-		goal[i].PassageBase = base.GetPassage()
-		err = r.Scan(&(goal[i].Id), &(goal[i].Owner), &(goal[i].PassageType), &(goal[i].Title), &(goal[i].CommentNumber), &(goal[i].Like))
-		if err != nil {
-			err = r.Close()
-			if err != nil {
-				log.Println(err)
-			}
-			for ; i >= 0; i-- {
-				base.RecyclePassage(goal[i].PassageBase)
-			}
-			return nil, err
-		}
-		goal[i].WorkshopId = workshopId
+
+	goal, err := loadPassageList(r, length)
+	if err != nil {
+		return nil, err
 	}
 	err = r.Close()
 	if err != nil {
@@ -99,27 +77,14 @@ func LoadPassageListByWorkshop(workshopId int64, length uint8, offset int64) (Pa
 	return goal, nil
 }
 
-func LoadPassageListByUserAndType(useId int64, length uint8, offset int64, t int16) (PassageList, error) {
+func LoadPassageListByUserAndType(useId int64, t int16, length uint8, offset int64) (PassageList, error) {
 	r, err :=  getPassageListByUserAndType.Query(useId, t, length, offset)
 	if err != nil {
 		return nil, err
 	}
-	goal := make([]PassageListItem, length)
-	for i := 0; r.Next(); i++ {
-		goal[i].PassageBase = base.GetPassage()
-		err = r.Scan(&(goal[i].Id), &(goal[i].WorkshopId), &(goal[i].Like), &(goal[i].CommentNumber), &(goal[i].Title))
-		if err != nil {
-			err = r.Close()
-			if err != nil {
-				log.Println(err)
-			}
-			for ; i >= 0; i-- {
-				base.RecyclePassage(goal[i].PassageBase)
-			}
-			return nil, err
-		}
-		goal[i].PassageType = t
-		goal[i].Owner = useId
+	goal, err := loadPassageList(r, length)
+	if err != nil {
+		return nil, err
 	}
 	err = r.Close()
 	if err != nil {
@@ -133,10 +98,26 @@ func SearchPassageByTitle(keyword string, length uint8, offset int64) (PassageLi
 	if err != nil {
 		return nil, err
 	}
-	goal := make([]PassageListItem, length)
-	for i := 0; r.Next(); i++ {
-		goal[i].PassageBase = base.GetPassage()
-		err = r.Scan(&(goal[i].Id), &(goal[i].WorkshopId), &(goal[i].PassageType), &(goal[i].Owner), &(goal[i].Like), &(goal[i].CommentNumber), &(goal[i].Title))
+	goal, err := loadPassageList(r, length)
+	if err != nil {
+		return nil, err
+	}
+	err = r.Close()
+	if err != nil {
+		log.Println(err)
+	}
+	return goal, nil
+}
+
+
+func loadPassageList(r *sql.Rows, length uint8) (PassageList, error) {
+	goal := make([]PassageListItem, 0, length)
+	var helpSlice []interface{}
+	var i int
+	var err error
+	for ; r.Next(); i++ {
+		helpSlice = append(helpSlice, &(goal[i].WorkshopId), &(goal[i].PassageType))
+		goal[i].PassageBase, err = base.LoadPassagesBase(r, helpSlice)
 		if err != nil {
 			err = r.Close()
 			if err != nil {
@@ -147,10 +128,8 @@ func SearchPassageByTitle(keyword string, length uint8, offset int64) (PassageLi
 			}
 			return nil, err
 		}
+		helpSlice = helpSlice[:0]
 	}
-	err = r.Close()
-	if err != nil {
-		log.Println(err)
-	}
+	goal = goal[:i]
 	return goal, nil
 }

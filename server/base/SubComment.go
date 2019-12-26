@@ -56,7 +56,11 @@ func RecycleSubComment(c *SubComment) {
 	subCommentPool.Put(c)
 }
 
-func LikeSubComment(passage int64, father uint32, position uint16) bool {
+func LikeSubComment(tx *sql.Tx, passage int64, father uint32, position uint16) bool {
+	var likeSubComment = likeSubComment
+	if tx != nil {
+		likeSubComment = tx.Stmt(likeSubComment)
+	}
 	r, err := likeSubComment.Exec(passage, father, position)
 	if err != nil {
 		return false
@@ -67,7 +71,11 @@ func LikeSubComment(passage int64, father uint32, position uint16) bool {
 	return true
 }
 
-func LoadSubCommentByPosition(passageId int64, fatherPosition uint32, begin uint16, length uint16) ([]*SubComment, error) {
+func LoadSubCommentByPosition(tx *sql.Tx, passageId int64, fatherPosition uint32, begin uint16, length uint16) ([]*SubComment, error) {
+	var loadSubComment = loadCommentBase
+	if tx != nil {
+		loadSubComment = tx.Stmt(loadSubComment)
+	}
 	r, err := loadSubComment.Query(passageId, fatherPosition, begin, length)
 	if err != nil {
 		return nil, err
@@ -89,27 +97,25 @@ func LoadSubCommentByPosition(passageId int64, fatherPosition uint32, begin uint
 	return goal, nil
 }
 
-func CommentTo(passage int64, commentPosition uint32, content string, who int64) error {
-	tx, err := Database.Begin()
-	if err != nil {
-		return err
+func CommentTo(tx *sql.Tx, passage int64, commentPosition uint32, content string, who int64) error {
+	var makeSubCommentStepInsert = makeSubCommentStepInsert
+	var makeSubCommentStepUpdate = makeSubCommentStepUpdate
+	if tx != nil {
+		makeSubCommentStepInsert = tx.Stmt(makeSubCommentStepInsert)
+		makeSubCommentStepUpdate = tx.Stmt(makeSubCommentStepUpdate)
 	}
-	_, err = tx.Stmt(makeSubCommentStepInsert).Exec(passage, commentPosition, content, who)
+	_, err := tx.Stmt(makeSubCommentStepInsert).Exec(passage, commentPosition, content, who)
 	if err != nil {
-		_ = tx.Rollback()
 		return err
 	}
 	r, err := tx.Stmt(makeSubCommentStepUpdate).Exec(passage, commentPosition)
 	if err != nil {
-		_ = tx.Rollback()
 		return err
 	}
 	if line, err := r.RowsAffected(); err != nil{
-		_ = tx.Rollback()
 		return err
 	} else if line != 1 {
-		_ = tx.Rollback()
 		return UnknownError
 	}
-	return tx.Commit()
+	return nil
 }

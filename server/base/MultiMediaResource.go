@@ -82,6 +82,12 @@ func LoadMultiMediaMetadata(passageId int64) (*MultiMediaMetadata, error) {
 		return nil, err
 	}
 	f, err := os.Open(fmt.Sprintf(mediaMetaFileName, id))
+	defer func() {
+		err2 := f.Close()
+		if err2 != nil {
+			log.Println(err2)
+		}
+	}()
 	if err != nil {
 		return nil, err
 	}
@@ -106,10 +112,6 @@ func LoadMultiMediaMetadata(passageId int64) (*MultiMediaMetadata, error) {
 		RecycleMultiMediaMetadata(goal)
 		return nil, err
 	}
-	err = f.Close()
-	if err != nil {
-		log.Println(err)
-	}
 	(*reflect.SliceHeader)(unsafe.Pointer(&buffer)).Len /= 8
 	(*reflect.SliceHeader)(unsafe.Pointer(&buffer)).Cap /= 8
 	goal.DataIds = *((*[]int64)(unsafe.Pointer(&buffer)))
@@ -117,47 +119,35 @@ func LoadMultiMediaMetadata(passageId int64) (*MultiMediaMetadata, error) {
 	return goal, nil
 }
 
-func SaveMultiMediaMetadata(tx *sql.Tx, passageId int64, media *MultiMediaMetadata) error {
+func SaveMultiMediaMetadata(tx *sql.Tx, fileToDelete *[]string, passageId int64, media *MultiMediaMetadata)  error {
+	var linkMedia = linkMedia
+	if tx != nil {
+		linkMedia = tx.Stmt(linkMedia)
+	}
 	var id int64
 	r := tx.Stmt(linkMedia).QueryRow(passageId)
 	err := r.Scan(&id)
 	if err != nil {
-		err = tx.Rollback()
-		if err != nil {
-			log.Println(err)
-		}
 		return err
 	}
-	f, err := os.Create(fmt.Sprintf(mediaMetaFileName, id))
+	fileName := fmt.Sprintf(mediaMetaFileName, id)
+	f, err := os.Create(fileName)
 	if err != nil {
-		err = tx.Rollback()
-		if err != nil {
-			log.Println(err)
-		}
 		return err
+	}
+	if fileToDelete != nil {
+		*fileToDelete = append(*fileToDelete, fileName)
 	}
 	err = binary.Write(f, binary.LittleEndian, media.Type)
 	if err != nil {
-		err = tx.Rollback()
-		if err != nil {
-			log.Println(err)
-		}
 		return err
 	}
 	err = binary.Write(f, binary.LittleEndian, media.Length)
 	if err != nil {
-		err = tx.Rollback()
-		if err != nil {
-			log.Println(err)
-		}
 		return err
 	}
 	err = binary.Write(f, binary.LittleEndian, media.DataIds)
 	if err != nil {
-		err = tx.Rollback()
-		if err != nil {
-			log.Println(err)
-		}
 		return err
 	}
 	media.Id = id
@@ -217,7 +207,8 @@ func NewMediaPiece(d []byte) (*MediaPiece, error) {
 	id := nextMediaPieceId
 	nextMediaPieceId++
 	mediaPieceIdLock.Unlock()
-	err := saveData(fmt.Sprintf(mediaDataFileName, id), d, id)
+	fileName := fmt.Sprintf(mediaDataFileName, id)
+	err := saveData(fileName, d, id)
 	if err != nil {
 		return nil, err
 	}
@@ -226,19 +217,12 @@ func NewMediaPiece(d []byte) (*MediaPiece, error) {
 
 type ImageData data
 
-var nextImageDataId int64
-var imageDataIdLock = new(sync.Mutex)
-
 func LoadImageData(id int64) (*ImageData, error) {
 	goal, err := loadData(fmt.Sprintf(mediaMetaFileName, id), id)
 	return (*ImageData)(goal), err
 }
 
-func NewImageData(d []byte) (*ImageData, error) {
-	imageDataIdLock.Lock()
-	id := nextImageDataId
-	nextImageDataId++
-	imageDataIdLock.Unlock()
+func NewImageData(d []byte, id int64) (*ImageData, error) {
 	err := saveData(fmt.Sprintf(imageFileName, id), d, id)
 	if err != nil {
 		return nil, err

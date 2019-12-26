@@ -45,15 +45,6 @@ func init() {
 	CheckAndMakeDir(DataDir + varyResourceDirName)
 }
 
-func CheckAndMakeDir(name string) {
-	_, err := os.Stat(name)
-	if err != nil && os.IsNotExist(err) {
-		err = os.Mkdir(name, os.ModePerm)
-		if err != nil {
-			panic(fmt.Sprintf("init fail: %e", err))
-		}
-	}
-}
 
 type Resource interface {
 	ResourceID() int64
@@ -210,15 +201,15 @@ func LoadResourcesFromDisk(id int64) (Resource, error) {
 	return &HyperLink{string(buffer), id}, nil
 }
 
-var nextIdForImage int64
-var nextIdForUrl int64
+var nextIdForImage int64 = -1
+var nextIdForUrl int64 = 1
 var lockImage = new(sync.Mutex)
 var lockUrl = new(sync.Mutex)
 
 func getNextImageId() int64 {
 	lockImage.Lock()
 	goal := nextIdForImage
-	nextIdForImage++
+	nextIdForImage--
 	lockImage.Unlock()
 	return goal
 }
@@ -254,7 +245,8 @@ func SaveResourceToDisk(r Resource) error {
 		return nil
 	}
 	link := r.(*HyperLink)
-	f, err := os.Create(fmt.Sprintf(resFileName, id))
+	fileName := fmt.Sprintf(resFileName, id)
+	f, err := os.Create(fileName)
 	if err != nil {
 		return err
 	}

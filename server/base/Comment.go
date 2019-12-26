@@ -57,7 +57,11 @@ func RecycleCommentBase(c *CommentBase) {
 	commentBasePool.Put(c)
 }
 
-func LoadCommentBase(passageId int64, begin uint32, length uint32) ([]*CommentBase, error) {
+func LoadCommentBase(tx *sql.Tx,passageId int64, begin uint32, length uint32) ([]*CommentBase, error) {
+	var loadCommentBase = loadCommentBase
+	if tx != nil {
+		loadCommentBase = tx.Stmt(loadCommentBase)
+	}
 	r, err := loadCommentBase.Query(passageId, begin, length)
 	if err != nil {
 		return nil, err
@@ -78,40 +82,44 @@ func LoadCommentBase(passageId int64, begin uint32, length uint32) ([]*CommentBa
 	return goal, nil
 }
 
-func LikeComment(passageID int64, position uint32) error {
+func LikeComment(tx *sql.Tx, passageID int64, position uint32) error {
+	var likeComment = likeComment
+	if tx != nil {
+		likeComment = tx.Stmt(likeComment)
+	}
 	_, err := likeComment.Exec(passageID, position)
 	return err
 }
 
-func MakeComment(passageId int64, who int64) error {
+func MakeComment(tx *sql.Tx, passageId int64, who int64) error {
+	var makeCommentStepUpdate = makeCommentStepUpdate
+	var makeCommentStepInsert = makeSubCommentStepInsert
+	if tx != nil {
+		makeCommentStepUpdate = tx.Stmt(makeCommentStepUpdate)
+		makeCommentStepInsert = tx.Stmt(makeCommentStepInsert)
+	}
 	tx, err := Database.Begin()
 	if err != nil {
 		return err
 	}
-	r, err := tx.Stmt(makeCommentStepInsert).Exec(passageId, who)
+	r, err := makeCommentStepInsert.Exec(passageId, who)
 	if err != nil {
-		_ = tx.Rollback()
 		return err
 	}
 	var line int64
 	if line, err = r.RowsAffected(); err != nil {
-		_ = tx.Rollback()
 		return err
 	} else if line != 1 {
-		_ = tx.Rollback()
 		return UnknownError
 	}
-	r, err = tx.Stmt(makeCommentStepUpdate).Exec(passageId)
+	r, err = makeCommentStepUpdate.Exec(passageId)
 	if err != nil {
-		_ = tx.Rollback()
 		return err
 	}
 	if line, err = r.RowsAffected(); err != nil {
-		_ = tx.Rollback()
 		return err
 	} else if line != 1 {
-		_ = tx.Rollback()
 		return UnknownError
 	}
-	return tx.Commit()
+	return nil
 }

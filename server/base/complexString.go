@@ -29,6 +29,9 @@ type ComplexString struct {
 
 func (s *ComplexString) SaveComplexStringToFile(fileName string) (err error) {
 	f, err := os.Create(fileName)
+	func() {
+		err = f.Close()
+	}()
 	if err != nil {
 		return err
 	}
@@ -36,7 +39,7 @@ func (s *ComplexString) SaveComplexStringToFile(fileName string) (err error) {
 	if err != nil {
 		return err
 	}
-	return f.Close()
+	return nil
 }
 
 func (s *ComplexString) SaveComplexString(w io.Writer) (err error) {
@@ -62,6 +65,9 @@ func (s *ComplexString) SaveComplexString(w io.Writer) (err error) {
 
 func LoadComplexStringFromFile(fileName string) (goal *ComplexString, err error) {
 	f, err := os.Open(fileName)
+	defer func() {
+		err = f.Close()
+	}()
 	if err != nil {
 		return
 	}
@@ -69,7 +75,7 @@ func LoadComplexStringFromFile(fileName string) (goal *ComplexString, err error)
 	if err != nil {
 		return nil, err
 	}
-	return goal, f.Close()
+	return goal, nil
 }
 
 func LoadComplexString(r io.Reader) (goal *ComplexString, err error) {

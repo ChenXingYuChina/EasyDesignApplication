@@ -95,7 +95,6 @@ func RecycleDesigner(d *Designer) {
 	base.RecycleComplexString(d.LongDescription)
 }
 
-
 func ChangeUsersLongDescription(new *base.ComplexString, who int64) error {
 	err := new.SaveComplexStringToFile(fmt.Sprintf(userLongDescriptionRealFileName, who))
 	if err != nil {

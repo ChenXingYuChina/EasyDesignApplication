@@ -4,7 +4,6 @@ import (
 	"EasyDesignApplication/server/base"
 	"database/sql"
 	"fmt"
-	"log"
 )
 
 const (
@@ -57,41 +56,40 @@ func loadPassage(id int64) (*Passage, error) {
 	return goal, nil
 }
 
-func NewPassage(cs *base.ComplexString, t int16, owner int64, title string, workshop int64, media *base.MultiMediaMetadata) (*Passage, error) {
-	tx, pid, err := base.MakePassage(owner, title)
-	if err != nil {
-		return nil, err
-	}
-	if workshop != 0 {
-		_, err = tx.Stmt(newPassageStepWorkshop).Exec(pid, workshop)
+func NewPassage(cs *base.ComplexString, t int16, owner int64, title string, workshop int64, media *base.MultiMediaMetadata, listImage int64) (*Passage, error) {
+	var pid int64
+	err := base.InTransaction(func(tx *sql.Tx) ([]string, error) {
+		var err error
+		pid, err = base.MakePassage(tx, owner, title, listImage)
 		if err != nil {
-			err = tx.Rollback()
-			log.Println(err)
 			return nil, err
 		}
-	}
-	_, err = tx.Stmt(newPassageStepType).Exec(pid, t)
-	if err != nil {
-		err = tx.Rollback()
-		log.Println(err)
+		if workshop != 0 {
+			_, err = tx.Stmt(newPassageStepWorkshop).Exec(pid, workshop)
+			if err != nil {
+				return nil, err
+			}
+		}
+		_, err = tx.Stmt(newPassageStepType).Exec(pid, t)
+		if err != nil {
+			return nil, err
+		}
+		_, err = tx.Stmt(newPassageStepWorkshop).Exec()
+		if err != nil {
+			return nil, err
+		}
+		fileToDelete := make([]string, 0, 2)
+		err = base.SaveMultiMediaMetadata(tx, &fileToDelete, pid, media)
+		if err != nil {
+			return fileToDelete, err
+		}
+		fileName := fmt.Sprintf(passageBodyRealFilename, pid)
+		err = cs.SaveComplexStringToFile(fileName)
+		if err != nil {
+			return append(fileToDelete, fileName), err
+		}
 		return nil, err
-	}
-	_, err = tx.Stmt(newPassageStepWorkshop).Exec()
-	if err != nil {
-		err = tx.Rollback()
-		log.Println(err)
-		return nil, err
-	}
-	err = base.SaveMultiMediaMetadata(tx, pid, media)
-	if err != nil {
-		return nil, err
-	}
-	err = cs.SaveComplexStringToFile(fmt.Sprintf(passageBodyRealFilename, pid))
-	if err != nil {
-		_ = tx.Rollback()
-		return nil, err
-	}
-	err = tx.Commit()
+	})
 	if err != nil {
 		return nil, err
 	}

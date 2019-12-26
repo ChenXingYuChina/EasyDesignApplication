@@ -1,26 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/asynchronoussIOAndBuffer/machine_test.go" line="105" mnemonic="8" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="d0a7dfad-b946-4b9e-9656-b4709cc2ec50" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/base/workshop.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/middle/PassageBody.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/middle/User.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/middle/buffer.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/middle/errors.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/middle/passageList.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/middle/spead_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/middle/workshop.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sqlSchame/workshop.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sqlSchame/workshop_member_link.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Android/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/asynchronoussIOAndBuffer/bucket.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/asynchronoussIOAndBuffer/define.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/asynchronoussIOAndBuffer/machine_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/asynchronoussIOAndBuffer/others.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/asynchronoussIOAndBuffer/table.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/base/others.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/com/example/dachuangxiangmu/Activity/login1.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/com/example/dachuangxiangmu/Activity/login1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/res/layout/activity_login5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/res/layout/activity_login5.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/e8811a92-2a10-4437-b30e-ea9f72e52b6a.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e8811a92-2a10-4437-b30e-ea9f72e52b6a.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/e8811a92-2a10-4437-b30e-ea9f72e52b6a/storage_v2/_src_/database/easyDesign.YIivsw/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e8811a92-2a10-4437-b30e-ea9f72e52b6a/storage_v2/_src_/database/easyDesign.YIivsw/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/Comment.go" beforeDir="false" afterPath="$PROJECT_DIR$/base/Comment.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/base/MultiMediaResource.go" beforeDir="false" afterPath="$PROJECT_DIR$/base/MultiMediaResource.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/base/Passage.go" beforeDir="false" afterPath="$PROJECT_DIR$/base/Passage.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/SubComment.go" beforeDir="false" afterPath="$PROJECT_DIR$/base/SubComment.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/base/User.go" beforeDir="false" afterPath="$PROJECT_DIR$/base/User.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/a_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/base/a_test.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/base/complexString.go" beforeDir="false" afterPath="$PROJECT_DIR$/base/complexString.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/sqlBase.go" beforeDir="false" afterPath="$PROJECT_DIR$/base/sqlBase.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/base/textResources.go" beforeDir="false" afterPath="$PROJECT_DIR$/base/textResources.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/workshop.go" beforeDir="false" afterPath="$PROJECT_DIR$/base/workshop.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middle/PassageBody.go" beforeDir="false" afterPath="$PROJECT_DIR$/middle/PassageWithBody.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middle/User.go" beforeDir="false" afterPath="$PROJECT_DIR$/middle/User.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middle/buffer.go" beforeDir="false" afterPath="$PROJECT_DIR$/middle/dataLoader.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middle/passageList.go" beforeDir="false" afterPath="$PROJECT_DIR$/middle/passageList.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middle/workshop.go" beforeDir="false" afterPath="$PROJECT_DIR$/middle/workshop.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sqlSchame/passage.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sqlSchame/passage.sql" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -104,86 +118,88 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/middle/dataLoader.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="2" selection-start-line="2" selection-end-line="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/base/MultiMediaResource.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="399">
+              <caret line="224" column="59" selection-start-line="224" selection-start-column="59" selection-end-line="224" selection-end-column="59" />
+              <folding>
+                <element signature="e#14#108#0" expanded="true" />
+                <element signature="n#!!block;n#PrepareDir#0" />
+                <element signature="n#!!block;n#PrepareMultiMediaSQL#0" />
+                <element signature="e#1110#1182#0" />
+                <element signature="n#!!block;n#init#0" />
+                <element signature="n#!!block;n#GetMultiMediaMetadata#0" />
+                <element signature="n#!!block;n#RecycleMultiMediaMetadata#0" />
+                <element signature="n#!!block;n#LoadMultiMediaMetadata#0" />
+                <element signature="n#!!block;n#SaveMultiMediaMetadata#0" />
+                <element signature="e#3403#3438#0" />
+                <element signature="n#!!block;n#loadData#0" />
+                <element signature="n#!!block;n#saveData#0" />
+                <element signature="n#!!block;n#LoadMediaPiece#0" />
+                <element signature="n#!!block;n#LoadImageData#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/base/Passage.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1465">
+              <caret line="114" column="1" selection-start-line="114" selection-start-column="1" selection-end-line="114" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/base/complexString.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="69">
+              <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+              <folding>
+                <element signature="n#!!block;n#SaveComplexString#0" />
+                <element signature="n#!!block;n#init#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/base/Comment.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="559">
+              <caret line="123" column="14" selection-start-line="123" selection-start-column="14" selection-end-line="123" selection-end-column="14" />
+              <folding>
+                <element signature="e#14#48#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/base/a_test.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="690">
-              <caret line="28" column="23" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
+            <state relative-caret-position="195">
+              <caret line="111" selection-start-line="111" selection-end-line="111" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../gitea.com/xorm/xorm/session_cond.go">
+        <entry file="file://$PROJECT_DIR$/base/textResources.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="341">
-              <caret line="31" column="23" lean-forward="true" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../gitea.com/xorm/xorm/statement.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="431">
-              <caret line="149" column="43" selection-start-line="149" selection-start-column="43" selection-end-line="149" selection-end-column="43" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../xorm.io/builder/cond.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="7" column="21" lean-forward="true" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../xorm.io/builder/cond_null.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../xorm.io/builder/cond_expr.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="303">
-              <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../gitea.com/xorm/xorm/engine.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="333">
-              <caret line="336" column="20" lean-forward="true" selection-start-line="336" selection-start-column="20" selection-end-line="336" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../gitea.com/xorm/xorm/session.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="28" column="5" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../../gitea.com/xorm/xorm/README_CN.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="420">
-                <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
-              </first_editor>
-              <second_editor />
+            <state relative-caret-position="180">
+              <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -227,39 +243,48 @@
         <option value="$PROJECT_DIR$/base/sqlSchame/occupation.sql" />
         <option value="$PROJECT_DIR$/sqlSchame/unauthorized.sql" />
         <option value="$PROJECT_DIR$/base/UserMini.go" />
-        <option value="$PROJECT_DIR$/base/textResources.go" />
         <option value="$PROJECT_DIR$/sqlSchame/comment.sql" />
         <option value="$PROJECT_DIR$/base/error.go" />
         <option value="$PROJECT_DIR$/sqlSchame/sub_comment.sql" />
-        <option value="$PROJECT_DIR$/base/Comment.go" />
-        <option value="$PROJECT_DIR$/base/SubComment.go" />
         <option value="$PROJECT_DIR$/middle/buffer.go" />
-        <option value="$PROJECT_DIR$/base/complexString.go" />
         <option value="$PROJECT_DIR$/base/sqlBase.go" />
-        <option value="$PROJECT_DIR$/base/User.go" />
         <option value="$PROJECT_DIR$/sqlSchame/workshop.sql" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/e8811a92-2a10-4437-b30e-ea9f72e52b6a/console_2.sql" />
         <option value="$PROJECT_DIR$/middle/errors.go" />
-        <option value="$PROJECT_DIR$/base/workshop.go" />
         <option value="$PROJECT_DIR$/sqlSchame/passage_type.sql" />
         <option value="$PROJECT_DIR$/middle/spead_test.go" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/e8811a92-2a10-4437-b30e-ea9f72e52b6a/console.sql" />
-        <option value="$PROJECT_DIR$/middle/passageList.go" />
+        <option value="$PROJECT_DIR$/base/Comment.go" />
         <option value="$PROJECT_DIR$/sqlSchame/passage.sql" />
-        <option value="$PROJECT_DIR$/middle/User.go" />
-        <option value="$PROJECT_DIR$/middle/workshop.go" />
-        <option value="$PROJECT_DIR$/base/Passage.go" />
-        <option value="$PROJECT_DIR$/base/MultiMediaResource.go" />
+        <option value="$PROJECT_DIR$/base/others.go" />
+        <option value="$PROJECT_DIR$/base/User.go" />
         <option value="$PROJECT_DIR$/middle/PassageBody.go" />
+        <option value="$PROJECT_DIR$/base/Passage.go" />
+        <option value="$PROJECT_DIR$/base/workshop.go" />
+        <option value="$PROJECT_DIR$/middle/workshop.go" />
+        <option value="$PROJECT_DIR$/middle/User.go" />
+        <option value="$PROJECT_DIR$/middle/PassageWithBody.go" />
+        <option value="$PROJECT_DIR$/middle/passageList.go" />
+        <option value="$PROJECT_DIR$/base/SubComment.go" />
+        <option value="$PROJECT_DIR$/asynchronoussIOAndBuffer/definw.go" />
+        <option value="$PROJECT_DIR$/asynchronoussIOAndBuffer/others.go" />
+        <option value="$PROJECT_DIR$/asynchronoussIOAndBuffer/define.go" />
+        <option value="$PROJECT_DIR$/asynchronoussIOAndBuffer/bucket.go" />
+        <option value="$PROJECT_DIR$/asynchronoussIOAndBuffer/table.go" />
+        <option value="$PROJECT_DIR$/asynchronoussIOAndBuffer/machine_test.go" />
+        <option value="$PROJECT_DIR$/middle/dataLoader.go" />
+        <option value="$PROJECT_DIR$/base/complexString.go" />
+        <option value="$PROJECT_DIR$/base/textResources.go" />
+        <option value="$PROJECT_DIR$/base/MultiMediaResource.go" />
         <option value="$PROJECT_DIR$/base/a_test.go" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="976" />
-    <option name="height" value="1096" />
+    <option name="x" value="-1041" />
+    <option name="y" value="-2174" />
+    <option name="width" value="3868" />
+    <option name="height" value="2187" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -267,12 +292,18 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="server" type="b2602c69:ProjectViewProjectNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="asynchronoussIOAndBuffer" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="server" type="b2602c69:ProjectViewProjectNode" />
@@ -286,75 +317,12 @@
             </path>
             <path>
               <item name="server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="sqlSchame" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="server" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-            </path>
-            <path>
-              <item name="server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="GOPATH &lt;server&gt;" type="20ee2d1f:SyntheticLibraryElementNode" />
-            </path>
-            <path>
-              <item name="server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="GOPATH &lt;server&gt;" type="20ee2d1f:SyntheticLibraryElementNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="GOPATH &lt;server&gt;" type="20ee2d1f:SyntheticLibraryElementNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="gitea.com" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="GOPATH &lt;server&gt;" type="20ee2d1f:SyntheticLibraryElementNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="gitea.com" type="462c0819:PsiDirectoryNode" />
-              <item name="xorm" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="GOPATH &lt;server&gt;" type="20ee2d1f:SyntheticLibraryElementNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="gitea.com" type="462c0819:PsiDirectoryNode" />
-              <item name="xorm" type="462c0819:PsiDirectoryNode" />
-              <item name="xorm" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="GOPATH &lt;server&gt;" type="20ee2d1f:SyntheticLibraryElementNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="github.com" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="GOPATH &lt;server&gt;" type="20ee2d1f:SyntheticLibraryElementNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="xorm.io" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="GOPATH &lt;server&gt;" type="20ee2d1f:SyntheticLibraryElementNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="xorm.io" type="462c0819:PsiDirectoryNode" />
-              <item name="builder" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -363,9 +331,10 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="database.console.LAST_STATE" value="true" />
     <property name="go.gopath.indexing.explicitly.defined" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../github.com/ChenXingyuChina/asynchronousIO" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.gutterIcons" />
   </component>
   <component name="RecentsManager">
@@ -385,8 +354,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Go Test.TestCol in EasyDesignApplication/server/middle">
-    <configuration name="TestA in EasyDesignApplication/server/base" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Go Test.TestUnMarshalComplexString in EasyDesignApplication/server/base">
+    <configuration name="TestMakeComplexString in EasyDesignApplication/server/base" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <working_directory value="$PROJECT_DIR$/base" />
       <framework value="gotest" />
@@ -394,92 +363,93 @@
       <package value="EasyDesignApplication/server/base" />
       <directory value="$PROJECT_DIR$/" />
       <filePath value="$PROJECT_DIR$/" />
-      <pattern value="^TestA$" />
+      <pattern value="^TestMakeComplexString$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestCol in EasyDesignApplication/server/middle" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestSaveSaveThenSave in EasyDesignApplication/server/asynchronoussIOAndBuffer" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="server" />
-      <working_directory value="$PROJECT_DIR$/middle" />
+      <working_directory value="$PROJECT_DIR$/asynchronoussIOAndBuffer" />
       <framework value="gotest" />
       <kind value="PACKAGE" />
-      <package value="EasyDesignApplication/server/middle" />
+      <package value="EasyDesignApplication/server/asynchronoussIOAndBuffer" />
       <directory value="$PROJECT_DIR$/" />
       <filePath value="$PROJECT_DIR$/" />
-      <pattern value="^TestCol$" />
+      <pattern value="^TestSaveSaveThenSave$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestMake in ED/server/base" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestSaveThenDelete in EasyDesignApplication/server/asynchronoussIOAndBuffer" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <working_directory value="$PROJECT_DIR$/asynchronoussIOAndBuffer" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="EasyDesignApplication/server/asynchronoussIOAndBuffer" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/" />
+      <pattern value="^TestSaveThenDelete$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestSaveThenSave in EasyDesignApplication/server/asynchronoussIOAndBuffer" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <working_directory value="$PROJECT_DIR$/asynchronoussIOAndBuffer" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="EasyDesignApplication/server/asynchronoussIOAndBuffer" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/" />
+      <pattern value="^TestSaveThenSave$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestUnMarshalComplexString in EasyDesignApplication/server/base" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <working_directory value="$PROJECT_DIR$/base" />
       <framework value="gotest" />
       <kind value="PACKAGE" />
-      <package value="ED/server/base" />
+      <package value="EasyDesignApplication/server/base" />
       <directory value="$PROJECT_DIR$/" />
       <filePath value="$PROJECT_DIR$/" />
-      <pattern value="^TestMake$" />
-      <method v="2" />
-    </configuration>
-    <configuration name="TestMakeMulti in ED/server/base" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="server" />
-      <working_directory value="$PROJECT_DIR$/base" />
-      <framework value="gotest" />
-      <kind value="PACKAGE" />
-      <package value="ED/server/base" />
-      <directory value="$PROJECT_DIR$/" />
-      <filePath value="$PROJECT_DIR$/" />
-      <pattern value="^TestMakeMulti$" />
-      <method v="2" />
-    </configuration>
-    <configuration name="gobench EasyDesignApplication/server/middle" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="server" />
-      <working_directory value="$PROJECT_DIR$/middle" />
-      <framework value="gobench" />
-      <kind value="PACKAGE" />
-      <package value="EasyDesignApplication/server/middle" />
-      <directory value="$PROJECT_DIR$/" />
-      <filePath value="$PROJECT_DIR$/" />
+      <pattern value="^TestUnMarshalComplexString$" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Test.TestCol in EasyDesignApplication/server/middle" />
-        <item itemvalue="Go Test.TestA in EasyDesignApplication/server/base" />
-        <item itemvalue="Go Test.gobench EasyDesignApplication/server/middle" />
-        <item itemvalue="Go Test.TestMakeMulti in ED/server/base" />
-        <item itemvalue="Go Test.TestMake in ED/server/base" />
+        <item itemvalue="Go Test.TestUnMarshalComplexString in EasyDesignApplication/server/base" />
+        <item itemvalue="Go Test.TestMakeComplexString in EasyDesignApplication/server/base" />
+        <item itemvalue="Go Test.TestSaveSaveThenSave in EasyDesignApplication/server/asynchronoussIOAndBuffer" />
+        <item itemvalue="Go Test.TestSaveThenDelete in EasyDesignApplication/server/asynchronoussIOAndBuffer" />
+        <item itemvalue="Go Test.TestSaveThenSave in EasyDesignApplication/server/asynchronoussIOAndBuffer" />
       </list>
     </recent_temporary>
   </component>
   <component name="TestHistory">
-    <history-entry file="TestA_in_EasyDesignApplication_server_base - 2019.12.13 at 12h 15m 33s.xml">
-      <configuration name="TestA in EasyDesignApplication/server/base" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestSaveAndLoad_in_EasyDesignApplication_server_asynchronoussIOAndBuffer - 2019.12.25 at 16h 44m 12s.xml">
+      <configuration name="TestSaveAndLoad in EasyDesignApplication/server/asynchronoussIOAndBuffer" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestA_in_EasyDesignApplication_server_base - 2019.12.13 at 12h 18m 18s.xml">
-      <configuration name="TestA in EasyDesignApplication/server/base" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestSaveAndLoad_in_EasyDesignApplication_server_asynchronoussIOAndBuffer - 2019.12.25 at 16h 45m 04s.xml">
+      <configuration name="TestSaveAndLoad in EasyDesignApplication/server/asynchronoussIOAndBuffer" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestA_in_EasyDesignApplication_server_base - 2019.12.13 at 12h 19m 10s.xml">
-      <configuration name="TestA in EasyDesignApplication/server/base" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestSaveAndLoad_in_EasyDesignApplication_server_asynchronoussIOAndBuffer - 2019.12.25 at 16h 48m 46s.xml">
+      <configuration name="TestSaveAndLoad in EasyDesignApplication/server/asynchronoussIOAndBuffer" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestA_in_EasyDesignApplication_server_base - 2019.12.13 at 12h 20m 13s.xml">
-      <configuration name="TestA in EasyDesignApplication/server/base" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestSaveAndLoad_in_EasyDesignApplication_server_asynchronoussIOAndBuffer - 2019.12.25 at 16h 48m 59s.xml">
+      <configuration name="TestSaveAndLoad in EasyDesignApplication/server/asynchronoussIOAndBuffer" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestA_in_EasyDesignApplication_server_base - 2019.12.13 at 17h 09m 18s.xml">
-      <configuration name="TestA in EasyDesignApplication/server/base" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestSaveThenSave_in_EasyDesignApplication_server_asynchronoussIOAndBuffer - 2019.12.25 at 16h 51m 05s.xml">
+      <configuration name="TestSaveThenSave in EasyDesignApplication/server/asynchronoussIOAndBuffer" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestA_in_EasyDesignApplication_server_base - 2019.12.13 at 17h 09m 41s.xml">
-      <configuration name="TestA in EasyDesignApplication/server/base" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestSaveThenDelete_in_EasyDesignApplication_server_asynchronoussIOAndBuffer - 2019.12.25 at 16h 52m 11s.xml">
+      <configuration name="TestSaveThenDelete in EasyDesignApplication/server/asynchronoussIOAndBuffer" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestA_in_EasyDesignApplication_server_base - 2019.12.13 at 17h 09m 52s.xml">
-      <configuration name="TestA in EasyDesignApplication/server/base" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestSaveSaveThenSave_in_EasyDesignApplication_server_asynchronoussIOAndBuffer - 2019.12.25 at 16h 54m 35s.xml">
+      <configuration name="TestSaveSaveThenSave in EasyDesignApplication/server/asynchronoussIOAndBuffer" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestA_in_EasyDesignApplication_server_base - 2019.12.13 at 17h 09m 59s.xml">
-      <configuration name="TestA in EasyDesignApplication/server/base" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestMakeComplexString_in_EasyDesignApplication_server_base - 2019.12.26 at 11h 11m 42s.xml">
+      <configuration name="TestMakeComplexString in EasyDesignApplication/server/base" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestA_in_EasyDesignApplication_server_base - 2019.12.13 at 17h 32m 16s.xml">
-      <configuration name="TestA in EasyDesignApplication/server/base" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestMakeComplexString_in_EasyDesignApplication_server_base - 2019.12.26 at 11h 19m 14s.xml">
+      <configuration name="TestMakeComplexString in EasyDesignApplication/server/base" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestCol_in_EasyDesignApplication_server_middle - 2019.12.15 at 14h 46m 50s.xml">
-      <configuration name="TestCol in EasyDesignApplication/server/middle" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestUnMarshalComplexString_in_EasyDesignApplication_server_base - 2019.12.26 at 11h 29m 38s.xml">
+      <configuration name="TestUnMarshalComplexString in EasyDesignApplication/server/base" configurationId="GoTestRunConfiguration" />
     </history-entry>
   </component>
   <component name="TodoView">
@@ -492,10 +462,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
+    <frame x="-1033" y="-2166" width="1719" height="972" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14658849" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.08959711" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info id="Project Explorer" order="3" weight="0.32995737" />
@@ -503,8 +473,8 @@
       <window_info id="Job Explorer" order="5" weight="0.32995737" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32952183" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32848233" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3991684" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.33254156" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39874083" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32917964" />
@@ -554,39 +524,160 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/asynchronoussIOAndBuffer/table.go</url>
+          <line>22</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/asynchronoussIOAndBuffer/table.go</url>
+          <line>110</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/asynchronoussIOAndBuffer/bucket.go</url>
+          <line>288</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/asynchronoussIOAndBuffer/machine_test.go</url>
+          <line>200</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://C:/Go1.11/go/src/runtime/panic.go">
+    <entry file="file://$PROJECT_DIR$/../../xorm.io/builder/cond_null.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="680" selection-start-line="680" selection-end-line="680" />
+        <state relative-caret-position="570">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sqlSchame/unauthorized.sql">
+    <entry file="file://$PROJECT_DIR$/../../xorm.io/builder/cond_expr.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
+        <state relative-caret-position="480">
+          <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/base/sqlBase.go">
+    <entry file="file://$PROJECT_DIR$/../../gitea.com/xorm/xorm/engine.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="12" column="36" selection-start-line="12" selection-start-column="36" selection-end-line="12" selection-end-column="36" />
+        <state relative-caret-position="9540">
+          <caret line="336" column="20" selection-start-line="336" selection-start-column="20" selection-end-line="336" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/Go1.11/go/src/builtin/builtin.go">
+    <entry file="file://$PROJECT_DIR$/../../gitea.com/xorm/xorm/session.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="715">
-          <caret line="257" selection-start-line="257" selection-end-line="257" />
+        <state relative-caret-position="510">
+          <caret line="28" column="5" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/e8811a92-2a10-4437-b30e-ea9f72e52b6a/console_2.sql">
+    <entry file="file://$PROJECT_DIR$/../../gitea.com/xorm/xorm/README_CN.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="420">
+            <caret line="41" selection-start-line="41" selection-end-line="41" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sqlSchame/passage_type.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-column="53" />
+        <state relative-caret-position="120">
+          <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Go1.11/go/src/database/sql/sql.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="87600">
+          <caret line="2933" column="22" selection-start-line="2933" selection-start-column="22" selection-end-line="2933" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Go1.11/go/src/database/sql/convert.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6420">
+          <caret line="223" column="25" selection-start-line="223" selection-start-column="25" selection-end-line="223" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sqlSchame/passage.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="7" column="1" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/others.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="303">
+          <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/middle/workshop.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="43" column="57" selection-start-line="43" selection-start-column="57" selection-end-line="43" selection-end-column="57" />
+          <folding>
+            <element signature="e#16#70#0" expanded="true" />
+            <element signature="n#!!block;n#PrepareWorkshopDir#0" />
+            <element signature="n#!!block;n#LoadWorkshop#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/middle/User.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="669">
+          <caret line="96" selection-start-line="96" selection-end-line="96" />
+          <folding>
+            <element signature="n#!!block;n#PrepareUserDir#0" />
+            <element signature="n#!!block;n#loadNotDesigner#0" />
+            <element signature="n#!!block;n#RecycleNotDesigner#0" />
+            <element signature="n#!!block;n#loadDesigner#0" />
+            <element signature="n#!!block;n#RecycleDesigner#0" />
+            <element signature="n#!!block;n#ChangeUsersLongDescription#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/UserMini.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="58" column="1" selection-start-line="58" selection-start-column="1" selection-end-line="58" selection-end-column="1" />
+          <folding>
+            <element signature="e#14#48#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/workshop.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="303">
+          <caret line="83" column="5" selection-start-line="83" selection-start-column="5" selection-end-line="83" selection-end-column="5" />
+          <folding>
+            <element signature="n#!!block;n#AddPeopleToWorkShop#0" />
+            <element signature="n#!!block;n#RemovePeopleFromWorkshop#0" />
+            <element signature="n#!!block;n#ChangeWorkshop#0" />
+            <element signature="n#!!block;n#LoadWorkshopBase#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/middle/PassageWithBody.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="42" selection-start-line="42" selection-end-line="42" />
         </state>
       </provider>
     </entry>
@@ -597,31 +688,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/e8811a92-2a10-4437-b30e-ea9f72e52b6a/console.sql">
+    <entry file="file://$PROJECT_DIR$/middle/passageList.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="9" column="246" selection-start-line="9" selection-start-column="246" selection-end-line="9" selection-end-column="246" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/base/UserMini.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1740">
-          <caret line="58" column="1" selection-start-line="58" selection-start-column="1" selection-end-line="58" selection-end-column="1" />
+        <state relative-caret-position="930">
+          <caret line="135" selection-start-line="135" selection-end-line="135" />
           <folding>
-            <element signature="e#14#48#0" expanded="true" />
+            <element signature="e#88#232#0" />
+            <element signature="n#!!block;n#PreparePassageListSQL#0" />
+            <element signature="n#!!block;n#LoadPassageListByType#0" />
+            <element signature="n#!!block;n#LoadPassageListByWorkshop#0" />
+            <element signature="n#!!block;n#LoadPassageListByUserAndType#0" />
+            <element signature="n#!!block;n#SearchPassageByTitle#0" />
+            <element signature="n#!!block;n#loadPassageList#0" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/asynchronoussIOAndBuffer/definw.go" />
     <entry file="file://$PROJECT_DIR$/base/User.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="86" column="32" selection-start-line="86" selection-start-column="32" selection-end-line="86" selection-end-column="32" />
+        <state relative-caret-position="2940">
+          <caret line="201" column="31" selection-start-line="201" selection-start-column="31" selection-end-line="201" selection-end-column="31" />
           <folding>
             <element signature="e#14#95#0" expanded="true" />
+            <element signature="n#!!block;n#UserSQLPrepare#0" />
             <element signature="n#!!block;n#UserType#0" />
-            <element signature="n#!!block;n#ChangePassword#0" />
             <element signature="n#!!block;n#SignUp#0" />
             <element signature="n#!!block;n#Update#0" />
             <element signature="n#!!block;n#ChangeIdentity#0" />
@@ -639,35 +730,213 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/base/textResources.go">
+    <entry file="file://C:/Go1.11/go/src/sync/once.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="489">
-          <caret line="64" selection-start-line="64" selection-end-line="64" />
+        <state relative-caret-position="270">
+          <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../go/test/interface/embed1.dir/embed1.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Go1.11/go/src/time/format.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="79" column="4" selection-start-line="79" selection-start-column="4" selection-end-line="79" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Go1.11/go/src/sync/waitgroup.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/sqlBase.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="12" column="36" selection-start-line="12" selection-start-column="36" selection-end-line="12" selection-end-column="36" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/base/SubComment.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1569">
-          <caret line="110" column="4" selection-start-line="110" selection-start-column="4" selection-end-line="110" selection-end-column="4" />
+        <state relative-caret-position="2379">
+          <caret line="119" selection-start-line="119" selection-end-line="119" />
           <folding>
             <element signature="e#14#48#0" expanded="true" />
             <element signature="n#!!block;n#init#0" />
             <element signature="n#!!block;n#GetSubComment#0" />
             <element signature="n#!!block;n#RecycleSubComment#0" />
-            <element signature="n#!!block;n#LikeSubComment#0" />
-            <element signature="n#!!block;n#LoadSubCommentByPosition#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/base/error.go">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://C:/Go1.11/go/src/runtime/mstats.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="456" column="5" selection-start-line="456" selection-start-column="5" selection-end-line="456" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Go1.11/go/src/runtime/mprof.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="581">
+          <caret line="492" column="4" selection-start-line="492" selection-start-column="4" selection-end-line="492" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Go1.11/go/src/os/getwd.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../github.com/shirou/gopsutil/mem/mem_windows.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="690">
+          <caret line="29" column="30" selection-start-line="29" selection-start-column="30" selection-end-line="29" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../github.com/shirou/gopsutil/mem/mem.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../golang.org/x/sys/windows/dll_windows.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6720">
+          <caret line="229" column="18" selection-start-line="229" selection-start-column="18" selection-end-line="229" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../go/src/runtime/extern.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5280">
+          <caret line="176" column="5" selection-start-line="176" selection-start-column="5" selection-end-line="176" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Go1.11/go/src/os/file_windows.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7230">
+          <caret line="248" column="5" selection-start-line="248" selection-start-column="5" selection-end-line="248" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Go1.11/go/src/os/executable.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../github.com/shirou/gopsutil/internal/common/common_windows.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Go1.11/go/src/runtime/asm_amd64.s">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="1333" selection-start-line="1333" selection-end-line="1333" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Go1.11/go/src/testing/testing.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="829" selection-start-line="829" selection-end-line="829" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Go1.11/go/src/sync/rwmutex.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="42" selection-start-line="42" selection-end-line="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/asynchronoussIOAndBuffer/table.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="870">
+          <caret line="33" column="24" selection-start-line="33" selection-start-column="24" selection-end-line="33" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/asynchronoussIOAndBuffer/define.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1350">
+          <caret line="48" selection-start-line="48" selection-end-line="48" />
+          <folding>
+            <element signature="e#34#60#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Go1.11/go/src/runtime/panic.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20280">
+          <caret line="680" selection-start-line="680" selection-end-line="680" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/Passage.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1465">
+          <caret line="114" column="1" selection-start-line="114" selection-start-column="1" selection-end-line="114" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/MultiMediaResource.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="224" column="59" selection-start-line="224" selection-start-column="59" selection-end-line="224" selection-end-column="59" />
+          <folding>
+            <element signature="e#14#108#0" expanded="true" />
+            <element signature="n#!!block;n#PrepareDir#0" />
+            <element signature="n#!!block;n#PrepareMultiMediaSQL#0" />
+            <element signature="e#1110#1182#0" />
+            <element signature="n#!!block;n#init#0" />
+            <element signature="n#!!block;n#GetMultiMediaMetadata#0" />
+            <element signature="n#!!block;n#RecycleMultiMediaMetadata#0" />
+            <element signature="n#!!block;n#LoadMultiMediaMetadata#0" />
+            <element signature="n#!!block;n#SaveMultiMediaMetadata#0" />
+            <element signature="e#3403#3438#0" />
+            <element signature="n#!!block;n#loadData#0" />
+            <element signature="n#!!block;n#saveData#0" />
+            <element signature="n#!!block;n#LoadMediaPiece#0" />
+            <element signature="n#!!block;n#LoadImageData#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/Comment.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="559">
+          <caret line="123" column="14" selection-start-line="123" selection-start-column="14" selection-end-line="123" selection-end-column="14" />
+          <folding>
+            <element signature="e#14#48#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/base/complexString.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="873">
-          <caret line="122" selection-start-line="122" selection-end-line="122" />
+        <state relative-caret-position="69">
+          <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
           <folding>
             <element signature="n#!!block;n#SaveComplexString#0" />
             <element signature="n#!!block;n#init#0" />
@@ -675,301 +944,68 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/base/Comment.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="27" column="5" lean-forward="true" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
-          <folding>
-            <element signature="e#14#48#0" expanded="true" />
-            <element signature="n#!!block;n#LoadCommentBase#0" />
-            <element signature="n#!!block;n#LikeComment#0" />
-            <element signature="n#!!block;n#MakeComment#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/middle/spead_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="559">
-          <caret line="38" column="14" lean-forward="true" selection-start-line="38" selection-start-column="14" selection-end-line="38" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/middle/User.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="16" column="14" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
-          <folding>
-            <element signature="n#!!block;n#PrepareUserDir#0" />
-            <element signature="n#!!block;n#loadNotDesigner#0" />
-            <element signature="n#!!block;n#RecycleNotDesigner#0" />
-            <element signature="n#!!block;n#loadDesigner#0" />
-            <element signature="n#!!block;n#RecycleDesigner#0" />
-            <element signature="n#!!block;n#ChangeUsersLongDescription#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/middle/workshop.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="57" lean-forward="true" selection-start-line="57" selection-end-line="57" />
-          <folding>
-            <element signature="e#16#70#0" expanded="true" />
-            <element signature="n#!!block;n#PrepareWorkshopDir#0" />
-            <element signature="n#!!block;n#LoadWorkshop#0" />
-            <element signature="n#!!block;n#OpenWorkshop#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/base/Passage.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="104" column="15" selection-start-line="104" selection-start-column="15" selection-end-line="104" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/middle/passageList.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="36" column="21" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
-          <folding>
-            <element signature="n#!!block;n#PreparePassageListSQL#0" />
-            <element signature="n#!!block;n#LoadPassageListByType#0" />
-            <element signature="n#!!block;n#LoadPassageListByWorkshop#0" />
-            <element signature="n#!!block;n#LoadPassageListByUserAndType#0" />
-            <element signature="e#3550#3572#0" />
-            <element signature="e#3641#4029#0" />
-            <element signature="e#3815#3976#0" />
-            <element signature="e#3853#3880#0" />
-            <element signature="e#3902#3953#0" />
-            <element signature="e#4062#4085#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/base/workshop.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2100">
-          <caret line="74" column="13" selection-start-line="74" selection-start-column="13" selection-end-line="74" selection-end-column="13" />
-          <folding>
-            <element signature="n#!!block;n#AddPeopleToWorkShop#0" />
-            <element signature="n#!!block;n#RemovePeopleFromWorkshop#0" />
-            <element signature="n#!!block;n#ChangeWorkshop#0" />
-            <element signature="n#!!block;n#LoadWorkshopBase#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sqlSchame/comment.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sqlSchame/users.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="13" column="1" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sqlSchame/workshop.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sqlSchame/passage_type.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sqlSchame/workshop_passage.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sqlSchame/workshop_member_link.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="2" column="2" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sqlSchame/passage.sql">
+    <entry file="file://$PROJECT_DIR$/base/textResources.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
-          <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sqlSchame/link_media.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../github.com/lib/pq/scram/scram.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-120">
-          <caret line="23" selection-start-line="23" selection-end-line="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../github.com/lib/pq/rows.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1881" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../github.com/lib/pq/ssl.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="50" column="5" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/base/MultiMediaResource.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="164" column="1" selection-start-line="164" selection-start-column="1" selection-end-line="164" selection-end-column="1" />
-          <folding>
-            <element signature="e#14#108#0" expanded="true" />
-            <element signature="n#!!block;n#GetMultiMediaMetadata#0" />
-            <element signature="n#!!block;n#RecycleMultiMediaMetadata#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/middle/PassageBody.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="26" column="51" selection-start-line="26" selection-start-column="51" selection-end-line="26" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Go1.11/go/src/database/sql/driver/driver.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="190" column="5" selection-start-line="190" selection-start-column="5" selection-end-line="190" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Go1.11/go/src/database/sql/ctxutil.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="12" column="53" lean-forward="true" selection-start-line="12" selection-start-column="53" selection-end-line="12" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../gitea.com/xorm/xorm/docs/images/cache_design.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../gitea.com/xorm/xorm/dialect_postgres.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="131">
-          <caret line="1216" column="19" selection-start-line="1216" selection-start-column="19" selection-end-line="1216" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../xorm.io/core/driver.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../xorm.io/core/dialect.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="573">
-          <caret line="321" column="5" selection-start-line="321" selection-start-column="5" selection-end-line="321" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../gitea.com/xorm/xorm/xorm.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1860">
-          <caret line="72" column="17" selection-start-line="72" selection-start-column="17" selection-end-line="72" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../gitea.com/xorm/xorm/docs/images/cache_design.graffle">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://C:/Go1.11/go/src/database/sql/sql.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="614" column="14" lean-forward="true" selection-start-line="614" selection-start-column="14" selection-end-line="614" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../gitea.com/xorm/xorm/engine.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="336" column="20" lean-forward="true" selection-start-line="336" selection-start-column="20" selection-end-line="336" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../gitea.com/xorm/xorm/session.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="28" column="5" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../xorm.io/builder/cond_expr.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../xorm.io/builder/cond_null.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../xorm.io/builder/cond.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="7" column="21" lean-forward="true" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../gitea.com/xorm/xorm/statement.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="431">
-          <caret line="149" column="43" selection-start-line="149" selection-start-column="43" selection-end-line="149" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../gitea.com/xorm/xorm/session_cond.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="31" column="23" lean-forward="true" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="23" />
+          <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/base/a_test.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="690">
-          <caret line="28" column="23" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
+        <state relative-caret-position="195">
+          <caret line="111" selection-start-line="111" selection-end-line="111" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../gitea.com/xorm/xorm/README_CN.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="420">
-            <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
-          </first_editor>
-          <second_editor />
+    <entry file="file://$PROJECT_DIR$/asynchronoussIOAndBuffer/machine_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+          <folding>
+            <element signature="n#!!block;n#Load#0" />
+            <element signature="n#!!block;n#Save#0" />
+            <element signature="n#!!block;n#Delete#0" />
+            <element signature="n#!!block;n#GetKey#0" />
+            <element signature="n#!!block;n#GetKey#1" />
+            <element signature="n#!!block;n#GetKey#2" />
+            <element signature="n#!!block;n#Uid#0" />
+            <element signature="n#!!block;n#TypeId#0" />
+            <element signature="n#!!block;n#Uid#1" />
+            <element signature="n#!!block;n#TypeId#1" />
+            <element signature="n#!!block;n#TestMain#0" />
+            <element signature="n#!!block;n#TestLoad#0" />
+            <element signature="n#!!block;n#TestSave#0" />
+            <element signature="n#!!block;n#TestDelete#0" />
+            <element signature="n#!!block;n#TestMultiDataSource#0" />
+            <element signature="n#!!block;n#TestDeleteThenLoad#0" />
+            <element signature="n#!!block;n#TestLoadWithLoad#0" />
+            <element signature="n#!!block;n#TestSaveAndLoad#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/asynchronoussIOAndBuffer/bucket.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="449">
+          <caret line="58" selection-start-line="58" selection-end-line="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/asynchronoussIOAndBuffer/others.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="370">
+          <caret line="37" column="12" selection-start-line="37" selection-start-column="12" selection-end-line="37" selection-end-column="12" />
+          <folding>
+            <element signature="e#34#62#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/middle/dataLoader.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
         </state>
       </provider>
     </entry>

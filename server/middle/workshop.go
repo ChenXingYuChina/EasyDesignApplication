@@ -2,6 +2,7 @@ package middle
 
 import (
 	"EasyDesignApplication/server/base"
+	"database/sql"
 	"fmt"
 )
 
@@ -39,19 +40,23 @@ func LoadWorkshop(id int64) (*Workshop, error) {
 func OpenWorkshop(name string, headImage int64, longDescription *base.ComplexString, who int64) (*Workshop, error) {
 	var state uint8
 	goal := &Workshop{}
-	goal.WorkShopBase, state = base.OpenWorkShop(who, name, headImage)
-	if state != 0 {
-		switch state {
-		case 255:
-			return nil, base.UnknownError
-		case 1:
-			return nil, UnauthorizedError
+	err := base.InTransaction(func(tx *sql.Tx) ([]string, error) {
+		goal.WorkShopBase, state = base.OpenWorkShop(tx, who, name, headImage)
+		if state != 0 {
+			switch state {
+			case 255:
+				return nil, base.UnknownError
+			case 1:
+				return nil, UnauthorizedError
+			}
 		}
-	}
-	goal.LongDescription = longDescription
-	err := longDescription.SaveComplexStringToFile(fmt.Sprintf(workshopLongDescriptionRealFilename, goal.WorkShopBase.Id))
-	if err != nil {
-		return nil, err
-	}
-	return goal, nil
+		goal.LongDescription = longDescription
+		fileName := fmt.Sprintf(workshopLongDescriptionRealFilename, goal.WorkShopBase.Id)
+		err := longDescription.SaveComplexStringToFile(fileName)
+		if err != nil {
+			return []string{fileName}, err
+		}
+		return nil, nil
+	})
+	return goal, err
 }

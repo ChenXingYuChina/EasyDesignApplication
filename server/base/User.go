@@ -45,25 +45,6 @@ type Identity interface {
 	Type() uint8
 }
 
-
-/*  在外面需要实现的函数
-type user interface {
-	UserType() int8
-	UserName() string
-	Email() string
-	ChangePassword(oldPassword, newPassword Password) int8
-	CoinCount() uint64
-	CoinChange(diff int64) uint64
-	FansNumberChange(diff int64) uint64
-	FollowerNumberChange(diff int64) uint64
-	PassageNumberChange(diff int64) uint64
-	FansNumber() uint64
-	FollowerNumber() uint64
-	PassageNumber() uint64
-	ChangeIdentity(newIdentity Identity) bool
-}
-*/
-
 var (
 	signUp              *sql.Stmt
 	changeEmail         *sql.Stmt
