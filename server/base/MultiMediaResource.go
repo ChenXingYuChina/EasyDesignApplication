@@ -58,28 +58,12 @@ type MultiMediaMetadata struct {
 	DataIds []int64
 }
 
-var multiMediaMetadataPool = new(sync.Pool)
-
-func init() {
-	multiMediaMetadataPool.New = func() interface{} {
-		return &MultiMediaMetadata{}
-	}
-}
-
-func GetMultiMediaMetadata() *MultiMediaMetadata {
-	return multiMediaMetadataPool.Get().(*MultiMediaMetadata)
-}
-
-func RecycleMultiMediaMetadata(m *MultiMediaMetadata) {
-	multiMediaMetadataPool.Put(m)
-}
-
 func LoadMultiMediaMetadata(passageId int64) (*MultiMediaMetadata, error) {
 	r := ifMedia.QueryRow(passageId)
 	var id int64
 	err := r.Scan(&id)
 	if err != nil {
-		return nil, err
+		return nil, nil
 	}
 	f, err := os.Open(fmt.Sprintf(mediaMetaFileName, id))
 	defer func() {
@@ -95,21 +79,18 @@ func LoadMultiMediaMetadata(passageId int64) (*MultiMediaMetadata, error) {
 	if err != nil {
 		return nil, err
 	}
-	goal := GetMultiMediaMetadata()
+	goal := &MultiMediaMetadata{}
 	err = binary.Read(f, binary.LittleEndian, &(goal.Type))
 	if err != nil {
-		RecycleMultiMediaMetadata(goal)
 		return nil, err
 	}
 	err = binary.Read(f, binary.LittleEndian, &(goal.Length))
 	if err != nil {
-		RecycleMultiMediaMetadata(goal)
 		return nil, err
 	}
 	buffer := make([]byte, stat.Size() - 5)
 	_, err = f.Read(buffer)
 	if err != nil {
-		RecycleMultiMediaMetadata(goal)
 		return nil, err
 	}
 	(*reflect.SliceHeader)(unsafe.Pointer(&buffer)).Len /= 8
@@ -202,16 +183,19 @@ func LoadMediaPiece(id int64) (*MediaPiece, error) {
 	return (*MediaPiece)(goal), err
 }
 
+func SaveMediaPiece(m *MediaPiece) error {
+	return saveData(fmt.Sprintf(mediaDataFileName, m.Id), m.Data, m.Id)
+}
+
+func DeleteMediaPiece(id int64) error {
+	return os.Remove(fmt.Sprintf(mediaDataFileName, id))
+}
+
 func NewMediaPiece(d []byte) (*MediaPiece, error) {
 	mediaPieceIdLock.Lock()
 	id := nextMediaPieceId
 	nextMediaPieceId++
 	mediaPieceIdLock.Unlock()
-	fileName := fmt.Sprintf(mediaDataFileName, id)
-	err := saveData(fileName, d, id)
-	if err != nil {
-		return nil, err
-	}
 	return (*MediaPiece)(&data{Id:id, Data:d}), nil
 }
 
@@ -222,10 +206,10 @@ func LoadImageData(id int64) (*ImageData, error) {
 	return (*ImageData)(goal), err
 }
 
-func NewImageData(d []byte, id int64) (*ImageData, error) {
-	err := saveData(fmt.Sprintf(imageFileName, id), d, id)
-	if err != nil {
-		return nil, err
-	}
-	return (*ImageData)(&data{Id:id, Data:d}), nil
+func SaveImageData(i *ImageData) error {
+	return saveData(fmt.Sprintf(imageFileName, i.Id), i.Data, i.Id)
+}
+
+func DeleteImageData(id int64) error {
+	return os.Remove(fmt.Sprintf(imageFileName, id))
 }

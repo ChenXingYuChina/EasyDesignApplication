@@ -1,8 +1,11 @@
 package base
 
 import (
+	"bytes"
+	"encoding/binary"
 	"encoding/json"
 	"fmt"
+	"github.com/shirou/gopsutil/mem"
 	"strings"
 	"sync"
 	"testing"
@@ -88,15 +91,7 @@ func TestPush(t *testing.T) {
 }
 
 func TestMakeComplexString(t *testing.T) {
-	LoadTextResources = func(id int64) Resource {
-		r, _ := LoadResourcesFromDisk(id)
-		return r
-	}
-	cs := NewComplexString()
-	cs.Content = "I am writing the code now"
-	cs.Positions = []int32{2}
-	cs.Widths = []int32{1}
-	cs.ResourcesId = resources{[]int64{1}}
+	cs := &ComplexString{Content:"I am writing the code now", Positions:[]int32{2}, Widths:[]int32{1}, ResourcesId:resources{[]int64{1}, []string{}}}
 	goal, err := json.Marshal(cs)
 	if err != nil {
 		t.Fatal(err)
@@ -106,10 +101,33 @@ func TestMakeComplexString(t *testing.T) {
 
 func TestUnMarshalComplexString(t *testing.T) {
 	data := `{"content":"I am writing the code now","position":[2],"width":[1],"resources":[6]}`
-	cs := NewComplexString()
+	cs := &ComplexString{}
 	err := json.Unmarshal([]byte(data), cs)
 	if err != nil {
 		t.Fatal(err)
 	}
 	fmt.Println(cs)
+}
+
+func TestWriteStrings(t *testing.T) {
+	b := make([]byte, 0, 100)
+	buffer := bytes.NewBuffer(b)
+	err := binary.Write(buffer, binary.LittleEndian, []string{"abc", "abcd"})
+	if err != nil {
+		t.Fatal(err)
+	}
+
+}
+
+func TestCut(t *testing.T) {
+	a := make([]int, 10)
+	fmt.Println(a[0:11])
+}
+
+func TestMem(t *testing.T) {
+	v, err := mem.VirtualMemory()
+	if err != nil {
+		t.Fatal(err)
+	}
+	fmt.Println(v.UsedPercent)
 }

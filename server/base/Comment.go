@@ -2,11 +2,11 @@ package base
 
 import (
 	"database/sql"
-	"sync"
 )
 
 var (
 	loadCommentBase *sql.Stmt
+	loadCommentBaseHot *sql.Stmt
 	likeComment *sql.Stmt
 	makeCommentStepInsert *sql.Stmt
 	makeCommentStepUpdate *sql.Stmt
@@ -20,25 +20,21 @@ type CommentBase struct {
 	SubCommentNumber uint16
 }
 
-var commentBasePool = new(sync.Pool)
-
-func init() {
-	commentBasePool.New = func() interface{} {
-		return &CommentBase{}
-	}
-}
-
 func PrepareCommentSQL() (uint8, error) {
 	var err error
-	loadCommentBase, err = SQLPrepare("select position, like_number, sub_comment, owner from comment where passage_id = $1 sort by position asc offset $2 limit $3")
+	loadCommentBase, err = SQLPrepare("select position, like_number, sub_comment, owner from comment where passage_id = $1 order by position asc limit &3 offset $2")
 	if err != nil {
 		return 0, err
+	}
+	loadCommentBaseHot, err = Database.Prepare("select position, like_number, sub_comment, owner from comment where passage_id = $1 order by like_number + sub_comment desc limit 15")
+	if err != nil {
+		return 4, err
 	}
 	likeComment, err = SQLPrepare("update comment set like_number = like_number + 1 where passage_id = $1 and position = $2")
 	if err != nil {
 		return 1, err
 	}
-	makeCommentStepInsert, err = SQLPrepare("insert into comment (passage_id, position, owner) select $1, comment_number + 1, $2 from passages where id = $1")
+	makeCommentStepInsert, err = SQLPrepare("insert into comment (passage_id, position, owner) select $1, comment_number + 1, $2 from passages where id = $1 returning comment_number + 1")
 	if err != nil {
 		return 2, err
 	}
@@ -49,31 +45,34 @@ func PrepareCommentSQL() (uint8, error) {
 	return 0, nil
 }
 
-func GetCommentBase() *CommentBase {
-	return commentBasePool.Get().(*CommentBase)
-}
-
-func RecycleCommentBase(c *CommentBase) {
-	commentBasePool.Put(c)
-}
-
-func LoadCommentBase(tx *sql.Tx,passageId int64, begin uint32, length uint32) ([]*CommentBase, error) {
-	var loadCommentBase = loadCommentBase
-	if tx != nil {
-		loadCommentBase = tx.Stmt(loadCommentBase)
-	}
+func LoadCommentBase(passageId int64, begin uint32, length uint32) ([]*CommentBase, error) {
 	r, err := loadCommentBase.Query(passageId, begin, length)
 	if err != nil {
 		return nil, err
 	}
 	goal := make([]*CommentBase, 0, length)
 	for r.Next() {
-		c := GetCommentBase()
+		c := &CommentBase{}
 		err = r.Scan(&(c.Position), &(c.Like), &(c.SubCommentNumber), &(c.Owner))
 		if err != nil {
-			for _, v := range goal {
-				RecycleCommentBase(v)
-			}
+			return nil, err
+		}
+		c.Passage = passageId
+		goal = append(goal, c)
+	}
+	return goal, nil
+}
+
+func LoadCommentBaseHot(passageId int64) ([]*CommentBase, error) {
+	r, err := loadCommentBaseHot.Query(passageId)
+	if err != nil {
+		return nil, err
+	}
+	goal := make([]*CommentBase, 0, 15)
+	for r.Next() {
+		c := &CommentBase{}
+		err = r.Scan(&(c.Position), &(c.Like), &(c.SubCommentNumber), &(c.Owner))
+		if err != nil {
 			return nil, err
 		}
 		c.Passage = passageId
@@ -91,7 +90,7 @@ func LikeComment(tx *sql.Tx, passageID int64, position uint32) error {
 	return err
 }
 
-func MakeComment(tx *sql.Tx, passageId int64, who int64) error {
+func MakeComment(tx *sql.Tx, passageId int64, who int64) (uint32, error) {
 	var makeCommentStepUpdate = makeCommentStepUpdate
 	var makeCommentStepInsert = makeSubCommentStepInsert
 	if tx != nil {
@@ -100,26 +99,26 @@ func MakeComment(tx *sql.Tx, passageId int64, who int64) error {
 	}
 	tx, err := Database.Begin()
 	if err != nil {
-		return err
+		return 0, err
 	}
-	r, err := makeCommentStepInsert.Exec(passageId, who)
+	row := makeCommentStepInsert.QueryRow(passageId, who)
 	if err != nil {
-		return err
+		return 0, err
+	}
+	var commentPosition uint32
+	err = row.Scan(&commentPosition)
+	if err != nil {
+		return 0, err
 	}
 	var line int64
-	if line, err = r.RowsAffected(); err != nil {
-		return err
-	} else if line != 1 {
-		return UnknownError
-	}
-	r, err = makeCommentStepUpdate.Exec(passageId)
+	r, err := makeCommentStepUpdate.Exec(passageId)
 	if err != nil {
-		return err
+		return 0, err
 	}
 	if line, err = r.RowsAffected(); err != nil {
-		return err
+		return 0, err
 	} else if line != 1 {
-		return UnknownError
+		return 0, UnknownError
 	}
-	return nil
+	return commentPosition, nil
 }

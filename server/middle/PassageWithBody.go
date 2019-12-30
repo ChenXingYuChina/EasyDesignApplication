@@ -13,16 +13,11 @@ const (
 
 var (
 	passageBodyRealFilename string
-	newPassageStepType *sql.Stmt
 	newPassageStepWorkshop *sql.Stmt
 )
 
 func PreparePassageBodySQL() (uint8, error) {
 	var err error
-	newPassageStepType, err = base.Database.Prepare("insert into passage_type (passage_id, passage_type) VALUES ($1, $2)")
-	if err != nil {
-		return 0, err
-	}
 	newPassageStepWorkshop, err = base.Database.Prepare("insert into workshop_passage (passage_id, workshop_id) VALUES ($1, $2)")
 	if err != nil {
 		return 1, err
@@ -42,7 +37,7 @@ type Passage struct {
 }
 
 
-func loadPassage(id int64) (*Passage, error) {
+func loadPassageFromDisk(id int64) (*Passage, error) {
 	goal := &Passage{Id:id}
 	var err error
 	goal.Body, err = base.LoadComplexStringFromFile(fmt.Sprintf(passageBodyRealFilename, id))
@@ -60,7 +55,7 @@ func NewPassage(cs *base.ComplexString, t int16, owner int64, title string, work
 	var pid int64
 	err := base.InTransaction(func(tx *sql.Tx) ([]string, error) {
 		var err error
-		pid, err = base.MakePassage(tx, owner, title, listImage)
+		pid, err = base.MakePassage(tx, owner, title, listImage, t)
 		if err != nil {
 			return nil, err
 		}
@@ -70,23 +65,20 @@ func NewPassage(cs *base.ComplexString, t int16, owner int64, title string, work
 				return nil, err
 			}
 		}
-		_, err = tx.Stmt(newPassageStepType).Exec(pid, t)
-		if err != nil {
-			return nil, err
-		}
-		_, err = tx.Stmt(newPassageStepWorkshop).Exec()
-		if err != nil {
-			return nil, err
-		}
 		fileToDelete := make([]string, 0, 2)
-		err = base.SaveMultiMediaMetadata(tx, &fileToDelete, pid, media)
-		if err != nil {
-			return fileToDelete, err
+ 		if media != nil {
+			err = base.SaveMultiMediaMetadata(tx, &fileToDelete, pid, media)
+			if err != nil {
+				return fileToDelete, err
+			}
 		}
-		fileName := fmt.Sprintf(passageBodyRealFilename, pid)
-		err = cs.SaveComplexStringToFile(fileName)
-		if err != nil {
-			return append(fileToDelete, fileName), err
+		var fileName string
+		if cs != nil {
+			fileName = fmt.Sprintf(passageBodyRealFilename, pid)
+			err = cs.SaveComplexStringToFile(fileName)
+			if err != nil {
+				return append(fileToDelete, fileName), err
+			}
 		}
 		return nil, err
 	})

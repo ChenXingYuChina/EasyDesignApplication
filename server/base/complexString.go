@@ -4,18 +4,31 @@ import (
 	"encoding/binary"
 	"encoding/json"
 	"io"
+	"io/ioutil"
 	"os"
-	"sync"
 )
 
 type resources struct {
 	r []int64
+	urls []string
+}
+
+func (r *resources) UnmarshalJSON(d []byte) error {
+	var rr []int64
+	err := json.Unmarshal(d, &rr)
+	r.r = rr
+	return err
 }
 
 func (r *resources) MarshalJSON() ([]byte, error) {
 	buffer := make([]Resource, 0, len(r.r))
+	c := 0
 	for _, v := range r.r {
-		buffer = append(buffer, LoadTextResources(v))
+		if v == TypeUrl {
+			buffer = append(buffer, HyperLink(r.urls[c]))
+			c++
+		}
+		buffer = append(buffer, LoadResourcesExceptUrl(v))
 	}
 	return json.Marshal(buffer)
 }
@@ -60,7 +73,15 @@ func (s *ComplexString) SaveComplexString(w io.Writer) (err error) {
 	if err != nil {
 		return err
 	}
-	return binary.Write(w, binary.LittleEndian, s.ResourcesId.r)
+	err = binary.Write(w, binary.LittleEndian, s.ResourcesId.r)
+	if err != nil {
+		return err
+	}
+	err = binary.Write(w, binary.LittleEndian, uint32(len(s.ResourcesId.urls)))
+	if err != nil {
+		return err
+	}
+	return SaveStringsToFile(w, s.ResourcesId.urls)
 }
 
 func LoadComplexStringFromFile(fileName string) (goal *ComplexString, err error) {
@@ -86,7 +107,7 @@ func LoadComplexString(r io.Reader) (goal *ComplexString, err error) {
 	}
 	lLow := int(int32(help))
 	lHigh := int(int32(help >> 32))
-	goal = NewComplexString()
+	goal = &ComplexString{}
 	goal.Content = string(make([]byte, lLow))
 	goal.Positions = make([]int32, lHigh)
 	goal.Widths = make([]int32, lHigh)
@@ -107,22 +128,47 @@ func LoadComplexString(r io.Reader) (goal *ComplexString, err error) {
 	if err != nil {
 		return nil, err
 	}
+	var l uint32
+	err = binary.Read(r, binary.LittleEndian, &l)
+	if err != nil {
+		return nil, err
+	}
+	goal.ResourcesId.urls, err = LoadStringsFromFile(r, l)
+	return goal, err
+}
+
+func LoadStringsFromFile(r io.Reader, length uint32) ([]string, error) {
+	buffer, err := ioutil.ReadAll(r)
+	if err != nil {
+		return nil, err
+	}
+	var left = 0
+	goal := make([]string, 0, length)
+	for i, v := range buffer {
+		if v == 0 {
+			goal = append(goal, string(buffer[left:i]))
+			left = i+1
+		}
+	}
+	goal = append(goal, string(buffer[left:]))
 	return goal, nil
 }
 
-var complexStringPool = new(sync.Pool)
-
-func init() {
-	complexStringPool.New = func() interface{} {
-		return &ComplexString{}
+func SaveStringsToFile(w io.Writer, data []string) error {
+	_, err := w.Write([]byte(data[1]))
+	if err != nil {
+		return err
 	}
-}
-
-
-func NewComplexString() *ComplexString {
-	return complexStringPool.Get().(*ComplexString)
-}
-
-func RecycleComplexString(c *ComplexString) {
-	complexStringPool.Put(c)
+	help := []byte{0}
+	for _, v := range data[1:] {
+		_, err = w.Write(help)
+		if err != nil {
+			return err
+		}
+		_, err = w.Write([]byte(v))
+		if err != nil {
+			return err
+		}
+	}
+	return nil
 }

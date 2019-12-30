@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"log"
 	"os"
-	"sync"
 )
 
 func DeleteFile(name string) {
@@ -13,12 +12,6 @@ func DeleteFile(name string) {
 	if err != nil {
 		log.Println(err)
 	}
-}
-
-func WithLock(lock sync.Locker, action func()) {
-	lock.Lock()
-	action()
-	defer lock.Unlock()
 }
 
 func InTransaction(action func(tx *sql.Tx) ([]string, error)) error {
@@ -32,8 +25,10 @@ func InTransaction(action func(tx *sql.Tx) ([]string, error)) error {
 		if err2 != nil {
 			log.Println(err2)
 		}
-		for _, name := range files {
-			DeleteFile(name)
+		if files != nil {
+			for _, name := range files {
+				DeleteFile(name)
+			}
 		}
 		return err
 	}

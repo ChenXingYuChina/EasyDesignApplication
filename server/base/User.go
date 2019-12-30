@@ -5,7 +5,6 @@ import (
 	"github.com/lib/pq"
 	"log"
 	"strings"
-	"sync"
 	"time"
 )
 
@@ -400,12 +399,7 @@ func (u *UserBase) loadIdentity(identityType uint8) uint8 {
 }
 
 func (u *UserBase) ToMini() *UserMini {
-	um := MakeUserMini()
-	um.Identity = u.Identity
-	um.HeadImage = u.HeadImage
-	um.UserName = u.UserName
-	um.UserId = u.ID
-	return um
+	return &UserMini{Identity:u.Identity.Type(), UserId:u.ID, HeadImage:u.HeadImage, UserName:u.UserName}
 }
 
 func loadIdentity(identityType uint8, id int64) (goal Identity, state uint8) {
@@ -482,7 +476,7 @@ func LoginByEmail(email Email, password Password) (*UserBase, uint8) {
 		log.Println(err)
 		return nil, 255 // 未知错误
 	}
-	goal := GetUser()
+	goal := &UserBase{}
 	var identityType uint8
 	if r.Next() {
 		err = r.Scan(&(goal.ID), &(goal.UserName), &(goal.Phone), &(goal.Coin), &(goal.FansNumber), &(goal.FollowerNumber), &(goal.PassageNumber), &(goal.HeadImage), &(goal.BackImage), &identityType)
@@ -494,7 +488,6 @@ func LoginByEmail(email Email, password Password) (*UserBase, uint8) {
 		return nil, 3  // 账户不存在
 	}
 	if goal.loadIdentity(identityType) != 0 {
-		RecycleUser(goal)
 		return nil, 255  // 未知错误
 	}
 	goal.Email = email
@@ -507,7 +500,7 @@ func LoginById(id int64, password Password) (*UserBase, uint8) {
 		log.Println(err)
 		return nil, 255 // 未知错误
 	}
-	goal := GetUser()
+	goal := &UserBase{}
 	var identityType uint8
 	if r.Next() {
 		err = r.Scan(&(goal.Email), &(goal.UserName), &(goal.Phone), &(goal.Coin), &(goal.FansNumber), &(goal.FollowerNumber), &(goal.PassageNumber), &(goal.HeadImage), &(goal.BackImage), &identityType)
@@ -519,7 +512,6 @@ func LoginById(id int64, password Password) (*UserBase, uint8) {
 		return nil, 3  // 账户不存在
 	}
 	if goal.loadIdentity(identityType) != 0 {
-		RecycleUser(goal)
 		return nil, 255  // 未知错误
 	}
 	goal.ID = id
@@ -532,7 +524,7 @@ func LoadUser(id int64) (*UserBase, uint8) {
 		log.Println(err)
 		return nil, 255 // 未知错误
 	}
-	goal := GetUser()
+	goal := &UserBase{}
 	var identityType uint8
 	if r.Next() {
 		err = r.Scan(&(goal.Email), &(goal.UserName), &(goal.Phone), &(goal.Coin), &(goal.FansNumber), &(goal.FollowerNumber), &(goal.PassageNumber), &(goal.HeadImage), &(goal.BackImage), &identityType)
@@ -544,30 +536,11 @@ func LoadUser(id int64) (*UserBase, uint8) {
 		return nil, 3  // 账户不存在
 	}
 	if goal.loadIdentity(identityType) != 0 {
-		RecycleUser(goal)
 		return nil, 255  // 未知错误
 	}
 	goal.ID = id
 	return goal, 0
 }
-
-
-var UserPool = new(sync.Pool)
-
-func init() {
-	UserPool.New = func() interface{} {
-		return &UserBase{}
-	}
-}
-
-func GetUser() *UserBase {
-	return UserPool.Get().(*UserBase)
-}
-
-func RecycleUser(u *UserBase) {
-	UserPool.Put(u)
-}
-
 
 type School struct {
 	public bool

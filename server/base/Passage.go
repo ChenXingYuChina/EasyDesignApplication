@@ -2,7 +2,6 @@ package base
 
 import (
 	"database/sql"
-	"sync"
 )
 
 var (
@@ -14,7 +13,7 @@ var (
 
 func PreparePassageSQL() (uint8, error) {
 	var err error
-	makePassageStepInsert, err = SQLPrepare("insert into passages (title, owner, list_image) values ($1, $2, $3) returning id")
+	makePassageStepInsert, err = SQLPrepare("insert into passages (title, owner, list_image, type) values ($1, $2, $3, $4) returning id")
 	if err != nil {
 		return 0, nil
 	}
@@ -40,27 +39,12 @@ type PassageBase struct {
 	ListImage int64
 	Like uint32
 	CommentNumber uint32
-}
-
-var passagePool = new(sync.Pool)
-
-func init() {
-	passagePool.New = func() interface{} {
-		return &PassageBase{}
-	}
-}
-
-func GetPassage() *PassageBase {
-	return passagePool.Get().(*PassageBase)
-}
-
-func RecyclePassage(p *PassageBase) {
-	passagePool.Put(p)
+	Type int16
 }
 
 func LoadPassageBase(row *sql.Row) (*PassageBase, error) {
-	passage := GetPassage()
-	err := row.Scan(&(passage.Title), &(passage.CommentNumber), &(passage.Like), &(passage.Owner), &(passage.Id), &passage.ListImage)
+	passage := &PassageBase{}
+	err := row.Scan(&(passage.Title), &(passage.CommentNumber), &(passage.Like), &(passage.Owner), &(passage.Id), &(passage.ListImage), &(passage.Type))
 	if err != nil {
 		return nil, err
 	}
@@ -71,8 +55,8 @@ func LoadPassagesBase(rows *sql.Rows, otherParts []interface{}) (*PassageBase, e
 	if !rows.Next() {
 		return nil, nil
 	}
-	passage := GetPassage()
-	otherParts = append(otherParts, &(passage.Title), &(passage.CommentNumber), &(passage.Like), &(passage.Owner), &(passage.Id), &(passage.ListImage))
+	passage := &PassageBase{}
+	otherParts = append(otherParts, &(passage.Type), &(passage.Title), &(passage.CommentNumber), &(passage.Like), &(passage.Owner), &(passage.Id), &(passage.ListImage))
 	err := rows.Scan(otherParts...)
 	if err != nil {
 		return nil, err
@@ -80,14 +64,14 @@ func LoadPassagesBase(rows *sql.Rows, otherParts []interface{}) (*PassageBase, e
 	return passage, nil
 }
 
-func MakePassage(tx *sql.Tx, owner int64, title string, listImage int64) (int64, error) {
+func MakePassage(tx *sql.Tx, owner int64, title string, listImage int64, t int16) (int64, error) {
 	var makePassageStepUpdate = makePassageStepUpdate
 	var makePassageStepInsert = makePassageStepInsert
 	if tx != nil {
 		makeCommentStepUpdate = tx.Stmt(makeCommentStepUpdate)
 		makeCommentStepInsert = tx.Stmt(makeCommentStepInsert)
 	}
-	row := tx.Stmt(makePassageStepInsert).QueryRow(title, owner, listImage)
+	row := tx.Stmt(makePassageStepInsert).QueryRow(title, owner, listImage, t)
 	var pId int64
 	err := row.Scan(&pId)
 	if err != nil {

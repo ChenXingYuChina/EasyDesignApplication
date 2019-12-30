@@ -63,13 +63,23 @@ func (t *DataTable) start() {
 func (t *DataTable) cleaner() {
 	var i uint8
 	tick := time.NewTicker(4 * time.Second)
+	tickFast := time.NewTicker(1 * time.Second)
 	for {
 		v, err := mem.VirtualMemory()
 		if err != nil {
 			log.Println(err)
 		}
-		if v.UsedPercent > 75 {
-			t.buckets[i].clean(t.dataSource, true)
+		if v.UsedPercent > 80 {
+			re: t.buckets[i].clean(t.dataSource, true)
+			v, err = mem.VirtualMemory()
+			if err != nil {
+				log.Println(err)
+			}
+			<-tickFast.C
+			if v.UsedPercent > 75 {
+				i++
+				goto re
+			}
 		} else {
 			t.buckets[i].clean(t.dataSource, false)
 		}

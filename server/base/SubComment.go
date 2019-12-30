@@ -2,12 +2,12 @@ package base
 
 import (
 	"database/sql"
-	"sync"
 )
 
 var (
 	likeSubComment *sql.Stmt
 	loadSubComment *sql.Stmt
+	loadSubCommentHot *sql.Stmt
 	makeSubCommentStepInsert *sql.Stmt
 	makeSubCommentStepUpdate *sql.Stmt
 
@@ -24,9 +24,13 @@ type SubComment struct {
 
 func PrepareSubCommentSQL() (uint8, error) {
 	var err error
-	loadSubComment, err = SQLPrepare("select content, position, like_number from subcomment where passage_id = $1 and father = $2 sort by position ASC offset $3 limit $4")
+	loadSubComment, err = SQLPrepare("select content, position, like_number from subcomment where passage_id = $1 and father = $2 order by position ASC limit $4 offset $3")
 	if err != nil {
 		return 0, err
+	}
+	loadSubCommentHot, err = Database.Prepare("select content, position, like_number from subcomment where passage_id = $1 and father = $2 order by like_number desc limit 3")
+	if err != nil {
+		return 3, err
 	}
 	likeSubComment, err = SQLPrepare("update subcomment set like_number = like_number + 1 where passage_id = $1 and father = $2 and position = $3")
 	if err != nil {
@@ -38,22 +42,6 @@ func PrepareSubCommentSQL() (uint8, error) {
 	}
 	makeSubCommentStepUpdate, err = SQLPrepare("update comment set sub_comment = sub_comment + 1 where passage_id = $1 and position = $2")
 	return 0, nil
-}
-
-var subCommentPool = new(sync.Pool)
-
-func init() {
-	subCommentPool.New = func() interface{} {
-		return &SubComment{}
-	}
-}
-
-func GetSubComment() *SubComment {
-	return subCommentPool.Get().(*SubComment)
-}
-
-func RecycleSubComment(c *SubComment) {
-	subCommentPool.Put(c)
 }
 
 func LikeSubComment(tx *sql.Tx, passage int64, father uint32, position uint16) bool {
@@ -71,23 +59,35 @@ func LikeSubComment(tx *sql.Tx, passage int64, father uint32, position uint16) b
 	return true
 }
 
-func LoadSubCommentByPosition(tx *sql.Tx, passageId int64, fatherPosition uint32, begin uint16, length uint16) ([]*SubComment, error) {
-	var loadSubComment = loadCommentBase
-	if tx != nil {
-		loadSubComment = tx.Stmt(loadSubComment)
-	}
+func LoadSubCommentByPosition(passageId int64, fatherPosition uint32, begin uint16, length uint16) ([]*SubComment, error) {
 	r, err := loadSubComment.Query(passageId, fatherPosition, begin, length)
 	if err != nil {
 		return nil, err
 	}
 	goal := make([]*SubComment, 0, length)
 	for r.Next() {
-		c := GetSubComment()
+		c := &SubComment{}
 		err = r.Scan(&(c.Content), &(c.Position), &(c.Like))
 		if err != nil {
-			for _, v := range goal {
-				RecycleSubComment(v)
-			}
+			return nil, err
+		}
+		c.Father = fatherPosition
+		c.Passage = passageId
+		goal = append(goal, c)
+	}
+	return goal, nil
+}
+
+func LoadHotSubComment(passageId int64, fatherPosition uint32) ([]*SubComment, error) {
+	r, err := loadSubCommentHot.Query(passageId, fatherPosition)
+	if err != nil {
+		return nil, err
+	}
+	goal := make([]*SubComment, 0, 3)
+	for r.Next() {
+		c := &SubComment{}
+		err = r.Scan(&(c.Content), &(c.Position), &(c.Like))
+		if err != nil {
 			return nil, err
 		}
 		c.Father = fatherPosition

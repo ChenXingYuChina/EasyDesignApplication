@@ -2,7 +2,6 @@ package base
 
 import (
 	"database/sql"
-	"sync"
 )
 
 var (
@@ -22,53 +21,39 @@ type UserMini struct {
 	UserId  int64
 	UserName string
 	HeadImage int64
-	Identity Identity
-}
-
-func (u *UserMini) loadIdentity(identityType uint8) uint8 {
-	var state uint8
-	u.Identity, state = loadIdentity(identityType, u.UserId)
-	return state
+	Identity uint8
 }
 
 func GetUserMini(ids []int64) []*UserMini {
 	goal := make([]*UserMini, len(ids))
+	var name string
+	var headImage int64
+	var identity uint8
 	for i, id := range ids {
-		u := MakeUserMini()
-		u.UserId = id
 		r, err := getUserMini.Query(id)
 		if err != nil {
-			RecycleUserMini(u)
 			continue
 		}
-		var identityType uint8
-		err = r.Scan(&(u.UserName), &(u.HeadImage), &identityType)
+		err = r.Scan(&name, headImage, identity)
 		if err != nil {
-			RecycleUserMini(u)
 			continue
 		}
-		var state uint8
-		u.Identity, state = loadIdentity(identityType, id)
-		if state != 0 {
-			RecycleUserMini(u)
-			continue
-		}
-		goal[i] = u
+		goal[i] = &UserMini{UserName:name, UserId:id, HeadImage:headImage, Identity:identity}
 	}
 	return goal
 }
 
-
-var userMiniPool = new(sync.Pool)
-func MakeUserMini() *UserMini {
-	return userMiniPool.Get().(*UserMini)
-}
-
-func RecycleUserMini(u *UserMini) {
-	userMiniPool.Put(u)
-}
-func init()  {
-	userMiniPool.New = func() interface{} {
-		return &UserMini{}
+func GetOneUserMini(id int64) (*UserMini, error) {
+	var name string
+	var headImage int64
+	var identity uint8
+	r, err := getUserMini.Query(id)
+	if err != nil {
+		return nil, err
 	}
+	err = r.Scan(&name, headImage, identity)
+	if err != nil {
+		return nil, err
+	}
+	return &UserMini{UserName:name, UserId:id, HeadImage:headImage, Identity:identity}, err
 }
