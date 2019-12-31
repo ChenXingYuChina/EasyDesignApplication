@@ -1,4 +1,4 @@
-package com.example.dachuangxiangmu.Activity;
+package cn.edu.hebut.easydesign.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,7 +7,7 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.dachuangxiangmu.R;
+import cn.edu.hebut.easydesign.R;
 
 public class login3 extends AppCompatActivity {
     private ImageView next;

@@ -1,4 +1,4 @@
-package com.example.dachuangxiangmu.Activity;
+package cn.edu.hebut.easydesign.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,8 +13,8 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
-import com.example.dachuangxiangmu.Adapter.SplashAdapter;
-import com.example.dachuangxiangmu.R;
+import cn.edu.hebut.easydesign.Adapter.SplashAdapter;
+import cn.edu.hebut.easydesign.R;
 
 import java.util.ArrayList;
 import java.util.List;

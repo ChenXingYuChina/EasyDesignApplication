@@ -1,4 +1,4 @@
-package com.example.dachuangxiangmu.Adapter;
+package cn.edu.hebut.easydesign.Adapter;
 
 import android.content.Context;
 import android.view.View;

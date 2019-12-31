@@ -3,4 +3,9 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="redForComplexString">#FF0000</color>
+    <color name="blueForComplexString">#0000FF</color>
+    <color name="yellowForComplexString">#ffff00</color>
+    <color name="greenForComplexString">#00FF00</color>
+    <color name="purpleForComplexString">#FF00FF</color>
 </resources>

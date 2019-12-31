@@ -7,5 +7,5 @@
     android:clipToPadding="false"
     android:paddingTop="@dimen/list_item_spacing_half"
     android:paddingBottom="@dimen/list_item_spacing_half"
-    tools:context=".Fragment.shubiaoFragment"
+    tools:context="cn.edu.hebut.easydesign.Fragment.shubiaoFragment"
     tools:listitem="@layout/fragment_item_list_dialog_item" />

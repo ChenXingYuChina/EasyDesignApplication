@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity.login4"
+    tools:context="cn.edu.hebut.easydesign.Activity.login4"
     android:background="@drawable/beijing1">
 
     <ImageView
@@ -35,7 +35,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/logo"
-        ></EditText>
+        />
 
     <EditText
         android:id="@+id/shengri"
@@ -51,7 +51,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/nicheng"
-        ></EditText>
+        />
 
     <EditText
         android:id="@+id/buzhidao"
@@ -67,7 +67,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/shengri"
-        ></EditText>
+        />
 
     <EditText
         android:id="@+id/xingqu"
@@ -83,7 +83,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/buzhidao"
-        ></EditText>
+        />
 
 
     <ImageView
@@ -109,5 +109,5 @@
         app:layout_constraintEnd_toEndOf="@id/next"
         app:layout_constraintStart_toStartOf="@id/next"
         app:layout_constraintTop_toBottomOf="@id/next"
-        ></TextView>
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,4 +1,4 @@
-package com.example.dachuangxiangmu.Activity;
+package cn.edu.hebut.easydesign.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,12 +17,12 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
-import com.example.dachuangxiangmu.Adapter.SplashAdapter;
-import com.example.dachuangxiangmu.Fragment.biFragment;
-import com.example.dachuangxiangmu.Fragment.huojianFragment;
-import com.example.dachuangxiangmu.Fragment.shubiaoFragment;
-import com.example.dachuangxiangmu.Fragment.weixinFragment;
-import com.example.dachuangxiangmu.R;
+import cn.edu.hebut.easydesign.Adapter.SplashAdapter;
+import cn.edu.hebut.easydesign.Fragment.biFragment;
+import cn.edu.hebut.easydesign.Fragment.huojianFragment;
+import cn.edu.hebut.easydesign.Fragment.shubiaoFragment;
+import cn.edu.hebut.easydesign.Fragment.weixinFragment;
+import cn.edu.hebut.easydesign.R;
 
 import java.util.ArrayList;
 import java.util.List;

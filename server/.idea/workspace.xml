@@ -5,30 +5,44 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d0a7dfad-b946-4b9e-9656-b4709cc2ec50" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/dataNet/connetTable.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dataNet/define.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/middle/Comment.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/middle/passageLoader.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/middle/residentContent.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e8811a92-2a10-4437-b30e-ea9f72e52b6a.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e8811a92-2a10-4437-b30e-ea9f72e52b6a.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e8811a92-2a10-4437-b30e-ea9f72e52b6a/storage_v2/_src_/database/easyDesign.YIivsw/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e8811a92-2a10-4437-b30e-ea9f72e52b6a/storage_v2/_src_/database/easyDesign.YIivsw/schema/public.abK9xQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Android/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/ComplexString/ComplexString.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/ComplexString/ComplexStringFactor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/DataNet/DataNetClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/.idea/.name" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/androidTest/java/com/example/dachuangxiangmu/ExampleInstrumentedTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/com/example/dachuangxiangmu/Activity/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/com/example/dachuangxiangmu/Activity/Splash.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/Splash.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/com/example/dachuangxiangmu/Activity/login1.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/login1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/com/example/dachuangxiangmu/Activity/login2.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/login2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/com/example/dachuangxiangmu/Activity/login3.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/login3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/com/example/dachuangxiangmu/Activity/login4.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/login4.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/com/example/dachuangxiangmu/Activity/login5.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/login5.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/com/example/dachuangxiangmu/Adapter/SplashAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Adapter/SplashAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/com/example/dachuangxiangmu/Fragment/biFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Fragment/biFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/com/example/dachuangxiangmu/Fragment/huojianFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Fragment/huojianFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/com/example/dachuangxiangmu/Fragment/shubiaoFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Fragment/shubiaoFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/com/example/dachuangxiangmu/Fragment/weixinFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Fragment/weixinFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/res/layout/activity_login1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/res/layout/activity_login1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/res/layout/activity_login2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/res/layout/activity_login2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/res/layout/activity_login3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/res/layout/activity_login3.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/res/layout/activity_login4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/res/layout/activity_login4.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/res/layout/activity_login5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/res/layout/activity_login5.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/res/layout/fragment_item_list_dialog.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/res/layout/fragment_item_list_dialog.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/res/values/colors.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/test/java/com/example/dachuangxiangmu/ExampleUnitTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/settings.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asynchronoussIOAndBuffer/table.go" beforeDir="false" afterPath="$PROJECT_DIR$/asynchronoussIOAndBuffer/table.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/Comment.go" beforeDir="false" afterPath="$PROJECT_DIR$/base/Comment.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/MultiMediaResource.go" beforeDir="false" afterPath="$PROJECT_DIR$/base/MultiMediaResource.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/Passage.go" beforeDir="false" afterPath="$PROJECT_DIR$/base/Passage.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/SubComment.go" beforeDir="false" afterPath="$PROJECT_DIR$/base/SubComment.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/User.go" beforeDir="false" afterPath="$PROJECT_DIR$/base/User.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/UserMini.go" beforeDir="false" afterPath="$PROJECT_DIR$/base/UserMini.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/a_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/base/a_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/complexString.go" beforeDir="false" afterPath="$PROJECT_DIR$/base/complexString.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/others.go" beforeDir="false" afterPath="$PROJECT_DIR$/base/others.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/base/textResources.go" beforeDir="false" afterPath="$PROJECT_DIR$/base/textResources.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middle/PassageWithBody.go" beforeDir="false" afterPath="$PROJECT_DIR$/middle/PassageWithBody.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middle/dataLoader.go" beforeDir="false" afterPath="$PROJECT_DIR$/middle/dataManager.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middle/passageList.go" beforeDir="false" afterPath="$PROJECT_DIR$/middle/passageList.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sqlSchame/passage.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sqlSchame/passage.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sqlSchame/passage_type.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sqlSchame/passage_tag.sql" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -112,172 +126,55 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/middle/Comment.go">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/base/complexString.go">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="570">
-              <caret line="32" column="78" selection-start-line="32" selection-start-column="78" selection-end-line="32" selection-end-column="78" />
+              <caret line="39" column="44" selection-start-line="39" selection-start-column="44" selection-end-line="39" selection-end-column="44" />
               <folding>
-                <element signature="n#!!block;n#PrepareCommentDir#0" />
-                <element signature="n#!!block;n#LoadComment#0" />
-                <element signature="n#!!block;n#MakeCommentTo#0" />
+                <element signature="e#102#138#0" />
+                <element signature="n#!!block;n#UnmarshalJSON#0" />
+                <element signature="n#!!block;n#SaveComplexStringToFile#0" />
+                <element signature="e#868#890#0" />
+                <element signature="e#908#925#0" />
+                <element signature="e#971#988#0" />
+                <element signature="n#!!block;n#SaveComplexString#0" />
+                <element signature="e#1203#1220#0" />
+                <element signature="e#1273#1290#0" />
+                <element signature="e#1363#1380#0" />
+                <element signature="e#1450#1467#0" />
+                <element signature="e#1544#1561#0" />
+                <element signature="e#1654#1671#0" />
+                <element signature="n#!!block;n#LoadComplexStringFromFile#0" />
+                <element signature="e#1850#1872#0" />
+                <element signature="e#1890#1903#0" />
+                <element signature="e#1953#1975#0" />
+                <element signature="n#!!block;n#LoadComplexString#0" />
+                <element signature="e#2149#2171#0" />
+                <element signature="e#2482#2504#0" />
+                <element signature="e#2579#2601#0" />
+                <element signature="e#2673#2695#0" />
+                <element signature="e#2774#2796#0" />
+                <element signature="e#2873#2895#0" />
+                <element signature="n#!!block;n#LoadStringsFromFile#0" />
+                <element signature="e#3095#3117#0" />
+                <element signature="e#3193#3276#0" />
+                <element signature="e#3207#3273#0" />
+                <element signature="n#!!block;n#SaveStringsToFile#0" />
+                <element signature="e#3452#3469#0" />
+                <element signature="e#3517#3648#0" />
+                <element signature="e#3560#3579#0" />
+                <element signature="e#3626#3645#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/middle/workshop.go">
+        <entry file="file://$PROJECT_DIR$/base/textResources.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-270" />
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/middle/residentContent.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="133" column="42" selection-start-line="133" selection-start-column="42" selection-end-line="133" selection-end-column="42" />
-              <folding>
-                <element signature="n#!!block;n#loadFullPassage#0" />
-                <element signature="e#891#919#0" />
-                <element signature="e#946#1116#0" />
-                <element signature="n#!!block;n#refresh#0" />
-                <element signature="n#!!block;n#getPassageFromCache#0" />
-                <element signature="e#2095#2158#0" />
-                <element signature="n#!!block;n#refresh#1" />
-                <element signature="n#!!block;n#getPassageFromCache#1" />
-                <element signature="n#!!block;n#loadLast30#0" />
-                <element signature="n#!!block;n#PrepareResidentContentTable#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/middle/passageLoader.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="429">
-              <caret line="37" column="47" selection-start-line="37" selection-start-column="47" selection-end-line="37" selection-end-column="47" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/base/Passage.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
-              <caret line="35" column="4" selection-start-line="35" selection-start-column="4" selection-end-line="35" selection-end-column="4" />
-              <folding>
-                <element signature="n#!!block;n#MakePassage#0" />
-                <element signature="n#!!block;n#LikePassage#0" />
-                <element signature="n#!!block;n#ChangeTitle#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/middle/dataManager.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
-              <caret line="144" column="6" selection-start-line="144" selection-start-column="6" selection-end-line="144" selection-end-column="6" />
-              <folding>
-                <element signature="e#126#216#0" />
-                <element signature="n#!!block;n#GetKey#0" />
-                <element signature="n#!!block;n#Uid#0" />
-                <element signature="n#!!block;n#TypeId#0" />
-                <element signature="n#!!block;n#GetKey#1" />
-                <element signature="n#!!block;n#Load#0" />
-                <element signature="n#!!block;n#Save#0" />
-                <element signature="n#!!block;n#Delete#0" />
-                <element signature="e#1192#1197#0" />
-                <element signature="e#1399#1404#0" />
-                <element signature="e#1542#1547#0" />
-                <element signature="n#!!block;n#GetKey#2" />
-                <element signature="n#!!block;n#Uid#1" />
-                <element signature="n#!!block;n#TypeId#1" />
-                <element signature="n#!!block;n#GetKey#3" />
-                <element signature="n#!!block;n#Load#1" />
-                <element signature="n#!!block;n#Save#1" />
-                <element signature="n#!!block;n#Delete#1" />
-                <element signature="e#2519#2524#0" />
-                <element signature="e#2725#2727#0" />
-                <element signature="e#2869#2874#0" />
-                <element signature="n#!!block;n#GetKey#4" />
-                <element signature="n#!!block;n#Uid#2" />
-                <element signature="n#!!block;n#TypeId#2" />
-                <element signature="n#!!block;n#GetKey#5" />
-                <element signature="e#3328#3400#0" />
-                <element signature="n#!!block;n#Save#2" />
-                <element signature="n#!!block;n#Delete#2" />
-                <element signature="e#2665#2670#0" />
-                <element signature="e#2968#2973#0" />
-                <element signature="e#3082#3087#0" />
-                <element signature="n#!!block;n#GetKey#6" />
-                <element signature="n#!!block;n#Uid#3" />
-                <element signature="n#!!block;n#TypeId#3" />
-                <element signature="n#!!block;n#GetKey#7" />
-                <element signature="n#!!block;n#Load#3" />
-                <element signature="n#!!block;n#Save#3" />
-                <element signature="e#3718#3767#0" />
-                <element signature="n#!!block;n#LoadUserMinis#0" />
-                <element signature="e#3744#3826#0" />
-                <element signature="n#!!block;n#getUserMiniFromFunction#0" />
-                <element signature="e#3974#3996#0" />
-                <element signature="n#!!block;n#getUserMinisFromFunctions#0" />
-                <element signature="e#4252#4276#0" />
-                <element signature="e#4282#4332#0" />
-                <element signature="e#4800#4805#0" />
-                <element signature="n#!!block;n#DataManagerInit#0" />
-                <element signature="e#4458#4630#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/asynchronoussIOAndBuffer/table.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-51">
-              <caret line="85" column="11" selection-start-line="85" selection-start-column="11" selection-end-line="85" selection-end-column="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/asynchronoussIOAndBuffer/define.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="33" column="4" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="4" />
-              <folding>
-                <element signature="e#34#60#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/middle/passageList.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="48" column="6" selection-start-line="48" selection-start-column="6" selection-end-line="48" selection-end-column="6" />
-              <folding>
-                <element signature="n#!!block;n#PreparePassageListSQL#0" />
-                <element signature="n#!!block;n#LoadPassageListByWorkshopLast#0" />
-                <element signature="n#!!block;n#LoadPassageListByUserAndTypeLast#0" />
-                <element signature="n#!!block;n#SearchPassageByTitle#0" />
-                <element signature="n#!!block;n#loadPassageList#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/middle/PassageWithBody.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="303">
-              <caret line="32" column="5" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
+            <state relative-caret-position="842">
+              <caret line="94" selection-start-line="94" selection-end-line="94" />
             </state>
           </provider>
         </entry>
@@ -350,7 +247,6 @@
         <option value="$PROJECT_DIR$/base/Passage.go" />
         <option value="$PROJECT_DIR$/base/User.go" />
         <option value="$PROJECT_DIR$/base/others.go" />
-        <option value="$PROJECT_DIR$/base/textResources.go" />
         <option value="$PROJECT_DIR$/base/MultiMediaResource.go" />
         <option value="$PROJECT_DIR$/middle/PassageWithBody.go" />
         <option value="$PROJECT_DIR$/base/UserMini.go" />
@@ -358,12 +254,13 @@
         <option value="$PROJECT_DIR$/middle/dataManager.go" />
         <option value="$PROJECT_DIR$/middle/passageList.go" />
         <option value="$PROJECT_DIR$/middle/passageLoader.go" />
+        <option value="$PROJECT_DIR$/base/textResources.go" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="364" />
-    <option name="y" value="-14" />
+    <option name="x" value="919" />
+    <option name="y" value="-20" />
     <option name="width" value="973" />
     <option name="height" value="553" />
   </component>
@@ -373,6 +270,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -413,7 +311,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -556,7 +453,7 @@
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1663113" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16950959" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info id="Project Explorer" order="3" weight="0.32995737" />
@@ -641,7 +538,6 @@
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/middle/PassageWithBody.go</url>
           <line>53</line>
-          <properties />
           <option name="timeStamp" value="19" />
         </line-breakpoint>
       </breakpoints>
@@ -837,52 +733,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/base/complexString.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
-          <folding>
-            <element signature="e#102#138#0" />
-            <element signature="n#!!block;n#UnmarshalJSON#0" />
-            <element signature="n#!!block;n#MarshalJSON#0" />
-            <element signature="e#388#525#0" />
-            <element signature="e#408#469#0" />
-            <element signature="e#577#748#0" />
-            <element signature="n#!!block;n#SaveComplexStringToFile#0" />
-            <element signature="e#868#890#0" />
-            <element signature="e#908#925#0" />
-            <element signature="e#971#988#0" />
-            <element signature="n#!!block;n#SaveComplexString#0" />
-            <element signature="e#1203#1220#0" />
-            <element signature="e#1273#1290#0" />
-            <element signature="e#1363#1380#0" />
-            <element signature="e#1450#1467#0" />
-            <element signature="e#1544#1561#0" />
-            <element signature="e#1654#1671#0" />
-            <element signature="n#!!block;n#LoadComplexStringFromFile#0" />
-            <element signature="e#1850#1872#0" />
-            <element signature="e#1890#1903#0" />
-            <element signature="e#1953#1975#0" />
-            <element signature="n#!!block;n#LoadComplexString#0" />
-            <element signature="e#2149#2171#0" />
-            <element signature="e#2482#2504#0" />
-            <element signature="e#2579#2601#0" />
-            <element signature="e#2673#2695#0" />
-            <element signature="e#2774#2796#0" />
-            <element signature="e#2873#2895#0" />
-            <element signature="n#!!block;n#LoadStringsFromFile#0" />
-            <element signature="e#3095#3117#0" />
-            <element signature="e#3193#3276#0" />
-            <element signature="e#3207#3273#0" />
-            <element signature="n#!!block;n#SaveStringsToFile#0" />
-            <element signature="e#3452#3469#0" />
-            <element signature="e#3517#3648#0" />
-            <element signature="e#3560#3579#0" />
-            <element signature="e#3626#3645#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/base/SubComment.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -922,13 +772,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/middle/subComment.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/middle/subComment.go" />
     <entry file="file://$PROJECT_DIR$/sqlSchame/passage.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -958,13 +802,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/base/textResources.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="699">
-          <caret line="184" column="1" lean-forward="true" selection-start-line="184" selection-start-column="1" selection-end-line="184" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -1153,23 +990,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/asynchronoussIOAndBuffer/define.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="33" column="4" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="4" />
-          <folding>
-            <element signature="e#34#60#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/middle/PassageWithBody.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="32" column="5" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/middle/Comment.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="570">
@@ -1183,13 +1003,34 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/middle/workshop.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/middle/residentContent.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-270" />
+        <state relative-caret-position="1380">
+          <caret line="133" column="42" selection-start-line="133" selection-start-column="42" selection-end-line="133" selection-end-column="42" />
+          <folding>
+            <element signature="n#!!block;n#loadFullPassage#0" />
+            <element signature="n#!!block;n#refresh#0" />
+            <element signature="n#!!block;n#getPassageFromCache#0" />
+            <element signature="n#!!block;n#refresh#1" />
+            <element signature="n#!!block;n#getPassageFromCache#1" />
+            <element signature="n#!!block;n#loadLast30#0" />
+            <element signature="n#!!block;n#PrepareResidentContentTable#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/middle/passageLoader.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1110">
+          <caret line="37" column="47" selection-start-line="37" selection-start-column="47" selection-end-line="37" selection-end-column="47" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/base/Passage.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
+        <state relative-caret-position="990">
           <caret line="35" column="4" selection-start-line="35" selection-start-column="4" selection-end-line="35" selection-end-column="4" />
           <folding>
             <element signature="n#!!block;n#MakePassage#0" />
@@ -1199,92 +1040,63 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/asynchronoussIOAndBuffer/table.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-51">
-          <caret line="85" column="11" selection-start-line="85" selection-start-column="11" selection-end-line="85" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/middle/dataManager.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
+        <state relative-caret-position="2970">
           <caret line="144" column="6" selection-start-line="144" selection-start-column="6" selection-end-line="144" selection-end-column="6" />
           <folding>
-            <element signature="e#126#216#0" />
-            <element signature="n#!!block;n#GetKey#0" />
-            <element signature="n#!!block;n#Uid#0" />
-            <element signature="n#!!block;n#TypeId#0" />
-            <element signature="n#!!block;n#GetKey#1" />
-            <element signature="n#!!block;n#Load#0" />
-            <element signature="n#!!block;n#Save#0" />
-            <element signature="n#!!block;n#Delete#0" />
-            <element signature="e#1192#1197#0" />
-            <element signature="e#1399#1404#0" />
-            <element signature="e#1542#1547#0" />
-            <element signature="n#!!block;n#GetKey#2" />
-            <element signature="n#!!block;n#Uid#1" />
-            <element signature="n#!!block;n#TypeId#1" />
-            <element signature="n#!!block;n#GetKey#3" />
-            <element signature="n#!!block;n#Load#1" />
-            <element signature="n#!!block;n#Save#1" />
-            <element signature="n#!!block;n#Delete#1" />
-            <element signature="e#2519#2524#0" />
-            <element signature="e#2725#2727#0" />
-            <element signature="e#2869#2874#0" />
-            <element signature="n#!!block;n#GetKey#4" />
-            <element signature="n#!!block;n#Uid#2" />
-            <element signature="n#!!block;n#TypeId#2" />
-            <element signature="n#!!block;n#GetKey#5" />
-            <element signature="e#3328#3400#0" />
-            <element signature="n#!!block;n#Save#2" />
-            <element signature="n#!!block;n#Delete#2" />
-            <element signature="e#2665#2670#0" />
-            <element signature="e#2968#2973#0" />
-            <element signature="e#3082#3087#0" />
-            <element signature="n#!!block;n#GetKey#6" />
-            <element signature="n#!!block;n#Uid#3" />
-            <element signature="n#!!block;n#TypeId#3" />
-            <element signature="n#!!block;n#GetKey#7" />
-            <element signature="n#!!block;n#Load#3" />
-            <element signature="n#!!block;n#Save#3" />
-            <element signature="e#3718#3767#0" />
-            <element signature="n#!!block;n#LoadUserMinis#0" />
-            <element signature="e#3744#3826#0" />
-            <element signature="n#!!block;n#getUserMiniFromFunction#0" />
-            <element signature="e#3974#3996#0" />
-            <element signature="n#!!block;n#getUserMinisFromFunctions#0" />
-            <element signature="e#4252#4276#0" />
-            <element signature="e#4282#4332#0" />
-            <element signature="e#4800#4805#0" />
-            <element signature="n#!!block;n#DataManagerInit#0" />
-            <element signature="e#4458#4630#0" />
+            <element signature="e#369#400#0" />
+            <element signature="e#462#482#0" />
+            <element signature="e#519#549#0" />
+            <element signature="e#611#624#0" />
+            <element signature="e#768#843#0" />
+            <element signature="e#919#990#0" />
+            <element signature="e#1066#1127#0" />
+            <element signature="e#1736#1766#0" />
+            <element signature="e#1826#1846#0" />
+            <element signature="e#1882#1911#0" />
+            <element signature="e#1972#1985#0" />
+            <element signature="e#2119#2192#0" />
+            <element signature="e#2263#2331#0" />
+            <element signature="e#2402#2461#0" />
+            <element signature="e#3047#3075#0" />
+            <element signature="e#3131#3151#0" />
+            <element signature="e#3185#3212#0" />
+            <element signature="e#3271#3284#0" />
+            <element signature="e#3567#3582#0" />
+            <element signature="e#3655#3670#0" />
+            <element signature="e#4223#4256#0" />
+            <element signature="e#4314#4334#0" />
+            <element signature="e#4369#4397#0" />
+            <element signature="e#4457#4470#0" />
+            <element signature="e#4610#4683#0" />
+            <element signature="e#4757#4773#0" />
+            <element signature="e#5052#5173#0" />
+            <element signature="e#5861#6120#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/middle/residentContent.go">
+    <entry file="file://$PROJECT_DIR$/asynchronoussIOAndBuffer/table.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="133" column="42" selection-start-line="133" selection-start-column="42" selection-end-line="133" selection-end-column="42" />
+        <state relative-caret-position="2430">
+          <caret line="85" column="11" selection-start-line="85" selection-start-column="11" selection-end-line="85" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/asynchronoussIOAndBuffer/define.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="900">
+          <caret line="33" column="4" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="4" />
           <folding>
-            <element signature="n#!!block;n#loadFullPassage#0" />
-            <element signature="e#891#919#0" />
-            <element signature="e#946#1116#0" />
-            <element signature="n#!!block;n#refresh#0" />
-            <element signature="n#!!block;n#getPassageFromCache#0" />
-            <element signature="e#2095#2158#0" />
-            <element signature="n#!!block;n#refresh#1" />
-            <element signature="n#!!block;n#getPassageFromCache#1" />
-            <element signature="n#!!block;n#loadLast30#0" />
-            <element signature="n#!!block;n#PrepareResidentContentTable#0" />
+            <element signature="e#34#60#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/middle/passageList.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
+        <state relative-caret-position="720">
           <caret line="48" column="6" selection-start-line="48" selection-start-column="6" selection-end-line="48" selection-end-column="6" />
           <folding>
             <element signature="n#!!block;n#PreparePassageListSQL#0" />
@@ -1296,10 +1108,59 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/middle/passageLoader.go">
+    <entry file="file://$PROJECT_DIR$/middle/PassageWithBody.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="429">
-          <caret line="37" column="47" selection-start-line="37" selection-start-column="47" selection-end-line="37" selection-end-column="47" />
+        <state relative-caret-position="840">
+          <caret line="32" column="5" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/textResources.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="842">
+          <caret line="94" selection-start-line="94" selection-end-line="94" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/complexString.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="39" column="44" selection-start-line="39" selection-start-column="44" selection-end-line="39" selection-end-column="44" />
+          <folding>
+            <element signature="e#102#138#0" />
+            <element signature="n#!!block;n#UnmarshalJSON#0" />
+            <element signature="n#!!block;n#SaveComplexStringToFile#0" />
+            <element signature="e#868#890#0" />
+            <element signature="e#908#925#0" />
+            <element signature="e#971#988#0" />
+            <element signature="n#!!block;n#SaveComplexString#0" />
+            <element signature="e#1203#1220#0" />
+            <element signature="e#1273#1290#0" />
+            <element signature="e#1363#1380#0" />
+            <element signature="e#1450#1467#0" />
+            <element signature="e#1544#1561#0" />
+            <element signature="e#1654#1671#0" />
+            <element signature="n#!!block;n#LoadComplexStringFromFile#0" />
+            <element signature="e#1850#1872#0" />
+            <element signature="e#1890#1903#0" />
+            <element signature="e#1953#1975#0" />
+            <element signature="n#!!block;n#LoadComplexString#0" />
+            <element signature="e#2149#2171#0" />
+            <element signature="e#2482#2504#0" />
+            <element signature="e#2579#2601#0" />
+            <element signature="e#2673#2695#0" />
+            <element signature="e#2774#2796#0" />
+            <element signature="e#2873#2895#0" />
+            <element signature="n#!!block;n#LoadStringsFromFile#0" />
+            <element signature="e#3095#3117#0" />
+            <element signature="e#3193#3276#0" />
+            <element signature="e#3207#3273#0" />
+            <element signature="n#!!block;n#SaveStringsToFile#0" />
+            <element signature="e#3452#3469#0" />
+            <element signature="e#3517#3648#0" />
+            <element signature="e#3560#3579#0" />
+            <element signature="e#3626#3645#0" />
+          </folding>
         </state>
       </provider>
     </entry>

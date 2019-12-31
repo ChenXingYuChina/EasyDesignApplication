@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity.login5"
+    tools:context="cn.edu.hebut.easydesign.Activity.login5"
     android:background="@drawable/beijing1">
 
 
@@ -44,7 +44,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/touxiang"
-        ></Spinner>
+        />
 
     <ImageView
         android:id="@+id/next"
@@ -69,6 +69,6 @@
         app:layout_constraintEnd_toEndOf="@id/next"
         app:layout_constraintStart_toStartOf="@id/next"
         app:layout_constraintTop_toBottomOf="@id/next"
-        ></TextView>
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

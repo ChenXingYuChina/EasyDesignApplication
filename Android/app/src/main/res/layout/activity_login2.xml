@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity.login2"
+    tools:context="cn.edu.hebut.easydesign.Activity.login2"
     android:background="@drawable/beijing1">
 
 
@@ -35,7 +35,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/logo"
-        ></EditText>
+        />
 
     <EditText
         android:id="@+id/mima"
@@ -49,7 +49,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/zhanghao"
-        ></EditText>
+        />
 
     <Button
         android:id="@+id/denglu"
@@ -62,7 +62,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/mima"
-        ></Button>
+        />
 
     <LinearLayout
         android:id="@+id/wangjiheyouke"
@@ -81,7 +81,7 @@
         android:layout_weight="5"
         android:layout_height="wrap_content"
         android:textSize="10dp"
-        android:gravity="center"></TextView>
+        android:gravity="center"/>
 
         <TextView
             android:text="|"
@@ -89,7 +89,7 @@
             android:layout_weight="2"
             android:layout_height="wrap_content"
             android:textSize="10dp"
-            android:gravity="center"></TextView>
+            android:gravity="center"/>
 
         <TextView
             android:id="@+id/youke"
@@ -98,7 +98,7 @@
             android:layout_weight="5"
             android:layout_height="wrap_content"
             android:textSize="10dp"
-            android:gravity="center"></TextView>
+            android:gravity="center"/>
 
 
     </LinearLayout>
@@ -118,21 +118,21 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:src="@drawable/qqdenglu"></ImageView>
+            android:src="@drawable/qqdenglu"/>
 
         <ImageView
             android:id="@+id/weixin"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:src="@drawable/weixindenglu"></ImageView>
+            android:src="@drawable/weixindenglu"/>
 
         <ImageView
             android:id="@+id/weibo"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:src="@drawable/weibodenglu"></ImageView>
+            android:src="@drawable/weibodenglu"/>
 
 
     </LinearLayout>
@@ -162,7 +162,7 @@
             app:layout_constraintEnd_toEndOf="@id/next"
             app:layout_constraintStart_toStartOf="@id/next"
             app:layout_constraintTop_toBottomOf="@id/next"
-            ></TextView>
+            />
 
 
 

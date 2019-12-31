@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.dachuangxiangmu">
+    package="cn.edu.hebut.easydesign">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
@@ -12,16 +12,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".Activity.login5"></activity>
-        <activity android:name=".Activity.login4" />
-        <activity android:name=".Activity.login3" />
-        <activity android:name=".Activity.login2" />
-        <activity android:name=".Activity.login1" />
+        <activity android:name="cn.edu.hebut.easydesign.Activity.login5"></activity>
+        <activity android:name="cn.edu.hebut.easydesign.Activity.login4" />
+        <activity android:name="cn.edu.hebut.easydesign.Activity.login3" />
+        <activity android:name="cn.edu.hebut.easydesign.Activity.login2" />
+        <activity android:name="cn.edu.hebut.easydesign.Activity.login1" />
         <meta-data
             android:name="com.google.android.actions"
             android:resource="@xml/actions" />
 
-        <activity android:name=".Activity.Splash">
+        <activity android:name="cn.edu.hebut.easydesign.Activity.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -29,7 +29,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".Activity.MainActivity" >
+        <activity android:name="cn.edu.hebut.easydesign.Activity.MainActivity" >
 
         </activity>
 

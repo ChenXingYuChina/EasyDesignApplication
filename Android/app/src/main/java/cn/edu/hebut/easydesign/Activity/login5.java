@@ -1,4 +1,4 @@
-package com.example.dachuangxiangmu.Activity;
+package cn.edu.hebut.easydesign.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,8 +6,8 @@ import android.view.View;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import cn.edu.hebut.easydesign.R;
 
-import com.example.dachuangxiangmu.R;
 
 public class login5 extends AppCompatActivity {
 //    private TextureView textureView;

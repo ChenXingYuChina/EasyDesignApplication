@@ -28,7 +28,7 @@ func (c *Conn) LoadData() ([]byte, error) {
 }
 
 func (c *Conn) CanFinish() error {
-	err := binary.Write(c, binary.LittleEndian, 'f')
+	err := binary.Write(c.c, binary.LittleEndian, 'f')
 	if err != nil {
 		return err
 	}

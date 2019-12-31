@@ -8,15 +8,15 @@ import (
 )
 
 const (
-	imageModel           = `{"type":0, "id":%x}`
-	hyperlinkModel       = `{"type":1, "url":"%s"}`
-	underLineModel       = `{"type":2}`
-	fontSizeModel        = `{"type":3,"value":%d}`
-	textColorModel       = `{"type":4,"value":%d}`
-	backgroundColorModel = `{"type":5,"value":%d}`
-	strikethroughModel   = `{"type":6}`
-	superscriptModel     = `{"type":7}`
-	subscriptModel       = `{"type":8}`
+	imageModel           = `{"id":"%x"}`
+	hyperlinkModel       = `{"id":`+ string(TypeUrl) +`, "url":"%s"}`
+	underLineModel       = `{"id":` + string(underLineId) + `}`
+	fontSizeModel        = `{"id":%d}`
+	textColorModel       = `{"id":%d}`
+	backgroundColorModel = `{"id":%d}`
+	strikethroughModel   = `{"id":` + string(strikethroughID) + `}`
+	superscriptModel     = `{"id":` + string(superscriptId) + `}`
+	subscriptModel       = `{"id":` + string(subscriptId) + `}`
 )
 
 const (
@@ -31,12 +31,13 @@ const (
 	TypeImage = TypeUrl + 1
 )
 
+// rad, blue, yellow, green, purple
 const ColorNumber = 5
 
 var DataDir string
 
 func init() {
-	flag.StringVar(&DataDir, "o", "./", "数据文件存储的目录 默认当前文件夹")
+	flag.StringVar(&DataDir, "r", "./", "数据文件存储的目录 默认当前文件夹")
 }
 
 
@@ -75,7 +76,7 @@ func (r FontSize) ResourceID() int64 {
 }
 
 func (r FontSize) MarshalJSON() ([]byte, error) {
-	return []byte(fmt.Sprintf(fontSizeModel, r)), nil
+	return []byte(fmt.Sprintf(fontSizeModel, r+fontBase)), nil
 }
 
 // 文字颜色
@@ -86,7 +87,7 @@ func (r TextColor) ResourceID() int64 {
 }
 
 func (r TextColor) MarshalJSON() ([]byte, error) {
-	return []byte(fmt.Sprintf(textColorModel, r)), nil
+	return []byte(fmt.Sprintf(textColorModel, r+textColorBase)), nil
 }
 
 //背景色
@@ -159,9 +160,13 @@ var staticMap = map[int8]Resource {
 	textColorBase:TextColor(0),
 	textColorBase+1:TextColor(1),
 	textColorBase+2:TextColor(2),
+	textColorBase+3:TextColor(3),
+	textColorBase+4:TextColor(4),
 	backgroundColorBase:BackgroundColor(0),
 	backgroundColorBase+1:BackgroundColor(1),
 	backgroundColorBase+2:BackgroundColor(2),
+	backgroundColorBase+3:BackgroundColor(3),
+	backgroundColorBase+4:BackgroundColor(4),
 }
 
 func LoadResourcesExceptUrl(id int64) Resource {
@@ -170,7 +175,7 @@ func LoadResourcesExceptUrl(id int64) Resource {
 	} else if uint64(id) >= TypeImage {
 		return ImageInText(id)
 	}
-	panic("don't load url from there")
+	panic("don't load url from here")
 }
 
 var nextIdForImage int64 = TypeImage

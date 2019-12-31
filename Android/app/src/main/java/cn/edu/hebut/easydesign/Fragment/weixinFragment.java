@@ -1,4 +1,4 @@
-package com.example.dachuangxiangmu.Fragment;
+package cn.edu.hebut.easydesign.Fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -6,8 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
-
-import com.example.dachuangxiangmu.R;
+import cn.edu.hebut.easydesign.R;
 
 public class weixinFragment extends Fragment {
     private static weixinFragment weixinFragment;
