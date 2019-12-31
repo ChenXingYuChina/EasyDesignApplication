@@ -1,0 +1,5 @@
+1. 需要从远程加载一个ComplexString的时候使用ComplexStringLoader加载产生一个SpannableString。
+2. 需要将SpannableString发送给后端的时候使用ComplexString产生一个ComplexString。
+然后获取其中的数据和json表示发回去。
+3. 构建一个SpannableString的时候从ComplexStringLoader中用getSpanFromId获取Span。不要new。
+颜色（两种），字体大小需要用base加上具体的大小或颜色常量，也是用这个包内的。具体方式可见switch语句。

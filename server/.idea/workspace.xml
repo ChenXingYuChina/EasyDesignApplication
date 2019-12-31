@@ -4,46 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/asynchronoussIOAndBuffer/machine_test.go" line="105" mnemonic="8" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d0a7dfad-b946-4b9e-9656-b4709cc2ec50" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Android/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/ComplexString/ComplexString.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/ComplexString/ComplexStringFactor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/DataNet/DataNetClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/.gitattributes" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/.idea/.name" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/androidTest/java/com/example/dachuangxiangmu/ExampleInstrumentedTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/com/example/dachuangxiangmu/Activity/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/com/example/dachuangxiangmu/Activity/Splash.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/Splash.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/com/example/dachuangxiangmu/Activity/login1.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/login1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/com/example/dachuangxiangmu/Activity/login2.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/login2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/com/example/dachuangxiangmu/Activity/login3.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/login3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/com/example/dachuangxiangmu/Activity/login4.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/login4.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/com/example/dachuangxiangmu/Activity/login5.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/login5.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/com/example/dachuangxiangmu/Adapter/SplashAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Adapter/SplashAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/com/example/dachuangxiangmu/Fragment/biFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Fragment/biFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/com/example/dachuangxiangmu/Fragment/huojianFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Fragment/huojianFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/com/example/dachuangxiangmu/Fragment/shubiaoFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Fragment/shubiaoFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/com/example/dachuangxiangmu/Fragment/weixinFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Fragment/weixinFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/res/layout/activity_login1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/res/layout/activity_login1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/res/layout/activity_login2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/res/layout/activity_login2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/res/layout/activity_login3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/res/layout/activity_login3.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/res/layout/activity_login4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/res/layout/activity_login4.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/res/layout/activity_login5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/res/layout/activity_login5.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/res/layout/activity_main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/res/layout/fragment_item_list_dialog.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/res/layout/fragment_item_list_dialog.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/res/values/colors.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/test/java/com/example/dachuangxiangmu/ExampleUnitTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/settings.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/textResources.go" beforeDir="false" afterPath="$PROJECT_DIR$/base/textResources.go" afterDir="false" />
-    </list>
+    <list default="true" id="d0a7dfad-b946-4b9e-9656-b4709cc2ec50" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,7 +87,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/base/complexString.go">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="570">
@@ -166,6 +127,24 @@
                 <element signature="e#3560#3579#0" />
                 <element signature="e#3626#3645#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dataNet/connetTable.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="63">
+              <caret line="56" column="21" selection-start-line="56" selection-start-column="21" selection-end-line="56" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/dataNet/define.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="14" selection-start-line="14" selection-end-line="14" />
             </state>
           </provider>
         </entry>
@@ -686,22 +665,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dataNet/define.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="17" column="26" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
-          <folding>
-            <element signature="e#17#53#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="270">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dataNet/connetTable.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-81">
-          <caret line="56" column="21" lean-forward="true" selection-start-line="56" selection-start-column="21" selection-end-line="56" selection-end-column="21" />
-          <folding>
-            <element signature="e#17#42#0" expanded="true" />
-            <element signature="e#303#317#0" />
-          </folding>
+        <state relative-caret-position="63">
+          <caret line="56" column="21" selection-start-line="56" selection-start-column="21" selection-end-line="56" selection-end-column="21" />
         </state>
       </provider>
     </entry>

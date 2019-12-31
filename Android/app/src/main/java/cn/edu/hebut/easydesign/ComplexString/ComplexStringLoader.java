@@ -23,13 +23,13 @@ import java.io.InputStreamReader;
 
 import cn.edu.hebut.easydesign.R;
 
-public class ComplexStringFactor {
+public class ComplexStringLoader {
     private String ImageUrl;
-    private static ComplexStringFactor instance = new ComplexStringFactor();
-    private ComplexStringFactor() {
+    private static ComplexStringLoader instance = new ComplexStringLoader();
+    private ComplexStringLoader() {
         ImageUrl = "localhost:80/getImage?id=";
     }
-    public static ComplexStringFactor GetInstant() {
+    public static ComplexStringLoader GetInstant() {
         return instance;
     }
 

@@ -44,11 +44,11 @@ public class ComplexString implements Serializable {
             if (span instanceof RelativeSizeSpan) {
                 RelativeSizeSpan sizeSpan = (RelativeSizeSpan)span;
                 if (sizeSpan.getSizeChange() == 0.5f) {
-                    resourcesId[i] = ComplexStringFactor.SMALL_FONT_SIZE + ComplexStringFactor.FONT_SIZE_BASE;
+                    resourcesId[i] = ComplexStringLoader.SMALL_FONT_SIZE + ComplexStringLoader.FONT_SIZE_BASE;
                 } else if (sizeSpan.getSizeChange() == 1.5f) {
-                    resourcesId[i] = ComplexStringFactor.BIG_FONT_SIZE + ComplexStringFactor.FONT_SIZE_BASE;
+                    resourcesId[i] = ComplexStringLoader.BIG_FONT_SIZE + ComplexStringLoader.FONT_SIZE_BASE;
                 } else if (sizeSpan.getSizeChange() == 2.0f) {
-                    resourcesId[i] = ComplexStringFactor.HUGE_FONT_SIZE + ComplexStringFactor.FONT_SIZE_BASE;
+                    resourcesId[i] = ComplexStringLoader.HUGE_FONT_SIZE + ComplexStringLoader.FONT_SIZE_BASE;
                 }
                 throw new Exception();
             } else if (span instanceof ImageSpan) {
@@ -61,44 +61,44 @@ public class ComplexString implements Serializable {
                 byte[] data = new byte[inputStream.available()];
                 inputStream.read(data);
                 this.data.add(data);
-                resourcesId[i] = ComplexStringFactor.IMAGE;
+                resourcesId[i] = ComplexStringLoader.IMAGE;
             } else if (span instanceof URLSpan) {
                 data.add(((URLSpan)span).getURL().getBytes());
-                resourcesId[i] = ComplexStringFactor.HYPERLINK;
+                resourcesId[i] = ComplexStringLoader.HYPERLINK;
             } else if (span instanceof UnderlineSpan) {
-                resourcesId[i] = ComplexStringFactor.UNDERLINE;
+                resourcesId[i] = ComplexStringLoader.UNDERLINE;
             } else if (span instanceof ForegroundColorSpan) {
                 ForegroundColorSpan colorSpan = (ForegroundColorSpan)span;
                 if (colorSpan.getForegroundColor() == 0xff0000) {
-                    resourcesId[i] = ComplexStringFactor.TEXT_COLOR_BASE + ComplexStringFactor.RED_COLOR;
+                    resourcesId[i] = ComplexStringLoader.TEXT_COLOR_BASE + ComplexStringLoader.RED_COLOR;
                 } else if (colorSpan.getForegroundColor() == 0x00ff00) {
-                    resourcesId[i] = ComplexStringFactor.TEXT_COLOR_BASE + ComplexStringFactor.GREEN_COLOR;
+                    resourcesId[i] = ComplexStringLoader.TEXT_COLOR_BASE + ComplexStringLoader.GREEN_COLOR;
                 } else if (colorSpan.getForegroundColor() == 0x0000ff) {
-                    resourcesId[i] = ComplexStringFactor.TEXT_COLOR_BASE + ComplexStringFactor.BLUE_COLOR;
+                    resourcesId[i] = ComplexStringLoader.TEXT_COLOR_BASE + ComplexStringLoader.BLUE_COLOR;
                 } else if (colorSpan.getForegroundColor() == 0xffff00) {
-                    resourcesId[i] = ComplexStringFactor.TEXT_COLOR_BASE + ComplexStringFactor.YELLOW_COLOR;
+                    resourcesId[i] = ComplexStringLoader.TEXT_COLOR_BASE + ComplexStringLoader.YELLOW_COLOR;
                 } else if (colorSpan.getForegroundColor() == 0xff00ff) {
-                    resourcesId[i] = ComplexStringFactor.TEXT_COLOR_BASE + ComplexStringFactor.PURPLE_COLOR;
+                    resourcesId[i] = ComplexStringLoader.TEXT_COLOR_BASE + ComplexStringLoader.PURPLE_COLOR;
                 }
             } else if (span instanceof BackgroundColorSpan) {
                 BackgroundColorSpan colorSpan = (BackgroundColorSpan)span;
                 if (colorSpan.getBackgroundColor() == 0xff0000) {
-                    resourcesId[i] = ComplexStringFactor.BACKGROUND_BASE + ComplexStringFactor.RED_COLOR;
+                    resourcesId[i] = ComplexStringLoader.BACKGROUND_BASE + ComplexStringLoader.RED_COLOR;
                 } else if (colorSpan.getBackgroundColor() == 0x00ff00) {
-                    resourcesId[i] = ComplexStringFactor.BACKGROUND_BASE + ComplexStringFactor.GREEN_COLOR;
+                    resourcesId[i] = ComplexStringLoader.BACKGROUND_BASE + ComplexStringLoader.GREEN_COLOR;
                 } else if (colorSpan.getBackgroundColor() == 0x0000ff) {
-                    resourcesId[i] = ComplexStringFactor.BACKGROUND_BASE + ComplexStringFactor.BLUE_COLOR;
+                    resourcesId[i] = ComplexStringLoader.BACKGROUND_BASE + ComplexStringLoader.BLUE_COLOR;
                 } else if (colorSpan.getBackgroundColor() == 0xffff00) {
-                    resourcesId[i] = ComplexStringFactor.BACKGROUND_BASE + ComplexStringFactor.YELLOW_COLOR;
+                    resourcesId[i] = ComplexStringLoader.BACKGROUND_BASE + ComplexStringLoader.YELLOW_COLOR;
                 } else if (colorSpan.getBackgroundColor() == 0xff00ff) {
-                    resourcesId[i] = ComplexStringFactor.BACKGROUND_BASE + ComplexStringFactor.PURPLE_COLOR;
+                    resourcesId[i] = ComplexStringLoader.BACKGROUND_BASE + ComplexStringLoader.PURPLE_COLOR;
                 }
             } else if (span instanceof SuperscriptSpan) {
-                resourcesId[i] = ComplexStringFactor.SUPERSCRIPT;
+                resourcesId[i] = ComplexStringLoader.SUPERSCRIPT;
             } else if (span instanceof SubscriptSpan) {
-                resourcesId[i] = ComplexStringFactor.SUBSCRIPT;
+                resourcesId[i] = ComplexStringLoader.SUBSCRIPT;
             } else if (span instanceof StrikethroughSpan) {
-                resourcesId[i] = ComplexStringFactor.STRIKE_THROUGH;
+                resourcesId[i] = ComplexStringLoader.STRIKE_THROUGH;
             } else {
                 throw new Exception();
             }
