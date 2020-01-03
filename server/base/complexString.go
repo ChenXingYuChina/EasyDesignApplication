@@ -9,26 +9,27 @@ import (
 )
 
 type resources struct {
-	r []int64
-	urls []string
+	Res  []int64 `json:"res"`
+	Urls []string `json:"urls"`
 }
 
 func (r *resources) UnmarshalJSON(d []byte) error {
-	var rr []int64
+	var rr resources
 	err := json.Unmarshal(d, &rr)
-	r.r = rr
+	*r = rr
 	return err
 }
 
 func (r *resources) MarshalJSON() ([]byte, error) {
-	buffer := make([]Resource, 0, len(r.r))
+	buffer := make([]Resource, 0, len(r.Res))
 	c := 0
-	for _, v := range r.r {
+	for _, v := range r.Res {
 		if v == TypeUrl {
-			buffer = append(buffer, HyperLink(r.urls[c]))
+			buffer = append(buffer, HyperLink(r.Urls[c]))
 			c++
+		} else {
+			buffer = append(buffer, LoadResourcesExceptUrl(v))
 		}
-		buffer = append(buffer, LoadResourcesExceptUrl(v))
 	}
 	return json.Marshal(buffer)
 }
@@ -73,15 +74,15 @@ func (s *ComplexString) SaveComplexString(w io.Writer) (err error) {
 	if err != nil {
 		return err
 	}
-	err = binary.Write(w, binary.LittleEndian, s.ResourcesId.r)
+	err = binary.Write(w, binary.LittleEndian, s.ResourcesId.Res)
 	if err != nil {
 		return err
 	}
-	err = binary.Write(w, binary.LittleEndian, uint32(len(s.ResourcesId.urls)))
+	err = binary.Write(w, binary.LittleEndian, uint32(len(s.ResourcesId.Urls)))
 	if err != nil {
 		return err
 	}
-	return SaveStringsToFile(w, s.ResourcesId.urls)
+	return SaveStringsToFile(w, s.ResourcesId.Urls)
 }
 
 func LoadComplexStringFromFile(fileName string) (goal *ComplexString, err error) {
@@ -111,7 +112,7 @@ func LoadComplexString(r io.Reader) (goal *ComplexString, err error) {
 	goal.Content = string(make([]byte, lLow))
 	goal.Positions = make([]int32, lHigh)
 	goal.Widths = make([]int32, lHigh)
-	goal.ResourcesId = resources{r:make([]int64, lHigh)}
+	goal.ResourcesId = resources{Res: make([]int64, lHigh)}
 	_, err = r.Read([]byte(goal.Content))
 	if err != nil {
 		return nil, err
@@ -124,7 +125,7 @@ func LoadComplexString(r io.Reader) (goal *ComplexString, err error) {
 	if err != nil {
 		return nil, err
 	}
-	err = binary.Read(r, binary.LittleEndian, goal.ResourcesId.r)
+	err = binary.Read(r, binary.LittleEndian, goal.ResourcesId.Res)
 	if err != nil {
 		return nil, err
 	}
@@ -133,7 +134,7 @@ func LoadComplexString(r io.Reader) (goal *ComplexString, err error) {
 	if err != nil {
 		return nil, err
 	}
-	goal.ResourcesId.urls, err = LoadStringsFromFile(r, l)
+	goal.ResourcesId.Urls, err = LoadStringsFromFile(r, l)
 	return goal, err
 }
 

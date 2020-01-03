@@ -50,6 +50,7 @@ func (t *table) giveConn(c net.Conn) {
 		}
 		return
 	}
+	//fmt.Println(id)
 	p := id & 7
 	t.locks[p].Lock()
 	m := t.t[p]
@@ -58,8 +59,11 @@ func (t *table) giveConn(c net.Conn) {
 		cw.c <- struct{}{}
 		close(cw.c)
 		delete(t.t[p], id)
+		//fmt.Println("connect")
+		err = binary.Write(c, binary.LittleEndian, byte('s'))
+		//fmt.Println("connect")
 	} else {
-		err = binary.Write(c, binary.LittleEndian, 'a')
+		err = binary.Write(c, binary.LittleEndian, byte('e'))
 		if err != nil {
 			return
 		}

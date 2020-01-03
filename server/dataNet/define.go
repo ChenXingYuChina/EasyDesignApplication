@@ -3,6 +3,7 @@ package dataNet
 import (
 	"context"
 	"encoding/binary"
+	"fmt"
 	"net"
 	"sync"
 )
@@ -14,14 +15,17 @@ type Conn struct {
 }
 
 func (c *Conn) LoadData() ([]byte, error) {
-	length := int64(0)
+	length := int32(0)
 	err := binary.Read(c.c, binary.LittleEndian, &length)
+	fmt.Println(length)
 	if err != nil {
 		return nil, err
 	}
 	goal := make([]byte, length)
 	_, err = c.c.Read(goal)
 	if err != nil {
+		fmt.Println(err)
+		_, _ = c.c.Write([]byte{'e'})
 		return nil, err
 	}
 	return goal, nil
