@@ -1,10 +1,11 @@
 package cn.edu.hebut.easydesign.ComplexString;
 
-import android.app.job.JobScheduler;
 import android.content.Context;
 import android.net.Uri;
+import android.os.IBinder;
 import android.text.SpannableString;
 import android.text.style.BackgroundColorSpan;
+import android.text.style.ClickableSpan;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.ImageSpan;
 import android.text.style.RelativeSizeSpan;
@@ -14,6 +15,7 @@ import android.text.style.SuperscriptSpan;
 import android.text.style.URLSpan;
 import android.text.style.UnderlineSpan;
 import android.util.Log;
+import android.view.View;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -23,24 +25,31 @@ import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.annotation.NonNull;
 import cn.edu.hebut.easydesign.DataManagement.Data;
 import cn.edu.hebut.easydesign.DataManagement.DataManagement;
 import cn.edu.hebut.easydesign.DataManagement.DataType;
 import cn.edu.hebut.easydesign.R;
+import cn.edu.hebut.easydesign.Resources.Media.Image.Image;
+import cn.edu.hebut.easydesign.Resources.Media.Image.ImageLoadTask;
+import cn.edu.hebut.easydesign.TaskWorker.Task;
 
-public class ComplexString implements Data {
-    transient int[] position = null;
-    transient int[] width = null;
-    transient int[] resourcesId = null;
-    transient ArrayList<String> urls = null;
+public class ComplexString {
+    int[] position = null;
+    int[] width = null;
+    int[] resourcesId = null;
+    ArrayList<String> urls = null;
+    transient private ArrayList<String> imageUrls = null;
     transient private ArrayList<byte[]> data = null;
-    transient CharSequence content = null;
-    private long id;
-    private SpannableString string;
+    CharSequence content = null;
+    transient private SpannableString string = null;
 
-    public ComplexString(SpannableString string, long id) {
+    public ComplexString(String string) {
+        this.string = new SpannableString(string);
+    }
+
+    ComplexString(SpannableString string) {
         this.string = string;
-        this.id = id;
     }
 
     /*
@@ -57,6 +66,7 @@ public class ComplexString implements Data {
         width = new int[length];
         resourcesId = new int[length];
         data = new ArrayList<>(length / 5);
+        imageUrls = new ArrayList<>(length / 5);
         for (int i = 0; i < length; i++) {
             Object span = spans[i];
             position[i] = string.getSpanStart(span);
@@ -77,11 +87,12 @@ public class ComplexString implements Data {
                     Log.i("PASS", "ComplexString: pass an image at" + position[i]);
                     continue;
                 }
+                String source = imageSpan.getSource();
                 BufferedInputStream inputStream = new BufferedInputStream(new FileInputStream(imageSpan.getSource()));
                 byte[] data = new byte[inputStream.available()];
                 inputStream.read(data);
                 this.data.add(data);
-                resourcesId[i] = IMAGE;
+                resourcesId[i] = -1;
             } else if (span instanceof URLSpan) {
                 if (urls == null) {
                     urls = new ArrayList<>();
@@ -129,7 +140,7 @@ public class ComplexString implements Data {
     }
 
     public SpannableString GetSpannableString() {
-        return this.string;
+        return string;
     }
 
     public JSONObject toJson() throws Exception {
@@ -174,6 +185,8 @@ public class ComplexString implements Data {
         return data;
     }
 
+
+
     public static final int UNDERLINE = 0;
     public static final int STRIKE_THROUGH = 1;
     public static final int SUPERSCRIPT = 2;
@@ -192,7 +205,7 @@ public class ComplexString implements Data {
     public static final int GREEN_COLOR = 3;
     public static final int PURPLE_COLOR = 4;
 
-    public static Object getSpanFromId(Context ctx, long id, String url) {
+    static Object getSpanFromId(Context ctx, long id, String url) {
         if (id <= HYPERLINK) {
             switch ((int) id) {
                 case HYPERLINK:
@@ -233,16 +246,16 @@ public class ComplexString implements Data {
                     return new SubscriptSpan();
             }
         }
-        return new ImageSpan(ctx, DataManagement.getInstance().GetUriOf(DataType.Image, id));
+        return null;
     }
 
-    @Override
-    public long GetId() {
-        return id;
-    }
-
-    @Override
-    public DataType GetType() {
-        return DataType.Passage;
+    /*
+    it will throw Exception if it adds an image span for net.
+     */
+    public void AddSpan(Context ctx, int start, int width, long id, String url) throws IllegalArgumentException {
+        if (id == IMAGE && url.startsWith("http")) {
+            throw new IllegalArgumentException();
+        }
+        this.string.setSpan(getSpanFromId(ctx, id, url), start, width + start, SpannableString.SPAN_INCLUSIVE_EXCLUSIVE);
     }
 }

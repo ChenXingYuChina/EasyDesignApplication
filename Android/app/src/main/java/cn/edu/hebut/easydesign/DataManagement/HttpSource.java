@@ -7,16 +7,19 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class NetSource implements DataSource {
+public class HttpSource implements DataSource {
     private String netAddress;
 
-    NetSource(String hostName) {
+    HttpSource(String hostName) {
         this.netAddress = hostName + "/";
     }
 
     @Override
     public Uri UriOf(DataType type, long id) {
-        return Uri.parse(netAddress + type.path + "?id=" + id);
+        return Uri.parse(makePath(type, id));
+    }
+    public String makePath(DataType type, long id) {
+        return netAddress + type.path + "?id=" + id;
     }
 
     @Override

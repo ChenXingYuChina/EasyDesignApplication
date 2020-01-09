@@ -131,3 +131,28 @@ func TestMem(t *testing.T) {
 	}
 	fmt.Println(v.UsedPercent)
 }
+
+type A struct {
+	X int `json:"x"`
+}
+
+type B struct {
+	*A
+	Y int `json:"y"`
+}
+
+func TestCombinationJson(t *testing.T) {
+	s, err := json.Marshal(B{&A{1}, 2})
+	if err != nil {
+		t.Fatal(err)
+	}
+	fmt.Println(string(s))
+}
+
+func TestNilJson(t *testing.T) {
+	s, err := json.Marshal([][]int{{1,2,3}, {}, {1,23}})
+	if err != nil {
+		t.Fatal(err)
+	}
+	fmt.Println(string(s))
+}

@@ -33,13 +33,13 @@ func PreparePassageSQL() (uint8, error) {
 }
 
 type PassageBase struct {
-	Id int64
-	Title string
-	Owner int64
-	ListImage int64
-	Like uint32
-	CommentNumber uint32
-	Type int16
+	Id int64 `json:"id"`
+	Title string `json:"title"`
+	Owner int64 `json:"owner"`
+	ListImage int64 `json:"list_image"`
+	Like uint32 `json:"like"`
+	CommentNumber uint32 `json:"com"`
+	Type int16 `json:"type"`
 }
 
 func LoadPassageBase(row *sql.Row) (*PassageBase, error) {

@@ -13,11 +13,11 @@ var (
 )
 
 type CommentBase struct {
-	Passage int64
-	Owner int64
-	Like uint32
-	Position uint32
-	SubCommentNumber uint16
+	Passage int64 `json:"passage"`
+	Owner int64 `json:"owner"`
+	Like uint32 `json:"like"`
+	Position uint32 `json:"position"`
+	SubCommentNumber uint16 `json:"sub_com_number"`
 }
 
 func PrepareCommentSQL() (uint8, error) {

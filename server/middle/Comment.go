@@ -12,7 +12,7 @@ const (
 )
 
 type Comment struct {
-	Content *base.ComplexString
+	Content *base.ComplexString `json:"content"`
 	*base.CommentBase
 }
 var commentBodyRealFilename string

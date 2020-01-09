@@ -2,16 +2,9 @@ package cn.edu.hebut.easydesign.ComplexString;
 
 import android.content.Context;
 import android.net.Uri;
+import android.os.IBinder;
 import android.text.SpannableString;
-import android.text.style.BackgroundColorSpan;
-import android.text.style.ForegroundColorSpan;
 import android.text.style.ImageSpan;
-import android.text.style.RelativeSizeSpan;
-import android.text.style.StrikethroughSpan;
-import android.text.style.SubscriptSpan;
-import android.text.style.SuperscriptSpan;
-import android.text.style.URLSpan;
-import android.text.style.UnderlineSpan;
 import android.util.Log;
 
 import org.json.JSONArray;
@@ -23,57 +16,88 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
 
-import cn.edu.hebut.easydesign.DataManagement.Data;
-import cn.edu.hebut.easydesign.DataManagement.DataLoader;
-import cn.edu.hebut.easydesign.DataManagement.DataManagement;
-import cn.edu.hebut.easydesign.DataManagement.DataType;
-import cn.edu.hebut.easydesign.R;
+import cn.edu.hebut.easydesign.Resources.Media.Image.ImageLoadCallback;
+import cn.edu.hebut.easydesign.Resources.Media.Image.ImageLoadTask;
+import cn.edu.hebut.easydesign.TaskWorker.TaskService;
 
-import static cn.edu.hebut.easydesign.ComplexString.ComplexString.getSpanFromId;
+import static cn.edu.hebut.easydesign.ComplexString.ComplexString.HYPERLINK;
 
-public class ComplexStringLoader implements DataLoader {
-    public ComplexStringLoader() {
+public class ComplexStringLoader {
+    private static ComplexStringLoader instance = new ComplexStringLoader();
+
+    public static ComplexStringLoader getInstance() {
+        return instance;
+    }
+
+    private ComplexStringLoader() {
 
     }
 
     // exception which is not caught in any step means the making process failure
-    public Data LoadFromNet(Context ctx, InputStream in, long id) throws Exception {
-        JSONObject complexString = new JSONObject(new BufferedReader(new InputStreamReader(in)).readLine());
-        SpannableString goal = new SpannableString(complexString.getString("content"));
+    public ComplexString LoadFromNet(Context ctx, IBinder binder, InputStream in) throws Exception {
+        return LoadFromNet(ctx, binder, new JSONObject(new BufferedReader(new InputStreamReader(in)).readLine()));
+    }
+
+    public ComplexString LoadFromNet(Context ctx, IBinder binder, JSONObject complexString) throws Exception {
+        SpannableString string = new SpannableString(complexString.getString("content"));
         JSONArray positions, widths, resources;
         positions = complexString.getJSONArray("position");
         try {
             widths = complexString.getJSONArray("width");
+            resources = complexString.getJSONArray("resources");
         } catch (Exception e) {
-            return new ComplexString(goal, id);
+            return new ComplexString(string);
         }
-        resources = complexString.getJSONArray("resources");
         int length = positions.length();
         for (int i = 0; i < length; i++) {
             int start = positions.getInt(i);
             int end = start + widths.getInt(i);
-            try {
-                goal.setSpan(getSpanFromJson(ctx, resources.getJSONObject(i)), start, end, SpannableString.SPAN_INCLUSIVE_EXCLUSIVE);
-            } catch (Exception e) {
-                Log.i("PASS", "MakeComplexString: pass resource looks like" + resources.get(i).toString());
-            }
+            AddSpan(ctx, string, resources.getJSONObject(i), (TaskService.MyBinder) binder, start, end);
         }
-        return new ComplexString(goal, id);
+        return new ComplexString(string);
     }
 
-    private Object getSpanFromJson(Context ctx, JSONObject object) throws Exception {
+    private void AddSpan(final Context ctx, final SpannableString string, JSONObject object, TaskService.MyBinder binder, final int start, final int end) throws Exception {
         String url;
         try {
             url = object.getString("url");
         } catch (JSONException e) {
             url = null;
         }
-        return ComplexString.getSpanFromId(ctx, object.getLong("id"), url);
+        AddSpan(ctx, string, binder, object.getLong("id"), url, start, end);
     }
 
-    @Override
-    public Data LoadFromCache(Context ctx, InputStream stream, long id) throws Exception {
-        ObjectInputStream objectInputStream = new ObjectInputStream(stream);
-        return (Data) objectInputStream.readObject();
+    private void AddSpan(final Context ctx, final SpannableString string, TaskService.MyBinder binder, long id, String url, final int start, final int end) throws Exception {
+        if (id >= ComplexString.IMAGE) {
+            binder.PutTask(new ImageLoadTask(id, new ImageLoadCallback() {
+                @Override
+                public void callback(Uri localUri) {
+                    string.setSpan(new ImageSpan(ctx, localUri), start, end, SpannableString.SPAN_INCLUSIVE_EXCLUSIVE);
+                }
+            }));
+            return;
+        }
+        string.setSpan(ComplexString.getSpanFromId(ctx, id, url), start, end, SpannableString.SPAN_INCLUSIVE_EXCLUSIVE);
     }
+
+    public ComplexString LoadFromCache(Context ctx, IBinder binder, InputStream stream) throws Exception {
+        ObjectInputStream objectInputStream = new ObjectInputStream(stream);
+        ComplexString complexString = (ComplexString) objectInputStream.readObject();
+        SpannableString goal = new SpannableString(complexString.content);
+        int c = 0;
+        for (int i : complexString.position) {
+            int start = complexString.position[i];
+            int end = start + complexString.width[i];
+            long rid = complexString.resourcesId[i];
+            try {
+                AddSpan(ctx, complexString.GetSpannableString(), (TaskService.MyBinder) binder, rid, complexString.urls.get(c), start, end);
+                if (rid == HYPERLINK) c++;
+            } catch (Exception e) {
+                Log.i("PASS", "LoadComplexStringFromCache: pass resource's id: " + rid);
+            }
+        }
+        complexString.content = goal;
+        return complexString;
+    }
+
 }

@@ -31,22 +31,20 @@ func PreparePassageDir() {
 }
 
 type Passage struct {
-	Body        *base.ComplexString
-	Id          int64
-	MediaLinked *base.MultiMediaMetadata
+	Body        *base.ComplexString `json:"body"`
+	Id          int64 `json:"id"`
+	MediaLinked *base.MultiMediaMetadata `json:"media"`
 }
 
 
 func loadPassageFromDisk(id int64) (*Passage, error) {
 	goal := &Passage{Id:id}
-	var err error
-	goal.Body, err = base.LoadComplexStringFromFile(fmt.Sprintf(passageBodyRealFilename, id))
-	if err != nil {
-		return nil, err
-	}
-	goal.MediaLinked, err = base.LoadMultiMediaMetadata(id)
-	if err != nil {
-		return nil, err
+	var err1 error
+	var err2 error
+	goal.Body, err1 = base.LoadComplexStringFromFile(fmt.Sprintf(passageBodyRealFilename, id))
+	goal.MediaLinked, err2 = base.LoadMultiMediaMetadata(id)
+	if err1 != nil && err2 != nil {
+		return nil, err1
 	}
 	return goal, nil
 }

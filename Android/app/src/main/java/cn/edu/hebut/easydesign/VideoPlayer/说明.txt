@@ -1,0 +1,2 @@
+先放在这里占个位置，可以考虑的实现方式有udp加实现MediaDataSource但是需要api23，或者选择rtsp。
+现在可以先用http来将就，依照具体进度。

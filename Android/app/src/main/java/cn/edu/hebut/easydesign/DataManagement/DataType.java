@@ -6,7 +6,8 @@ import androidx.annotation.NonNull;
 add the other resources which need to cache to here.
  */
 public enum DataType {
-    Image("image", 0), Passage("passage", 5 * 3600000), UserMini("userMini", 24 * 3600000);
+    Image("image", 0), Passage("passage", 2 * 3600000), UserMini("userMini", 24 * 3600000),
+    Audio("audio", 0);
 
     /*
      the dir and the net api path of this type

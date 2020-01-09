@@ -32,16 +32,32 @@ func LastPassageListByTypeLast(passageType int16, begin int64, length uint8) (Pa
 }
 
 func LoadHotPassageList(passageType int16, begin int64, length uint8) (PassageList, []*base.UserMini, error) {
-	pList, uList := lastTable.getPassageListFromCache(passageType)
+	pList, uList := hotTable.getPassageListFromCache(passageType)
 	l := int64(len(pList))
 	if begin > l {
 		return PassageList{}, []*base.UserMini{}, nil
 	} else {
-		end := begin + int64(begin)
+		end := begin + int64(length)
 		if end >= l {
 			return pList[begin:], uList, nil
 		} else {
 			return pList[begin:end], uList[begin:end], nil
 		}
 	}
+}
+
+func LoadFullPassageFromHot(passageType int16, passageId int64) (*FullPassage, GetFunction) {
+	p := hotTable.getPassageFromCache(passageType, passageId)
+	if p != nil {
+		return p, nil
+	}
+	return nil, loadPassage(passageId)
+}
+
+func LoadFullPassageFromLast(passageType int16, passageId int64) (*FullPassage, GetFunction) {
+	p := lastTable.getPassageFromCache(passageType, passageId)
+	if p != nil {
+		return p, nil
+	}
+	return nil, loadPassage(passageId)
 }

@@ -14,12 +14,12 @@ var (
 )
 
 type SubComment struct {
-	Passage int64
-	Owner int64
-	Content string
-	Like uint32
-	Father uint32
-	Position uint16
+	Passage int64 `json:"passage"`
+	Owner int64 `json:"owner"`
+	Content string `json:"content"`
+	Like uint32 `json:"like"`
+	Father uint32 `json:"father"`
+	Position uint16 `json:"position"`
 }
 
 func PrepareSubCommentSQL() (uint8, error) {

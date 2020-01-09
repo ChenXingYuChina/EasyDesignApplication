@@ -52,9 +52,9 @@ func PrepareMultiMediaSQL() (uint8, error) {
 }
 
 type MultiMediaMetadata struct {
-	Id      int64
-	Length  int64
-	Type    uint8
+	Id      int64 `json:"id"`
+	Length  int64 `json:"length"`
+	Type    uint8 `json:"type"`
 	DataIds []int64
 }
 

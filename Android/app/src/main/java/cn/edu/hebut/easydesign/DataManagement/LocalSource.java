@@ -45,6 +45,27 @@ class LocalSource implements DataSource {
         }
     }
 
+    boolean inCache(DataType type, long id) {
+        if (type.keepTime != 0) {
+            String path = makePath(type, id);
+            File f = new File(path);
+            if (!f.exists()) {
+                return false;
+            }
+            if ((new Date()).getTime() - f.lastModified() > keepTime) {
+                if (!f.delete()) {
+                    f.deleteOnExit();
+                }
+                return false;
+            }
+            return true;
+        } else {
+            String path = makePath(type, id);
+            File f = new File(path);
+            return f.exists();
+        }
+    }
+
     @Override
     public InputStream Load(DataType type, long id) {
         if (type.keepTime != 0) {
@@ -92,7 +113,7 @@ class LocalSource implements DataSource {
         }
     }
 
-    private String makePath(DataType type, long id) {
+    public String makePath(DataType type, long id) {
         return filePath + File.separator +
                 type.path +
                 File.separator +

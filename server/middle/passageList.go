@@ -40,7 +40,7 @@ func PreparePassageListSQL() (uint8, error) {
 
 type PassageListItem struct {
 	*base.PassageBase
-	WorkshopId int64
+	WorkshopId int64 `json:"workshop"`
 }
 
 type PassageList []PassageListItem

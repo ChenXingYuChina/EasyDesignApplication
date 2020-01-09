@@ -1,7 +1,7 @@
-1. 需要从远程加载一个ComplexString的时候请使用DataManagement
-2. 需要将SpannableString发送给后端的时候使用构造函数产生一个ComplexString。
-然后获取其中的数据和json表示发回去。
-数据使用DataNet发回，json使用http
+1. 需要从远程加载一个ComplexString的时候请使用DataManagement，由于ComplexString仅作为其他部分的一个组件
+2. 需要将ComplexString发送给后端的时候使用。
+通过其toJson获取json表示。
+数据使用DataNet发回，json使用http。
 先POST json 等到收到反馈（状态号500）后用DataNet发送data。
-3. 构建一个SpannableString的时候从ComplexStringLoader中用getSpanFromId获取Span。不要new。
+3. 构建一个SpannableString的时候从ComplexStringLoader中用AddSpan根据标号添加。不要new。
 颜色（两种），字体大小：需要用对应base加上具体的大小或颜色常量，也是用这个包内的。具体方式可见switch语句。

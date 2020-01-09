@@ -18,10 +18,10 @@ func UserMiniSQLPrepare() (int, error) {
 }
 
 type UserMini struct {
-	UserId  int64
-	UserName string
-	HeadImage int64
-	Identity uint8
+	UserId  int64 `json:"id"`
+	UserName string `json:"name"`
+	HeadImage int64 `json:"head_image"`
+	Identity uint8 `json:"identity"`
 }
 
 func GetUserMini(ids []int64) []*UserMini {

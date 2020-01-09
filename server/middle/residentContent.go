@@ -10,8 +10,8 @@ import (
 
 type FullPassage struct {
 	*Passage
-	Comments    []*Comment
-	SubComments [][]*base.SubComment
+	Comments    []*Comment  `json:"com"`
+	SubComments [][]*base.SubComment `json:"sub_com"`
 }
 
 func loadFullPassage(id int64) (*FullPassage, error) {
