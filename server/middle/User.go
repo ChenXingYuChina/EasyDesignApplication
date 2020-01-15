@@ -43,16 +43,11 @@ func loadNotDesigner(id int64) (*NotDesigner, error) {
 	}
 	c, err := base.LoadComplexStringFromFile(fmt.Sprintf(userLongDescriptionRealFileName, id))
 	if err != nil {
-		base.RecycleUser(userBase)
 		return nil, err
 	}
 	return &NotDesigner{UserBase:userBase, LongDescription:c}, nil
 }
 
-func RecycleNotDesigner(n *NotDesigner) {
-	base.RecycleComplexString(n.LongDescription)
-	base.RecycleUser(n.UserBase)
-}
 
 type Designer struct {
 	*base.UserBase
@@ -84,16 +79,11 @@ func loadDesigner(id int64) (*Designer, error) {
 	}
 	goal.LongDescription, err = base.LoadComplexStringFromFile(fmt.Sprintf(userLongDescriptionRealFileName, id))
 	if err != nil {
-		base.RecycleUser(goal.UserBase)
 		return nil, err
 	}
 	return goal, nil
 }
 
-func RecycleDesigner(d *Designer) {
-	base.RecycleUser(d.UserBase)
-	base.RecycleComplexString(d.LongDescription)
-}
 
 func ChangeUsersLongDescription(new *base.ComplexString, who int64) error {
 	err := new.SaveComplexStringToFile(fmt.Sprintf(userLongDescriptionRealFileName, who))

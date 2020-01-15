@@ -1,15 +1,17 @@
 package base
 
 import (
-	"bytes"
+"bytes"
+	"crypto/md5"
 	"encoding/binary"
-	"encoding/json"
-	"fmt"
-	"github.com/shirou/gopsutil/mem"
+"encoding/json"
+"fmt"
+"github.com/shirou/gopsutil/mem"
+	"go/src/encoding/hex"
 	"strings"
-	"sync"
-	"testing"
-	"time"
+"sync"
+"testing"
+"time"
 )
 
 func TestA(t *testing.T) {
@@ -156,3 +158,23 @@ func TestNilJson(t *testing.T) {
 	}
 	fmt.Println(string(s))
 }
+
+func TestMd5(t *testing.T) {
+	m := md5.Sum([]byte("hello world"))
+	fmt.Println(hex.EncodeToString(m[:]))
+}
+
+func TestA2(t *testing.T) {
+	fmt.Println([]byte("hello world"))
+	m := md5.Sum([]byte("hello world"))
+	fmt.Println(hex.EncodeToString(m[:]))
+	k := []int{94, -74, 59, -69, -32, 30, -18, -48, -109, -53, 34, -69, -113, 90, -51, -61}
+	for i := 0; i < 16; i++ {
+		if int(m[i]) != k[i] {
+			t.Log(i, m[i])
+		}
+
+	}
+	//fmt.Println(hex.EncodeToString(m[:]))
+}
+

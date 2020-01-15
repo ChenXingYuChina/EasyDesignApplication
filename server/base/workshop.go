@@ -52,8 +52,8 @@ func PrepareWorkshopSQL() (uint8, error) {
 type WorkShopBase struct {
 	Member        []int64
 	Position      []int16
-	Name          string
 	Id            int64
+	Name          string
 	HeadImage     int64
 	FansNumber    int32
 	PassageNumber int32

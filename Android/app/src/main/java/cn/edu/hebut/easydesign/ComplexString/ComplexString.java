@@ -1,11 +1,8 @@
 package cn.edu.hebut.easydesign.ComplexString;
 
 import android.content.Context;
-import android.net.Uri;
-import android.os.IBinder;
 import android.text.SpannableString;
 import android.text.style.BackgroundColorSpan;
-import android.text.style.ClickableSpan;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.ImageSpan;
 import android.text.style.RelativeSizeSpan;
@@ -15,7 +12,6 @@ import android.text.style.SuperscriptSpan;
 import android.text.style.URLSpan;
 import android.text.style.UnderlineSpan;
 import android.util.Log;
-import android.view.View;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -25,14 +21,7 @@ import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import androidx.annotation.NonNull;
-import cn.edu.hebut.easydesign.DataManagement.Data;
-import cn.edu.hebut.easydesign.DataManagement.DataManagement;
-import cn.edu.hebut.easydesign.DataManagement.DataType;
 import cn.edu.hebut.easydesign.R;
-import cn.edu.hebut.easydesign.Resources.Media.Image.Image;
-import cn.edu.hebut.easydesign.Resources.Media.Image.ImageLoadTask;
-import cn.edu.hebut.easydesign.TaskWorker.Task;
 
 public class ComplexString {
     int[] position = null;

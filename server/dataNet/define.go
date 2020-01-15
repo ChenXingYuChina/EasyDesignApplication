@@ -39,6 +39,11 @@ func (c *Conn) CanFinish() error {
 	return nil
 }
 
+
+func (c *Conn) Finish() error {
+	return c.c.Close()
+}
+
 func Accept(context context.Context, id int64) *Conn {
 	cw := connectTable.addListen(id)
 	select {
@@ -65,4 +70,5 @@ func Start(listenAddress string) {
 		}
 	}(l)
 }
+
 

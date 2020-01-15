@@ -3,7 +3,7 @@ create table Users (
 	name varchar(40),
 	Email text unique,
 	phone_number varchar(20),
-	password varchar(20),
+	password varchar(128) not null,
 	coin bigint,
 	fans_number bigint default 0,
 	follower_number bigint default 0,

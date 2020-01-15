@@ -20,6 +20,7 @@ public class TaskService extends Service {
     public void onCreate() {
         worker = new TaskWorker();
         childThread = new Thread(worker);
+        childThread.start();
     }
 
     public class MyBinder extends Binder {
@@ -39,6 +40,9 @@ public class TaskService extends Service {
             }
             TaskService.this.onCreate();
             return true;
+        }
+        public void clear(Object token) {
+            TaskService.this.worker.clear(token);
         }
     }
 }

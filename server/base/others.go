@@ -35,7 +35,6 @@ func InTransaction(action func(tx *sql.Tx) ([]string, error)) error {
 	return tx.Commit()
 }
 
-
 func CheckAndMakeDir(name string) {
 	_, err := os.Stat(name)
 	if err != nil && os.IsNotExist(err) {
@@ -44,4 +43,16 @@ func CheckAndMakeDir(name string) {
 			panic(fmt.Sprintf("init fail: %e", err))
 		}
 	}
+}
+
+func OpenWhenExistOrCreate(name string) *os.File {
+	goal, err := os.Open(name)
+	if err != nil && os.IsNotExist(err) {
+		goal, err = os.Create(name)
+		if err != nil {
+			panic(err)
+		}
+		return goal
+	}
+	return goal
 }

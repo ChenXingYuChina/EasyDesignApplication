@@ -26,7 +26,7 @@ public class DataManagement {
     private HttpSource net;
     private DataLoader[] loader;
 
-    private static final String netAddress = "http://localhost:80";
+    public static final String netAddress = "192.168.31.216";
 
     private DataManagement() {
         loader = new DataLoader[DataType.values().length];
