@@ -13,10 +13,9 @@ public class Session {
     long sessionKey;
     long userId;
     DataNetClient dataNetClient;
-    public boolean login(String session) {
+    public boolean login(JSONObject session) {
         try {
-            JSONObject s = new JSONObject(session);
-            sessionKey = s.getLong("session_key");
+            sessionKey = session.getLong("session_key");
         } catch (Exception e) {
             return false;
         }

@@ -1,0 +1,2 @@
+Client类是对OkHttp的封装。使用的时候可以通过其对外暴露的函数或者是通过直接调用client成员来进行http请求
+Form包是对于OkHttp post field的封装需要使用此包中的field来构建Form来请求，请按需求继承FormField扩展。

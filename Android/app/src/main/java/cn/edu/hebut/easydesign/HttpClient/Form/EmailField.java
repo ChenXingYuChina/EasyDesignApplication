@@ -7,7 +7,7 @@ public class EmailField extends TextField {
     }
     private void check() throws Exception {
         if (data == null) {
-            throw new IllegalArgumentException();
+            throw new Exception();
         }
     }
 }

@@ -26,7 +26,7 @@ public class PasswordField implements FormField {
     }
 
     private void check() throws Exception {
-        // todo check if the password is right throw Exception will wrong
+        // todo check if the password is right throw Exception means wrong
     }
 
     private void toMD5() {

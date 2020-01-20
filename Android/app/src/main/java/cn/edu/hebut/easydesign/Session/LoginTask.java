@@ -2,6 +2,8 @@ package cn.edu.hebut.easydesign.Session;
 
 import android.util.Log;
 
+import org.json.JSONObject;
+
 import java.io.IOException;
 
 import cn.edu.hebut.easydesign.TaskWorker.BaseTasks.HostPostTask;
@@ -50,7 +52,7 @@ public abstract class LoginTask extends HostPostTask {
                 if (s == null) {
                     return 701;
                 }
-                if (!Session.getSession().login(s)) {
+                if (!Session.getSession().login(new JSONObject(s))) {
                     return 702;
                 }
             } else {

@@ -2,66 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="54da2308-b95c-40ae-9a28-a3d3ac1f19d6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Resources/Media/Image/ImageCrossSiteLoadTask.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/TaskWorker/BaseTasks/CrossSiteHttpTask.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/action/image.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/base/ComplexString/ComplexString_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/base/MultiMedia/data.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/base/MultiMedia/image.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/base/MultiMedia/multiMedia_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/base/Passage/passage_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/base/comment/comment_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/base/prepare.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/base/user/User_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/base/user/email.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/base/user/password.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/base/user/phoneNumber.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/base/user/prepare.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/base/user/workshop_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/middle/prepare.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/FirstPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/FirstPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/ComplexString/ComplexStringLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/ComplexString/ComplexStringLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/DataManagement/DataManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/DataManagement/DataManagement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/HttpClient/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/HttpClient/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Resources/Media/Image/ImageLoadCallback.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Resources/Media/Image/ImageLoadTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Resources/Media/Image/ImageHostLoadTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/TaskWorker/BaseTasks/HostGetTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/TaskWorker/BaseTasks/HostGetTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/TaskWorker/Condition.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/TaskWorker/Condition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e8811a92-2a10-4437-b30e-ea9f72e52b6a.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e8811a92-2a10-4437-b30e-ea9f72e52b6a/storage_v2/_src_/database/easyDesign.YIivsw.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e8811a92-2a10-4437-b30e-ea9f72e52b6a/storage_v2/_src_/database/easyDesign.YIivsw/schema/public.abK9xQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/server.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/action/handle.go" beforeDir="false" afterPath="$PROJECT_DIR$/action/handle.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/action/inCmd_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/action/inCmd_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/action/session/mission.go" beforeDir="false" afterPath="$PROJECT_DIR$/action/session/mission.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/action/session/sessionTable.go" beforeDir="false" afterPath="$PROJECT_DIR$/action/session/sessionTable.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/action/session/session_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/action/session/session_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/action/协议/协议.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/asynchronoussIOAndBuffer/define.go" beforeDir="false" afterPath="$PROJECT_DIR$/asynchronoussIOAndBuffer/define.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/Comment.go" beforeDir="false" afterPath="$PROJECT_DIR$/base/comment/CommentBase.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/MultiMediaResource.go" beforeDir="false" afterPath="$PROJECT_DIR$/base/MultiMedia/MultiMediaResource.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/Passage.go" beforeDir="false" afterPath="$PROJECT_DIR$/base/Passage/PassageBase.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/Password_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/base/user/Password_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/SubComment.go" beforeDir="false" afterPath="$PROJECT_DIR$/base/comment/SubComment.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/User.go" beforeDir="false" afterPath="$PROJECT_DIR$/base/user/User.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/UserMini.go" beforeDir="false" afterPath="$PROJECT_DIR$/base/user/UserMini.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/complexString.go" beforeDir="false" afterPath="$PROJECT_DIR$/base/ComplexString/complexString.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/others.go" beforeDir="false" afterPath="$PROJECT_DIR$/base/others.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/textResources.go" beforeDir="false" afterPath="$PROJECT_DIR$/base/ComplexString/textResources.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/workshop.go" beforeDir="false" afterPath="$PROJECT_DIR$/base/user/workshop.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataNet/define.go" beforeDir="false" afterPath="$PROJECT_DIR$/dataNet/define.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middle/Comment.go" beforeDir="false" afterPath="$PROJECT_DIR$/base/comment/Comment.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middle/PassageWithBody.go" beforeDir="false" afterPath="$PROJECT_DIR$/base/Passage/PassageWithBody.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middle/User.go" beforeDir="false" afterPath="$PROJECT_DIR$/base/user/UserFull.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middle/dataManager.go" beforeDir="false" afterPath="$PROJECT_DIR$/middle/dataManager.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middle/errors.go" beforeDir="false" afterPath="$PROJECT_DIR$/base/user/errors.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middle/passageList.go" beforeDir="false" afterPath="$PROJECT_DIR$/base/Passage/passageList.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middle/passageLoader.go" beforeDir="false" afterPath="$PROJECT_DIR$/middle/passageLoader.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middle/workshop.go" beforeDir="false" afterPath="$PROJECT_DIR$/base/user/workshopFull.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/HttpClient/怎么用.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Session/怎么用.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/TaskWorker/怎么用.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/HttpClient/Form/EmailField.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/HttpClient/Form/EmailField.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/HttpClient/Form/PasswordField.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/HttpClient/Form/PasswordField.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Session/LoginTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Session/LoginTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Session/Session.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Session/Session.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -281,7 +228,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="952" />
     <option name="y" value="-8" />
     <option name="width" value="976" />
@@ -489,7 +436,7 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1096" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15511727" />

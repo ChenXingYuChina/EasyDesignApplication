@@ -1,0 +1,9 @@
+通过bind方式连接TaskService之后将获得的binder转换为MyBinder之后通过其发送Task
+通过继承Task或者其子类来实现一些功能，其中doOnMain代表将在UI线程中运行的程序，
+doOnService是在工作线程中运行的程序，根据继承和调用关系可以推断替他函数运行的位置，
+pushTask并不阻塞UI线程，但在工作线程中工作的任务会根据push的顺序来完成，
+
+Task类中的delay为其在doOnService与doOnMain之间的间隔时间，
+data1与data2是可以存储的数据根据泛型可以进一步定制。
+
+Condition类是对跨线程数据的封装可以根据需要使用。
