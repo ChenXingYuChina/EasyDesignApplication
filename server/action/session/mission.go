@@ -21,7 +21,7 @@ var updateTime = []int64{1, lastOne:1}
 
 type missions []uint8
 
-func (m missions) Do(num uint8, lastActive int64) bool {
+func (m missions) Do(num uint8) bool {
 	m[num]++
 	f := finishNum[num]
 	if m[num] == f {

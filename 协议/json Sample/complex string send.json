@@ -1,0 +1,11 @@
+{
+  "content": "(string)",
+  "position": [1, 2],
+  "width": [1, 2],
+  "resources": [
+    {
+      "id": 0,
+      "url": "(string)" // just for url
+    }
+  ]
+}

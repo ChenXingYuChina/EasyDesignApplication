@@ -1,0 +1,9 @@
+{
+  "content": "(string)",
+  "position": [1, 2],
+  "width": [1, 2],
+  "resources": {
+    "res": [1, 2],
+    "urls": ["(string)", "(string)"]
+  }
+}

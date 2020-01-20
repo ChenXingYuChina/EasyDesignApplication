@@ -16,8 +16,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
 
-import cn.edu.hebut.easydesign.Resources.Media.Image.ImageLoadCallback;
-import cn.edu.hebut.easydesign.Resources.Media.Image.ImageLoadTask;
+import cn.edu.hebut.easydesign.Resources.Media.Image.ImageHostLoadTask;
 import cn.edu.hebut.easydesign.TaskWorker.TaskService;
 
 import static cn.edu.hebut.easydesign.ComplexString.ComplexString.HYPERLINK;
@@ -69,12 +68,17 @@ public class ComplexStringLoader {
 
     private void AddSpan(final Context ctx, final SpannableString string, TaskService.MyBinder binder, long id, String url, final int start, final int end) throws Exception {
         if (id >= ComplexString.IMAGE) {
-            binder.PutTask(new ImageLoadTask(id, new ImageLoadCallback() {
+            binder.PutTask(new ImageHostLoadTask(id){
                 @Override
-                public void callback(Uri localUri) {
-                    string.setSpan(new ImageSpan(ctx, localUri), start, end, SpannableString.SPAN_INCLUSIVE_EXCLUSIVE);
+                protected long getId() {
+                    return 0;
                 }
-            }));
+
+                @Override
+                protected void doOnMain() {
+                    string.setSpan(new ImageSpan(ctx, data2), start, end, SpannableString.SPAN_INCLUSIVE_EXCLUSIVE);
+                }
+            });
             return;
         }
         string.setSpan(ComplexString.getSpanFromId(ctx, id, url), start, end, SpannableString.SPAN_INCLUSIVE_EXCLUSIVE);

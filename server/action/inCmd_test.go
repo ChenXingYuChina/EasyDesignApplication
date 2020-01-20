@@ -1,7 +1,6 @@
 package action
 
 import (
-	"EasyDesignApplication/server/action/session"
 	"EasyDesignApplication/server/base"
 	"fmt"
 	"testing"
@@ -77,13 +76,5 @@ func TestChangePassword(t *testing.T) {
 	e = base.Email("abc@abc.com")
 	if !u.ChangePassword(pw, base.Password(GenPasswordInBack("hello world"))) {
 		t.Error("fall")
-	}
-}
-
-func TestSignUpMakeFile(t *testing.T) {
-	session.InitSessionDir()
-	err := session.CreateFileForSignUp(36)
-	if err != nil {
-		t.Fatal(err)
 	}
 }

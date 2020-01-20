@@ -49,7 +49,7 @@ func (t *sessionTable) del(id int64) {
 }
 
 func (t *sessionTable) cleaner() {
-	i := 0
+	i := uint8(0)
 	ticker := time.NewTicker(time.Duration(t.stopTime))
 	buffer := make([]*Session, 0 ,10)
 	for {
@@ -84,6 +84,7 @@ func (t *sessionTable) cleaner() {
 		} else {
 			buffer = make([]*Session, 0, 50)
 		}
+		i++
 	}
 }
 
@@ -203,6 +204,7 @@ func Logout(w http.ResponseWriter, r *http.Request) {
 	}
 	if id, ok := httpTools.GetInt64FromForm(r.Form, "id"); ok {
 		st.del(id)
+		_, _ = w.Write([]byte("success"))
 	} else {
 		w.WriteHeader(400)
 	}

@@ -48,10 +48,16 @@ public class Client {
         return client.newCall(new Request.Builder().url(host.url() + url).build()).execute();
     }
 
-    // full url call for the resources in other host
+    /*
+    full url call for the resources in other host
+     */
     public Response Get(String url) throws Exception {
         return client.newCall(new Request.Builder().url(url).build()).execute();
     }
+
+    /*
+    full url call for the resources in other host
+     */
     public Response Get(URL url) throws Exception {
         return client.newCall(new Request.Builder().url(url).build()).execute();
     }

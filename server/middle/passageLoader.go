@@ -2,7 +2,7 @@ package middle
 
 import "EasyDesignApplication/server/base"
 
-func LastPassageListByTypeLast(passageType int16, begin int64, length uint8) (PassageList, []*base.UserMini, error) {
+func LoadLastPassageListByType(passageType int16, begin int64, length uint8) (PassageList, []*base.UserMini, error) {
 	pList, uList := lastTable.getPassageListFromCache(passageType)
 	l := int64(len(pList))
 	var err error

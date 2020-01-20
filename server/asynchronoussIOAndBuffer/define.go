@@ -57,6 +57,9 @@ func (LoadFail) GetKey() Key {
 
 var DataManager DataMachine
 
+/*
+called
+ */
 func Init(source map[uint8]DataSource, start bool) {
 	rPool := new(resultPool)
 	rPool.New = func() interface{} {

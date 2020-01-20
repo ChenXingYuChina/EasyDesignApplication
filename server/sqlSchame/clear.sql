@@ -1,0 +1,13 @@
+delete from subcomment;
+delete from comment;
+delete from follow;
+delete from passage_tag;
+delete from public_link;
+delete from school_link;
+delete from unauthorized;
+delete from work;
+delete from workshop_member_link;
+delete from workshop_passage;
+delete from workshop;
+delete from passages;
+delete from users;

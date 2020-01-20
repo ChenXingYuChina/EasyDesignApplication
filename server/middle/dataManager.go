@@ -3,6 +3,8 @@ package middle
 import (
 	"EasyDesignApplication/server/asynchronoussIOAndBuffer"
 	"EasyDesignApplication/server/base"
+	"EasyDesignApplication/server/base/MultiMedia"
+	"EasyDesignApplication/server/base/Passage"
 )
 
 const (
@@ -14,7 +16,7 @@ const (
 
 type GetFunction func() (asynchronoussIOAndBuffer.Bean, error)
 
-type mediaPiece base.MediaPiece
+type mediaPiece MultiMedia.MediaPiece
 func (m *mediaPiece) GetKey() asynchronoussIOAndBuffer.Key {
 	return mediaPieceKey(m.Id)
 }
@@ -32,36 +34,36 @@ func (k mediaPieceKey) GetKey() asynchronoussIOAndBuffer.Key {
 
 type mediaPieceDataSource struct {}
 func (mediaPieceDataSource) Load(key asynchronoussIOAndBuffer.Key) (asynchronoussIOAndBuffer.Bean, error) {
-	m, err := base.LoadMediaPiece(key.Uid())
+	m, err := MultiMedia.LoadMediaPiece(key.Uid())
 	return (*mediaPiece)(m), err
 }
 func (mediaPieceDataSource) Save(bean asynchronoussIOAndBuffer.Bean) error {
-	return base.SaveMediaPiece((*base.MediaPiece)(bean.(*mediaPiece)))
+	return MultiMedia.SaveMediaPiece((*MultiMedia.MediaPiece)(bean.(*mediaPiece)))
 }
 func (mediaPieceDataSource) Delete(key asynchronoussIOAndBuffer.Key) error {
-	return base.DeleteMediaPiece(int64(key.(mediaPieceKey)))
+	return MultiMedia.DeleteMediaPiece(int64(key.(mediaPieceKey)))
 }
 
-func LoadMediaPieceNow(id int64) (*base.MediaPiece, error) {
+func LoadMediaPieceNow(id int64) (*MultiMedia.MediaPiece, error) {
 	b, err := asynchronoussIOAndBuffer.DataManager.Load(mediaPieceKey(id))()
 	if err != nil {
 		return nil, err
 	}
-	return (*base.MediaPiece)(b.(*mediaPiece)), nil
+	return (*MultiMedia.MediaPiece)(b.(*mediaPiece)), nil
 }
 func LoadMediaPiece(id int64) GetFunction {
 	return asynchronoussIOAndBuffer.DataManager.Load(mediaPieceKey(id))
 }
-func GetMediaPieceFromFunction(f GetFunction) (*base.MediaPiece, error) {
+func GetMediaPieceFromFunction(f GetFunction) (*MultiMedia.MediaPiece, error) {
 	b, err := f()
 	if err != nil {
 		return nil, err
 	}
-	return (*base.MediaPiece)(b.(*mediaPiece)), nil
+	return (*MultiMedia.MediaPiece)(b.(*mediaPiece)), nil
 }
 
 
-type imageData base.ImageData
+type imageData MultiMedia.ImageData
 func (d *imageData) GetKey() asynchronoussIOAndBuffer.Key {
 	return imageDataKey(d.Id)
 }
@@ -79,35 +81,35 @@ func (k imageDataKey) GetKey() asynchronoussIOAndBuffer.Key {
 
 type imageDataSource struct {}
 func (imageDataSource) Load(key asynchronoussIOAndBuffer.Key) (asynchronoussIOAndBuffer.Bean, error) {
-	i, err := base.LoadImageData(key.Uid())
+	i, err := MultiMedia.LoadImageData(key.Uid())
 	return (*imageData)(i), err
 }
 func (imageDataSource) Save(bean asynchronoussIOAndBuffer.Bean) error {
-	return base.SaveImageData((*base.ImageData)(bean.(*imageData)))
+	return MultiMedia.SaveImageData((*MultiMedia.ImageData)(bean.(*imageData)))
 }
 func (imageDataSource) Delete(key asynchronoussIOAndBuffer.Key) error {
-	return base.DeleteImageData(int64(key.(imageDataKey)))
+	return MultiMedia.DeleteImageData(int64(key.(imageDataKey)))
 }
 
-func LoadImageDataNow(id int64) (*base.ImageData, error) {
+func LoadImageDataNow(id int64) (*MultiMedia.ImageData, error) {
 	b, err := asynchronoussIOAndBuffer.DataManager.Load(imageDataKey(id))()
 	if err != nil {
 		return nil, err
 	}
-	return (*base.ImageData)(b.(*imageData)), nil
+	return (*MultiMedia.ImageData)(b.(*imageData)), nil
 }
 func LoadImageData(id int64) GetFunction {
 	return asynchronoussIOAndBuffer.DataManager.Load(imageDataKey(id))
 }
-func GetImageDataFromFunction(f GetFunction) (*base.ImageData, error) {
+func GetImageDataFromFunction(f GetFunction) (*MultiMedia.ImageData, error) {
 	b, err := f()
 	if err != nil {
 		return nil, err
 	}
-	return (*base.ImageData)(b.(*imageData)), nil
+	return (*MultiMedia.ImageData)(b.(*imageData)), nil
 }
 
-type passage Passage
+type passage Passage.Passage
 func (c *passage) GetKey() asynchronoussIOAndBuffer.Key {
 	return passageKey(c.Id)
 }

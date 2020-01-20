@@ -4,7 +4,8 @@ import (
 	"EasyDesignApplication/server/action"
 	"EasyDesignApplication/server/action/session"
 	"EasyDesignApplication/server/base"
-	"fmt"
+	"EasyDesignApplication/server/dataNet"
+	"EasyDesignApplication/server/middle"
 	"log"
 	"net/http"
 	"os"
@@ -13,22 +14,25 @@ import (
 )
 
 func main()  {
+	// prepare all the package.
 	err := base.SqlInit("postgres", "easyDesign", "easyDesign2019", "easyDesigner", "127.0.0.1")
 	if err != nil {
 		panic(err)
 	}
-	p, err := base.UserSQLPrepare()
-	if err != nil {
-		panic(fmt.Sprintf("user sql prepare fail with %e in position %d", err, p))
-	}
+	base.Prepare()
+	middle.Prepare()
+	dataNet.Prepare("0.0.0.0:9090")
 	session.InitSessionDir()
 	session.InitSessionTable(session.Config{int64(5*time.Hour), 12324})
 	action.Init()
-	http.HandleFunc("/testhost", func(w http.ResponseWriter, r *http.Request) {
-		log.Println("test Success")
-		fmt.Fprint(w, "success")
-	})
-	for {
+
+	// start listen.
+	var x = false
+	go func() {
+		<-time.Tick(5 * time.Second)
+		x = true
+	}()
+	for x {
 		var f *os.File
 		if runtime.GOOS == "linux" {
 			f, err := os.Create(time.Now().String() + ".log")

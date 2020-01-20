@@ -9,6 +9,7 @@ import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PipedInputStream;
@@ -56,22 +57,43 @@ public class DataManagement {
             return goal;
         }
         String path = net.makePath(type, id);
+        OutputStream outputStream = null;
+        InputStream inputStream = null;
         try {
             HttpURLConnection connection = (HttpURLConnection) new URL(path).openConnection();
-            InputStream inputStream = connection.getInputStream();
+            connection.setDoInput(true);
+            if (connection.getResponseCode() != 200) {
+                return null;
+            }
+            inputStream = connection.getInputStream();
             path = local.makePath(type, id);
-            OutputStream outputStream = new FileOutputStream(new File(path));
+            outputStream = new FileOutputStream(new File(path));
             int c = 0;
             byte[] buffer = new byte[3 * 1024 * 1024];
             do {
                 c = inputStream.read(buffer);
                 outputStream.write(buffer);
-            } while (c != 3 * 1024 * 1024);
+            } while (c == 3 * 1024 * 1024);
             outputStream.flush();
             outputStream.close();
             return Uri.parse("file://" + path);
         } catch (Exception ignored) {
             return null;
+        } finally {
+            if (outputStream != null) {
+                try {
+                    outputStream.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (inputStream != null) {
+                try {
+                    inputStream.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
         }
 
     }

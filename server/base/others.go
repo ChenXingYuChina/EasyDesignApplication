@@ -2,10 +2,17 @@ package base
 
 import (
 	"database/sql"
+	"flag"
 	"fmt"
 	"log"
 	"os"
 )
+
+var DataDir string
+
+func init() {
+	flag.StringVar(&DataDir, "r", "./", "数据文件存储的目录 默认当前文件夹")
+}
 
 func DeleteFile(name string) {
 	err := os.Remove(name)
@@ -56,3 +63,4 @@ func OpenWhenExistOrCreate(name string) *os.File {
 	}
 	return goal
 }
+

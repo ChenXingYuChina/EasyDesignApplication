@@ -54,7 +54,7 @@ func Accept(context context.Context, id int64) *Conn {
 	}
 }
 
-func Start(listenAddress string) {
+func Prepare(listenAddress string) {
 	connectTable = &table{}
 	for i := 0; i < 8; i++ {
 		connectTable.t[i] = make(map[int64]*connOrWait)

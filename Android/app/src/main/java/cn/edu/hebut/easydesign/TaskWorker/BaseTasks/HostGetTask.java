@@ -15,7 +15,7 @@ public abstract class HostGetTask<T> extends Task<String, T> {
     protected boolean doOnService() {
         Response r = null;
         try {
-            r = Client.getInstance().Get(data1);
+            r = Client.getInstance().GetFromHost(data1);
             int code = r.code();
             if (code != 200) {
                 c.condition = code;
