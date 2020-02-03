@@ -1,24 +1,21 @@
 package cn.edu.hebut.easydesign.Activity;
 
-import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.util.Log;
 import android.widget.ImageView;
 
-import java.io.Reader;
-
 import androidx.annotation.Nullable;
 import cn.edu.hebut.easydesign.Activity.ActivityTask.DelayJumpTask;
+import cn.edu.hebut.easydesign.Activity.ContextHelp.ContextHolder;
+import cn.edu.hebut.easydesign.Activity.ContextHelp.HoldContextActivity;
+import cn.edu.hebut.easydesign.DataManagement.DataManagement;
 import cn.edu.hebut.easydesign.HttpClient.Client;
 import cn.edu.hebut.easydesign.R;
 import cn.edu.hebut.easydesign.Resources.Media.Image.ImageHostLoadTask;
@@ -28,20 +25,23 @@ import cn.edu.hebut.easydesign.TaskWorker.TaskService;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
 
-public class FirstPage extends Activity {
+public class FirstPage extends HoldContextActivity {
     private ServiceConnection connection;
+    private Condition<Boolean> cancel = new Condition<>(false);
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.first_page);
         final ImageView view = findViewById(R.id.helloImage);
         view.setImageResource(R.drawable.yindao1);
-//        view.setImageURI(Uri.parse("http://192.168.31.216/testhost"));
+        DataManagement.getInstance().Start(this);
+//        DataManagement.getInstance().Clear();
         startService(new Intent(this, TaskService.class));
         connection = new ServiceConnection() {
             @Override
-            public void onServiceConnected(ComponentName name, IBinder service) {
+            public void onServiceConnected(ComponentName name, final IBinder service) {
                 final Condition<Integer> c = new Condition<>();
+                ContextHolder.setBinder((TaskService.MyBinder) service);
 
 //                c.condition = checkVersion()?2:1;
                 c.condition = 2;
@@ -62,18 +62,20 @@ public class FirstPage extends Activity {
                                 intent = new Intent(FirstPage.this, login2.class);
                         }
                         startActivity(intent);
+                        finish();
                     }
                 });
-
-                ((TaskService.MyBinder) service).PutTask(new ImageHostLoadTask() {
+                ((TaskService.MyBinder) service).PutTask(new ImageHostLoadTask(cancel) {
                     @Override
                     protected long getId() {
+                        this.binder = (TaskService.MyBinder) service;
                         Response r = null;
                         try {
                             r = Client.getInstance().GetFromHost("firstPageImage");
                             if (Client.GetStatusCode(r) == 200) {
                                 ResponseBody body = r.body();
                                 if (body != null) {
+                                    Log.i("ED", "getId: success");
                                     return Long.valueOf(body.string());
                                 }
                             }
@@ -88,13 +90,13 @@ public class FirstPage extends Activity {
                     }
 
                     @Override
-                    protected void doOnMain() {
-                        view.setImageURI(data2);
+                    protected void setImage(Bitmap bitmap) {
+                        view.setImageBitmap(data2);
                     }
                 });
                 SharedPreferences read = getSharedPreferences("loginInformation", MODE_PRIVATE);
-                int id = read.getInt("id", 36);
-                String pw = read.getString("pw", "hello world");
+                int id = read.getInt("id", 47);
+                String pw = read.getString("pw", "123");
                 Log.i("ED", "loginInformation " + id +" " + pw);
                 try {
                     ((TaskService.MyBinder) service).PutTask(new LoginTask(id, pw) {
@@ -112,7 +114,7 @@ public class FirstPage extends Activity {
 
             @Override
             public void onServiceDisconnected(ComponentName name) {
-
+                ContextHolder.setBinder(null);
             }
         };
         bindService(new Intent(this, TaskService.class), connection, Context.BIND_AUTO_CREATE);
@@ -139,5 +141,7 @@ public class FirstPage extends Activity {
     protected void onPause() {
         super.onPause();
         unbindService(connection);
+
+        cancel.condition = false;
     }
 }

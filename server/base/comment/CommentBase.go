@@ -21,7 +21,7 @@ type CommentBase struct {
 	SubCommentNumber uint16 `json:"sub_com_number"`
 }
 
-func PrepareCommentSQL() (uint8, error) {
+func prepareCommentSQL() (uint8, error) {
 	var err error
 	loadCommentBase, err = SQLPrepare("select position, like_number, sub_comment, owner from comment where passage_id = $1 order by position asc limit $3 offset $2")
 	if err != nil {

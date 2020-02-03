@@ -15,7 +15,7 @@ public abstract class DelayJumpTask extends Task<Condition<Integer>, Object> {
 
     @Override
     protected boolean doOnService() {
-        Log.i("ED", "h");
+//        Log.i("ED", "h");
         return true;
     }
 

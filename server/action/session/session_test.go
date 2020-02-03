@@ -2,6 +2,7 @@ package session
 
 import (
 	"EasyDesignApplication/server/base"
+	"EasyDesignApplication/server/base/user"
 	"net/http"
 	"net/http/httptest"
 	"net/url"
@@ -21,7 +22,7 @@ func TestMain(m *testing.M) {
 }
 
 func TestSessionTable_Put (t *testing.T) {
-	st.put(&Session{User: &base.UserBase{
+	st.put(&Session{User: &user.UserBase{
 		ID: 1,
 	}})
 	id := st.table[1][1].User.ID
@@ -35,7 +36,7 @@ func TestSessionTable_Get(t *testing.T) {
 		TestSessionTable_Put(t)
 		first = false
 	}
-	st.put(&Session{User: &base.UserBase{
+	st.put(&Session{User: &user.UserBase{
 		ID: 256,
 	},
 	lastActive:time.Now().Unix(),
@@ -88,7 +89,7 @@ func TestLoginByEmail(t *testing.T) {
 			Host:"localhost",
 			Path:"LoginEmail",
 		},
-		PostForm:url.Values{"email":{"abc@abc.com"},"pw":{base.MakePasswordInFront("hello world")}},
+		PostForm:url.Values{"email":{"abc@abc.com"},"pw":{user.MakePasswordInFront("hello world")}},
 	}
 	LoginByEmail(w, r)
 	if w.Code != 200 {
@@ -104,7 +105,7 @@ func TestLoginWithId(t *testing.T) {
 			Host:"localhost",
 			Path:"LoginId",
 		},
-		PostForm:url.Values{"id":{"36"},"pw":{base.MakePasswordInFront("hello world")}},
+		PostForm:url.Values{"id":{"36"},"pw":{user.MakePasswordInFront("hello world")}},
 	}
 	LoginWithId(w, r)
 	if w.Code != 200 {

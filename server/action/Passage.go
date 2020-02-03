@@ -2,7 +2,7 @@ package action
 
 import "EasyDesignApplication/server/middle"
 
-type Passage struct {
+type FullPassage struct {
 	*middle.FullPassage
 	Full bool `json:"full"`
 }

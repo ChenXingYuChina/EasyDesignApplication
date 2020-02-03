@@ -18,7 +18,7 @@ type Comment struct {
 }
 var commentBodyRealFilename string
 
-func PrepareCommentDir() {
+func prepareCommentDir() {
 	commentBodyRealFilename = base.DataDir + commentBodyFilename
 	base.CheckAndMakeDir(base.DataDir + commentBodyDir)
 }

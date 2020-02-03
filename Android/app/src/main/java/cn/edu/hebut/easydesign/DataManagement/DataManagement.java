@@ -31,6 +31,7 @@ public class DataManagement {
 
     private DataManagement() {
         loader = new DataLoader[DataType.values().length];
+
     }
 
     public static DataManagement getInstance() {
@@ -46,63 +47,14 @@ public class DataManagement {
     }
 
     public void Cache(Data data) {
-        if (data.onCache()) {
-            local.cacheData(data);
-        }
-    }
-
-    public Uri Cache(DataType type, long id) {
-        Uri goal = local.UriOf(type, id);
-        if (goal != null) {
-            return goal;
-        }
-        String path = net.makePath(type, id);
-        OutputStream outputStream = null;
-        InputStream inputStream = null;
-        try {
-            HttpURLConnection connection = (HttpURLConnection) new URL(path).openConnection();
-            connection.setDoInput(true);
-            if (connection.getResponseCode() != 200) {
-                return null;
-            }
-            inputStream = connection.getInputStream();
-            path = local.makePath(type, id);
-            outputStream = new FileOutputStream(new File(path));
-            int c = 0;
-            byte[] buffer = new byte[3 * 1024 * 1024];
-            do {
-                c = inputStream.read(buffer);
-                outputStream.write(buffer);
-            } while (c == 3 * 1024 * 1024);
-            outputStream.flush();
-            outputStream.close();
-            return Uri.parse("file://" + path);
-        } catch (Exception ignored) {
-            return null;
-        } finally {
-            if (outputStream != null) {
-                try {
-                    outputStream.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-            if (inputStream != null) {
-                try {
-                    inputStream.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-
+        local.cacheData(data);
     }
 
     public void Start(Context ctx) {
         if (local != null) return;
         synchronized (this) {
             if (local == null) {
-                local = new LocalSource(ctx.getFilesDir().getAbsolutePath());
+                local = new LocalSource(ctx.getExternalFilesDir(null).getAbsolutePath());
                 net = new HttpSource(netAddress);
             }
         }
@@ -124,7 +76,7 @@ public class DataManagement {
     if you can not get Data form here, and a message can see in the logcat
     please register the loader first.
      */
-    public Data LoadData(Context ctx, IBinder binder, DataType type, long id) {
+    public <D extends Data> D LoadData(DataType type, long id) {
         DataLoader loader = this.loader[type.ordinal()];
         if (loader == null) {
             Log.d("easyDesign_Bug", "LoadData: do not register DataLoader for type: " + type.path);
@@ -133,14 +85,56 @@ public class DataManagement {
         InputStream stream = local.Load(type, id);
         if (stream != null) {
             try {
-                return loader.LoadFromCache(ctx, binder, stream, id);
+                return loader.LoadFromCache(stream, id);
+            } catch (Exception ignored) {
+            } finally {
+                try {
+                    stream.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        Log.i("DATA", "no in cache");
+        String r = net.Load(type, id);
+        if (r != null) {
+            try {
+                D goal = loader.LoadFromNet(r, id);
+                Log.i("DATA", "goal: " + goal);
+                local.cacheData(goal);
+                return goal;
+            } catch (Exception e) {
+                Log.i("DATA", "error: " + e);
+            }
+        }
+
+        return null;
+    }
+
+    public Data LoadFromLocal(DataType type, long id) {
+        DataLoader loader = this.loader[type.ordinal()];
+        if (loader == null) {
+            Log.d("easyDesign_Bug", "LoadData: do not register DataLoader for type: " + type.path);
+            return null;
+        }
+        InputStream stream = local.Load(type, id);
+        if (stream != null) {
+            try {
+                return loader.LoadFromCache(stream, id);
             } catch (Exception ignored) {
             }
         }
-        stream = net.Load(type, id);
-        if (stream != null) {
+        return null;
+    }
+    /*
+    force load data from net and update cache
+     */
+    public Data LoadDataFromNet(DataType type, long id) {
+        DataLoader loader = this.loader[type.ordinal()];
+        String r = net.Load(type, id);
+        if (r != null) {
             try {
-                Data goal = loader.LoadFromNet(ctx, binder, stream, id);
+                Data goal = loader.LoadFromNet(r, id);
                 local.cacheData(goal);
                 return goal;
             } catch (Exception ignored) {
@@ -149,22 +143,6 @@ public class DataManagement {
         return null;
     }
 
-    /*
-    force load data from net and update cache
-     */
-    public Data LoadDataFromNet(Context ctx, IBinder binder, DataType type, long id) {
-        DataLoader loader = this.loader[type.ordinal()];
-        InputStream stream = net.Load(type, id);
-        if (stream != null) {
-            try {
-                Data goal = loader.LoadFromNet(ctx, binder, stream, id);
-                local.cacheData(goal);
-                return goal;
-            } catch (Exception ignored) {
-            }
-        }
-        return null;
-    }
 
     public boolean inCache(DataType type, long id) {
         return local.inCache(type, id);

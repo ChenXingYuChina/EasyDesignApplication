@@ -3,6 +3,7 @@ package user
 import (
 	"EasyDesignApplication/server/base"
 	"EasyDesignApplication/server/base/ComplexString"
+	"encoding/json"
 	"fmt"
 	"testing"
 )
@@ -27,12 +28,16 @@ func TestSignUp_Public(t *testing.T) {
 }
 
 func TestSignUp_Designer(t *testing.T) {
-	u := &UserBase{Email:Email("designer@123.com"), Password:Password(GenPasswordInBack("123")), Identity:&Designer{Works:[]Work{{Industry:"it", Position:"tester"}}}}
-	s := u.SignUp()
+	u, s := SignUpADesigner(Email("designer@123.com"))
 	if s != 0 {
 		t.Fail()
 	}
 	t.Log(u.ID)
+}
+
+func SignUpADesigner(email Email) (*UserBase, uint8) {
+	u := &UserBase{Email:email, Password:Password(GenPasswordInBack("123")), Identity:&Designer{Works:[]Work{{Industry:"it", Position:"tester"}}}}
+	return u, u.SignUp()
 }
 
 func TestSignUp_Student(t *testing.T) {
@@ -128,6 +133,32 @@ func TestAuthorized(t *testing.T) {
 
 func TestUnauthorized(t *testing.T) {
 	if !Unauthorized(48) {
+		t.Fail()
+	}
+}
+
+func TestUserBase_ToMini(t *testing.T) {
+	u := &UserBase{Email:Email("abc@abc.com"), Password:Password(GenPasswordInBack("123")), Identity:&Designer{Works:[]Work{{Industry:"it", Position:"tester"}}}}
+	fmt.Println(u.ToMini())
+}
+
+func TestGetUserMini(t *testing.T) {
+	g := GetUserMini([]int64{48, 50})
+	if g == nil {
+		t.Fail()
+		return
+	}
+	fmt.Println(g[0])
+	fmt.Println(g[1])
+	one, ok := GetOneUserMini(48)
+	if ok {
+		goal, err := json.Marshal(one)
+		if err != nil {
+			t.Error(err)
+			return
+		}
+		fmt.Println(string(goal))
+	} else {
 		t.Fail()
 	}
 }

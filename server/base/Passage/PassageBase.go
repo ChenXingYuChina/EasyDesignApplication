@@ -12,7 +12,7 @@ var (
 	changePassageTitle    *sql.Stmt
 )
 
-func PreparePassageSQL() (uint8, error) {
+func preparePassageSQL() (uint8, error) {
 	var err error
 	makePassageStepInsert, err = SQLPrepare("insert into passages (title, owner, list_image, type) values ($1, $2, $3, $4) returning id")
 	if err != nil {
@@ -52,10 +52,10 @@ func LoadPassageBase(row *sql.Row) (*PassageBase, error) {
 	return passage, nil
 }
 
-func LoadPassagesBase(rows *sql.Rows, otherParts []interface{}) (*PassageBase, error) {
-	if !rows.Next() {
-		return nil, nil
-	}
+/*
+use rows.next() first
+ */
+func loadPassagesBase(rows *sql.Rows, otherParts []interface{}) (*PassageBase, error) {
 	passage := &PassageBase{}
 	otherParts = append(otherParts, &(passage.Type), &(passage.Title), &(passage.CommentNumber), &(passage.Like), &(passage.Owner), &(passage.Id), &(passage.ListImage))
 	err := rows.Scan(otherParts...)
@@ -65,7 +65,7 @@ func LoadPassagesBase(rows *sql.Rows, otherParts []interface{}) (*PassageBase, e
 	return passage, nil
 }
 
-func MakePassage(tx *sql.Tx, owner int64, title string, listImage int64, t int16) (int64, error) {
+func makePassage(tx *sql.Tx, owner int64, title string, listImage int64, t int16) (int64, error) {
 	var makePassageStepUpdate = makePassageStepUpdate
 	var makePassageStepInsert = makePassageStepInsert
 	if tx != nil {

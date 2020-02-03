@@ -1,8 +1,5 @@
 package cn.edu.hebut.easydesign.Resources.Passage;
 
-import android.content.Context;
-import android.os.IBinder;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -10,7 +7,6 @@ import java.util.ArrayList;
 
 import cn.edu.hebut.easydesign.ComplexString.ComplexString;
 import cn.edu.hebut.easydesign.ComplexString.ComplexStringLoader;
-import cn.edu.hebut.easydesign.Resources.UserMini.UserMini;
 
 public class Comment {
     public long passage, owner;
@@ -18,7 +14,7 @@ public class Comment {
     public ArrayList<SubComment> subComments;
     public ComplexString content;
 
-    public Comment(Context ctx, IBinder binder, JSONObject comment, JSONArray subComments) throws Exception {
+    public Comment(JSONObject comment, JSONArray subComments) throws Exception {
         int length = subComments.length();
         if (subComments.length() == 0) {
             this.subComments = null;
@@ -28,7 +24,7 @@ public class Comment {
                 this.subComments.add(new SubComment(subComments.getJSONObject(i)));
             }
         }
-        this.content = ComplexStringLoader.getInstance().LoadFromNet(ctx, binder, comment.getJSONObject("content"));
+        this.content = ComplexStringLoader.getInstance().LoadFromNet(comment.getJSONObject("content"));
         this.like = comment.getInt("like");
         this.position = comment.getInt("position");
         this.owner = comment.getLong("owner");

@@ -1,12 +1,12 @@
 package cn.edu.hebut.easydesign.Resources.Passage;
 
-import android.content.Context;
-import android.os.IBinder;
 import android.util.Log;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 import cn.edu.hebut.easydesign.ComplexString.ComplexString;
@@ -21,9 +21,9 @@ public class Passage implements Data {
     public long id;
     public transient ArrayList<Comment> comments;
 
-    public Passage(Context ctx, IBinder binder, JSONObject passage, boolean full) throws Exception {
+    public Passage(JSONObject passage, boolean full) throws Exception {
         try {
-            content = ComplexStringLoader.getInstance().LoadFromNet(ctx, binder, passage.getJSONObject("body"));
+            content = ComplexStringLoader.getInstance().LoadFromNet(passage.getJSONObject("body"));
         } catch (Exception ignored) {
         }
         try {
@@ -41,7 +41,7 @@ public class Passage implements Data {
             int length = comments.length();
             for (int i = 0; i < length; i++) {
                 try {
-                    this.comments.add(new Comment(ctx, binder, comments.getJSONObject(i), subComments.getJSONArray(i)));
+                    this.comments.add(new Comment(comments.getJSONObject(i), subComments.getJSONArray(i)));
                 } catch (Exception e) {
                     Log.i("Pass", "Passage: pass comment at order: "+ i + ", total: " + length);
                 }
@@ -60,15 +60,12 @@ public class Passage implements Data {
     }
 
     @Override
-    public boolean onCache() {
+    public void cache(FileOutputStream stream) throws Exception {
         if (id == 0) {
-            return false;
+            return;
         }
-        try {
-            content.parseToServerFormat();
-            return true;
-        } catch (Exception ignored) {
-            return false;
-        }
+        content.parseToServerFormat();
+        ObjectOutputStream objectOutputStream = new ObjectOutputStream(stream);
+        objectOutputStream.writeObject(this);
     }
 }

@@ -21,7 +21,7 @@ var (
 	unauthorizedDesigner *sql.Stmt
 )
 
-func PrepareUserSQL() (uint8, error) {
+func prepareUserSQL() (uint8, error) {
 	var err error
 	loadDesignerState, err = Database.Prepare("select true from unauthorized where unauthorized.user_id = $1")
 	if err != nil {
@@ -58,15 +58,19 @@ type DesignerFull struct {
 }
 
 func LoadDesigner(user *UserBase) (*DesignerFull, error) {
-	var u bool
-	r := loadDesignerState.QueryRow(user.ID)
-	_ = r.Scan(&u)
+	u := CheckAuthorized(user.ID)
 	goal := &DesignerFull{
 		User:       &User{UserBase:user},
 		Authorized: u,
 	}
 	goal.LongDescription, _ = ComplexString.LoadComplexStringFromFile(fmt.Sprintf(userLongDescriptionRealFileName, user.ID))
 	return goal, nil
+}
+
+func CheckAuthorized(id int64) bool {
+	var u bool
+	r := loadDesignerState.QueryRow(id)
+	return r.Scan(&u) != nil
 }
 
 func SaveUsersLongDescription(new *ComplexString.ComplexString, who int64) error {

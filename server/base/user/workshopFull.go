@@ -48,7 +48,7 @@ func OpenWorkshop(name string, headImage int64, longDescription *ComplexString.C
 	var state uint8
 	goal := &Workshop{}
 	err := base.InTransaction(func(tx *sql.Tx) ([]string, error) {
-		goal.WorkShopBase, state = OpenWorkShop(tx, who, name, headImage)
+		goal.WorkShopBase, state = openWorkShop(tx, who, name, headImage)
 		if state != 0 {
 			switch state {
 			case 255:

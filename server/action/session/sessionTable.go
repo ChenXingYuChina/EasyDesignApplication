@@ -2,7 +2,7 @@ package session
 
 import (
 	"EasyDesignApplication/server/action/httpTools"
-	"EasyDesignApplication/server/base"
+	"EasyDesignApplication/server/base/user"
 	"encoding/binary"
 	"encoding/json"
 	"fmt"
@@ -108,7 +108,7 @@ func LoginWithId(w http.ResponseWriter, r *http.Request) {
 	}
 	session := st.get(id)
 	if session == nil {
-		u, state := base.LoginById(id, pw)
+		u, state := user.LoginById(id, pw)
 		if state != 0 {
 			switch state {
 			case 255:
@@ -129,12 +129,12 @@ func LoginWithId(w http.ResponseWriter, r *http.Request) {
 		session.lastActive = time.Now().Unix()
 	}
 	session.SessionKey = int64(rand.Uint64())
-	user, err := json.Marshal(session)
+	g, err := json.Marshal(session)
 	if err != nil {
 		w.WriteHeader(500)
 		return
 	}
-	_, err = w.Write(user)
+	_, err = w.Write(g)
 	if err != nil {
 		log.Println(err)
 		w.WriteHeader(500)
@@ -159,7 +159,7 @@ func LoginByEmail(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(400)
 		return
 	}
-	u, state := base.LoginByEmail(email, pw)
+	u, state := user.LoginByEmail(email, pw)
 	if state != 0 {
 		switch state {
 		case 255:
@@ -182,12 +182,12 @@ func LoginByEmail(w http.ResponseWriter, r *http.Request) {
 		session.lastActive = time.Now().Unix()
 	}
 	session.SessionKey = int64(rand.Uint64())
-	user, err := json.Marshal(session)
+	g, err := json.Marshal(session)
 	if err != nil {
 		w.WriteHeader(500)
 		return
 	}
-	_, err = w.Write(user)
+	_, err = w.Write(g)
 	if err != nil {
 		log.Println(err)
 		w.WriteHeader(500)

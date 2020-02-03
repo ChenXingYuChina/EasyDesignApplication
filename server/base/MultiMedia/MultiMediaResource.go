@@ -30,7 +30,7 @@ var mediaMetaFileName string
 var mediaDataFileName string
 var imageFileName string
 
-func PrepareMultiMediaDir() {
+func prepareMultiMediaDir() {
 	mediaMetaFileName = DataDir + multiMediaDataFileName
 	CheckAndMakeDir(DataDir + multiMediaDataDir)
 	mediaDataFileName = DataDir + multiMediaPieceFileName
@@ -39,7 +39,7 @@ func PrepareMultiMediaDir() {
 	CheckAndMakeDir(DataDir + imageDataDir)
 }
 
-func PrepareMultiMediaSQL() (uint8, error) {
+func prepareMultiMediaSQL() (uint8, error) {
 	var err error
 	ifMedia, err = SQLPrepare("select id from link_media where passage_id = $1")
 	if err != nil {
@@ -165,7 +165,10 @@ func NewMediaPiece(d []byte) (*MediaPiece, error) {
 
 func init() {
 	RegisterPrepare(func() {
-		PrepareMultiMediaDir()
-		PrepareMultiMediaSQL()
+		prepareMultiMediaDir()
+		s, err := prepareMultiMediaSQL()
+		if err != nil {
+			log.Fatal(err, s)
+		}
 	})
 }

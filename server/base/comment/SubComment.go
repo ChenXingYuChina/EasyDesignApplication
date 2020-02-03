@@ -23,9 +23,9 @@ type SubComment struct {
 	Position uint16 `json:"position"`
 }
 
-func PrepareSubCommentSQL() (uint8, error) {
+func prepareSubCommentSQL() (uint8, error) {
 	var err error
-	loadSubComment, err = SQLPrepare("select content, position, like_number from subcomment where passage_id = $1 and father = $2 order by position ASC limit $4 offset $3")
+	loadSubComment, err = SQLPrepare("select content, position, like_number from subcomment where passage_id = $1 and father = $2 order by position desc limit $4 offset $3")
 	if err != nil {
 		return 0, err
 	}

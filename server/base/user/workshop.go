@@ -3,6 +3,7 @@ package user
 import (
 	. "EasyDesignApplication/server/base"
 	"database/sql"
+	"errors"
 	"log"
 	"strings"
 )
@@ -12,14 +13,16 @@ var (
 	addPeopleToWorkshopStepUpdate      *sql.Stmt
 	removePeopleFromWorkshopStepDelete *sql.Stmt
 	removePeopleFromWorkshopStepUpdate *sql.Stmt
-	changeWorkshop                     *sql.Stmt
+	changeWorkshopImage                *sql.Stmt
+	changeWorkshopLevel                *sql.Stmt
 	loadWorkshop                       *sql.Stmt
 	loadPosition                       *sql.Stmt
 	listMember                         *sql.Stmt
 	selectPosition                     *sql.Stmt
+	changePosition *sql.Stmt
 )
 
-func PrepareWorkshopSQL() (uint8, error) {
+func prepareWorkshopSQL() (uint8, error) {
 	var err error
 	addPeopleToWorkshopStepInsert, err = SQLPrepare("insert into workshop_member_link (workshop_id, user_id, position) values ($1, $2, $3)")
 	if err != nil {
@@ -37,7 +40,7 @@ func PrepareWorkshopSQL() (uint8, error) {
 	if err != nil {
 		return 5, err
 	}
-	changeWorkshop, err = SQLPrepare("update workshop set level = $1, head_image = $2 where id = $3")
+	changeWorkshopImage, err = SQLPrepare("update workshop set head_image = $1 where id = $2")
 	if err != nil {
 		return 2, err
 	}
@@ -54,6 +57,17 @@ func PrepareWorkshopSQL() (uint8, error) {
 		return 7, err
 	}
 	selectPosition, err = Database.Prepare(`select position from workshop_member_link where user_id = $1 and workshop_id = $2;`)
+	if err != nil {
+		return 8, err
+	}
+	changePosition, err = Database.Prepare("update workshop_member_link set position = $1 where user_id = $2")
+	if err != nil {
+		return 9, err
+	}
+	changeWorkshopLevel, err = SQLPrepare("update workshop set level = $1 where id = $2")
+	if err != nil {
+		return 10, err
+	}
 	return 0, nil
 }
 
@@ -67,6 +81,16 @@ type WorkShopBase struct {
 	PassageNumber int32
 	Level         int16
 }
+
+const (
+	Success = iota
+	E发起方不存在
+	E越权
+	E工作组不存在
+	E受邀者未受认证
+	E不得增加组长
+	E未知错误 = 255
+)
 
 func openWorkShop(tx *sql.Tx, who int64, name string, headImage int64) (*WorkShopBase, uint8) {
 	row := tx.QueryRow("select true from unauthorized, users where (id = $1 and identity_type = 1) and user_id = $1", who)
@@ -85,7 +109,7 @@ func openWorkShop(tx *sql.Tx, who int64, name string, headImage int64) (*WorkSho
 		return nil, 255
 	}
 
-	r, err := tx.Exec("insert into workshop_member_link (workshop_id, user_id, position) values ($1, $2, 1)", workshopId, who)
+	r, err := tx.Exec("insert into workshop_member_link (workshop_id, user_id, position) values ($1, $2, 2)", workshopId, who)
 	line, err := r.RowsAffected()
 	if err != nil || line != 1 {
 		return nil, 255
@@ -96,98 +120,109 @@ func openWorkShop(tx *sql.Tx, who int64, name string, headImage int64) (*WorkSho
 	return &WorkShopBase{Id:workshopId, Member:[]int64{who}, Position:[]int16{1}, Name:name, HeadImage:headImage, FansNumber:0, PassageNumber:0, Level: 0}, 0
 }
 
-func AddPeopleToWorkShop(who int64, workshop int64, position int16) error {
-	tx, err := Database.Begin()
-	r, err := tx.Stmt(addPeopleToWorkshopStepInsert).Exec(workshop, who, position)
+func AddPeopleToWorkShop(do, who int64, workshop int32, position int16) uint8 {
+	_, s := checkPower(do, workshop, Manager)
+	if s != 0 {
+		return s
+	}
+	if !CheckAuthorized(who) {
+		return E受邀者未受认证
+	}
+	if position == Owner {
+		return E不得增加组长
+	}
+	err := InTransaction(func(tx *sql.Tx) ([]string, error) {
+		r, err := tx.Stmt(addPeopleToWorkshopStepInsert).Exec(workshop, who, position)
+		if err != nil {
+			return nil, err
+		}
+		line, err := r.RowsAffected()
+		if err != nil || line != 1 {
+			return nil, err
+		}
+		r, err = tx.Stmt(addPeopleToWorkshopStepUpdate).Exec(workshop)
+		if err != nil {
+			return nil, err
+		}
+		line, err = r.RowsAffected()
+		if err != nil || line != 1 {
+			return nil, err
+		}
+		return nil, nil
+	})
 	if err != nil {
-		err = tx.Rollback()
-		if err != nil {
-			log.Println(err)
-		}
-		return err
+		return E未知错误
 	}
-	line, err := r.RowsAffected()
-	if err != nil || line != 1 {
-		err = tx.Rollback()
-		if err != nil {
-			log.Println(err)
-		}
-		return err
-	}
-	r, err = tx.Stmt(addPeopleToWorkshopStepUpdate).Exec(workshop)
-	if err != nil {
-		err = tx.Rollback()
-		if err != nil {
-			log.Println(err)
-		}
-		return err
-	}
-	line, err = r.RowsAffected()
-	if err != nil || line != 1 {
-		err = tx.Rollback()
-		if err != nil {
-			log.Println(err)
-		}
-		return err
-	}
-	err = tx.Commit()
-	if err != nil {
-		return err
-	}
-	return nil
+	return Success
 }
 
-func RemovePeopleFromWorkshop(who int64, workshop int64) error {
-	tx, err := Database.Begin()
-	r, err := tx.Stmt(removePeopleFromWorkshopStepDelete).Exec(who, workshop)
+func RemovePeopleFromWorkshop(do, who int64, workshop int32) uint8 {
+	doerPosition, s := checkPower(do, workshop, Manager)
+	if s != 0 {
+		return s
+	}
+	doeePosition, s := checkPower(who, workshop, Normal)
+	if s != 0 {
+		return s
+	}
+	if doerPosition <= doeePosition {
+		return E越权
+	}
+	err := InTransaction(func(tx *sql.Tx) (i []string, e error) {
+		r, err := tx.Stmt(removePeopleFromWorkshopStepDelete).Exec(who, workshop)
+		if err != nil {
+			return nil, err
+		}
+		line, err := r.RowsAffected()
+		if err != nil || line != 1 {
+			return nil, err
+		}
+		r, err = tx.Stmt(removePeopleFromWorkshopStepUpdate).Exec(workshop)
+		if err != nil {
+			return nil, err
+		}
+		line, err = r.RowsAffected()
+		if err != nil || line != 1 {
+			return nil, err
+		}
+		return nil, nil
+	})
 	if err != nil {
-		err = tx.Rollback()
-		if err != nil {
-			log.Println(err)
-		}
-		return err
+		return E未知错误
 	}
-	line, err := r.RowsAffected()
-	if err != nil || line != 1 {
-		err = tx.Rollback()
-		if err != nil {
-			log.Println(err)
-		}
-		return err
-	}
-	r, err = tx.Stmt(removePeopleFromWorkshopStepUpdate).Exec(workshop)
-	if err != nil {
-		err = tx.Rollback()
-		if err != nil {
-			log.Println(err)
-		}
-		return err
-	}
-	line, err = r.RowsAffected()
-	if err != nil || line != 1 {
-		err = tx.Rollback()
-		if err != nil {
-			log.Println(err)
-		}
-		return err
-	}
-	err = tx.Commit()
-	if err != nil {
-		return err
-	}
-	return nil
+	return Success
 }
 
-func ChangeWorkshop(workshop int64, level int16, headImage int64) error {
-	r, err := changeWorkshop.Exec(level, headImage, workshop)
+func ChangeWorkshop(do int64, workshop int32, headImage int64) uint8 {
+	_, s := checkPower(do, workshop, Manager)
+	if s != 0 {
+		return s
+	}
+	r, err := changeWorkshopImage.Exec(headImage, workshop)
 	if err != nil {
-		return err
+		return E未知错误
 	}
 	line, err := r.RowsAffected()
 	if err != nil || line != 1 {
-		return err
+		return E未知错误
 	}
-	return nil
+	return Success
+}
+
+/*
+just call from the control platform
+ */
+func ChangeWorkshopLevel(workshop int32, level int16) uint8 {
+	r, err := changeWorkshopLevel.Exec(level, workshop)
+	if err != nil {
+		return E未知错误
+	}
+	if l, err := r.RowsAffected(); err != nil {
+		return E未知错误
+	} else if l != 1 {
+		return E工作组不存在
+	}
+	return Success
 }
 
 func loadWorkshopBase(id int64) (*WorkShopBase, error) {
@@ -237,22 +272,58 @@ func ListWorkshopMember(id int64) ([]WorkshopMember, error) {
 }
 
 func ChangeMemberPosition(workshop int32, do int64, who int64, to int16) uint8 {
-	if to 
-	r := selectPosition.QueryRow(do, workshop)
+	_, s := checkPower(do, workshop, Owner)
+	if s != 0 {
+		return s
+	}
+	if to == Owner {
+		// 转移工作组组长
+		err := InTransaction(func(tx *sql.Tx) (i []string, e error) {
+			cp := tx.Stmt(changePosition)
+			// change the old owner to manager
+			r, err := cp.Exec(Manager, do)
+			if err != nil {
+				return nil, err
+			}
+			if l, err := r.RowsAffected(); err != nil || l != 1 {
+				return nil, errors.New("")
+			}
+			// set the other user to the owner
+			r, err = cp.Exec(Owner, who)
+			if err != nil {
+				return nil, err
+			}
+			if l, err := r.RowsAffected(); err != nil || l != 1 {
+				return nil, errors.New("")
+			}
+			return nil, nil
+		})
+		if err != nil {
+			return E未知错误 // 未知错误
+		}
+	} else {
+		// change
+		r, err := changePosition.Exec(Manager, who)
+		if err != nil {
+			return E未知错误
+		}
+		if l, err := r.RowsAffected(); err != nil || l != 1 {
+			return E未知错误
+		}
+	}
+
+	return Success
+}
+
+func checkPower(who int64, workshop int32, needPosition int16) (int16, uint8) {
+	r := selectPosition.QueryRow(who, workshop)
 	var doerPosition int16
 	err := r.Scan(&doerPosition)
 	if err != nil {
-		return 1 // 成员不存在
+		return 0, E发起方不存在 // 发起成员不存在
 	}
-	switch doerPosition {
-	case Owner:
-		if to == Owner {
-			return 2  // 不能同时有设置群主
-		}
-	case Normal:
-	case Manager:
-
+	if doerPosition < needPosition {
+		return 0, E越权
 	}
-	return 0
+	return doerPosition, Success
 }
-

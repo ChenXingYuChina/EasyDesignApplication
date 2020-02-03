@@ -1,7 +1,7 @@
 package httpTools
 
 import (
-	"EasyDesignApplication/server/base"
+	. "EasyDesignApplication/server/base/user"
 	"net/url"
 	"strconv"
 )
@@ -27,24 +27,24 @@ func GetInt64FromForm(form url.Values, name string) (int64, bool) {
 	return goal, true
 }
 
-func GetEmailFromForm(form url.Values, name string) (base.Email, bool) {
+func GetEmailFromForm(form url.Values, name string) (Email, bool) {
 	e, has := GetDataFromForm(form, name)
 	if !has {
 		return "", false
 	}
-	email := base.Email(string(e))
+	email := Email(string(e))
 	if !email.CheckRight() {
 		return "", false
 	}
 	return email, true
 }
 
-func GetPasswordFromForm(form url.Values, name string) (base.Password, bool) {
+func GetPasswordFromForm(form url.Values, name string) (Password, bool) {
 	p, has := GetDataFromForm(form, name)
 	if !has {
 		return "", false
 	}
-	pw := base.Password(p)
+	pw := Password(p)
 	if !pw.CheckRight() {
 		return "", false
 	}

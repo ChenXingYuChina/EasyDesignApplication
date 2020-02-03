@@ -21,7 +21,7 @@ import okhttp3.Response;
 public class Client {
     private static Client instance = new Client();
     private Client(){
-        client = new OkHttpClient.Builder().readTimeout(3000, TimeUnit.MILLISECONDS).cookieJar(cookieJar).build();
+        client = new OkHttpClient.Builder().readTimeout(3, TimeUnit.SECONDS).cookieJar(cookieJar).build();
     }
     public static Client getInstance() {
         return instance;

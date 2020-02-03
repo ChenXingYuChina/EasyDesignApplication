@@ -38,7 +38,7 @@ var (
 	newDesigner *sql.Stmt
 )
 
-func UserSQLPrepare() (uint8, error) {
+func userSQLPrepare() (uint8, error) {
 	// todo use it before start
 	position := uint8(0)
 	var err error
@@ -190,6 +190,10 @@ func (u *UserBase) SignUp() uint8 {
 	} else {
 		err = r.Scan(&(u.ID))
 		if err != nil {
+			if strings.Compare(string(err.(*pq.Error).Code) ,"23505") == 0 {
+				_ = tx.Rollback()
+				return 1  // email 重复
+			}
 			log.Println(err)
 			_ = tx.Rollback()
 			return 255

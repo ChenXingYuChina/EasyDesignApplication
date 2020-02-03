@@ -1,40 +1,43 @@
 package Passage
 
 import (
-"EasyDesignApplication/server/base"
-"database/sql"
-"log"
+	"EasyDesignApplication/server/base"
+	"database/sql"
+	"log"
 )
 
 var (
-	getWorkshopPassageList *sql.Stmt
-	getPassageListByType *sql.Stmt
+	getWorkshopPassageList      *sql.Stmt
+	getPassageListByType        *sql.Stmt
 	getHottestPassageListByType *sql.Stmt
 	getPassageListByUserAndType *sql.Stmt
-	searchPassageByTitle *sql.Stmt
+	searchPassageByTitle        *sql.Stmt
 )
 
 // &(passage.Title), &(passage.CommentNumber), &(passage.Like), &(passage.Owner), &(passage.Id), &(passage.ListImage)
 // 修改最热的查询条件，与时间关联
-func PreparePassageListSQL() (uint8, error) {
+func preparePassageListSQL() (uint8, error) {
 	var err error
-	getWorkshopPassageList, err = base.Database.Prepare("select $1, p.type, p.title, p.comment_number, p.like_number, p.owner, wp.passage_id, p.list_image from workshop_passage wp, passages p where (wp.workshop_id = $1 and p.id = wp.passage_id) order by wp.passage_id desc limit $2 offset $3")
+	getWorkshopPassageList, err = base.Database.Prepare("select COALESCE(wp.workshop_id, 0), p.type, p.title, p.comment_number, p.like_number, p.owner, p.id, p.list_image from workshop_passage wp, passages p where (wp.workshop_id = $1 and p.id = wp.passage_id) order by wp.passage_id desc limit $2 offset $3")
 	if err != nil {
 		return 0, err
 	}
-	getPassageListByType, err = base.Database.Prepare("select wp.workshop_id, $1, p.title, p.comment_number, p.like_number, p.owner, wp.passage_id, p.list_image from passages p left join workshop_passage wp on p.id = wp.passage_id where p.type = $1 order by p.id desc limit $2 offset $3")
+	getPassageListByType, err = base.Database.Prepare("select COALESCE(wp.workshop_id, 0), p.type, p.title, p.comment_number, p.like_number, p.owner, p.id, p.list_image from passages p left join workshop_passage wp on p.id = wp.passage_id where p.type = $1 order by p.id desc limit $2 offset $3")
 	if err != nil {
 		return 1, err
 	}
-	getHottestPassageListByType, err = base.Database.Prepare("select wp.workshop_id, $1, p.title, p.comment_number, p.like_number, p.owner, wp.passage_id, p.list_image from passages p left join workshop_passage wp on p.id = wp.passage_id where p.type = $1 order by (p.comment_number + p.like_number) / (now() - p.public_time) desc limit 30")
+	getHottestPassageListByType, err = base.Database.Prepare("select COALESCE(wp.workshop_id, 0), p.type, p.title, p.comment_number, p.like_number, p.owner, p.id, p.list_image from passages p left join workshop_passage wp on p.id = wp.passage_id where p.type = $1 order by (p.comment_number + p.like_number) / extract(epoch from (now() - p.public_time)) desc limit 30")
 	if err != nil {
 		return 3, err
 	}
-	getPassageListByUserAndType, err = base.Database.Prepare("select wp.workshop_id, $2, p.title, p.comment_number, p.like_number, $1, wp.passage_id, p.list_image from passages p left join workshop_passage wp on p.id = wp.passage_id where p.owner = $1 and p.type = $2 order by p.id desc limit $3 offset $4")
+	getPassageListByUserAndType, err = base.Database.Prepare("select COALESCE(wp.workshop_id, 0), p.type, p.title, p.comment_number, p.like_number, p.owner, p.id, p.list_image from passages p left join workshop_passage wp on p.id = wp.passage_id where p.owner = $1 and p.type = $2 order by p.id desc limit $3 offset $4")
 	if err != nil {
 		return 2, err
 	}
-	searchPassageByTitle, err = base.Database.Prepare("select wp.workshop_id, p.type, p.title, p.comment_number, p.like_number, p.owner, wp.passage_id, p.list_image from passages p left join workshop_passage wp on p.id = wp.passage_id where p.title like '%'+$1+'%' order by p.id desc limit $2 offset $3")
+	searchPassageByTitle, err = base.Database.Prepare("select COALESCE(wp.workshop_id, 0), p.type, p.title, p.comment_number, p.like_number, p.owner, p.id, p.list_image from passages p left join workshop_passage wp on p.id = wp.passage_id where p.title like $1 order by p.id desc limit $2 offset $3")
+	if err != nil {
+		return 4, err
+	}
 	return 0, nil
 }
 
@@ -45,9 +48,8 @@ type PassageListItem struct {
 
 type PassageList []PassageListItem
 
-
-func loadPassageListByTypeLast(t int16, length uint8, offset int64) (PassageList, error) {
-	r, err :=  getPassageListByType.Query(t, length, offset)
+func LoadPassageListByTypeLast(t int16, length uint8, offset int64) (PassageList, error) {
+	r, err := getPassageListByType.Query(t, length, offset)
 	if err != nil {
 		return nil, err
 	}
@@ -62,12 +64,14 @@ func loadPassageListByTypeLast(t int16, length uint8, offset int64) (PassageList
 	return goal, nil
 }
 
-func loadHottestPassageListByType(t int16) (PassageList, error) {
-	r, err :=  getHottestPassageListByType.Query(t)
+const length = 30
+
+func LoadHottestPassageListByType(t int16) (PassageList, error) {
+	r, err := getHottestPassageListByType.Query(t)
 	if err != nil {
 		return nil, err
 	}
-	goal, err := loadPassageList(r, 30)
+	goal, err := loadPassageList(r, length)
 	if err != nil {
 		return nil, err
 	}
@@ -79,7 +83,7 @@ func loadHottestPassageListByType(t int16) (PassageList, error) {
 }
 
 func LoadPassageListByWorkshopLast(workshopId int64, length uint8, offset int64) (PassageList, error) {
-	r, err :=  getWorkshopPassageList.Query(workshopId, length, offset)
+	r, err := getWorkshopPassageList.Query(workshopId, length, offset)
 	if err != nil {
 		return nil, err
 	}
@@ -96,7 +100,7 @@ func LoadPassageListByWorkshopLast(workshopId int64, length uint8, offset int64)
 }
 
 func LoadPassageListByUserAndTypeLast(useId int64, t int16, length uint8, offset int64) (PassageList, error) {
-	r, err :=  getPassageListByUserAndType.Query(useId, t, length, offset)
+	r, err := getPassageListByUserAndType.Query(useId, t, length, offset)
 	if err != nil {
 		return nil, err
 	}
@@ -112,7 +116,7 @@ func LoadPassageListByUserAndTypeLast(useId int64, t int16, length uint8, offset
 }
 
 func SearchPassageByTitle(keyword string, length uint8, offset int64) (PassageList, error) {
-	r, err :=  searchPassageByTitle.Query(keyword, length, offset)
+	r, err := searchPassageByTitle.Query("%" + keyword + "%", length, offset)
 	if err != nil {
 		return nil, err
 	}
@@ -130,11 +134,11 @@ func SearchPassageByTitle(keyword string, length uint8, offset int64) (PassageLi
 func loadPassageList(r *sql.Rows, length uint8) (PassageList, error) {
 	goal := make([]PassageListItem, 0, length)
 	var helpSlice []interface{}
-	var i int
 	var err error
-	for ; r.Next(); i++ {
+	for i := 0; r.Next(); i++ {
+		goal = append(goal, PassageListItem{})
 		helpSlice = append(helpSlice, &(goal[i].WorkshopId))
-		goal[i].PassageBase, err = LoadPassagesBase(r, helpSlice)
+		goal[i].PassageBase, err = loadPassagesBase(r, helpSlice)
 		if err != nil {
 			err = r.Close()
 			if err != nil {
@@ -144,6 +148,5 @@ func loadPassageList(r *sql.Rows, length uint8) (PassageList, error) {
 		}
 		helpSlice = helpSlice[:0]
 	}
-	goal = goal[:i]
 	return goal, nil
 }

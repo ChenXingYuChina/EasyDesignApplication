@@ -5,7 +5,6 @@ import (
 	"EasyDesignApplication/server/action/session"
 	"EasyDesignApplication/server/base"
 	"EasyDesignApplication/server/dataNet"
-	"EasyDesignApplication/server/middle"
 	"log"
 	"net/http"
 	"os"
@@ -19,16 +18,18 @@ func main()  {
 	if err != nil {
 		panic(err)
 	}
+	if base.DataDir == "./" {
+		base.DataDir = "./testData/"
+	}
 	base.Prepare()
-	middle.Prepare()
 	dataNet.Prepare("0.0.0.0:9090")
 	session.InitSessionDir()
-	session.InitSessionTable(session.Config{int64(5*time.Hour), 12324})
+	session.InitSessionTable(session.Config{KeepTime: int64(1*time.Hour), SessionKeySeed: 12324})
 	action.Init()
-
 	// start listen.
-	var x = false
+	var x = true
 	go func() {
+		x =false
 		<-time.Tick(5 * time.Second)
 		x = true
 	}()

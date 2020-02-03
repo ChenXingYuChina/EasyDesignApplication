@@ -2,13 +2,141 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="54da2308-b95c-40ae-9a28-a3d3ac1f19d6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/HttpClient/怎么用.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Session/怎么用.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/TaskWorker/怎么用.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/HttpClient/Form/EmailField.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/HttpClient/Form/EmailField.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/HttpClient/Form/PasswordField.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/HttpClient/Form/PasswordField.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Session/LoginTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Session/LoginTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Session/Session.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Session/Session.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/ContextHelp/ContextHolder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/ContextHelp/HoldContextActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/ContextHelp/HoldContextAppCompatActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/Fragment/HomeFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/PassageActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/PassageList/Cards/CardFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/PassageList/Cards/ImageMainCard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/PassageList/Cards/TitleMainCard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/PassageList/Config/HotByType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/PassageList/Config/LastByType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/PassageList/Config/Search.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/PassageList/Config/UserLastByType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/PassageList/Config/WorkshopConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/PassageList/FootHolder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/PassageList/HeadHolder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/PassageList/ItemHolder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/PassageList/PassageListAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/PassageList/PassageListData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/PassageList/PassageListView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/PassageList/PassageListViewConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/PassageList/PassageListViewPerformance.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/TestActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/commonComponents/ImageWithTextView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/commonComponents/MainHead.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/HttpClient/Form/BooleanField.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/HttpClient/Form/IntField.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/HttpClient/Form/LongField.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/HttpClient/Form/ShortField.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Resources/Media/Image/ImageManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Resources/PassageList/LoadPassageListTask.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Resources/PassageList/PassageItemCard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Resources/UserMini/LoadUserMiniTask.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/res/drawable/ic_like.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/res/drawable/ic_like_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/res/drawable/ic_message_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/res/drawable/ic_message_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/res/layout/activity_main_old.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/res/layout/home_page_card.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/res/layout/passageList/layout/home_fragment.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/res/layout/passageList/layout/home_head_frame.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/res/layout/passageList/layout/home_page.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/res/layout/passageList/layout/image_main_card.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/res/layout/passageList/layout/image_main_list_card_frame.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/res/layout/passageList/layout/main_activity_head.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/res/layout/passageList/layout/passage_list_foot.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/res/layout/passageList/layout/title_main_card.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/res/layout/passageList/layout/title_main_list_card_frame.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/res/layout/passage_list.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/res/layout/test_activity.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/res/values/attrs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/action/controlPlatform/prepare.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/action/httpTools/multipartTools.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/action/http_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/action/passageList.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/base/Passage/prepare.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/base/comment/prepare.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/middle/dataManager_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/middle/residentContent_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testData/ss/24.ss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testPostFile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/ActivityTask/DelayJumpTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/ActivityTask/DelayJumpTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/FirstPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/FirstPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/Splash.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/Splash.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/login1.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/Begin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/login2.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/login2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Adapter/SplashAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/Adapter/SplashAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/ComplexString/ComplexString.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/ComplexString/ComplexString.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/ComplexString/ComplexStringLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/ComplexString/ComplexStringLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/DataManagement/Data.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/DataManagement/Data.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/DataManagement/DataLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/DataManagement/DataLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/DataManagement/DataManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/DataManagement/DataManagement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/DataManagement/DataSource.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/DataManagement/HttpSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/DataManagement/HttpSource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/DataManagement/LocalSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/DataManagement/LocalSource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Fragment/biFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/Fragment/biFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Fragment/huojianFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/Fragment/huojianFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Fragment/shubiaoFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/Fragment/shubiaoFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Fragment/weixinFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/Fragment/weixinFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/HttpClient/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/HttpClient/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/HttpClient/Form/FormField.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/HttpClient/Form/FormField.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Resources/Media/Image/ImageHostLoadTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Resources/Media/Image/ImageHostLoadTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Resources/Passage/Comment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Resources/Passage/Comment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Resources/Passage/Passage.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Resources/Passage/Passage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Resources/Passage/PassageLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Resources/Passage/PassageLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Resources/PassageList/PassageList.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Resources/PassageList/PassageList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Resources/PassageList/PassageListItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Resources/PassageList/PassageListItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Resources/UserMini/UserMini.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Resources/UserMini/UserMini.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Resources/UserMini/UserMiniLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Resources/UserMini/UserMiniLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/TaskWorker/BaseTasks/HostPostTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/TaskWorker/BaseTasks/HostPostTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/TaskWorker/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/TaskWorker/Task.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/TaskWorker/TaskService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/TaskWorker/TaskService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/TaskWorker/TaskWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/TaskWorker/TaskWorker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/res/layout/activity_login1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/res/layout/activity_login1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/res/layout/fragment_bi.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/res/layout/fragment_bi.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/res/layout/fragment_item_list_dialog.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/res/layout/fragment_item_list_dialog.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/action/Passage.go" beforeDir="false" afterPath="$PROJECT_DIR$/action/Passage.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/action/handle.go" beforeDir="false" afterPath="$PROJECT_DIR$/action/handle.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/action/httpTools/tools.go" beforeDir="false" afterPath="$PROJECT_DIR$/action/httpTools/tools.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/action/image.go" beforeDir="false" afterPath="$PROJECT_DIR$/action/image.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/action/inCmd_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/action/inCmd_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/action/session/session.go" beforeDir="false" afterPath="$PROJECT_DIR$/action/session/session.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/action/session/sessionTable.go" beforeDir="false" afterPath="$PROJECT_DIR$/action/session/sessionTable.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/action/session/session_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/action/session/session_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/action/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/action/user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/MultiMedia/MultiMediaResource.go" beforeDir="false" afterPath="$PROJECT_DIR$/base/MultiMedia/MultiMediaResource.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/Passage/PassageBase.go" beforeDir="false" afterPath="$PROJECT_DIR$/base/Passage/PassageBase.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/Passage/PassageWithBody.go" beforeDir="false" afterPath="$PROJECT_DIR$/base/Passage/PassageWithBody.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/Passage/passageList.go" beforeDir="false" afterPath="$PROJECT_DIR$/base/Passage/passageList.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/Passage/passage_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/base/Passage/passage_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/comment/Comment.go" beforeDir="false" afterPath="$PROJECT_DIR$/base/comment/Comment.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/comment/CommentBase.go" beforeDir="false" afterPath="$PROJECT_DIR$/base/comment/CommentBase.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/comment/SubComment.go" beforeDir="false" afterPath="$PROJECT_DIR$/base/comment/SubComment.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/comment/comment_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/base/comment/comment_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/user/User.go" beforeDir="false" afterPath="$PROJECT_DIR$/base/user/User.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/user/UserFull.go" beforeDir="false" afterPath="$PROJECT_DIR$/base/user/UserFull.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/user/UserMini.go" beforeDir="false" afterPath="$PROJECT_DIR$/base/user/UserMini.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/user/User_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/base/user/User_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/user/prepare.go" beforeDir="false" afterPath="$PROJECT_DIR$/base/user/prepare.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/user/workshop.go" beforeDir="false" afterPath="$PROJECT_DIR$/base/user/workshop.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/user/workshopFull.go" beforeDir="false" afterPath="$PROJECT_DIR$/base/user/workshopFull.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/user/workshop_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/base/user/workshop_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middle/dataManager.go" beforeDir="false" afterPath="$PROJECT_DIR$/middle/dataManager.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middle/passageLoader.go" beforeDir="false" afterPath="$PROJECT_DIR$/middle/passageLoader.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middle/prepare.go" beforeDir="false" afterPath="$PROJECT_DIR$/middle/prepare.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middle/residentContent.go" beforeDir="false" afterPath="$PROJECT_DIR$/middle/residentContent.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middle/spead_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sqlSchame/workshop_passage.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sqlSchame/workshop_passage.sql" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -33,147 +161,83 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/base/user/User.go">
+        <entry file="file://$PROJECT_DIR$/middle/residentContent.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7290">
-              <caret line="475" column="47" selection-start-line="475" selection-start-column="47" selection-end-line="475" selection-end-column="47" />
+            <state relative-caret-position="2310">
+              <caret line="85" selection-start-line="85" selection-end-line="85" />
               <folding>
-                <element signature="e#128#183#0" />
-                <element signature="e#199#226#0" />
-                <element signature="n#!!block;n#UserType#0" />
-                <element signature="n#!!block;n#ChangePassword#0" />
-                <element signature="n#!!block;n#Update#0" />
-                <element signature="n#!!block;n#ChangeIdentity#0" />
-                <element signature="e#7810#7841#0" />
-                <element signature="n#!!block;n#loadIdentity#0" />
-                <element signature="n#!!block;n#ToMini#0" />
-                <element signature="n#!!block;n#loadIdentity#1" />
-                <element signature="n#!!block;n#LoginByEmail#0" />
-                <element signature="n#!!block;n#LoginById#0" />
-                <element signature="n#!!block;n#LoadUserBase#0" />
-                <element signature="n#!!block;n#Type#0" />
-                <element signature="n#!!block;n#Type#1" />
-                <element signature="n#!!block;n#Type#2" />
+                <element signature="e#16#248#0" expanded="true" />
+                <element signature="n#!!block;n#getPassageFromCache#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/base/user/UserFull.go">
+        <entry file="file://$PROJECT_DIR$/action/user.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2370">
-              <caret line="89" column="15" selection-start-line="89" selection-start-column="15" selection-end-line="89" selection-end-column="15" />
+            <state relative-caret-position="1290">
+              <caret line="141" column="26" selection-start-line="141" selection-start-column="26" selection-end-line="141" selection-end-column="26" />
               <folding>
-                <element signature="n#!!block;n#PrepareUserDir#0" />
+                <element signature="n#!!block;n#SignUpInControlPlatform#0" />
+                <element signature="n#!!block;n#signUpPublicInCmd#0" />
+                <element signature="n#!!block;n#signUpStudentInCmd#0" />
+                <element signature="n#!!block;n#signUpDesignerInCmd#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://C:/Go1.11/go/src/database/sql/sql.go">
+        <entry file="file://$PROJECT_DIR$/action/handle.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="69450">
-              <caret line="2328" column="15" selection-start-line="2328" selection-start-column="15" selection-end-line="2328" selection-end-column="15" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/base/user/User_test.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="960">
-              <caret line="128" column="36" selection-start-line="128" selection-start-column="36" selection-end-line="128" selection-end-column="36" />
+            <state relative-caret-position="330">
+              <caret line="17" column="41" selection-start-line="17" selection-start-column="41" selection-end-line="17" selection-end-column="41" />
               <folding>
-                <element signature="n#!!block;n#TestMain#0" />
-                <element signature="e#271#288#0" />
-                <element signature="n#!!block;n#TestSignUp_Public#0" />
-                <element signature="e#405#531#0" />
-                <element signature="e#496#530#0" />
-                <element signature="e#560#575#0" />
-                <element signature="n#!!block;n#TestSignUp_Designer#0" />
-                <element signature="e#648#796#0" />
-                <element signature="e#825#840#0" />
-                <element signature="n#!!block;n#TestSignUp_Student#0" />
-                <element signature="e#912#1199#0" />
-                <element signature="e#1028#1197#0" />
-                <element signature="e#1228#1243#0" />
-                <element signature="n#!!block;n#TestLoginById#0" />
-                <element signature="e#1365#1391#0" />
-                <element signature="n#!!block;n#TestLoginByEmail#0" />
-                <element signature="e#1545#1571#0" />
-                <element signature="n#!!block;n#TestSaveUsersLongDescription#0" />
-                <element signature="e#1752#1771#0" />
-                <element signature="n#!!block;n#TestUserBase_Update#0" />
-                <element signature="e#1831#2005#0" />
-                <element signature="e#2034#2051#0" />
-                <element signature="n#!!block;n#TestUserBase_ChangeIdentity#0" />
-                <element signature="e#2119#2299#0" />
-                <element signature="e#2344#2446#0" />
-                <element signature="e#2449#2464#0" />
-                <element signature="n#!!block;n#TestLoadUserBase#0" />
-                <element signature="e#2543#2569#0" />
-                <element signature="n#!!block;n#TestLoadDesigner#0" />
-                <element signature="e#2651#2755#0" />
-                <element signature="e#2798#2826#0" />
+                <element signature="e#16#154#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/base/user/Password_test.go">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/action/http_test.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3540">
+              <caret line="165" column="46" selection-start-line="165" selection-start-column="46" selection-end-line="165" selection-end-column="46" />
+              <folding>
+                <element signature="n#!!block;n#TestImageType#0" />
+                <element signature="n#!!block;n#TestHotPassageList#0" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/base/user/workshop_test.go">
+        <entry file="file://$PROJECT_DIR$/main.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+            <state relative-caret-position="480">
+              <caret line="26" column="57" selection-start-line="26" selection-start-column="57" selection-end-line="26" selection-end-column="57" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/base/user/workshop.go">
+        <entry file="file://$PROJECT_DIR$/action/passageList.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="549">
-              <caret line="239" column="10" selection-start-line="239" selection-start-column="10" selection-end-line="239" selection-end-column="10" />
-              <folding>
-                <element signature="n#!!block;n#OpenWorkShop#0" />
-                <element signature="n#!!block;n#AddPeopleToWorkShop#0" />
-                <element signature="n#!!block;n#RemovePeopleFromWorkshop#0" />
-                <element signature="n#!!block;n#ChangeWorkshop#0" />
-                <element signature="n#!!block;n#loadWorkshopBase#0" />
-                <element signature="e#5488#5528#0" />
-                <element signature="n#!!block;n#ListWorkshopMember#0" />
-              </folding>
+            <state relative-caret-position="2100">
+              <caret line="79" column="18" selection-start-line="79" selection-start-column="18" selection-end-line="79" selection-end-column="18" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/base/user/workshopFull.go">
+        <entry file="file://$PROJECT_DIR$/base/Passage/passageList.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="309">
-              <caret line="21" column="11" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="11" />
+            <state relative-caret-position="2430">
+              <caret line="85" column="14" selection-start-line="85" selection-start-column="14" selection-end-line="85" selection-end-column="14" />
               <folding>
-                <element signature="n#!!block;n#LoadWorkshop#0" />
-                <element signature="n#!!block;n#OpenWorkshop#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/base/ComplexString/complexString.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3390">
-              <caret line="119" column="32" selection-start-line="119" selection-start-column="32" selection-end-line="119" selection-end-column="32" />
-              <folding>
-                <element signature="n#!!block;n#LoadStringsFromFile#0" />
+                <element signature="n#!!block;n#LoadPassageListByUserAndTypeLast#0" />
               </folding>
             </state>
           </provider>
@@ -184,6 +248,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="HTML File" />
         <option value="Go File" />
       </list>
     </option>
@@ -195,44 +260,65 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/middle/dataManager.go" />
-        <option value="$PROJECT_DIR$/base/comment/Comment.go" />
-        <option value="$PROJECT_DIR$/base/comment/SubComment.go" />
-        <option value="$PROJECT_DIR$/base/comment/comment_test.go" />
-        <option value="$PROJECT_DIR$/../协议/json Sample/complex string.json" />
-        <option value="$PROJECT_DIR$/../协议/json Sample/complex string reseive.json" />
-        <option value="$PROJECT_DIR$/base/ComplexString/textResources.go" />
-        <option value="$PROJECT_DIR$/base/ComplexString/ComplexString_test.go" />
-        <option value="$PROJECT_DIR$/base/Passage/passage_test.go" />
-        <option value="$PROJECT_DIR$/base/workshop/workshop.go" />
-        <option value="$PROJECT_DIR$/base/workshop/workshopFull.go" />
-        <option value="$PROJECT_DIR$/base/user/email.go" />
-        <option value="$PROJECT_DIR$/base/user/phoneNumber.go" />
         <option value="$PROJECT_DIR$/base/workshop/errors.go" />
         <option value="$PROJECT_DIR$/base/user/errors.go" />
         <option value="$PROJECT_DIR$/base/comment_test.go" />
         <option value="$PROJECT_DIR$/base/MultiMedia/data.go" />
         <option value="$PROJECT_DIR$/base/MultiMedia/image.go" />
-        <option value="$PROJECT_DIR$/base/MultiMedia/MultiMediaResource.go" />
-        <option value="$PROJECT_DIR$/base/user/prepare.go" />
         <option value="$PROJECT_DIR$/base/MultiMedia/multiMedia_test.go" />
         <option value="$PROJECT_DIR$/base/user/password.go" />
         <option value="$PROJECT_DIR$/base/others.go" />
-        <option value="$PROJECT_DIR$/base/user/User.go" />
         <option value="$PROJECT_DIR$/base/ComplexString/complexString.go" />
-        <option value="$PROJECT_DIR$/base/user/UserFull.go" />
-        <option value="$PROJECT_DIR$/base/user/User_test.go" />
-        <option value="$PROJECT_DIR$/base/user/workshop_test.go" />
         <option value="$PROJECT_DIR$/base/user/workshopFull.go" />
+        <option value="$PROJECT_DIR$/base/user/User.go" />
+        <option value="$PROJECT_DIR$/base/user/UserFull.go" />
         <option value="$PROJECT_DIR$/base/user/workshop.go" />
+        <option value="$PROJECT_DIR$/base/user/UserMini.go" />
+        <option value="$PROJECT_DIR$/base/user/workshop_test.go" />
+        <option value="$PROJECT_DIR$/base/Passage/PassageWithBody.go" />
+        <option value="$PROJECT_DIR$/base/user/prepare.go" />
+        <option value="$PROJECT_DIR$/base/Passage/prepare.go" />
+        <option value="$PROJECT_DIR$/sqlSchame/workshop_passage.sql" />
+        <option value="$PROJECT_DIR$/base/Passage/PassageBase.go" />
+        <option value="$PROJECT_DIR$/base/Passage/passageList.go" />
+        <option value="$PROJECT_DIR$/base/MultiMedia/MultiMediaResource.go" />
+        <option value="$PROJECT_DIR$/base/comment/CommentBase.go" />
+        <option value="$PROJECT_DIR$/base/comment/SubComment.go" />
+        <option value="$PROJECT_DIR$/base/comment/comment_test.go" />
+        <option value="$PROJECT_DIR$/base/comment/prepare.go" />
+        <option value="$PROJECT_DIR$/action/session/session.go" />
+        <option value="$PROJECT_DIR$/middle/dataManager.go" />
+        <option value="$PROJECT_DIR$/middle/dataManager_test.go" />
+        <option value="$PROJECT_DIR$/middle/residentContent_test.go" />
+        <option value="$PROJECT_DIR$/action/session/session_test.go" />
+        <option value="$PROJECT_DIR$/action/session/sessionTable.go" />
+        <option value="$PROJECT_DIR$/action/httpTools/tools.go" />
+        <option value="$PROJECT_DIR$/action/testPostFile.html" />
+        <option value="$PROJECT_DIR$/action/httpTools/multipartTools.go" />
+        <option value="$PROJECT_DIR$/action/controlPlatform/firstPage.go" />
+        <option value="$PROJECT_DIR$/action/controlPlatform/prepare.go" />
+        <option value="$PROJECT_DIR$/testPostFile.html" />
+        <option value="$PROJECT_DIR$/action/inCmd_test.go" />
+        <option value="$PROJECT_DIR$/action/image.go" />
+        <option value="$PROJECT_DIR$/middle/passageLoader.go" />
+        <option value="$PROJECT_DIR$/base/Passage/passage_test.go" />
+        <option value="$PROJECT_DIR$/base/user/User_test.go" />
+        <option value="$PROJECT_DIR$/action/Passage.go" />
+        <option value="$PROJECT_DIR$/middle/residentContent.go" />
+        <option value="$PROJECT_DIR$/middle/prepare.go" />
+        <option value="$PROJECT_DIR$/action/http_test.go" />
+        <option value="$PROJECT_DIR$/action/handle.go" />
+        <option value="$PROJECT_DIR$/main.go" />
+        <option value="$PROJECT_DIR$/action/user.go" />
+        <option value="$PROJECT_DIR$/action/passageList.go" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="952" />
-    <option name="y" value="-8" />
-    <option name="width" value="976" />
-    <option name="height" value="1096" />
+    <option name="x" value="668" />
+    <option name="y" value="-17" />
+    <option name="width" value="974" />
+    <option name="height" value="1087" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -240,7 +326,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -256,19 +341,13 @@
             <path>
               <item name="server" type="b2602c69:ProjectViewProjectNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="base" type="462c0819:PsiDirectoryNode" />
+              <item name="action" type="462c0819:PsiDirectoryNode" />
+              <item name="session" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="server" type="b2602c69:ProjectViewProjectNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
               <item name="base" type="462c0819:PsiDirectoryNode" />
-              <item name="ComplexString" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="base" type="462c0819:PsiDirectoryNode" />
-              <item name="MultiMedia" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="server" type="b2602c69:ProjectViewProjectNode" />
@@ -290,38 +369,44 @@
             <path>
               <item name="server" type="b2602c69:ProjectViewProjectNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="sqlSchame" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
               <item name="testData" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="server" type="b2602c69:ProjectViewProjectNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
               <item name="testData" type="462c0819:PsiDirectoryNode" />
-              <item name="uld" type="462c0819:PsiDirectoryNode" />
+              <item name="im" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="postgresql" />
     <property name="DefaultGoTemplateProperty" value="Go File" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="go.gopath.indexing.explicitly.defined" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="last_opened_file_path" value="$USER_HOME$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.gutterIcons" />
   </component>
   <component name="RecentsManager">
+    <key name="GoMoveDeclarationDialog.RECENT_KEY">
+      <recent name="$PROJECT_DIR$/base/Passage" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\GOCode\src\EasyDesignApplication\server\testData\im" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="G:\GOCode\src\EasyDesignApplication\server" />
+      <recent name="G:\GOCode\src\EasyDesignApplication\server\testData" />
       <recent name="G:\GOCode\src\EasyDesignApplication\server\base\user" />
     </key>
   </component>
@@ -337,109 +422,106 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Go Test.TestUnauthorized in EasyDesignApplication/server/base/user">
-    <configuration name="TestAuthorized in EasyDesignApplication/server/base/user" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Go Build.go build main.go">
+    <configuration name="go build main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="server" />
-      <working_directory value="$PROJECT_DIR$/base/user" />
-      <framework value="gotest" />
-      <kind value="PACKAGE" />
-      <package value="EasyDesignApplication/server/base/user" />
+      <working_directory value="$PROJECT_DIR$/" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/main.go" />
+      <package value="EasyDesignApplication/server" />
       <directory value="$PROJECT_DIR$/" />
-      <filePath value="$PROJECT_DIR$/" />
-      <pattern value="^TestAuthorized$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestLoadComplexStringFromFile in EasyDesignApplication/server/base/ComplexString" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestLoadUserMini in EasyDesignApplication/server/action" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="server" />
-      <working_directory value="$PROJECT_DIR$/base/ComplexString" />
+      <working_directory value="$PROJECT_DIR$/action" />
       <framework value="gotest" />
       <kind value="PACKAGE" />
-      <package value="EasyDesignApplication/server/base/ComplexString" />
+      <package value="EasyDesignApplication/server/action" />
       <directory value="$PROJECT_DIR$/" />
       <filePath value="$PROJECT_DIR$/" />
-      <pattern value="^TestLoadComplexStringFromFile$" />
+      <pattern value="^TestLoadUserMini$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestLoadDesigner in EasyDesignApplication/server/base/user" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestRefreshHotPassage in EasyDesignApplication/server/action" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="server" />
-      <working_directory value="$PROJECT_DIR$/base/user" />
+      <working_directory value="$PROJECT_DIR$/action" />
       <framework value="gotest" />
       <kind value="PACKAGE" />
-      <package value="EasyDesignApplication/server/base/user" />
+      <package value="EasyDesignApplication/server/action" />
       <directory value="$PROJECT_DIR$/" />
       <filePath value="$PROJECT_DIR$/" />
-      <pattern value="^TestLoadDesigner$" />
+      <pattern value="^TestRefreshHotPassage$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestSaveStringsToFile in EasyDesignApplication/server/base/ComplexString" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestSearch in EasyDesignApplication/server/action" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="server" />
-      <working_directory value="$PROJECT_DIR$/base/ComplexString" />
+      <working_directory value="$PROJECT_DIR$/action" />
       <framework value="gotest" />
       <kind value="PACKAGE" />
-      <package value="EasyDesignApplication/server/base/ComplexString" />
+      <package value="EasyDesignApplication/server/action" />
       <directory value="$PROJECT_DIR$/" />
       <filePath value="$PROJECT_DIR$/" />
-      <pattern value="^TestSaveStringsToFile$" />
+      <pattern value="^TestSearch$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestUnauthorized in EasyDesignApplication/server/base/user" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestUserAndType in EasyDesignApplication/server/action" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="server" />
-      <working_directory value="$PROJECT_DIR$/base/user" />
+      <working_directory value="$PROJECT_DIR$/action" />
       <framework value="gotest" />
       <kind value="PACKAGE" />
-      <package value="EasyDesignApplication/server/base/user" />
+      <package value="EasyDesignApplication/server/action" />
       <directory value="$PROJECT_DIR$/" />
       <filePath value="$PROJECT_DIR$/" />
-      <pattern value="^TestUnauthorized$" />
+      <pattern value="^TestUserAndType$" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Test.TestUnauthorized in EasyDesignApplication/server/base/user" />
-        <item itemvalue="Go Test.TestAuthorized in EasyDesignApplication/server/base/user" />
-        <item itemvalue="Go Test.TestLoadDesigner in EasyDesignApplication/server/base/user" />
-        <item itemvalue="Go Test.TestLoadComplexStringFromFile in EasyDesignApplication/server/base/ComplexString" />
-        <item itemvalue="Go Test.TestSaveStringsToFile in EasyDesignApplication/server/base/ComplexString" />
+        <item itemvalue="Go Build.go build main.go" />
+        <item itemvalue="Go Test.TestLoadUserMini in EasyDesignApplication/server/action" />
+        <item itemvalue="Go Test.TestUserAndType in EasyDesignApplication/server/action" />
+        <item itemvalue="Go Test.TestSearch in EasyDesignApplication/server/action" />
+        <item itemvalue="Go Test.TestRefreshHotPassage in EasyDesignApplication/server/action" />
       </list>
     </recent_temporary>
   </component>
   <component name="TestHistory">
-    <history-entry file="TestSaveStringsToFile_in_EasyDesignApplication_server_base_ComplexString - 2020.01.19 at 23h 31m 26s.xml">
-      <configuration name="TestSaveStringsToFile in EasyDesignApplication/server/base/ComplexString" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestRefreshHotPassage_in_EasyDesignApplication_server_action - 2020.02.02 at 10h 47m 58s.xml">
+      <configuration name="TestRefreshHotPassage in EasyDesignApplication/server/action" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestLoadComplexStringFromFile_in_EasyDesignApplication_server_base_ComplexString - 2020.01.19 at 23h 32m 21s.xml">
-      <configuration name="TestLoadComplexStringFromFile in EasyDesignApplication/server/base/ComplexString" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestRefreshHotPassage_in_EasyDesignApplication_server_action - 2020.02.02 at 10h 50m 34s.xml">
+      <configuration name="TestRefreshHotPassage in EasyDesignApplication/server/action" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestLoadComplexStringFromFile_in_EasyDesignApplication_server_base_ComplexString - 2020.01.19 at 23h 33m 16s.xml">
-      <configuration name="TestLoadComplexStringFromFile in EasyDesignApplication/server/base/ComplexString" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestRefreshHotPassage_in_EasyDesignApplication_server_action - 2020.02.02 at 10h 51m 12s.xml">
+      <configuration name="TestRefreshHotPassage in EasyDesignApplication/server/action" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestLoadComplexStringFromFile_in_EasyDesignApplication_server_base_ComplexString - 2020.01.19 at 23h 34m 07s.xml">
-      <configuration name="TestLoadComplexStringFromFile in EasyDesignApplication/server/base/ComplexString" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestSearch_in_EasyDesignApplication_server_action - 2020.02.02 at 10h 57m 18s.xml">
+      <configuration name="TestSearch in EasyDesignApplication/server/action" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestSaveStringsToFile_in_EasyDesignApplication_server_base_ComplexString - 2020.01.19 at 23h 34m 30s.xml">
-      <configuration name="TestSaveStringsToFile in EasyDesignApplication/server/base/ComplexString" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestUserAndType_in_EasyDesignApplication_server_action - 2020.02.02 at 11h 00m 56s.xml">
+      <configuration name="TestUserAndType in EasyDesignApplication/server/action" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestLoadComplexStringFromFile_in_EasyDesignApplication_server_base_ComplexString - 2020.01.19 at 23h 36m 48s.xml">
-      <configuration name="TestLoadComplexStringFromFile in EasyDesignApplication/server/base/ComplexString" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestUserAndType_in_EasyDesignApplication_server_action - 2020.02.02 at 11h 01m 11s.xml">
+      <configuration name="TestUserAndType in EasyDesignApplication/server/action" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestLoadComplexStringFromFile_in_EasyDesignApplication_server_base_ComplexString - 2020.01.19 at 23h 36m 52s.xml">
-      <configuration name="TestLoadComplexStringFromFile in EasyDesignApplication/server/base/ComplexString" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestUserAndType_in_EasyDesignApplication_server_action - 2020.02.02 at 11h 01m 52s.xml">
+      <configuration name="TestUserAndType in EasyDesignApplication/server/action" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestLoadDesigner_in_EasyDesignApplication_server_base_user - 2020.01.19 at 23h 37m 05s.xml">
-      <configuration name="TestLoadDesigner in EasyDesignApplication/server/base/user" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestUserAndType_in_EasyDesignApplication_server_action - 2020.02.02 at 11h 02m 34s.xml">
+      <configuration name="TestUserAndType in EasyDesignApplication/server/action" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestAuthorized_in_EasyDesignApplication_server_base_user - 2020.01.19 at 23h 46m 57s.xml">
-      <configuration name="TestAuthorized in EasyDesignApplication/server/base/user" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestLoadUserMini_in_EasyDesignApplication_server_action - 2020.02.02 at 11h 23m 11s.xml">
+      <configuration name="TestLoadUserMini in EasyDesignApplication/server/action" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestUnauthorized_in_EasyDesignApplication_server_base_user - 2020.01.19 at 23h 47m 22s.xml">
-      <configuration name="TestUnauthorized in EasyDesignApplication/server/base/user" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestLoadUserMini_in_EasyDesignApplication_server_action - 2020.02.02 at 11h 23m 44s.xml">
+      <configuration name="TestLoadUserMini in EasyDesignApplication/server/action" configurationId="GoTestRunConfiguration" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15511727" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25746268" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="DB Browser" order="2" />
       <window_info id="Project Explorer" order="3" />
@@ -447,7 +529,7 @@
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32952183" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.33160084" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3991684" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -477,28 +559,23 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/base/user/User.go</url>
-          <line>266</line>
+          <line>270</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/base/user/User_test.go</url>
-          <line>98</line>
+          <line>103</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/base/user/User.go</url>
-          <line>368</line>
+          <line>372</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/base/user/User_test.go</url>
-          <line>114</line>
+          <line>119</line>
           <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/base/ComplexString/complexString.go</url>
-          <line>88</line>
-          <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/base/ComplexString/complexString.go</url>
@@ -506,250 +583,351 @@
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/base/ComplexString/complexString.go</url>
-          <line>104</line>
-          <option name="timeStamp" value="7" />
+          <url>file://$PROJECT_DIR$/base/user/User.go</url>
+          <line>250</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/base/user/UserFull.go</url>
+          <line>71</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/base/user/workshop.go</url>
+          <line>142</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/base/user/workshop.go</url>
+          <line>134</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/base/user/workshop.go</url>
+          <line>159</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/base/Passage/passage_test.go</url>
+          <line>87</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/middle/residentContent_test.go</url>
+          <line>33</line>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/middle/residentContent_test.go</url>
+          <line>34</line>
+          <option name="timeStamp" value="34" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/action/passageList.go</url>
+          <line>129</line>
+          <option name="timeStamp" value="44" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/action/http_test.go</url>
+          <line>94</line>
+          <option name="timeStamp" value="45" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/middle/residentContent.go</url>
+          <line>164</line>
+          <option name="timeStamp" value="48" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/5b7b800b-37a9-4419-b3a2-bfc18e3f6bb3/console.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/base/comment/SubComment.go">
+    <entry file="file://$PROJECT_DIR$/base/user/UserMini.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1200">
-          <caret line="100" column="8" selection-start-line="100" selection-start-column="8" selection-end-line="100" selection-end-column="8" />
+        <state relative-caret-position="382">
+          <caret line="52" selection-start-line="52" selection-end-line="52" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/base/comment/CommentBase.go">
+    <entry file="file://$PROJECT_DIR$/action/session/sessionTable.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="47" selection-start-line="47" selection-end-line="47" />
-          <folding>
-            <element signature="n#!!block;n#PrepareCommentSQL#0" />
-          </folding>
+        <state relative-caret-position="270">
+          <caret line="136" column="22" selection-start-line="136" selection-start-column="22" selection-end-line="136" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../协议/json Sample/complex string.json" />
-    <entry file="file://$PROJECT_DIR$/../协议/json Sample/complex string send.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://C:/Go1.11/go/src/runtime/panic.go">
+    <entry file="file://C:/Go1.11/go/src/mime/multipart/multipart.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="680" selection-start-line="680" selection-end-line="680" />
+        <state relative-caret-position="9480">
+          <caret line="325" selection-start-line="325" selection-end-line="325" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/base/comment/comment_test.go">
+    <entry file="file://$PROJECT_DIR$/action/httpTools/tools.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="18" column="23" lean-forward="true" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
-          <folding>
-            <element signature="e#17#75#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="1410">
+          <caret line="51" column="1" selection-start-line="51" selection-start-column="1" selection-end-line="51" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../协议/json Sample/complex string reseive.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="7" column="3" lean-forward="true" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/base/ComplexString/test.cs">
+    <entry file="file://$PROJECT_DIR$/action/session/mission.go">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="182" selection-start-column="182" selection-end-column="182" />
+          <folding>
+            <element signature="e#17#67#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/base/comment/Comment.go">
+    <entry file="file://$PROJECT_DIR$/../../go/src/strconv/quote.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="25" column="16" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
+        <state relative-caret-position="270">
+          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/base/Passage/PassageBase.go">
+    <entry file="file://$PROJECT_DIR$/action/controlPlatform/firstPage.go" />
+    <entry file="file://C:/Go1.11/go/src/cmd/trace/main.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-990" />
+        <state relative-caret-position="671">
+          <caret line="135" column="15" selection-start-line="135" selection-start-column="15" selection-end-line="135" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Go1.11/go/src/net/ip.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="678" column="5" selection-start-line="678" selection-start-column="5" selection-end-line="678" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Go1.11/go/src/net/tcpsock.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="20" column="4" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testPostFile.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="8" column="47" selection-start-line="8" selection-start-column="47" selection-end-line="8" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/action/httpTools/multipartTools.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+          <folding>
+            <element signature="e#19#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/action/controlPlatform/prepare.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="8" column="98" selection-start-line="8" selection-start-column="98" selection-end-line="8" selection-end-column="98" />
+          <folding>
+            <element signature="e#25#54#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/others.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1290">
+          <caret line="49" selection-start-line="49" selection-end-line="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/middle/dataManager_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="20" column="16" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Go1.11/go/src/image/format.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="469">
+          <caret line="91" column="5" selection-start-line="91" selection-start-column="5" selection-end-line="91" selection-end-column="5" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/base/Passage/PassageWithBody.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="53" column="90" selection-start-line="53" selection-start-column="90" selection-end-line="53" selection-end-column="90" />
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/base/workshop/errors.go" />
-    <entry file="file://$PROJECT_DIR$/base/user/errors.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="6" column="44" selection-start-line="6" selection-start-column="44" selection-end-line="6" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/base/user/email.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-          <folding>
-            <element signature="n#!!block;n#CheckRight#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/base/user/phoneNumber.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-          <folding>
-            <element signature="n#!!block;n#CheckRight#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/base/user/UserMini.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-38">
-          <folding>
-            <element signature="n#!!block;n#UserMiniSQLPrepare#0" />
-            <element signature="e#337#476#0" />
-            <element signature="n#!!block;n#GetUserMini#0" />
-            <element signature="n#!!block;n#GetOneUserMini#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/base/sqlBase.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/base/ComplexString/textResources.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="8" column="36" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/base/comment_test.go" />
-    <entry file="file://$PROJECT_DIR$/base/MultiMedia/image.go">
+    <entry file="file://$PROJECT_DIR$/base/MultiMedia/MultiMediaResource.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="197">
-          <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
           <folding>
-            <element signature="e#20#88#0" expanded="true" />
-            <element signature="n#!!block;n#DeleteImageData#0" />
-            <element signature="e#619#628#0" />
+            <element signature="n#!!block;n#LoadMediaPiece#0" />
+            <element signature="n#!!block;n#DeleteMediaPiece#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/base/MultiMedia/data.go">
+    <entry file="file://$PROJECT_DIR$/base/user/workshop_test.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="33" column="9" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="9" />
+        <state relative-caret-position="2730">
+          <caret line="95" column="17" selection-start-line="95" selection-start-column="17" selection-end-line="95" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Go1.11/go/src/image/color/color.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="141" column="5" selection-start-line="141" selection-start-column="5" selection-end-line="141" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Go1.11/go/src/image/image.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="29" column="27" selection-start-line="29" selection-start-column="27" selection-end-line="29" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Go1.11/go/src/mime/type.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="655">
+          <caret line="102" column="5" selection-start-line="102" selection-start-column="5" selection-end-line="102" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Go1.11/go/src/net/http/response.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="71" column="4" selection-start-line="71" selection-start-column="4" selection-end-line="71" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Go1.11/go/src/net/http/header.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="23" column="16" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Go1.11/go/src/net/http/sniff.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="20" column="16" lean-forward="true" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Go1.11/go/src/net/http/server.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3887">
+          <caret line="341" column="5" selection-start-line="341" selection-start-column="5" selection-end-line="341" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/middle/residentContent_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="780">
+          <caret line="42" column="19" selection-start-line="42" selection-start-column="19" selection-end-line="42" selection-end-column="19" />
           <folding>
-            <element signature="e#20#43#0" expanded="true" />
-            <element signature="e#31#66#0" />
-            <element signature="n#!!block;n#loadData#0" />
-            <element signature="e#162#184#0" />
-            <element signature="e#223#245#0" />
-            <element signature="e#260#299#0" />
-            <element signature="e#343#365#0" />
-            <element signature="e#540#557#0" />
-            <element signature="e#594#611#0" />
+            <element signature="n#!!block;n#TestLoadFullPassage#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/Passage/passage_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3510">
+          <caret line="125" column="1" selection-start-line="125" selection-start-column="1" selection-end-line="125" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/user/User_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2250">
+          <caret line="150" column="21" selection-start-line="150" selection-start-column="21" selection-end-line="150" selection-end-column="21" />
+          <folding>
+            <element signature="n#!!block;n#TestSignUp_Student#0" />
+            <element signature="n#!!block;n#TestLoginById#0" />
+            <element signature="n#!!block;n#TestLoginByEmail#0" />
+            <element signature="n#!!block;n#TestSaveUsersLongDescription#0" />
+            <element signature="n#!!block;n#TestUserBase_Update#0" />
+            <element signature="n#!!block;n#TestUserBase_ChangeIdentity#0" />
+            <element signature="n#!!block;n#TestLoadUserBase#0" />
+            <element signature="n#!!block;n#TestLoadDesigner#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/action/image.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2490">
+          <caret line="83" column="30" selection-start-line="83" selection-start-column="30" selection-end-line="83" selection-end-column="30" />
+          <folding>
+            <element signature="e#16#171#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/action/session/session.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="15" column="20" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
+          <folding>
+            <element signature="e#17#201#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/action/Passage.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="4" column="16" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/action/session/session_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="532">
+          <caret line="107" column="51" selection-start-line="107" selection-start-column="51" selection-end-line="107" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/asynchronoussIOAndBuffer/table.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="116" selection-start-line="116" selection-end-line="116" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Go1.11/go/src/runtime/asm_amd64.s">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="1333" selection-start-line="1333" selection-end-line="1333" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Go1.11/go/src/bytes/buffer.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="449" column="5" selection-start-line="449" selection-start-column="5" selection-end-line="449" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Go1.11/go/src/net/http/httptest/recorder.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="143" column="28" selection-start-line="143" selection-start-column="28" selection-end-line="143" selection-end-column="28" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/middle/dataManager.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="129" column="14" selection-start-line="129" selection-start-column="14" selection-end-line="129" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/base/MultiMedia/MultiMediaResource.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="151" selection-start-line="151" selection-end-line="151" />
+        <state relative-caret-position="197">
+          <caret line="140" selection-start-line="140" selection-end-line="140" />
           <folding>
-            <element signature="e#206#255#0" />
-            <element signature="e#257#458#0" />
-            <element signature="e#1018#1038#0" />
-            <element signature="e#1153#1173#0" />
-            <element signature="e#1216#1330#0" />
-            <element signature="n#!!block;n#LoadMultiMediaMetadata#0" />
-            <element signature="e#1491#1513#0" />
-            <element signature="e#1583#1651#0" />
-            <element signature="e#1622#1648#0" />
-            <element signature="e#1669#1691#0" />
-            <element signature="e#1730#1752#0" />
-            <element signature="e#1856#1878#0" />
-            <element signature="e#1953#1975#0" />
-            <element signature="e#2057#2079#0" />
-            <element signature="n#!!block;n#SaveMultiMediaMetadata#0" />
-            <element signature="e#2444#2481#0" />
-            <element signature="e#2576#2593#0" />
-            <element signature="e#2688#2705#0" />
-            <element signature="e#2730#2784#0" />
-            <element signature="e#2856#2873#0" />
-            <element signature="e#2947#2964#0" />
-            <element signature="e#3039#3056#0" />
-            <element signature="n#!!block;n#LoadMediaPiece#0" />
-            <element signature="n#!!block;n#DeleteMediaPiece#0" />
-            <element signature="e#4327#4342#0" />
+            <element signature="e#16#218#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.go">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/action/inCmd_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-270" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sqlSchame/workshop_member_link.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/base/others.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/base/user/password.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1830">
-          <caret line="66" column="1" selection-start-line="66" selection-start-column="1" selection-end-line="66" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/action/user.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1710">
-          <caret line="65" column="8" selection-start-line="65" selection-start-column="8" selection-end-line="65" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Go1.11/go/src/testing/testing.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="613" column="17" selection-start-line="613" selection-start-column="17" selection-end-line="613" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -760,169 +938,112 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/base/user/prepare.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="23" column="23" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
-          <folding>
-            <element signature="e#14#68#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testData/uld/2e.cs">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testData/uld/30.cs">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/base/Passage/passage_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="22" column="71" selection-start-line="22" selection-start-column="71" selection-end-line="22" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/base/MultiMedia/multiMedia_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="16" column="18" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/base/ComplexString/ComplexString_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="35" column="29" lean-forward="true" selection-start-line="35" selection-start-column="29" selection-end-line="35" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/base/user/User.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7290">
-          <caret line="475" column="47" selection-start-line="475" selection-start-column="47" selection-end-line="475" selection-end-column="47" />
-          <folding>
-            <element signature="e#128#183#0" />
-            <element signature="e#199#226#0" />
-            <element signature="n#!!block;n#UserType#0" />
-            <element signature="n#!!block;n#ChangePassword#0" />
-            <element signature="n#!!block;n#Update#0" />
-            <element signature="n#!!block;n#ChangeIdentity#0" />
-            <element signature="e#7810#7841#0" />
-            <element signature="n#!!block;n#loadIdentity#0" />
-            <element signature="n#!!block;n#ToMini#0" />
-            <element signature="n#!!block;n#loadIdentity#1" />
-            <element signature="n#!!block;n#LoginByEmail#0" />
-            <element signature="n#!!block;n#LoginById#0" />
-            <element signature="n#!!block;n#LoadUserBase#0" />
-            <element signature="n#!!block;n#Type#0" />
-            <element signature="n#!!block;n#Type#1" />
-            <element signature="n#!!block;n#Type#2" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/base/user/UserFull.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2370">
-          <caret line="89" column="15" selection-start-line="89" selection-start-column="15" selection-end-line="89" selection-end-column="15" />
-          <folding>
-            <element signature="n#!!block;n#PrepareUserDir#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Go1.11/go/src/database/sql/sql.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69450">
-          <caret line="2328" column="15" selection-start-line="2328" selection-start-column="15" selection-end-line="2328" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/base/user/User_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="960">
-          <caret line="128" column="36" selection-start-line="128" selection-start-column="36" selection-end-line="128" selection-end-column="36" />
-          <folding>
-            <element signature="n#!!block;n#TestMain#0" />
-            <element signature="e#271#288#0" />
-            <element signature="n#!!block;n#TestSignUp_Public#0" />
-            <element signature="e#405#531#0" />
-            <element signature="e#496#530#0" />
-            <element signature="e#560#575#0" />
-            <element signature="n#!!block;n#TestSignUp_Designer#0" />
-            <element signature="e#648#796#0" />
-            <element signature="e#825#840#0" />
-            <element signature="n#!!block;n#TestSignUp_Student#0" />
-            <element signature="e#912#1199#0" />
-            <element signature="e#1028#1197#0" />
-            <element signature="e#1228#1243#0" />
-            <element signature="n#!!block;n#TestLoginById#0" />
-            <element signature="e#1365#1391#0" />
-            <element signature="n#!!block;n#TestLoginByEmail#0" />
-            <element signature="e#1545#1571#0" />
-            <element signature="n#!!block;n#TestSaveUsersLongDescription#0" />
-            <element signature="e#1752#1771#0" />
-            <element signature="n#!!block;n#TestUserBase_Update#0" />
-            <element signature="e#1831#2005#0" />
-            <element signature="e#2034#2051#0" />
-            <element signature="n#!!block;n#TestUserBase_ChangeIdentity#0" />
-            <element signature="e#2119#2299#0" />
-            <element signature="e#2344#2446#0" />
-            <element signature="e#2449#2464#0" />
-            <element signature="n#!!block;n#TestLoadUserBase#0" />
-            <element signature="e#2543#2569#0" />
-            <element signature="n#!!block;n#TestLoadDesigner#0" />
-            <element signature="e#2651#2755#0" />
-            <element signature="e#2798#2826#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/base/user/Password_test.go">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/base/user/workshop_test.go">
+    <entry file="file://$PROJECT_DIR$/middle/prepare.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
-          <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+          <caret line="6" column="25" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/base/ComplexString/complexString.go">
+    <entry file="file://$PROJECT_DIR$/action/inCmd_test.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3390">
-          <caret line="119" column="32" selection-start-line="119" selection-start-column="32" selection-end-line="119" selection-end-column="32" />
+        <state relative-caret-position="-1148">
+          <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
           <folding>
-            <element signature="n#!!block;n#LoadStringsFromFile#0" />
+            <element signature="e#16#125#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/base/user/workshopFull.go">
+    <entry file="file://$PROJECT_DIR$/middle/passageLoader.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="21" column="11" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="11" />
+        <state relative-caret-position="175">
+          <caret line="42" selection-start-line="42" selection-end-line="42" />
           <folding>
-            <element signature="n#!!block;n#LoadWorkshop#0" />
-            <element signature="n#!!block;n#OpenWorkshop#0" />
+            <element signature="n#!!block;n#LoadLastPassageListByType#0" />
+            <element signature="n#!!block;n#loadLastPassageListByType#0" />
+            <element signature="n#!!block;n#LoadFullPassageFromHot#0" />
+            <element signature="n#!!block;n#LoadFullPassageFromLast#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/base/user/workshop.go">
+    <entry file="file://C:/Go1.11/go/src/net/http/request.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="549">
-          <caret line="239" column="10" selection-start-line="239" selection-start-column="10" selection-end-line="239" selection-end-column="10" />
+        <state relative-caret-position="205">
+          <caret line="240" column="4" selection-start-line="240" selection-start-column="4" selection-end-line="240" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/middle/residentContent.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2310">
+          <caret line="85" selection-start-line="85" selection-end-line="85" />
           <folding>
-            <element signature="n#!!block;n#OpenWorkShop#0" />
-            <element signature="n#!!block;n#AddPeopleToWorkShop#0" />
-            <element signature="n#!!block;n#RemovePeopleFromWorkshop#0" />
-            <element signature="n#!!block;n#ChangeWorkshop#0" />
-            <element signature="n#!!block;n#loadWorkshopBase#0" />
-            <element signature="e#5488#5528#0" />
-            <element signature="n#!!block;n#ListWorkshopMember#0" />
+            <element signature="e#16#248#0" expanded="true" />
+            <element signature="n#!!block;n#getPassageFromCache#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/action/user.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1290">
+          <caret line="141" column="26" selection-start-line="141" selection-start-column="26" selection-end-line="141" selection-end-column="26" />
+          <folding>
+            <element signature="n#!!block;n#SignUpInControlPlatform#0" />
+            <element signature="n#!!block;n#signUpPublicInCmd#0" />
+            <element signature="n#!!block;n#signUpStudentInCmd#0" />
+            <element signature="n#!!block;n#signUpDesignerInCmd#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/action/handle.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="17" column="41" selection-start-line="17" selection-start-column="41" selection-end-line="17" selection-end-column="41" />
+          <folding>
+            <element signature="e#16#154#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/action/http_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3540">
+          <caret line="165" column="46" selection-start-line="165" selection-start-column="46" selection-end-line="165" selection-end-column="46" />
+          <folding>
+            <element signature="n#!!block;n#TestImageType#0" />
+            <element signature="n#!!block;n#TestHotPassageList#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="26" column="57" selection-start-line="26" selection-start-column="57" selection-end-line="26" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/Passage/passageList.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2430">
+          <caret line="85" column="14" selection-start-line="85" selection-start-column="14" selection-end-line="85" selection-end-column="14" />
+          <folding>
+            <element signature="n#!!block;n#LoadPassageListByUserAndTypeLast#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testData/im/0.img">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/action/passageList.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2100">
+          <caret line="79" column="18" selection-start-line="79" selection-start-column="18" selection-end-line="79" selection-end-column="18" />
         </state>
       </provider>
     </entry>

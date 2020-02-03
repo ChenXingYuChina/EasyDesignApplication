@@ -3,10 +3,12 @@ package action
 import (
 	"EasyDesignApplication/server/action/httpTools"
 	"EasyDesignApplication/server/action/session"
-	"EasyDesignApplication/server/base"
-	"crypto/md5"
-	"encoding/hex"
+	. "EasyDesignApplication/server/base/user"
+	"EasyDesignApplication/server/middle"
+	"encoding/json"
+	"log"
 	"net/http"
+	"strconv"
 	"time"
 )
 
@@ -33,8 +35,8 @@ func SignUpInControlPlatform(w http.ResponseWriter, r *http.Request) {
 	session.CreateFileForSignUp(u.ID)
 }
 
-func signUpPublicInCmd(e base.Email, password string) (*base.UserBase, uint8) {
-	u := &base.UserBase{Email:e, Password:base.Password(GenPasswordInBack(password)), Identity:&base.Public{Industry:"it", Position:"tester"}}
+func signUpPublicInCmd(e Email, password string) (*UserBase, uint8) {
+	u := &UserBase{Email:e, Password:Password(GenPasswordInBack(password)), Identity:&Public{Industry:"it", Position:"tester"}}
 	s := u.SignUp()
 	if s != 0 {
 		return nil, s
@@ -46,10 +48,10 @@ func signUpPublicInCmd(e base.Email, password string) (*base.UserBase, uint8) {
 	return u, 0
 }
 
-func signUpStudentInCmd(e base.Email, password string) (*base.UserBase, uint8) {
-	u := &base.UserBase{Email:e,
-		Password:base.Password(GenPasswordInBack(password)),
-		Identity:&base.Student{Schools:[]base.School{
+func signUpStudentInCmd(e Email, password string) (*UserBase, uint8) {
+	u := &UserBase{Email:e,
+		Password:Password(GenPasswordInBack(password)),
+		Identity:&Student{Schools:[]School{
 			{
 				Public:true,
 				Diploma:1,
@@ -74,11 +76,11 @@ func signUpStudentInCmd(e base.Email, password string) (*base.UserBase, uint8) {
 	return u, 0
 }
 
-func signUpDesignerInCmd(e base.Email, password string) (*base.UserBase, uint8) {
-	u := &base.UserBase{
+func signUpDesignerInCmd(e Email, password string) (*UserBase, uint8) {
+	u := &UserBase{
 		Email:e,
-		Password:base.Password(GenPasswordInBack(password)),
-		Identity:&base.Designer{Works:[]base.Work{
+		Password:Password(GenPasswordInBack(password)),
+		Identity:&Designer{Works:[]Work{
 			{
 				Start:time.Now(),
 				End:time.Now(),
@@ -106,12 +108,37 @@ func signUpDesignerInCmd(e base.Email, password string) (*base.UserBase, uint8) 
 	return u, 0
 }
 
-func GenPasswordInBack(pw string) string {
-	mid := md5.Sum([]byte(pw))
-	mid[15] = 0
-	for i := 0; i < 15; i++ {
-		mid[15] ^= mid[i]
+func userMini(w http.ResponseWriter, r * http.Request) {
+	log.Println("call user mini")
+	err := r.ParseForm()
+	if err != nil {
+		w.WriteHeader(400)
+		return
 	}
-	mid = md5.Sum(mid[:])
-	return hex.EncodeToString(mid[:])
+	log.Println(r.Form)
+	if idString, has := r.Form["id"]; has {
+		if len(idString) == 0 {
+			w.WriteHeader(400)
+			return
+		}
+		id, err := strconv.ParseInt(idString[0], 10, 64)
+		if err != nil {
+			w.WriteHeader(400)
+			return
+		}
+		userMini, err := middle.LoadUserMiniNow(id)
+		if err != nil {
+			w.WriteHeader(500)
+			return
+		}
+		goal, err := json.Marshal(userMini)
+		if err != nil {
+			w.WriteHeader(500)
+			return
+		}
+		log.Println(string(goal))
+		_, _ = w.Write(goal)
+	} else {
+		w.WriteHeader(400)
+	}
 }

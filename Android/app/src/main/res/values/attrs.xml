@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ImageWithTextView">
+        <attr name="image" format="reference" />
+        <attr name="text" format="string" />
+    </declare-styleable>
+    <declare-styleable name="PassageListView">
+        <attr name="layout_manager" format="enum">
+            <enum name="Linear" value="0" />
+            <enum name="Grid" value="1" />
+        </attr>
+        <attr name="card" format="reference"/> <!-- need a layout -->
+        <attr name="head" format="reference"/> <!-- need a layout -->
+    </declare-styleable>
+</resources>

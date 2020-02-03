@@ -3,7 +3,9 @@ package cn.edu.hebut.easydesign.Resources.PassageList;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class PassageListItem {
+import java.io.Serializable;
+
+public class PassageListItem implements Serializable {
     public long workshopId, owner, id, listImage;
     public int like, commentNumber;
     public String title;

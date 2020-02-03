@@ -2,6 +2,7 @@ package session
 
 import (
 	"EasyDesignApplication/server/base"
+	"EasyDesignApplication/server/base/user"
 	"EasyDesignApplication/server/dataNet"
 	"encoding/binary"
 	"fmt"
@@ -12,7 +13,7 @@ import (
 )
 
 type Session struct {
-	User       *base.UserBase `json:"user"`
+	User       *user.UserBase `json:"user"`
 	SessionKey int64 `json:"session_key"`
 	Mission    missions
 	con        *dataNet.Conn

@@ -14,14 +14,20 @@
     <string name="publish">发布</string>
     <string name="project">案例</string>
     <string name="person">个人</string>
-    <string name="shubiao">鼠标</string>
-    <string name="weixin">微信</string>
-    <string name="huojian">火箭</string>
-    <string name="bi">笔</string>
+    <string name="home_page_first">鼠标</string>
+    <string name="home_page_second">微信</string>
+    <string name="home_page_third">火箭</string>
+    <string name="home_page_forth">笔</string>
+    <string name="loading_list">正在加载更多</string>
+    <string name="finish_list">没有更多了</string>
+    <string name="no_news">没有新的内容</string>
     <array name="logindengji">
         <item name = "xiaobai">建筑小白</item>
         <item name = "nuli">正在努力</item>
         <item name = "xiaocheng">小有成就</item>
         <item name = "dashen">建筑大神</item>
     </array>
+    <string name="isNew">已经是最新内容了</string>
+    <string name="error">出错了</string>
+    <string name="load">点击加载</string>
 </resources>

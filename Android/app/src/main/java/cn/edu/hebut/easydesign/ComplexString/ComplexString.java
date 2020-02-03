@@ -21,7 +21,9 @@ import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import cn.edu.hebut.easydesign.Activity.ContextHelp.ContextHolder;
 import cn.edu.hebut.easydesign.R;
+import cn.edu.hebut.easydesign.TaskWorker.Condition;
 
 public class ComplexString {
     int[] position = null;
@@ -32,6 +34,8 @@ public class ComplexString {
     transient private ArrayList<byte[]> data = null;
     CharSequence content = null;
     transient private SpannableString string = null;
+    transient volatile Condition<Boolean> cancelLoadImage;
+    public long id;
 
     public ComplexString(String string) {
         this.string = new SpannableString(string);
@@ -76,7 +80,6 @@ public class ComplexString {
                     Log.i("PASS", "ComplexString: pass an image at" + position[i]);
                     continue;
                 }
-                String source = imageSpan.getSource();
                 BufferedInputStream inputStream = new BufferedInputStream(new FileInputStream(imageSpan.getSource()));
                 byte[] data = new byte[inputStream.available()];
                 inputStream.read(data);
@@ -194,7 +197,11 @@ public class ComplexString {
     public static final int GREEN_COLOR = 3;
     public static final int PURPLE_COLOR = 4;
 
-    static Object getSpanFromId(Context ctx, long id, String url) {
+    static Object getSpanFromId(long id, String url) {
+        Context ctx = ContextHolder.getContext();
+        if (ctx == null) {
+            return null;
+        }
         if (id <= HYPERLINK) {
             switch ((int) id) {
                 case HYPERLINK:
@@ -241,10 +248,10 @@ public class ComplexString {
     /*
     it will throw Exception if it adds an image span for net.
      */
-    public void AddSpan(Context ctx, int start, int width, long id, String url) throws IllegalArgumentException {
+    public void AddSpan(int start, int width, long id, String url) throws IllegalArgumentException {
         if (id == IMAGE && url.startsWith("http")) {
             throw new IllegalArgumentException();
         }
-        this.string.setSpan(getSpanFromId(ctx, id, url), start, width + start, SpannableString.SPAN_INCLUSIVE_EXCLUSIVE);
+        this.string.setSpan(getSpanFromId(id, url), start, width + start, SpannableString.SPAN_INCLUSIVE_EXCLUSIVE);
     }
 }

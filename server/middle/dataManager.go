@@ -2,9 +2,9 @@ package middle
 
 import (
 	"EasyDesignApplication/server/asynchronoussIOAndBuffer"
-	"EasyDesignApplication/server/base"
 	"EasyDesignApplication/server/base/MultiMedia"
 	"EasyDesignApplication/server/base/Passage"
+	"EasyDesignApplication/server/base/user"
 )
 
 const (
@@ -127,7 +127,7 @@ func (k passageKey) GetKey() asynchronoussIOAndBuffer.Key {
 
 type passageDataSource struct {}
 func (passageDataSource) Load(key asynchronoussIOAndBuffer.Key) (asynchronoussIOAndBuffer.Bean, error) {
-	p, err := loadPassageFromDisk(key.Uid())
+	p, err := Passage.LoadPassageFromDisk(key.Uid())
 	return (*passage)(p), err
 }
 func (passageDataSource) Save(bean asynchronoussIOAndBuffer.Bean) error {
@@ -137,26 +137,26 @@ func (passageDataSource) Delete(key asynchronoussIOAndBuffer.Key) error {
 	return nil
 }
 
-func loadPassageNow(id int64) (*Passage, error) {
+func loadPassageNow(id int64) (*Passage.Passage, error) {
 	b, err := asynchronoussIOAndBuffer.DataManager.Load(passageKey(id))()
 	if err != nil {
 		return nil, err
 	}
-	return (*Passage)(b.(*passage)), err
+	return (*Passage.Passage)(b.(*passage)), err
 }
 func loadPassage(id int64) GetFunction {
 	return asynchronoussIOAndBuffer.DataManager.Load(passageKey(id))
 }
-func GetPassageFromFunction(f GetFunction) (*Passage, error) {
+func GetPassageFromFunction(f GetFunction) (*Passage.Passage, error) {
 	b, err := f()
 	if err != nil {
 		return nil, err
 	}
-	return (*Passage)(b.(*passage)), nil
+	return (*Passage.Passage)(b.(*passage)), nil
 }
 
 
-type userMini base.UserMini
+type userMini user.UserMini
 func (u *userMini) GetKey() asynchronoussIOAndBuffer.Key {
 	return userMiniKey(u.UserId)
 }
@@ -172,13 +172,21 @@ func (k userMiniKey) GetKey() asynchronoussIOAndBuffer.Key {
 	return k
 }
 
+type LoadMiniFail struct {}
+
+func (LoadMiniFail) Error() string {
+	return "LOAD USER MINI FAIL"
+}
+
 type userMiniDataSource struct {}
 func (userMiniDataSource) Load(key asynchronoussIOAndBuffer.Key) (asynchronoussIOAndBuffer.Bean, error) {
-	u, err := base.GetOneUserMini(key.Uid())
-	return (*userMini)(u), err
+	u, ok := user.GetOneUserMini(key.Uid())
+	if !ok {
+		return nil, LoadMiniFail{}
+	}
+	return (*userMini)(u), nil
 }
 func (userMiniDataSource) Save(bean asynchronoussIOAndBuffer.Bean) error {
-
 	return nil
 }
 func (userMiniDataSource) Delete(key asynchronoussIOAndBuffer.Key) error {
@@ -194,35 +202,35 @@ func LoadUserMinis(ids []int64, fs []GetFunction) []GetFunction {
 	}
 	return fs
 }
-func GetUserMiniFromFunction(f GetFunction) (*base.UserMini, error) {
+func GetUserMiniFromFunction(f GetFunction) (*user.UserMini, error) {
 	b, err := f()
 	if err != nil {
 		return nil, err
 	}
-	return (*base.UserMini)(b.(*userMini)), nil
+	return (*user.UserMini)(b.(*userMini)), nil
 }
-func GetUserMinisFromFunctions(fs []GetFunction) ([]*base.UserMini, error) {
-	goal := make([]*base.UserMini, len(fs))
+func GetUserMinisFromFunctions(fs []GetFunction) ([]*user.UserMini, error) {
+	goal := make([]*user.UserMini, len(fs))
 	for i, f := range fs {
 		b, err := f()
 		if err != nil {
 			return nil, err
 		} else {
-			goal[i] = (*base.UserMini)(b.(*userMini))
+			goal[i] = (*user.UserMini)(b.(*userMini))
 		}
 	}
 	return goal, nil
 }
-func LoadUserMiniNow(id int64) (*base.UserMini, error) {
+func LoadUserMiniNow(id int64) (*user.UserMini, error) {
 	b, err := asynchronoussIOAndBuffer.DataManager.Load(userMiniKey(id))()
 	if err != nil {
 		return nil, err
 	}
-	return (*base.UserMini)(b.(*userMini)), err
+	return (*user.UserMini)(b.(*userMini)), err
 }
 
 
-func DataManagerInit() {
+func dataManagerInit() {
 	asynchronoussIOAndBuffer.Init(map[uint8]asynchronoussIOAndBuffer.DataSource{
 		dataTypeUserMini: userMiniDataSource{},
 		dataTypePassage: passageDataSource{},

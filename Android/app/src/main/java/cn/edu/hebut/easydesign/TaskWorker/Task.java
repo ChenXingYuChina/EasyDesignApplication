@@ -4,6 +4,7 @@ public abstract class Task<T, K> implements Runnable {
     protected long delay;
     protected T data1;
     protected K data2;
+    protected boolean async = false;
 
     protected abstract void doOnMain();
 

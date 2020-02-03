@@ -1,23 +1,10 @@
 package middle
 
-import "log"
+import "EasyDesignApplication/server/base"
 
-func Prepare() {
-	PrepareCommentDir()
-	PreparePassageDir()
-	PrepareUserDir()
-	PrepareWorkshopDir()
-	s, err := PreparePassageBodySQL()
-	if err != nil {
-		log.Fatal("prepare middle Passage Sql: ", s, err)
-	}
-	s, err = PreparePassageListSQL()
-	if err != nil {
-		log.Fatal("prepare middle Passage List Sql: ", s, err)
-	}
-	s, err = PrepareUserSQL()
-	if err != nil {
-		log.Fatal("prepare middle User Sql: ", s, err)
-	}
-	PrepareResidentContentTable()
+func init() {
+	base.RegisterPrepare(func() {
+		dataManagerInit()
+		prepareResidentContentTable()
+	})
 }

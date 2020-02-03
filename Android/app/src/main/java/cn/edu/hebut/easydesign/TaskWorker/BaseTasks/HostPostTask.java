@@ -33,11 +33,15 @@ public abstract class HostPostTask extends Task<String, Form> {
             r = Client.getInstance().PostToHost(data1, data2);
             Log.i("post", "doOnService: finish");
             condition.condition = onPostFinish(r);
+            Log.i("HPT", "do");
         } catch (Exception e) {
+            Log.i("HPT", e.toString());
             condition.condition = 700;
         } finally {
             if (r != null) {
                 r.close();
+
+                Log.i("HPT", "do2");
             }
         }
         return true;

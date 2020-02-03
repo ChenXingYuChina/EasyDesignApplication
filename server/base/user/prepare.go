@@ -8,20 +8,20 @@ import (
 func init() {
 	base.RegisterPrepare(func() {
 		PrepareUserDir()
-		p, err := PrepareUserSQL()
+		p, err := prepareUserSQL()
 		if err != nil {
 			panic(fmt.Sprint("user full sql fail: ", err, p))
 		}
 		PrepareWorkshopDir()
-		p, err = PrepareWorkshopSQL()
+		p, err = prepareWorkshopSQL()
 		if err != nil {
 			panic(fmt.Sprint("workshop sql fail: ", err, p))
 		}
-		p, err = UserMiniSQLPrepare()
+		p, err = userMiniSQLPrepare()
 		if err != nil {
 			panic(fmt.Sprint("user mini sql fail: ", err, p))
 		}
-		p, err = UserSQLPrepare()
+		p, err = userSQLPrepare()
 		if err != nil {
 			panic(fmt.Sprint("user base sql fail: ", err, p))
 		}

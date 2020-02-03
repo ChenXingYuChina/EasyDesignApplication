@@ -13,7 +13,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
-import cn.edu.hebut.easydesign.Adapter.SplashAdapter;
+import cn.edu.hebut.easydesign.Activity.Adapter.SplashAdapter;
 import cn.edu.hebut.easydesign.R;
 
 import java.util.ArrayList;
@@ -66,7 +66,7 @@ public class Splash extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Splash.this,login1.class);
+                Intent intent = new Intent(Splash.this, Begin.class);
                 startActivity(intent);
             }
         });

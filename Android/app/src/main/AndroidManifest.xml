@@ -3,6 +3,7 @@
     package="cn.edu.hebut.easydesign">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET"/>
     <application
@@ -17,24 +18,36 @@
         <activity android:name="cn.edu.hebut.easydesign.Activity.login4" />
         <activity android:name="cn.edu.hebut.easydesign.Activity.login3" />
         <activity android:name="cn.edu.hebut.easydesign.Activity.login2" />
-        <activity android:name="cn.edu.hebut.easydesign.Activity.login1" />
+        <activity android:name="cn.edu.hebut.easydesign.Activity.Begin" />
         <meta-data
             android:name="com.google.android.actions"
             android:resource="@xml/actions" />
 
         <activity android:name="cn.edu.hebut.easydesign.Activity.FirstPage">
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+        </activity>
+
+        <activity android:name="cn.edu.hebut.easydesign.Activity.MainActivity"
+            android:launchMode="singleInstance">
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+        </activity>
+        <activity android:name=".Activity.Splash" />
+        <activity android:name=".Activity.TestActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name="cn.edu.hebut.easydesign.Activity.MainActivity" >
-
-        </activity>
-        <activity android:name=".Activity.Splash" />
-<!--        <activity android:name=".Activity.ForTestActive" />-->
+        <activity android:name=".Activity.PassageActivity" />
 
         <service android:name=".TaskWorker.TaskService" />
     </application>

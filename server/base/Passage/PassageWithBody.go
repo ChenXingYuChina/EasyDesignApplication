@@ -18,7 +18,7 @@ var (
 	newPassageStepWorkshop *sql.Stmt
 )
 
-func PreparePassageBodySQL() (uint8, error) {
+func preparePassageBodySQL() (uint8, error) {
 	var err error
 	newPassageStepWorkshop, err = base.Database.Prepare("insert into workshop_passage (passage_id, workshop_id) VALUES ($1, $2)")
 	if err != nil {
@@ -27,7 +27,7 @@ func PreparePassageBodySQL() (uint8, error) {
 	return 0, nil
 }
 
-func PreparePassageDir() {
+func preparePassageDir() {
 	passageBodyRealFilename = base.DataDir + passageBodyFilename
 	base.CheckAndMakeDir(base.DataDir +passageBodyDir)
 }
@@ -39,7 +39,7 @@ type Passage struct {
 }
 
 
-func loadPassageFromDisk(id int64) (*Passage, error) {
+func LoadPassageFromDisk(id int64) (*Passage, error) {
 	goal := &Passage{Id:id}
 	var err1 error
 	var err2 error
@@ -55,7 +55,7 @@ func NewPassage(cs *ComplexString.ComplexString, t int16, owner int64, title str
 	var pid int64
 	err := base.InTransaction(func(tx *sql.Tx) ([]string, error) {
 		var err error
-		pid, err = MakePassage(tx, owner, title, listImage, t)
+		pid, err = makePassage(tx, owner, title, listImage, t)
 		if err != nil {
 			return nil, err
 		}
