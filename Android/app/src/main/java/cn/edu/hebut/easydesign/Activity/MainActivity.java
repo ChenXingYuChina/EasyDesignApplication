@@ -27,6 +27,8 @@ import androidx.viewpager.widget.ViewPager;
 
 import cn.edu.hebut.easydesign.Activity.ContextHelp.ContextHolder;
 import cn.edu.hebut.easydesign.Activity.Fragment.HomeFragment;
+import cn.edu.hebut.easydesign.Activity.PassageList.Config.HotByType;
+import cn.edu.hebut.easydesign.Activity.PassageList.Config.LastByType;
 import cn.edu.hebut.easydesign.Activity.PassageList.Config.Search;
 import cn.edu.hebut.easydesign.Activity.commonComponents.ImageWithTextView;
 import cn.edu.hebut.easydesign.Activity.Adapter.SplashAdapter;
@@ -58,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
             public void onServiceConnected(ComponentName name, IBinder service) {
                 ContextHolder.setBinder((TaskService.MyBinder) service);
                 final HomeFragment home = (HomeFragment) fm.findFragmentById(R.id.main_content);
-                home.listView.init(new Search("考试"), null);
+                home.listView.init(new HotByType((short) 0), null);
 //                Log.i("main", "onCreate: " + listView);
                 ImageView title = findViewById(R.id.home_title);
                 title.setOnClickListener(new View.OnClickListener() {
@@ -83,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
         unbindService(connection);
     }
-    
+
     private void changeFragment(Fragment fragment) {
 
         FragmentManager fragmentManager = getSupportFragmentManager();//开启事务
