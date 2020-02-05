@@ -1,10 +1,7 @@
 package cn.edu.hebut.easydesign.Activity.commonComponents;
 
 import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
@@ -12,7 +9,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.SearchView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,12 +17,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewpager.widget.ViewPager;
 import cn.edu.hebut.easydesign.Activity.Adapter.SplashAdapter;
-import cn.edu.hebut.easydesign.Activity.ContextHelp.ContextHolder;
 import cn.edu.hebut.easydesign.Activity.PassageList.Config.HotByType;
 import cn.edu.hebut.easydesign.Activity.PassageList.OnHeadBind;
 import cn.edu.hebut.easydesign.Activity.PassageList.PassageListView;
 import cn.edu.hebut.easydesign.Activity.PassageList.PassageListViewPerformance;
-import cn.edu.hebut.easydesign.Activity.SearchResultActivity;
 import cn.edu.hebut.easydesign.R;
 
 
@@ -46,7 +40,7 @@ public class MainHead extends FrameLayout implements OnHeadBind {
 
     public MainHead(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-        inflate(context, R.layout.main_activity_head, this);
+        inflate(context, R.layout.home_page_head, this);
         this.context = context;
         initView();
         initData();

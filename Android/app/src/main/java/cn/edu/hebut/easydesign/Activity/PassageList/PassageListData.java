@@ -4,16 +4,12 @@ import android.util.Log;
 import android.widget.Toast;
 
 import java.util.Date;
-import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 
 import cn.edu.hebut.easydesign.Activity.ContextHelp.ContextHolder;
-import cn.edu.hebut.easydesign.R;
 import cn.edu.hebut.easydesign.Resources.PassageList.LoadPassageListTask;
 import cn.edu.hebut.easydesign.Resources.PassageList.PassageList;
-import cn.edu.hebut.easydesign.Resources.PassageList.PassageListItem;
 import cn.edu.hebut.easydesign.Resources.UserMini.UserMini;
 import cn.edu.hebut.easydesign.TaskWorker.TaskService;
 
@@ -30,29 +26,29 @@ public class PassageListData {
         this.config = config;
     }
 
-    /*package*/ void LoadMore(final PassageListAdapter adapter) {
+    /*package*/ void loadMore(final PassageListView listView) {
         if (load) {
             load = false;
-            adapter.footHolder.setLoading();
+            listView.adapter.footHolder.setTip(listView.texts[PassageListView.text_foot_onLoading]);
             TaskService.MyBinder binder = ContextHolder.getBinder();
             binder.PutTask(new LoadPassageListTask(config.getFields(passageList.list.size())) {
                 @Override
                 protected void onSuccess(PassageList passageList, List<UserMini> userMinis) {
                     PassageListData.this.append(passageList, userMinis);
-                    adapter.notifyDataSetChanged();
+                    listView.adapter.notifyDataSetChanged();
                     load = true;
-                    adapter.footHolder.setLoad();
+                    listView.adapter.footHolder.setTip(listView.texts[PassageListView.text_foot_toLoad]);
                 }
 
                 @Override
                 protected void onErrorCode(int errCode) {
                     if (errCode == 702) {
-                        adapter.footHolder.setFinishLoad();
+                        listView.adapter.footHolder.setTip(listView.texts[PassageListView.text_foot_onNoNew]);
                     } else {
-                        adapter.footHolder.setLoad();
-                        Toast.makeText(ContextHolder.getContext(), R.string.error, Toast.LENGTH_SHORT).show();
+                        listView.adapter.footHolder.setTip(listView.texts[PassageListView.text_foot_toLoad]);
+                        Toast.makeText(ContextHolder.getContext(), listView.texts[PassageListView.text_foot_onError], Toast.LENGTH_SHORT).show();
                     }
-                    adapter.notifyItemChanged(passageList.list.size() + 1);
+                    listView.adapter.notifyItemChanged(passageList.list.size() + 1);
                     load = true;
                 }
             });
@@ -83,9 +79,9 @@ public class PassageListData {
                 @Override
                 protected void onErrorCode(int errCode) {
                     if (errCode == 702) {
-                        Toast.makeText(ContextHolder.getContext(), R.string.isNew, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ContextHolder.getContext(), view.texts[PassageListView.text_refresh_onNoNew], Toast.LENGTH_SHORT).show();
                     } else {
-                        Toast.makeText(ContextHolder.getContext(), R.string.error, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ContextHolder.getContext(), view.texts[PassageListView.text_refresh_onError], Toast.LENGTH_SHORT).show();
                     }
                     refresh = true;
                     view.swipe.setRefreshing(false);

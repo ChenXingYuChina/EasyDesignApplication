@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -18,8 +19,8 @@ public class HomeFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        listView = (PassageListView) inflater.inflate(R.layout.home_fragment, container, false);
-        return listView;
-
+        LinearLayout home = (LinearLayout) inflater.inflate(R.layout.home_fragment, container, false);
+        listView = home.findViewById(R.id.hot_list);
+        return home;
     }
 }

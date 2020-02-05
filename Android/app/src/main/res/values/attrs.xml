@@ -9,7 +9,13 @@
             <enum name="Linear" value="0" />
             <enum name="Grid" value="1" />
         </attr>
-        <attr name="card" format="reference"/> <!-- need a layout -->
-        <attr name="head" format="reference"/> <!-- need a layout -->
+        <attr name="card" format="reference" /> <!-- need a layout -->
+        <attr name="head" format="reference" /> <!-- need a layout -->
+        <attr name="text_foot_onError" format="string" />
+        <attr name="text_foot_onNoNew" format="string" />
+        <attr name="text_foot_onLoading" format="string" />
+        <attr name="text_foot_toLoad" format="string" />
+        <attr name="text_refresh_onError" format="string" />
+        <attr name="text_refresh_onNoNew" format="string" />
     </declare-styleable>
 </resources>

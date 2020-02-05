@@ -30,6 +30,9 @@
         android:id="@+id/search_result"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:text_refresh_onNoNew="没有相关内容"
+        app:text_foot_onNoNew="没有更多的结果了"
+        app:text_foot_toLoad="加载更多相关内容"
         app:card="@layout/title_main_card"
         app:head="@layout/nil_head"
         app:layout_manager="Linear" />

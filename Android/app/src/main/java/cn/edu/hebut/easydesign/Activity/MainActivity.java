@@ -4,42 +4,22 @@ import android.app.Service;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.ServiceConnection;
-import android.graphics.Point;
 import android.os.Bundle;
 import android.os.IBinder;
-import android.util.Log;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RadioButton;
-import android.widget.ScrollView;
-import android.widget.SearchView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.viewpager.widget.ViewPager;
-
 import cn.edu.hebut.easydesign.Activity.ContextHelp.ContextHolder;
 import cn.edu.hebut.easydesign.Activity.Fragment.HomeFragment;
 import cn.edu.hebut.easydesign.Activity.PassageList.Config.HotByType;
-import cn.edu.hebut.easydesign.Activity.PassageList.Config.LastByType;
-import cn.edu.hebut.easydesign.Activity.PassageList.Config.Search;
-import cn.edu.hebut.easydesign.Activity.commonComponents.ImageWithTextView;
-import cn.edu.hebut.easydesign.Activity.Adapter.SplashAdapter;
 import cn.edu.hebut.easydesign.DataManagement.DataManagement;
 import cn.edu.hebut.easydesign.DataManagement.DataType;
 import cn.edu.hebut.easydesign.R;
 import cn.edu.hebut.easydesign.Resources.UserMini.UserMiniLoader;
 import cn.edu.hebut.easydesign.TaskWorker.TaskService;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     ServiceConnection connection;
@@ -47,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.home_page);
+        setContentView(R.layout.main_page);
         fm = getSupportFragmentManager();
         try {
             DataManagement.getInstance().RegisterLoader(DataType.UserMini, UserMiniLoader.class);
@@ -62,14 +42,6 @@ public class MainActivity extends AppCompatActivity {
                 final HomeFragment home = (HomeFragment) fm.findFragmentById(R.id.main_content);
                 home.listView.init(new HotByType((short) 0), null);
 //                Log.i("main", "onCreate: " + listView);
-                ImageView title = findViewById(R.id.home_title);
-                title.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        home.listView.refresh();
-                        Log.i("main", "onClick: ");
-                    }
-                });
             }
 
             @Override

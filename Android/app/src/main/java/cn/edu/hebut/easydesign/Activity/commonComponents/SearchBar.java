@@ -3,7 +3,6 @@ package cn.edu.hebut.easydesign.Activity.commonComponents;
 import android.content.Context;
 import android.content.Intent;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.SearchView;
@@ -24,6 +23,12 @@ public class SearchBar extends FrameLayout {
         inflate(context, R.layout.search_bar_frame, this);
         searchView = findViewById(R.id.search_bar);
         textView = findViewById(R.id.searchHelp);
+        searchView.setOnSearchClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                textView.setVisibility(View.GONE);
+            }
+        });
         searchView.setOnCloseListener(new SearchView.OnCloseListener() {
             @Override
             public boolean onClose() {

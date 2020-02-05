@@ -2,13 +2,14 @@ package cn.edu.hebut.easydesign.Activity.PassageList;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.widget.FrameLayout;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -26,6 +27,14 @@ public class PassageListView extends FrameLayout {
     /*package*/ PassageListAdapter adapter;
     /*package*/ PassageListData data;
     /*package*/ PassageListViewConfig config;
+    protected String[] texts;
+    protected static final int text_foot_onError = 0;
+    protected static final int text_foot_onNoNew = 1;
+    protected static final int text_foot_onLoading = 2;
+    protected static final int text_foot_toLoad = 3;
+    protected static final int text_refresh_onError = 4;
+    protected static final int text_refresh_onNoNew = 5;
+
 
     private Map<PassageListViewConfig, PassageListDataSet> cache = new HashMap<>();
     private Context context;
@@ -37,6 +46,23 @@ public class PassageListView extends FrameLayout {
         swipe = findViewById(R.id.list_swipe);
         main = findViewById(R.id.list_main);
         defaultPerformance = PassageListViewPerformance.getFromAttributeSet(attrs);
+        texts = new String[6];
+        texts[text_foot_onError] = getStringFromAttrs(attrs, "text_foot_onError", R.string.error);
+        texts[text_foot_onNoNew] = getStringFromAttrs(attrs, "text_foot_onNoNew", R.string.finish_list);
+        texts[text_foot_onLoading] = getStringFromAttrs(attrs, "text_foot_onLoading", R.string.loading_list);
+        texts[text_foot_toLoad] = getStringFromAttrs(attrs, "text_foot_toLoad", R.string.load);
+        texts[text_refresh_onError] = getStringFromAttrs(attrs, "text_refresh_onError", R.string.error);
+        texts[text_refresh_onNoNew] = getStringFromAttrs(attrs, "text_refresh_onNoNew", R.string.no_news);
+    }
+
+    private String getStringFromAttrs(AttributeSet attrs, String key, @StringRes int defaultValue) {
+        String attr = attrs.getAttributeValue("http://schemas.android.com/apk/res-auto", key);
+        if (attr == null || attr.matches("@[a-zA-Z]+/")) {
+            attr = context.getResources().getString(defaultValue);
+        } else if (attr.startsWith("@string/")) {
+            attr = context.getResources().getString(attrs.getAttributeResourceValue("http://schemas.android.com/apk/res-auto", key, defaultValue));
+        }
+        return attr;
     }
 
     private void makeLayout() {
@@ -59,8 +85,8 @@ public class PassageListView extends FrameLayout {
         }
     }
 
-    public void init(PassageListViewConfig viewConfig, PassageListViewPerformance performance) {
-        this.performance = performance != null?performance:defaultPerformance;
+    public void init(@NonNull PassageListViewConfig viewConfig, @Nullable PassageListViewPerformance performance) {
+        this.performance = performance != null ? performance : defaultPerformance;
         config = viewConfig;
         makeLayout();
         data = new PassageListData(viewConfig);
@@ -112,7 +138,6 @@ public class PassageListView extends FrameLayout {
     public void refresh() {
         swipe.setRefreshing(true);
         data.refresh(this);
-
     }
 
     private class PassageListDataSet {

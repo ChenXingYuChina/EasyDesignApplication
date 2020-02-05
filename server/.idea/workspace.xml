@@ -2,44 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="54da2308-b95c-40ae-9a28-a3d3ac1f19d6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/PassageList/OnHeadBind.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/SearchResultActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/commonComponents/SearchBar.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/res/drawable/ic_left_archer.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/res/layout/passageList/layout/nil_head.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/res/layout/passageList/layout/search_bar_frame.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/res/layout/passageList/layout/search_page.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/Fragment/HomeFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/Fragment/HomeFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/PassageList/Config/HotByType.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/PassageList/Config/HotByType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/PassageList/Config/LastByType.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/PassageList/Config/LastByType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/PassageList/Config/Search.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/PassageList/Config/Search.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/PassageList/Config/UserLastByType.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/PassageList/Config/UserLastByType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/PassageList/Config/WorkshopConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/PassageList/Config/WorkshopConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/PassageList/FootHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/PassageList/FootHolder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/PassageList/PassageListAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/PassageList/PassageListAdapter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/PassageList/PassageListData.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/PassageList/PassageListData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/PassageList/PassageListView.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/PassageList/PassageListView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/PassageList/PassageListViewConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/PassageList/PassageListViewConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/PassageList/PassageListViewPerformance.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/PassageList/PassageListViewPerformance.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/TestActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/TestActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/commonComponents/MainHead.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/commonComponents/MainHead.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/HttpClient/Form/TextField.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/HttpClient/Form/TextField.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Resources/PassageList/LoadPassageListTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Resources/PassageList/LoadPassageListTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Resources/PassageList/PassageItemCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Resources/PassageList/PassageItemCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Resources/PassageList/PassageList.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Resources/PassageList/PassageList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Resources/PassageList/PassageListItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Resources/PassageList/PassageListItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Resources/UserMini/UserMini.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Resources/UserMini/UserMini.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/res/layout/activity_login1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/res/layout/activity_login1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/res/layout/passageList/layout/home_fragment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/res/layout/passageList/layout/home_fragment.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/res/layout/passageList/layout/image_main_card.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/res/layout/passageList/layout/image_main_card.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/res/layout/passageList/layout/main_activity_head.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/res/layout/passageList/layout/main_activity_head.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/commonComponents/SearchBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/commonComponents/SearchBar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/res/layout/passageList/layout/search_bar_frame.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/res/layout/passageList/layout/search_bar_frame.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/res/layout/passageList/layout/search_page.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/res/layout/passageList/layout/search_page.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/res/values/attrs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/res/values/attrs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/action/Passage.go" beforeDir="false" afterPath="$PROJECT_DIR$/action/Passage.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middle/passageLoader.go" beforeDir="false" afterPath="$PROJECT_DIR$/middle/passageLoader.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middle/residentContent.go" beforeDir="false" afterPath="$PROJECT_DIR$/middle/residentContent.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middle/residentContent_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/middle/residentContent_test.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -100,7 +70,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/action/Passage.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="580">
+            <state relative-caret-position="870">
               <caret line="34" column="12" selection-start-line="34" selection-start-column="12" selection-end-line="34" selection-end-column="12" />
             </state>
           </provider>
@@ -134,8 +104,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/middle/residentContent_test.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="42" column="19" selection-start-line="42" selection-start-column="19" selection-end-line="42" selection-end-column="19" />
+            <state relative-caret-position="450">
+              <caret line="56" column="18" lean-forward="true" selection-start-line="56" selection-start-column="18" selection-end-line="56" selection-end-column="18" />
               <folding>
                 <element signature="n#!!block;n#TestLoadFullPassage#0" />
               </folding>
@@ -235,12 +205,12 @@
         <option value="$PROJECT_DIR$/action/passageList.go" />
         <option value="$PROJECT_DIR$/middle/residentContent.go" />
         <option value="$PROJECT_DIR$/middle/passageLoader.go" />
-        <option value="$PROJECT_DIR$/middle/residentContent_test.go" />
         <option value="$PROJECT_DIR$/action/Passage.go" />
+        <option value="$PROJECT_DIR$/middle/residentContent_test.go" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-7" />
     <option name="width" value="974" />
     <option name="height" value="1087" />
@@ -447,7 +417,7 @@
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1748401" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16950959" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="DB Browser" order="2" />
       <window_info id="Project Explorer" order="3" />
@@ -455,7 +425,7 @@
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.33160084" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.33160084" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3991684" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -909,6 +879,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/action/Passage.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="870">
+          <caret line="34" column="12" selection-start-line="34" selection-start-column="12" selection-end-line="34" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/middle/dataManager.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4470">
@@ -950,17 +927,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/action/Passage.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="580">
-          <caret line="34" column="12" selection-start-line="34" selection-start-column="12" selection-end-line="34" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/middle/residentContent_test.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="42" column="19" selection-start-line="42" selection-start-column="19" selection-end-line="42" selection-end-column="19" />
+        <state relative-caret-position="450">
+          <caret line="56" column="18" lean-forward="true" selection-start-line="56" selection-start-column="18" selection-end-line="56" selection-end-column="18" />
           <folding>
             <element signature="n#!!block;n#TestLoadFullPassage#0" />
           </folding>
