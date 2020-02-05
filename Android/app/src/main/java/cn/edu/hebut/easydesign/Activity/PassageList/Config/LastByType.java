@@ -42,4 +42,9 @@ public class LastByType extends PassageListViewConfig {
         }
         return ((LastByType) obj).type == this.type;
     }
+
+    @Override
+    public int hashCode() {
+        return 1 + (((int)type) << 8);
+    }
 }

@@ -88,7 +88,13 @@ public abstract class LoadPassageListTask extends HostPostTask {
     protected abstract void onErrorCode(int errCode);
 
     public enum field {
-        Type("type"), Begin("begin"), Length("len"), UserId("id"), Hot("hot"), Keyword("keyword"), LastRefreshTime("refresh"),
+        Type("type"),
+        Begin("begin"),
+        Length("len"),
+        UserId("id"),
+        Hot("hot"),
+        Keyword("keyword"),
+        LastRefreshTime("refresh"),
         Workshop("workshop");
         field(String name){
             fieldName = name;

@@ -1,5 +1,7 @@
 package cn.edu.hebut.easydesign.HttpClient.Form;
 
+import android.util.Log;
+
 import okhttp3.FormBody;
 import okhttp3.MultipartBody;
 
@@ -22,6 +24,7 @@ public class TextField implements FormField {
 
     @Override
     public void addToFormBuilder(FormBody.Builder builder) throws Exception {
+        Log.i("build", fieldName + data);
         builder.add(fieldName, data);
     }
 
@@ -32,5 +35,6 @@ public class TextField implements FormField {
 
     public void setData(String data) {
         this.data = data;
+        Log.i("build", this.data);
     }
 }

@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
                 title.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        home.listView.toHead();
+                        home.listView.refresh();
                         Log.i("main", "onClick: ");
                     }
                 });

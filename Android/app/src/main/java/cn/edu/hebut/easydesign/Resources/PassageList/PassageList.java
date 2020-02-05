@@ -5,9 +5,11 @@ import android.util.Log;
 import org.json.JSONArray;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 public class PassageList {
-    public ArrayList<PassageListItem> list = new ArrayList<>();
+    public List<PassageListItem> list = new LinkedList<>();
     public PassageList() {
 
     }

@@ -9,49 +9,42 @@ import android.os.IBinder;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.SearchView;
 
 import androidx.annotation.Nullable;
-import androidx.fragment.app.FragmentManager;
+
 import cn.edu.hebut.easydesign.Activity.ContextHelp.ContextHolder;
 import cn.edu.hebut.easydesign.Activity.ContextHelp.HoldContextAppCompatActivity;
-import cn.edu.hebut.easydesign.Activity.Fragment.HomeFragment;
-import cn.edu.hebut.easydesign.Activity.PassageList.Config.HotByType;
-import cn.edu.hebut.easydesign.DataManagement.DataManagement;
-import cn.edu.hebut.easydesign.DataManagement.DataType;
+import cn.edu.hebut.easydesign.Activity.PassageList.Config.Search;
+import cn.edu.hebut.easydesign.Activity.PassageList.PassageListView;
+import cn.edu.hebut.easydesign.Activity.commonComponents.SearchBar;
 import cn.edu.hebut.easydesign.R;
-import cn.edu.hebut.easydesign.Resources.UserMini.UserMiniLoader;
 import cn.edu.hebut.easydesign.TaskWorker.TaskService;
 
-public class TestActivity extends HoldContextAppCompatActivity {
+public class SearchResultActivity extends HoldContextAppCompatActivity {
+    PassageListView listView;
     ServiceConnection connection;
-    FragmentManager fm;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.home_page);
-        fm = getSupportFragmentManager();
-        try {
-            DataManagement.getInstance().RegisterLoader(DataType.UserMini, UserMiniLoader.class);
-            DataManagement.getInstance().Start(this);
-        } catch (Exception e) {
-            e.printStackTrace();
+        setContentView(R.layout.search_page);
+        Intent search = getIntent();
+        final String keyword;
+        if (search.hasExtra("keyword")) {
+            keyword = search.getStringExtra("keyword");
+        } else {
+            Log.i("search", "no keyword");
+            finish();
+            return;
         }
+        listView = findViewById(R.id.search_result);
+
         connection = new ServiceConnection() {
             @Override
             public void onServiceConnected(ComponentName name, IBinder service) {
                 ContextHolder.setBinder((TaskService.MyBinder) service);
-                final HomeFragment home = (HomeFragment) fm.findFragmentById(R.id.main_content);
-                home.listView.init(new HotByType((short) 0), null);
-//                Log.i("main", "onCreate: " + listView);
-                ImageView title = findViewById(R.id.home_title);
-                title.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-//                        home.listView.refresh();
-                        home.listView.toHead();
-                        Log.i("main", "onClick: ");
-                    }
-                });
+                listView.init(new Search(keyword), null);
+                listView.disableRefresh();
             }
 
             @Override
@@ -60,6 +53,16 @@ public class TestActivity extends HoldContextAppCompatActivity {
             }
         };
         bindService(new Intent(this, TaskService.class), connection, Service.BIND_AUTO_CREATE);
+
+        SearchBar searchView = findViewById(R.id.search);
+        searchView.setHint(keyword + "  的搜索结果");
+        ImageView back = findViewById(R.id.back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     @Override

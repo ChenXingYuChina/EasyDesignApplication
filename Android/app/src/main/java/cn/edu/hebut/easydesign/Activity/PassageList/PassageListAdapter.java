@@ -23,21 +23,23 @@ public class PassageListAdapter extends RecyclerView.Adapter {
     private List<UserMini> userMinis;
     private PassageListView father;
 
-    PassageListAdapter(@LayoutRes int cardLayout, @LayoutRes int headLayout, PassageListView father, PassageList list, List<UserMini> userMinis) {
-        this.cardLayout = cardLayout;
+    PassageListAdapter(PassageListViewPerformance performance, PassageListView father, PassageList list, List<UserMini> userMinis) {
+        this.cardLayout = performance.card;
         this.list = list;
         this.userMinis = userMinis;
         this.father = father;
-        this.headLayout = headLayout;
+        this.headLayout = performance.head;
     }
 
     @Override
     public void onViewRecycled(@NonNull RecyclerView.ViewHolder holder) {
-        if (holder instanceof ItemHolder)
-            ((ItemHolder)holder).card.cancelLoad();
+        if (holder instanceof ItemHolder) {
+            ((ItemHolder) holder).card.cancelLoad();
+        }
     }
 
     FootHolder footHolder = null;
+    HeadHolder headHolder = null;
 
     @NonNull
     @Override
@@ -50,7 +52,8 @@ public class PassageListAdapter extends RecyclerView.Adapter {
                 footHolder = new FootHolder((LinearLayout) LayoutInflater.from(ContextHolder.getContext()).inflate(R.layout.passage_list_foot, parent, false), father);
                 return footHolder;
             case head:
-                return new HeadHolder(headLayout, parent);
+                headHolder = new HeadHolder(headLayout, parent);
+                return headHolder;
         }
         throw new IllegalArgumentException();
     }
@@ -59,6 +62,10 @@ public class PassageListAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         if (position <= list.list.size() && position != 0) {
             ((ItemHolder)holder).card.putItem(list.list.get(position-1), userMinis.get(position-1));
+        } else if (holder instanceof HeadHolder) {
+            if (holder.itemView instanceof OnHeadBind) {
+                ((OnHeadBind) holder.itemView).onHeadBind(father);
+            }
         }
     }
 

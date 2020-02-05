@@ -1,13 +1,18 @@
 package cn.edu.hebut.easydesign.Activity.commonComponents;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.SearchView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,15 +21,27 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewpager.widget.ViewPager;
 import cn.edu.hebut.easydesign.Activity.Adapter.SplashAdapter;
+import cn.edu.hebut.easydesign.Activity.ContextHelp.ContextHolder;
+import cn.edu.hebut.easydesign.Activity.PassageList.Config.HotByType;
+import cn.edu.hebut.easydesign.Activity.PassageList.OnHeadBind;
+import cn.edu.hebut.easydesign.Activity.PassageList.PassageListView;
+import cn.edu.hebut.easydesign.Activity.PassageList.PassageListViewPerformance;
+import cn.edu.hebut.easydesign.Activity.SearchResultActivity;
 import cn.edu.hebut.easydesign.R;
 
-public class MainHead extends FrameLayout {
+
+/*
+this class will be used as a head of the passageListView
+ */
+public class MainHead extends FrameLayout implements OnHeadBind {
     private List<View> mViews = new ArrayList<>();
     private ViewPager mViewPager;
     private LinearLayout mPoints;
+    private TextView searchHelp;
     public ImageView[] mIvPoints;
     private static int[] PICS = {R.drawable.zhujiemian1, R.drawable.zhujiemian2, R.drawable.zhujiemian3};
     public SearchView mSearchView;
+    public ImageWithTextView[] cardsInHead = new ImageWithTextView[4];
     private Context context;
 
     public MainHead(@NonNull Context context, @Nullable AttributeSet attrs) {
@@ -38,7 +55,11 @@ public class MainHead extends FrameLayout {
     private void initView() {
         mViewPager = findViewById(R.id.viewpager);
         mPoints = findViewById(R.id.points);
-        mSearchView = findViewById(R.id.search_bar);
+
+        cardsInHead[0] = findViewById(R.id.home_card_first);
+        cardsInHead[1] = findViewById(R.id.home_card_second);
+        cardsInHead[2] = findViewById(R.id.home_card_third);
+        cardsInHead[3] = findViewById(R.id.home_card_forth);
     }
 
     private void initData() {
@@ -60,6 +81,34 @@ public class MainHead extends FrameLayout {
             //添加页面数据
             mViews.add(img);
         }
+    }
+
+    @Override
+    public void onHeadBind(final PassageListView view) {
+        cardsInHead[1].setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                view.changeDataSet(new HotByType((short) 1), new PassageListViewPerformance(R.layout.title_main_card, R.layout.home_head_frame, PassageListViewPerformance.Linear));
+            }
+        });
+        cardsInHead[2].setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                view.changeDataSet(new HotByType((short) 2), new PassageListViewPerformance(R.layout.image_main_card, R.layout.home_head_frame, PassageListViewPerformance.Grid));
+            }
+        });
+        cardsInHead[3].setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                view.changeDataSet(new HotByType((short) 3), new PassageListViewPerformance(R.layout.title_main_card, R.layout.home_head_frame, PassageListViewPerformance.Linear));
+            }
+        });
+        cardsInHead[0].setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                view.changeDataSet(new HotByType((short) 0), null);
+            }
+        });
     }
 
     private class PageChangeListener implements ViewPager.OnPageChangeListener {

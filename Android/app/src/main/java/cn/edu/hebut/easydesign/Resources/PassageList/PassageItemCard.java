@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.FrameLayout;
 
 import androidx.annotation.NonNull;
+import cn.edu.hebut.easydesign.Activity.ContextHelp.ContextHolder;
+import cn.edu.hebut.easydesign.Activity.PassageActivity;
 import cn.edu.hebut.easydesign.Resources.UserMini.UserMini;
 import cn.edu.hebut.easydesign.TaskWorker.Condition;
 import cn.edu.hebut.easydesign.TaskWorker.TaskService;
@@ -23,14 +25,13 @@ public abstract class PassageItemCard extends FrameLayout implements FrameLayout
 
     @Override
     public void onClick(View v) {
-        setOnClickListener(this);
-        Intent jump = new Intent();
-        jump.setAction("cn.edu.hebut.easydesign.Activity.PassageActivity");
+        Intent jump = new Intent(ContextHolder.getContext(), PassageActivity.class);
         Bundle bundle = new Bundle();
         bundle.putSerializable("item", item);
 
         bundle.putSerializable("userMini", userMini);
         jump.putExtras(bundle);
+        getContext().startActivity(jump);
 //        getContext().startActivity(jump);
     }
     public void putItem(PassageListItem item, UserMini userMini) {

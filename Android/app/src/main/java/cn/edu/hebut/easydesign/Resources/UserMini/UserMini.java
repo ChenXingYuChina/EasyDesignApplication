@@ -14,7 +14,7 @@ public class UserMini implements Data {
     public long headImage;
     public long id;
     public String name;
-    public byte identity;
+    public byte identity;  // 何种身份，学生0，设计师1，公众2
 
     public static UserMini parseJson(JSONObject userMini) throws JSONException {
         UserMini goal = new UserMini();

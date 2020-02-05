@@ -37,4 +37,7 @@ class FootHolder extends RecyclerView.ViewHolder {
     void setFinishLoad() {
         tip.setText(R.string.finish_list);
     }
+    void setTip(String text) {
+        tip.setText(text);
+    }
 }

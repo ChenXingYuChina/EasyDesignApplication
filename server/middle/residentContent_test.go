@@ -49,7 +49,7 @@ func TestLoadLastPassageListByType(t *testing.T) {
 }
 
 func TestLoadFullPassageFromHot(t *testing.T) {
-	fp, g := LoadFullPassageFromHot(0, 3)
+	fp, g := LoadFullPassageFromCache(0, 3)
 	if g != nil {
 		p, err := GetPassageFromFunction(g)
 		if err != nil {

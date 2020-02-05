@@ -8,7 +8,11 @@ import cn.edu.hebut.easydesign.R;
 import static android.view.View.NO_ID;
 
 public class PassageListViewPerformance {
-    @LayoutRes int card, head, layout;
+    @LayoutRes int card, head;
+    int layout;
+
+    public static final int Linear = 0;
+    public static final int Grid = 1;
 
     public static PassageListViewPerformance getFromAttributeSet(AttributeSet attrs) {
         int card = attrs.getAttributeResourceValue("http://schemas.android.com/apk/res-auto", "card", R.layout.title_main_list_card_frame);
@@ -20,7 +24,7 @@ public class PassageListViewPerformance {
         return new PassageListViewPerformance(card, head, layout);
     }
 
-    public PassageListViewPerformance(@LayoutRes int card, @LayoutRes int head, @LayoutRes int layout) {
+    public PassageListViewPerformance(@LayoutRes int card, @LayoutRes int head, int layout) {
         this.card = card;
         this.head = head;
         this.layout = layout;

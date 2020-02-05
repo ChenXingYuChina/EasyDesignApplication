@@ -45,8 +45,11 @@ func loadFullPassage(id int64) (*FullPassage, error) {
 
 // this will be the type of passage
 const (
-	x = iota
-	y
+	a = iota
+	b
+	c
+	d
+	e
 	typeNum
 )
 

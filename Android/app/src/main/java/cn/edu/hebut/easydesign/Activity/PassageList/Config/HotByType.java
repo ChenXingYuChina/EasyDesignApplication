@@ -29,7 +29,7 @@ public class HotByType extends PassageListViewConfig {
 
     @Override
     protected FormField[] getRefreshFields(long lastTime) {
-        fields[3].setData(lastTime + "");
+        refreshFields[3].setData(lastTime + "");
         return refreshFields;
     }
 
@@ -40,5 +40,10 @@ public class HotByType extends PassageListViewConfig {
         }
         HotByType hotByType = (HotByType) obj;
         return hotByType.type == this.type;
+    }
+
+    @Override
+    public int hashCode() {
+        return ((int)type << 8) + 0;
     }
 }

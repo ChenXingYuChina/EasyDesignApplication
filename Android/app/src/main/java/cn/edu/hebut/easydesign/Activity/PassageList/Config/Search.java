@@ -36,4 +36,9 @@ public class Search extends PassageListViewConfig {
         }
         return ((Search) obj).keyword.equals(this.keyword);
     }
+
+    @Override
+    public int hashCode() {
+        return keyword.hashCode() << 8 + 2;
+    }
 }

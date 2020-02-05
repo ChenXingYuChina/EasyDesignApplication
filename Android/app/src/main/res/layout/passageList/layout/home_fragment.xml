@@ -2,7 +2,7 @@
 <cn.edu.hebut.easydesign.Activity.PassageList.PassageListView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/hot_list"
-    app:card="@layout/title_main_card"
+    app:card="@layout/image_main_card"
     app:head="@layout/home_head_frame"
     app:layout_manager="Linear"
     android:layout_width="match_parent"

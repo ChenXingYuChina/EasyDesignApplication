@@ -15,4 +15,7 @@ public abstract class PassageListViewConfig {
 
     @Override
     public abstract boolean equals(@Nullable Object obj);
+
+    @Override
+    public abstract int hashCode();
 }

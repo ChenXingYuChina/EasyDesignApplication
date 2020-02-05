@@ -35,4 +35,9 @@ public class WorkshopConfig extends PassageListViewConfig {
         }
         return false;
     }
+
+    @Override
+    public int hashCode() {
+        return (((int) workshop) << 8) + 4;
+    }
 }

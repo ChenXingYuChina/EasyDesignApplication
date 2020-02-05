@@ -47,18 +47,15 @@ func LoadHotPassageList(passageType int16, begin int64, length uint8) (PassageLi
 	}
 }
 
-func LoadFullPassageFromHot(passageType int16, passageId int64) (*FullPassage, GetFunction) {
+func LoadFullPassageFromCache(passageType int16, passageId int64) (*FullPassage, GetFunction) {
 	p := hotTable.getPassageFromCache(passageType, passageId)
+	if p != nil {
+		return p, nil
+	}
+	p = lastTable.getPassageFromCache(passageType, passageId)
 	if p != nil {
 		return p, nil
 	}
 	return nil, loadPassage(passageId)
 }
 
-func LoadFullPassageFromLast(passageType int16, passageId int64) (*FullPassage, GetFunction) {
-	p := lastTable.getPassageFromCache(passageType, passageId)
-	if p != nil {
-		return p, nil
-	}
-	return nil, loadPassage(passageId)
-}

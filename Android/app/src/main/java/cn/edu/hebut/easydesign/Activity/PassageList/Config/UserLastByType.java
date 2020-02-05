@@ -38,4 +38,9 @@ public class UserLastByType extends PassageListViewConfig {
         if (!(obj instanceof UserLastByType)) return false;
         return ((UserLastByType) obj).type == this.type && ((UserLastByType) obj).user == this.user;
     }
+
+    @Override
+    public int hashCode() {
+        return (((int) type) ^ (int)user) << 8 + 3;
+    }
 }

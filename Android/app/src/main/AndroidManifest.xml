@@ -48,6 +48,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Activity.PassageActivity" />
+        <activity android:name=".Activity.SearchResultActivity" />
 
         <service android:name=".TaskWorker.TaskService" />
     </application>
