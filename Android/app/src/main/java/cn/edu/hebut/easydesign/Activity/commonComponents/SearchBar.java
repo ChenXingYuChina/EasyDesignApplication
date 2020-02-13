@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.RelativeLayout;
 import android.widget.SearchView;
 import android.widget.TextView;
 
@@ -27,12 +28,18 @@ public class SearchBar extends FrameLayout {
             @Override
             public void onClick(View v) {
                 textView.setVisibility(View.GONE);
+                RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) searchView.getLayoutParams();
+                params.width = RelativeLayout.LayoutParams.MATCH_PARENT;
+                searchView.setLayoutParams(params);
             }
         });
         searchView.setOnCloseListener(new SearchView.OnCloseListener() {
             @Override
             public boolean onClose() {
                 textView.setVisibility(View.VISIBLE);
+                RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) searchView.getLayoutParams();
+                params.width = RelativeLayout.LayoutParams.WRAP_CONTENT;
+                searchView.setLayoutParams(params);
                 return false;
             }
         });

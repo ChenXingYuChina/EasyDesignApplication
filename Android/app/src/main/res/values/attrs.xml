@@ -4,7 +4,7 @@
         <attr name="image" format="reference" />
         <attr name="text" format="string" />
     </declare-styleable>
-    <declare-styleable name="PassageListView">
+    <declare-styleable name="PassageListContainer">
         <attr name="layout_manager" format="enum">
             <enum name="Linear" value="0" />
             <enum name="Grid" value="1" />
@@ -17,5 +17,13 @@
         <attr name="text_foot_toLoad" format="string" />
         <attr name="text_refresh_onError" format="string" />
         <attr name="text_refresh_onNoNew" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="PassageMultiListView">
+        <attr name="top" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="ExampleCategoryButton">
+        <attr name="buttonText" format="string" />
     </declare-styleable>
 </resources>

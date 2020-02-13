@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/home_group"
+    android:layout_width="match_parent"
+    android:layout_height="79dp"
+    android:layout_gravity="center_horizontal"
+    android:orientation="horizontal">
+
+    <cn.edu.hebut.easydesign.Activity.commonComponents.ImageWithTextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.7"
+        app:image="@drawable/shubiao"
+        app:text="@string/home_page_first" />
+
+    <cn.edu.hebut.easydesign.Activity.commonComponents.ImageWithTextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.7"
+        app:image="@drawable/weixin"
+        app:text="@string/home_page_second" />
+
+    <cn.edu.hebut.easydesign.Activity.commonComponents.ImageWithTextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.7"
+        app:image="@drawable/huojian"
+        app:text="@string/home_page_third" />
+
+
+    <cn.edu.hebut.easydesign.Activity.commonComponents.ImageWithTextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.7"
+        app:image="@drawable/bi"
+        app:text="@string/home_page_forth" />
+</LinearLayout>

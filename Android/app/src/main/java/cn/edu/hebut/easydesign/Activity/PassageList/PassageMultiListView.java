@@ -1,0 +1,82 @@
+package cn.edu.hebut.easydesign.Activity.PassageList;
+
+import android.content.Context;
+import android.util.AttributeSet;
+import android.util.Log;
+import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.RadioGroup;
+
+import java.util.List;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.viewpager.widget.ViewPager;
+import cn.edu.hebut.easydesign.Activity.PassageList.Page.Page;
+import cn.edu.hebut.easydesign.Activity.PassageList.Page.PassageListPage;
+import cn.edu.hebut.easydesign.R;
+import cn.edu.hebut.easydesign.Tools.AttributeSetTools;
+
+public class PassageMultiListView extends PassageListContainer {
+    ViewPager pager;
+    FrameLayout fixed;
+    CategoryGroup group;
+    List<Page> pages;
+    public PassageMultiListView(@NonNull Context context, @Nullable AttributeSet attrs) {
+        super(context, attrs);
+        inflate(context, R.layout.passage_mulit_list_view, this);
+        pager = findViewById(R.id.pager);
+        swipe = findViewById(R.id.list_swipe);
+        if (attrs == null) throw new IllegalArgumentException();
+        int publicHead = attrs.getAttributeResourceValue("http://schemas.android.com/apk/res-auto", "top", R.layout.nil_head);
+        FrameLayout head = findViewById(R.id.top_view);
+        inflate(context, publicHead, head);
+        View top = head.getChildAt(0);
+        if (top instanceof OnHeadBind) {
+            ((OnHeadBind) top).onHeadBind(this);
+        }
+        fixed = findViewById(R.id.fixed_view);
+    }
+
+    public void init(@NonNull final List<Page> pageList, @NonNull final FixedPart part) {
+        pages = pageList;
+        group = part.getGroup();
+        for (Page page : this.pages) {
+            page.bind(this);
+        }
+        pager.setAdapter(new PassageListPagerAdapter(pages));
+        swipe.setOnRefreshListener(pages.get(0));
+        fixed.addView(part);
+        pager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                Page page = pages.get(position);
+                swipe.setEnabled(page.canRefresh());
+                swipe.setOnRefreshListener(page);
+                group.check(position);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+        group.setOnSelectedChangeListener(new CategoryGroup.onSelectedChangeListener() {
+            @Override
+            public void onChange(int position) {
+                Page page = pages.get(position);
+                pager.setCurrentItem(position);
+                swipe.setEnabled(page.canRefresh());
+                swipe.setOnRefreshListener(page);
+            }
+        });
+        group.check(0);
+        Log.i("PMLV", "" + fixed.getHeight() + pager.getHeight());
+    }
+
+}
