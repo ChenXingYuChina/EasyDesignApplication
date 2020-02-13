@@ -9,6 +9,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import cn.edu.hebut.easydesign.R;
@@ -42,5 +43,12 @@ public class ImageWithTextView extends FrameLayout {
     }
     public void setText(String string) {
         textView.setText(string);
+    }
+    public void setChecked(boolean check) {
+        if (check) {
+            // TODO: 2020/2/12 make it use the checked color mode
+        } else {
+            // TODO: 2020/2/12 make it use the unchecked color mode
+        }
     }
 }

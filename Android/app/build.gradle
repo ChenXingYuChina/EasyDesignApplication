@@ -20,9 +20,11 @@ android {
     sourceSets {
         main {
             res.srcDirs = [
-                "src/main/res/layout/home_page",
-                "src/main/res/layout/passageList",
-                "src/main/res"
+                    "src/main/res",
+                    "src/main/res/layout/home_page",
+                    "src/main/res/layout/passageList",
+                    "src/main/res/layout/examplePage",
+                    "src/main/res/layout/user_page"
             ]
         }
     }
@@ -39,4 +41,5 @@ dependencies {
     implementation 'com.squareup.okhttp3:okhttp:3.10.0'
     implementation 'com.google.android.material:material:1.0.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    testImplementation 'org.json:json:20140107'
 }

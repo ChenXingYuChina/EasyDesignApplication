@@ -10,14 +10,14 @@ import cn.edu.hebut.easydesign.R;
 
 class FootHolder extends RecyclerView.ViewHolder {
     private TextView tip;
-    FootHolder(LinearLayout footer, final PassageListView view) {
+    FootHolder(LinearLayout footer, final PassageListAdapter adapter) {
         super(footer);
         tip = footer.findViewById(R.id.foot);
         Log.i("foot", footer +"");
         footer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                view.data.loadMore(view);
+                adapter.loadMore();
             }
         });
     }

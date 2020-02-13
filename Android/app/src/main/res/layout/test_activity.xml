@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
-    <cn.edu.hebut.easydesign.Activity.commonComponents.MainHead
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"/>
+
+    <cn.edu.hebut.easydesign.Activity.PassageList.PassageMultiListView
+        app:top="@layout/test_top"
+        app:card="@layout/title_main_card"
+        app:layout_manager="Linear"
+        app:head="@layout/nil_head"
+        android:id="@+id/test_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 </LinearLayout>

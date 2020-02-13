@@ -43,7 +43,7 @@ public class SearchResultActivity extends HoldContextAppCompatActivity {
             @Override
             public void onServiceConnected(ComponentName name, IBinder service) {
                 ContextHolder.setBinder((TaskService.MyBinder) service);
-                listView.init(new Search(keyword), null);
+                listView.init(new Search(keyword));
                 listView.disableRefresh();
             }
 
@@ -53,7 +53,6 @@ public class SearchResultActivity extends HoldContextAppCompatActivity {
             }
         };
         bindService(new Intent(this, TaskService.class), connection, Service.BIND_AUTO_CREATE);
-
         SearchBar searchView = findViewById(R.id.search);
         searchView.setHint(keyword + "  的搜索结果");
         ImageView back = findViewById(R.id.back);

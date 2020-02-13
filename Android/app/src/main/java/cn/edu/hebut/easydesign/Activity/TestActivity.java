@@ -9,10 +9,12 @@ import android.os.IBinder;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import cn.edu.hebut.easydesign.Activity.ContextHelp.ContextHolder;
 import cn.edu.hebut.easydesign.Activity.ContextHelp.HoldContextAppCompatActivity;
-import cn.edu.hebut.easydesign.Activity.Fragment.HomeFragment;
-import cn.edu.hebut.easydesign.Activity.PassageList.Config.HotByType;
+import cn.edu.hebut.easydesign.Activity.Fragment.ExamplePage.ExampleFragment;
+import cn.edu.hebut.easydesign.Activity.PassageList.Config.LastByType;
+import cn.edu.hebut.easydesign.Activity.PassageList.PassageListView;
 import cn.edu.hebut.easydesign.DataManagement.DataManagement;
 import cn.edu.hebut.easydesign.DataManagement.DataType;
 import cn.edu.hebut.easydesign.R;
@@ -25,8 +27,7 @@ public class TestActivity extends HoldContextAppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main_page);
-        fm = getSupportFragmentManager();
+        setContentView(R.layout.user_fragment);
         try {
             DataManagement.getInstance().RegisterLoader(DataType.UserMini, UserMiniLoader.class);
             DataManagement.getInstance().Start(this);
@@ -37,9 +38,8 @@ public class TestActivity extends HoldContextAppCompatActivity {
             @Override
             public void onServiceConnected(ComponentName name, IBinder service) {
                 ContextHolder.setBinder((TaskService.MyBinder) service);
-                final HomeFragment home = (HomeFragment) fm.findFragmentById(R.id.main_content);
-                home.listView.init(new HotByType((short) 0), null);
-//                Log.i("main", "onCreate: " + listView);
+                PassageListView listView = findViewById(R.id.user_description);
+//                listView.init(new LastByType((short) 0), null);
             }
 
             @Override

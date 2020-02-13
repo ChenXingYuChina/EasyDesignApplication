@@ -1,4 +1,4 @@
-package cn.edu.hebut.easydesign.Activity.commonComponents;
+package cn.edu.hebut.easydesign.Activity.Fragment.HomePage;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -17,30 +17,28 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewpager.widget.ViewPager;
 import cn.edu.hebut.easydesign.Activity.Adapter.SplashAdapter;
-import cn.edu.hebut.easydesign.Activity.PassageList.Config.HotByType;
 import cn.edu.hebut.easydesign.Activity.PassageList.OnHeadBind;
 import cn.edu.hebut.easydesign.Activity.PassageList.PassageListView;
-import cn.edu.hebut.easydesign.Activity.PassageList.PassageListViewPerformance;
+import cn.edu.hebut.easydesign.Activity.PassageList.PassageMultiListView;
+import cn.edu.hebut.easydesign.Activity.commonComponents.ImageWithTextView;
 import cn.edu.hebut.easydesign.R;
 
 
 /*
 this class will be used as a head of the passageListView
  */
-public class MainHead extends FrameLayout implements OnHeadBind {
+public class HomeTop extends FrameLayout implements OnHeadBind<PassageMultiListView> {
     private List<View> mViews = new ArrayList<>();
     private ViewPager mViewPager;
     private LinearLayout mPoints;
-    private TextView searchHelp;
     public ImageView[] mIvPoints;
     private static int[] PICS = {R.drawable.zhujiemian1, R.drawable.zhujiemian2, R.drawable.zhujiemian3};
-    public SearchView mSearchView;
     public ImageWithTextView[] cardsInHead = new ImageWithTextView[4];
     private Context context;
 
-    public MainHead(@NonNull Context context, @Nullable AttributeSet attrs) {
+    public HomeTop(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-        inflate(context, R.layout.home_page_head, this);
+        inflate(context, R.layout.home_top_layout, this);
         this.context = context;
         initView();
         initData();
@@ -60,7 +58,7 @@ public class MainHead extends FrameLayout implements OnHeadBind {
         //添加背景图片
         addBackgroundImg();
         mViewPager.setAdapter(new SplashAdapter(mViews, context));
-        mViewPager.addOnPageChangeListener(new MainHead.PageChangeListener());
+        mViewPager.addOnPageChangeListener(new HomeTop.PageChangeListener());
         //设置点数据
         setCurDot();
     }
@@ -78,31 +76,8 @@ public class MainHead extends FrameLayout implements OnHeadBind {
     }
 
     @Override
-    public void onHeadBind(final PassageListView view) {
-        cardsInHead[1].setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                view.changeDataSet(new HotByType((short) 1), new PassageListViewPerformance(R.layout.title_main_card, R.layout.home_head_frame, PassageListViewPerformance.Linear));
-            }
-        });
-        cardsInHead[2].setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                view.changeDataSet(new HotByType((short) 2), new PassageListViewPerformance(R.layout.image_main_card, R.layout.home_head_frame, PassageListViewPerformance.Grid));
-            }
-        });
-        cardsInHead[3].setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                view.changeDataSet(new HotByType((short) 3), new PassageListViewPerformance(R.layout.title_main_card, R.layout.home_head_frame, PassageListViewPerformance.Linear));
-            }
-        });
-        cardsInHead[0].setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                view.changeDataSet(new HotByType((short) 0), null);
-            }
-        });
+    public void onHeadBind(final PassageMultiListView view) {
+        // todo something if it need cooperate with the list
     }
 
     private class PageChangeListener implements ViewPager.OnPageChangeListener {
