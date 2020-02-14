@@ -5,7 +5,6 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
-import android.widget.RadioGroup;
 
 import java.util.List;
 
@@ -13,15 +12,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewpager.widget.ViewPager;
 import cn.edu.hebut.easydesign.Activity.PassageList.Page.Page;
-import cn.edu.hebut.easydesign.Activity.PassageList.Page.PassageListPage;
 import cn.edu.hebut.easydesign.R;
-import cn.edu.hebut.easydesign.Tools.AttributeSetTools;
 
 public class PassageMultiListView extends PassageListContainer {
-    ViewPager pager;
-    FrameLayout fixed;
-    CategoryGroup group;
-    List<Page> pages;
+    private ViewPager pager;
+    private FrameLayout fixed;
+    private CategoryGroup group;
+    private List<Page> pages;
+    private FrameLayout head;
     public PassageMultiListView(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         inflate(context, R.layout.passage_mulit_list_view, this);
@@ -29,7 +27,7 @@ public class PassageMultiListView extends PassageListContainer {
         swipe = findViewById(R.id.list_swipe);
         if (attrs == null) throw new IllegalArgumentException();
         int publicHead = attrs.getAttributeResourceValue("http://schemas.android.com/apk/res-auto", "top", R.layout.nil_head);
-        FrameLayout head = findViewById(R.id.top_view);
+        head = findViewById(R.id.top_view);
         inflate(context, publicHead, head);
         View top = head.getChildAt(0);
         if (top instanceof OnHeadBind) {
@@ -77,6 +75,10 @@ public class PassageMultiListView extends PassageListContainer {
         });
         group.check(0);
         Log.i("PMLV", "" + fixed.getHeight() + pager.getHeight());
+    }
+
+    public FrameLayout getHead() {
+        return head;
     }
 
 }
