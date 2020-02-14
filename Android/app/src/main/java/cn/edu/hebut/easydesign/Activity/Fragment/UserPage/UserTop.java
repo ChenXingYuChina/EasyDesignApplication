@@ -16,7 +16,19 @@ public class UserTop extends FrameLayout {
 
     }
 
-    public void setUser() {
+    public static final int NOW_LOGIN = -1;
+    public void setUser(long id) {
+        if (id == NOW_LOGIN) {
+            loadNowUser();
+        } else {
+            loadOther(id);
+        }
+    }
+
+    private void loadNowUser() {
+
+    }
+    private void loadOther(long id) {
 
     }
 }

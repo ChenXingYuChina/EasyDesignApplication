@@ -11,11 +11,13 @@ public class Session {
         return session;
     }
     long sessionKey;
+    User user;
     long userId;
     DataNetClient dataNetClient;
     public boolean login(JSONObject session) {
         try {
             sessionKey = session.getLong("session_key");
+            user = new User(session.getJSONObject("user"));
         } catch (Exception e) {
             return false;
         }

@@ -6,6 +6,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"testing"
+	"time"
 )
 
 func TestMain(m *testing.M) {
@@ -161,4 +162,15 @@ func TestGetUserMini(t *testing.T) {
 	} else {
 		t.Fail()
 	}
+}
+
+func TestDateJson(t *testing.T) {
+	d := `{"t":"2020-02-14"}`
+	var g struct{T time.Time `json:"t"`}
+	err := json.Unmarshal([]byte(d), &g)
+	if err != nil {
+		t.Error(err)
+		return
+	}
+	fmt.Println(g.T.String())
 }

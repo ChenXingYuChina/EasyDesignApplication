@@ -77,8 +77,8 @@ public class PassageMultiListView extends PassageListContainer {
         Log.i("PMLV", "" + fixed.getHeight() + pager.getHeight());
     }
 
-    public FrameLayout getHead() {
-        return head;
+    public View getHead() {
+        return head.getChildAt(0);
     }
 
 }
