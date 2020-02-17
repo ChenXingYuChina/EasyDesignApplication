@@ -116,15 +116,6 @@ func TestLoadUserBase(t *testing.T) {
 	fmt.Println(u.Identity)
 }
 
-func TestLoadDesigner(t *testing.T) {
-	u := &UserBase{ID: 48, Email:Email("designer@123.com"), Password:Password(GenPasswordInBack("123")), UserName: "test"}
-	f, err := LoadDesigner(u)
-	if err != nil {
-		t.Error(err)
-		return
-	}
-	fmt.Println(f.LongDescription, f.Authorized)
-}
 
 func TestAuthorized(t *testing.T) {
 	if !Authorized(48) {

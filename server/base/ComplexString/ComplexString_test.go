@@ -19,7 +19,7 @@ var testCS = &ComplexString{
 			textColorBase,
 			backgroundColorBase,
 			TypeUrl,
-			TypeImage,
+			0x12,
 		},
 		Urls:[]string{"test"},
 	},

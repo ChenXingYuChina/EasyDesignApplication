@@ -41,30 +41,8 @@ func PrepareUserDir() {
 }
 
 
-type User struct {
-	*UserBase
-	LongDescription *ComplexString.ComplexString
-}
-
-func LoadUserDescription(user *UserBase) (*User, error) {
-	c, _ := ComplexString.LoadComplexStringFromFile(fmt.Sprintf(userLongDescriptionRealFileName, user.ID))
-	return &User{UserBase: user, LongDescription:c}, nil
-}
-
-
-type DesignerFull struct {
-	*User
-	Authorized bool
-}
-
-func LoadDesigner(user *UserBase) (*DesignerFull, error) {
-	u := CheckAuthorized(user.ID)
-	goal := &DesignerFull{
-		User:       &User{UserBase:user},
-		Authorized: u,
-	}
-	goal.LongDescription, _ = ComplexString.LoadComplexStringFromFile(fmt.Sprintf(userLongDescriptionRealFileName, user.ID))
-	return goal, nil
+func LoadUserDescription(userId int64) (*ComplexString.ComplexString, error) {
+	return ComplexString.LoadComplexStringFromFile(fmt.Sprintf(userLongDescriptionRealFileName, userId))
 }
 
 func CheckAuthorized(id int64) bool {

@@ -1,16 +1,14 @@
-package cn.edu.hebut.easydesign.Session;
+package cn.edu.hebut.easydesign.Session.User;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import cn.edu.hebut.easydesign.DataManagement.Data;
-
-public class Work {
-    private static final DateFormat format = new SimpleDateFormat("yyyy-MM-ddT");
+public class Work implements Serializable {
+    private static final DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
     private static final String dateTail = "T15:04:05Z07:00";
     public Date start, end;
     public String company, industry, position;

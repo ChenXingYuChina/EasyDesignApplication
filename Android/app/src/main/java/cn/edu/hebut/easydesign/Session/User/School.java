@@ -1,8 +1,10 @@
-package cn.edu.hebut.easydesign.Session;
+package cn.edu.hebut.easydesign.Session.User;
 
 import org.json.JSONObject;
 
-public class School {
+import java.io.Serializable;
+
+public class School implements Serializable {
     public boolean publicSchool;
     public String country, name;
     public int diploma;
@@ -25,5 +27,11 @@ public class School {
         goal.put("country", country);
         goal.put("name", name);
         return goal;
+    }
+
+    private static final String[] diplomaNames = new String[]{"小学", "初中", "高中", "大学", "研究生", "博士"};
+
+    public String getDiploma() {
+        return diplomaNames[diploma];
     }
 }

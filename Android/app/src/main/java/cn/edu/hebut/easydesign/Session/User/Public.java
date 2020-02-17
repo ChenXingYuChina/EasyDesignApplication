@@ -1,8 +1,10 @@
-package cn.edu.hebut.easydesign.Session;
+package cn.edu.hebut.easydesign.Session.User;
 
 import org.json.JSONObject;
 
-public class Public extends Identity {
+import java.io.Serializable;
+
+public class Public extends Identity implements Serializable {
     public String industry, position;
     public Public(String industry, String position) {
         this.industry = industry;
@@ -19,5 +21,10 @@ public class Public extends Identity {
         goal.put("industry", industry);
         goal.put("position", position);
         return goal;
+    }
+
+    @Override
+    public String toString() {
+        return industry + "/" + position;
     }
 }
