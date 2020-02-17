@@ -1,21 +1,80 @@
 package cn.edu.hebut.easydesign.Activity.Fragment.UserPage;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import cn.edu.hebut.easydesign.Activity.PassageList.OnHeadBind;
-import cn.edu.hebut.easydesign.Activity.PassageList.PassageMultiListView;
+import cn.edu.hebut.easydesign.Activity.ContextHelp.ContextHolder;
+import cn.edu.hebut.easydesign.R;
+import cn.edu.hebut.easydesign.Resources.Media.Image.ImageHostLoadTask;
+import cn.edu.hebut.easydesign.Session.User.User;
+import cn.edu.hebut.easydesign.TaskWorker.Condition;
+import cn.edu.hebut.easydesign.TaskWorker.TaskService;
 
-public class UserTop extends FrameLayout implements OnHeadBind<PassageMultiListView> {
+
+// TODO: 2020/2/15 add click listener to finish edit and other things.
+public class UserTop extends FrameLayout {
+    ImageView back, head;
+    TextView name, identity, passageNumber, followNumber, coinNumber, fansNumber;
+    ImageView editDescription;
+    User user;
+    TaskService.MyBinder binder;
+    Condition<Boolean> cancel;
+
     public UserTop(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
+        inflate(context, R.layout.home_top_layout, this);
+        back = findViewById(R.id.user_back);
+        head = findViewById(R.id.user_head);
+        name = findViewById(R.id.user_name);
+        identity = findViewById(R.id.identify);
+        passageNumber = findViewById(R.id.passage_number);
+        followNumber = findViewById(R.id.follow_number);
+        coinNumber = findViewById(R.id.coin_number);
+        fansNumber = findViewById(R.id.fans_number);
+        editDescription = findViewById(R.id.edit_description);
     }
 
-    @Override
-    public void onHeadBind(PassageMultiListView container) {
+    private void setUser(User user) {
+        binder = ContextHolder.getBinder();
+        cancel = new Condition<>(false);
+        binder.PutTask(new ImageHostLoadTask(user.backImage, cancel) {
+            @Override
+            protected long getId() {
+                return 0;
+            }
 
+            @Override
+            protected void setImage(Bitmap bitmap) {
+                back.setImageBitmap(bitmap);
+            }
+        });
+        binder.PutTask(new ImageHostLoadTask(user.headImage, cancel) {
+            @Override
+            protected long getId() {
+                return 0;
+            }
+
+            @Override
+            protected void setImage(Bitmap bitmap) {
+                head.setImageBitmap(bitmap);
+            }
+        });
+        name.setText(user.name);
+        identity.setText(user.identity.toString());
+        passageNumber.setText(String.valueOf(user.passageNumber));
+        followNumber.setText(String.valueOf(user.followNumber));
+        coinNumber.setText(String.valueOf(user.coin));
+        fansNumber.setText(String.valueOf(fansNumber));
     }
+
+    public void cancel() {
+        if (cancel != null) cancel.condition = true;
+    }
+
 }

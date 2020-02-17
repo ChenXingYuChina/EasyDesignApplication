@@ -141,18 +141,18 @@ func userSQLPrepare() (uint8, error) {
 }
 
 type UserBase struct {
-	ID int64
-	UserName string
+	ID int64 `json:"id"`
+	UserName string `json:"name"`
 	Password Password
-	Phone PhoneNumber
-	Email Email
-	Coin uint64
-	FansNumber uint64  // 粉丝
-	FollowerNumber uint64  // 关注
-	PassageNumber uint64  // 文章总数
-	HeadImage int64
-	BackImage int64
-	Identity Identity
+	Phone PhoneNumber `json:"phone"`
+	Email Email `json:"email"`
+	Coin uint64 `json:"coin"`
+	FansNumber uint64 `json:"fans_number"` // 粉丝
+	FollowerNumber uint64 `json:"follow_number"`  // 关注
+	PassageNumber uint64 `json:"passage_number"` // 文章总数
+	HeadImage int64 `json:"head_image"`
+	BackImage int64 `json:"back_image"`
+	Identity Identity `json:"identity"`
 }
 
 func (u *UserBase) UserType() uint8 {

@@ -36,7 +36,7 @@ func SignUpInControlPlatform(w http.ResponseWriter, r *http.Request) {
 }
 
 func signUpPublicInCmd(e Email, password string) (*UserBase, uint8) {
-	u := &UserBase{Email:e, Password:Password(GenPasswordInBack(password)), Identity:&Public{Industry:"it", Position:"tester"}}
+	u := &UserBase{Email: e, Password: Password(GenPasswordInBack(password)), Identity: &Public{Industry: "it", Position: "tester"}}
 	s := u.SignUp()
 	if s != 0 {
 		return nil, s
@@ -49,20 +49,20 @@ func signUpPublicInCmd(e Email, password string) (*UserBase, uint8) {
 }
 
 func signUpStudentInCmd(e Email, password string) (*UserBase, uint8) {
-	u := &UserBase{Email:e,
-		Password:Password(GenPasswordInBack(password)),
-		Identity:&Student{Schools:[]School{
+	u := &UserBase{Email: e,
+		Password: Password(GenPasswordInBack(password)),
+		Identity: &Student{Schools: []School{
 			{
-				Public:true,
-				Diploma:1,
-				Country:"china",
-				Name:"tjhs",
+				Public:  true,
+				Diploma: 1,
+				Country: "china",
+				Name:    "tjhs",
 			},
 			{
-				Public:false,
-				Diploma:2,
-				Country:"china",
-				Name:"hebut",
+				Public:  false,
+				Diploma: 2,
+				Country: "china",
+				Name:    "hebut",
 			},
 		}}}
 	s := u.SignUp()
@@ -78,22 +78,22 @@ func signUpStudentInCmd(e Email, password string) (*UserBase, uint8) {
 
 func signUpDesignerInCmd(e Email, password string) (*UserBase, uint8) {
 	u := &UserBase{
-		Email:e,
-		Password:Password(GenPasswordInBack(password)),
-		Identity:&Designer{Works:[]Work{
+		Email:    e,
+		Password: Password(GenPasswordInBack(password)),
+		Identity: &Designer{Works: []Work{
 			{
-				Start:time.Now(),
-				End:time.Now(),
-				Company:"abc",
-				Industry:"it",
-				Position:"tester",
+				Start:    time.Now(),
+				End:      time.Now(),
+				Company:  "abc",
+				Industry: "it",
+				Position: "tester",
 			},
 			{
-				Start:time.Now(),
-				End:time.Now(),
-				Company:"abcd",
-				Industry:"it",
-				Position:"tester",
+				Start:    time.Now(),
+				End:      time.Now(),
+				Company:  "abcd",
+				Industry: "it",
+				Position: "tester",
 			},
 		}},
 	}
@@ -108,7 +108,7 @@ func signUpDesignerInCmd(e Email, password string) (*UserBase, uint8) {
 	return u, 0
 }
 
-func userMini(w http.ResponseWriter, r * http.Request) {
+func userMini(w http.ResponseWriter, r *http.Request) {
 	log.Println("call user mini")
 	err := r.ParseForm()
 	if err != nil {
@@ -140,5 +140,59 @@ func userMini(w http.ResponseWriter, r * http.Request) {
 		_, _ = w.Write(goal)
 	} else {
 		w.WriteHeader(400)
+	}
+}
+
+func loadUserDescription(w http.ResponseWriter, r *http.Request) {
+	err := r.ParseForm()
+	if err != nil {
+		w.WriteHeader(400)
+		return
+	}
+	id, has := httpTools.GetInt64FromForm(r.Form, "id")
+	if !has {
+		w.WriteHeader(400)
+		return
+	}
+	c, err := LoadUserDescription(id)
+	goal, err := json.Marshal(c)
+	if err != nil {
+		w.WriteHeader(400)
+		return
+	}
+	_, err = w.Write(goal)
+	if err != nil {
+		log.Println(err)
+		return
+	}
+}
+
+func loadUser(w http.ResponseWriter, r *http.Request) {
+	err := r.ParseForm()
+	if err != nil {
+		w.WriteHeader(400)
+		return
+	}
+	id, has := httpTools.GetInt64FromForm(r.Form, "id")
+	if !has {
+		w.WriteHeader(400)
+		return
+	}
+	u, s := LoadUserBase(id)
+	if s == 0 {
+		goal, err := json.Marshal(u)
+		if err != nil {
+			w.WriteHeader(500)
+			return
+		}
+		_, err = w.Write(goal)
+		if err != nil {
+			w.WriteHeader(500)
+			return
+		}
+	}else if s == 3 {
+		w.WriteHeader(404)
+	} else {
+		w.WriteHeader(500)
 	}
 }

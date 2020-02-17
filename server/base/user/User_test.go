@@ -6,6 +6,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"testing"
+	"time"
 )
 
 func TestMain(m *testing.M) {
@@ -115,15 +116,6 @@ func TestLoadUserBase(t *testing.T) {
 	fmt.Println(u.Identity)
 }
 
-func TestLoadDesigner(t *testing.T) {
-	u := &UserBase{ID: 48, Email:Email("designer@123.com"), Password:Password(GenPasswordInBack("123")), UserName: "test"}
-	f, err := LoadDesigner(u)
-	if err != nil {
-		t.Error(err)
-		return
-	}
-	fmt.Println(f.LongDescription, f.Authorized)
-}
 
 func TestAuthorized(t *testing.T) {
 	if !Authorized(48) {
@@ -161,4 +153,15 @@ func TestGetUserMini(t *testing.T) {
 	} else {
 		t.Fail()
 	}
+}
+
+func TestDateJson(t *testing.T) {
+	d := `{"t":"2020-02-14"}`
+	var g struct{T time.Time `json:"t"`}
+	err := json.Unmarshal([]byte(d), &g)
+	if err != nil {
+		t.Error(err)
+		return
+	}
+	fmt.Println(g.T.String())
 }
