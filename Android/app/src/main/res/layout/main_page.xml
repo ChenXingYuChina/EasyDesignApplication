@@ -4,11 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <FrameLayout
-        android:name="cn.edu.hebut.easydesign.Activity.Fragment.HomePage.HomeFragment"
+    <fragment
+        android:name="cn.edu.hebut.easydesign.Activity.Fragment.HomeFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/main_content" />
+        android:id="@+id/main_content"
+        tools:layout="@layout/home_fragment" />
     <RadioGroup
         android:id="@+id/rg_main"
         android:layout_width="match_parent"
@@ -19,7 +20,7 @@
         android:orientation="horizontal">
 
         <RadioButton
-            android:id="@+id/home_page"
+            android:id="@+id/zhuye"
             style="@style/rb_style"
             android:layout_height="50dp"
             android:alpha="1"
@@ -27,28 +28,28 @@
             android:text="@string/home" />
 
         <RadioButton
-            android:id="@+id/thinking_page"
+            android:id="@+id/idea"
             style="@style/rb_style"
             android:layout_height="50dp"
             android:drawableTop="@drawable/idea"
             android:text="@string/idea" />
 
         <RadioButton
-            android:id="@+id/publish_page"
+            android:id="@+id/fabu"
             style="@style/rb_style_publish"
             android:layout_height="60dp"
             android:drawableTop="@drawable/wenzhang"
             android:text="@string/publish" />
 
         <RadioButton
-            android:id="@+id/example_page"
+            android:id="@+id/anli"
             style="@style/rb_style"
             android:layout_height="50dp"
             android:drawableTop="@drawable/anli"
             android:text="@string/project" />
 
         <RadioButton
-            android:id="@+id/user_page"
+            android:id="@+id/geren"
             style="@style/rb_style"
             android:layout_height="50dp"
             android:drawableTop="@drawable/person"

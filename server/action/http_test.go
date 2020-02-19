@@ -170,26 +170,3 @@ func TestLoadUserMini(t *testing.T) {
 	}
 	fmt.Println(string(goal))
 }
-
-func TestPassage(t *testing.T) {
-	w := &httptest.ResponseRecorder{Body: bytes.NewBuffer(nil)}
-	u, err := url.Parse("passage")
-	if err != nil {
-		t.Error(err)
-		return
-	}
-	r := &http.Request{
-		Method:   "POST",
-		URL:      u,
-		PostForm: url.Values{"id": {"3"}, "type": {"0"}},
-	}
-	passage(w, r)
-	response := w.Result()
-	fmt.Println(response.StatusCode)
-	goal, err := ioutil.ReadAll(response.Body)
-	if err != nil {
-		t.Error(err)
-		return
-	}
-	fmt.Println(string(goal))
-}

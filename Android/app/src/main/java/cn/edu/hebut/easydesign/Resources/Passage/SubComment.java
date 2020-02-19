@@ -2,6 +2,8 @@ package cn.edu.hebut.easydesign.Resources.Passage;
 
 import org.json.JSONObject;
 
+import cn.edu.hebut.easydesign.ComplexString.ComplexString;
+
 public class SubComment {
     public String content;
     public long passage, owner;
@@ -21,5 +23,7 @@ public class SubComment {
         this.father = subComment.getInt("father");
         this.position = (short) subComment.getInt("position");
     }
+    public String getContent(){return this.content;}
+    public int getLikeNumber(){return this.like;}
 
 }

@@ -7,13 +7,12 @@
 
     <cn.edu.hebut.easydesign.Activity.commonComponents.SearchBar
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent" />
 
     <cn.edu.hebut.easydesign.Activity.PassageList.PassageListView
-        android:id="@+id/last_content"
         app:head="@layout/nil_head"
         app:card="@layout/title_main_card"
         app:layout_manager="Linear"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent" />
 </LinearLayout>

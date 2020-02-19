@@ -9,10 +9,7 @@ import okhttp3.Response;
 import okhttp3.ResponseBody;
 
 public abstract class HostGetTask<T> extends Task<String, T> {
-    protected Condition<Integer> c = new Condition<>(0);
-    public HostGetTask(String api) {
-        this.data1 = api;
-    }
+    private Condition<Integer> c;
 
     @Override
     protected boolean doOnService() {
@@ -26,15 +23,16 @@ public abstract class HostGetTask<T> extends Task<String, T> {
             }
             ResponseBody body = r.body();
             if (body != null) {
-                c.condition = HandleInput(body.string());
-
-            } else {
-                c.condition = 700;
+                InputStream stream = body.byteStream();
+                if (stream != null) {
+                    c.condition = HandleInput(stream);
+                    return true;
+                }
             }
+            c.condition = 700;
             return true;
         } catch (Exception e) {
-            e.printStackTrace();
-            c.condition = 710;
+            c.condition = 700;
         } finally {
             if (r != null) {
                 r.close();
@@ -46,5 +44,5 @@ public abstract class HostGetTask<T> extends Task<String, T> {
     /*
     set data to data2, and return error code.
      */
-    protected abstract int HandleInput(String string);
+    protected abstract int HandleInput(InputStream inputStream);
 }
