@@ -6,6 +6,7 @@ import (
 	. "EasyDesignApplication/server/base/user"
 	"EasyDesignApplication/server/middle"
 	"encoding/json"
+	"fmt"
 	"log"
 	"net/http"
 	"strconv"
@@ -144,6 +145,7 @@ func userMini(w http.ResponseWriter, r *http.Request) {
 }
 
 func loadUserDescription(w http.ResponseWriter, r *http.Request) {
+	log.Println("call load user desciption")
 	err := r.ParseForm()
 	if err != nil {
 		w.WriteHeader(400)
@@ -160,6 +162,7 @@ func loadUserDescription(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(400)
 		return
 	}
+	fmt.Println(string(goal))
 	_, err = w.Write(goal)
 	if err != nil {
 		log.Println(err)
@@ -168,7 +171,9 @@ func loadUserDescription(w http.ResponseWriter, r *http.Request) {
 }
 
 func loadUser(w http.ResponseWriter, r *http.Request) {
+	log.Println("call load user")
 	err := r.ParseForm()
+	log.Println(r.Form)
 	if err != nil {
 		w.WriteHeader(400)
 		return
@@ -185,6 +190,7 @@ func loadUser(w http.ResponseWriter, r *http.Request) {
 			w.WriteHeader(500)
 			return
 		}
+		log.Println(string(goal))
 		_, err = w.Write(goal)
 		if err != nil {
 			w.WriteHeader(500)

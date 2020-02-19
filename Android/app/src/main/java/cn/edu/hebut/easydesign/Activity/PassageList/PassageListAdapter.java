@@ -104,7 +104,7 @@ public class PassageListAdapter extends RecyclerView.Adapter implements SwipeRef
     void loadMore() {
         footHolder.setTip(tips.texts[TipResources.text_foot_onLoading]);
         TaskService.MyBinder binder = ContextHolder.getBinder();
-        binder.PutTask(new LoadPassageListTask(config.getFields(list.list.size())) {
+        binder.PutTask(new LoadPassageListTask(config.api, config.getFields(list.list.size())) {
             @Override
             protected void onSuccess(PassageList passageList, List<UserMini> userMinis) {
                 append(passageList, userMinis);
@@ -128,7 +128,7 @@ public class PassageListAdapter extends RecyclerView.Adapter implements SwipeRef
 
     void refresh() {
         TaskService.MyBinder binder = ContextHolder.getBinder();
-        binder.PutTask(new LoadPassageListTask(config.getRefreshFields(lastTime)) {
+        binder.PutTask(new LoadPassageListTask(config.api, config.getRefreshFields(lastTime)) {
             @Override
             protected void onSuccess(PassageList passageList, List<UserMini> userMinis) {
                 clear();

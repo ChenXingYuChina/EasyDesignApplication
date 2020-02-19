@@ -29,6 +29,7 @@ public class UserDescriptionPage implements Page<PassageMultiListView> {
     private FrameLayout view;
     private User user;
     private reloadDescription retry;
+    private boolean canRefresh = false;
 
     public UserDescriptionPage() {
         view = new FrameLayout(ContextHolder.getContext());
@@ -41,7 +42,7 @@ public class UserDescriptionPage implements Page<PassageMultiListView> {
 
     @Override
     public boolean canRefresh() {
-        return true;
+        return canRefresh;
     }
 
     UserTop top;
@@ -86,6 +87,7 @@ public class UserDescriptionPage implements Page<PassageMultiListView> {
             throw new IllegalArgumentException();
         }
         longDescription.SetToTextView(description);
+        canRefresh = true;
     }
 
     @SuppressLint("SetTextI18n")
@@ -93,6 +95,7 @@ public class UserDescriptionPage implements Page<PassageMultiListView> {
         this.retry = retry;
         TextView textView = new TextView(ContextHolder.getContext());
         textView.setText("加载错误，错误代码：" + errorCode + " 点击重试。");
+        view.removeAllViews();
         view.addView(textView, FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT);
         textView.setOnClickListener(new View.OnClickListener() {
             @Override

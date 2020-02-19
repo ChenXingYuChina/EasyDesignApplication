@@ -28,7 +28,7 @@ public class UserTop extends FrameLayout {
 
     public UserTop(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-        inflate(context, R.layout.home_top_layout, this);
+        inflate(context, R.layout.user_top_layout, this);
         back = findViewById(R.id.user_back);
         head = findViewById(R.id.user_head);
         name = findViewById(R.id.user_name);
@@ -40,7 +40,7 @@ public class UserTop extends FrameLayout {
         editDescription = findViewById(R.id.edit_description);
     }
 
-    private void setUser(User user) {
+    void setUser(User user) {
         binder = ContextHolder.getBinder();
         cancel = new Condition<>(false);
         binder.PutTask(new ImageHostLoadTask(user.backImage, cancel) {
@@ -70,7 +70,7 @@ public class UserTop extends FrameLayout {
         passageNumber.setText(String.valueOf(user.passageNumber));
         followNumber.setText(String.valueOf(user.followNumber));
         coinNumber.setText(String.valueOf(user.coin));
-        fansNumber.setText(String.valueOf(fansNumber));
+        fansNumber.setText(String.valueOf(user.fansNumber));
     }
 
     public void cancel() {

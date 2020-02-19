@@ -1,6 +1,7 @@
 package cn.edu.hebut.easydesign.Activity.Fragment.UserPage;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 import android.widget.RadioGroup;
 
@@ -20,7 +21,9 @@ public class UserFixedPart extends FixedPart<UserFixedPart> implements CategoryG
         super(context, null);
         inflate(context, R.layout.user_fixed_layout, this);
         group = findViewById(R.id.user_category);
-
+        group.setOnCheckedChangeListener(this);
+        Log.i("UFP", group.getChildCount()+ " ");
+        group.check(R.id.user_description_category);
     }
 
     @Override
@@ -36,6 +39,7 @@ public class UserFixedPart extends FixedPart<UserFixedPart> implements CategoryG
     @Override
     public int getSelected() {
         int s = group.getCheckedRadioButtonId();
+        Log.i("UFP", "getSelected: " + s);
         for (int i = 0; i < 3; i++) {
             if (s == buttonIds[i]) return i;
         }
@@ -54,6 +58,7 @@ public class UserFixedPart extends FixedPart<UserFixedPart> implements CategoryG
 
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId) {
+        Log.i("UFP", "onCheckedChanged: " + checkedId);
         int i;
         for (i = 0; i < 3; i++) {
             if (checkedId == buttonIds[i]) break;

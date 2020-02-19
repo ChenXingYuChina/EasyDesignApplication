@@ -20,6 +20,7 @@ func Init(){
 	http.HandleFunc("/exampleList", getExampleList)
 	http.HandleFunc("/userLD", loadUserDescription)
 	http.HandleFunc("/user", loadUser)
+	http.HandleFunc("/starPassage", loadStarPassage)
 
 	// manage part
 	managerServer.HandleFunc("/firstPageImage", SetFirstPageImage)

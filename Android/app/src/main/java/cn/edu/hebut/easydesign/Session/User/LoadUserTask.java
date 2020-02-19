@@ -1,5 +1,7 @@
 package cn.edu.hebut.easydesign.Session.User;
 
+import android.util.Log;
+
 import org.json.JSONObject;
 
 import cn.edu.hebut.easydesign.TaskWorker.BaseTasks.HostGetTask;
@@ -14,7 +16,7 @@ public abstract class LoadUserTask extends HostGetTask<User> {
         try {
             data2 = new User(new JSONObject(string));
         } catch (Exception e) {
-            e.printStackTrace();
+            Log.e("LUT", "error: ", e);
             return 702;
         }
         return 0;

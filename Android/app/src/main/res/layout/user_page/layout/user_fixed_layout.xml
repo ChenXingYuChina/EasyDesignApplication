@@ -1,67 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/user_category"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:checkedButton="@id/user_description_category"
-    android:orientation="horizontal">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RadioGroup
+        android:id="@+id/user_category"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:checkedButton="@id/user_description_category"
+        android:orientation="horizontal">
+
 
         <!--通过调这里的percent或者通过其他类似方式和父元素的padding来改变上下的宽度-->
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/category_top"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.0" />
 
         <!--给这里加背景，文字颜色，需要可以根据选中状态变色-->
         <RadioButton
+            android:layout_weight="1"
             android:id="@+id/user_description_category"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:button="@null"
             android:text="简历"
-            android:textAlignment="center"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@id/product_category"
-            app:layout_constraintTop_toTopOf="@id/category_top" />
+            android:textAlignment="center" />
 
         <RadioButton
+            android:layout_weight="1"
             android:id="@+id/product_category"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:button="@null"
             android:text="创作"
-            android:textAlignment="center"
-            app:layout_constraintLeft_toRightOf="@id/user_description_category"
-            app:layout_constraintRight_toLeftOf="@id/star_category"
-            app:layout_constraintTop_toTopOf="@id/category_top" />
+            android:textAlignment="center"/>
 
         <RadioButton
+            android:layout_weight="1"
             android:id="@+id/star_category"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:button="@null"
             android:text="收藏"
-            android:textAlignment="center"
-            app:layout_constraintLeft_toRightOf="@id/product_category"
-            app:layout_constraintRight_toLeftOf="@id/passage_category"
-            app:layout_constraintTop_toTopOf="@+id/category_top" />
+            android:textAlignment="center"/>
 
         <RadioButton
+            android:layout_weight="1"
             android:id="@+id/passage_category"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:button="@null"
             android:text="痛点"
-            android:textAlignment="center"
-            app:layout_constraintLeft_toRightOf="@id/star_category"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/category_top" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</RadioGroup>
+            android:textAlignment="center" />
+
+    </RadioGroup>
+</RelativeLayout>
