@@ -12,6 +12,7 @@ var (
 	getHottestPassageListByType *sql.Stmt
 	getPassageListByUserAndType *sql.Stmt
 	searchPassageByTitle        *sql.Stmt
+	starPassageByUser           *sql.Stmt
 )
 
 // &(passage.Title), &(passage.CommentNumber), &(passage.Like), &(passage.Owner), &(passage.Id), &(passage.ListImage)
@@ -37,6 +38,10 @@ func preparePassageListSQL() (uint8, error) {
 	searchPassageByTitle, err = base.Database.Prepare("select COALESCE(wp.workshop_id, 0), p.type, p.title, p.comment_number, p.like_number, p.owner, p.id, p.list_image from passages p left join workshop_passage wp on p.id = wp.passage_id where p.title like $1 order by p.id desc limit $2 offset $3")
 	if err != nil {
 		return 4, err
+	}
+	starPassageByUser, err = base.Database.Prepare(`with ps as (select COALESCE(wp.workshop_id, 0) as workshop, p.type as type, p.title as title, p.comment_number as comment_number, p.like_number as like_number, p.owner as owner, p.id as id, p.list_image as list_image from passages p left join workshop_passage wp on p.id = wp.passage_id) select workshop, type, title, comment_number, like_number, owner, id, list_image from ps inner join star_passage sp on sp.passage_id = ps.id where sp.user_id = $1 limit $2 offset $3`)
+	if err != nil {
+		return 5, err
 	}
 	return 0, nil
 }
@@ -116,7 +121,7 @@ func LoadPassageListByUserAndTypeLast(useId int64, t int16, length uint8, offset
 }
 
 func SearchPassageByTitle(keyword string, length uint8, offset int64) (PassageList, error) {
-	r, err := searchPassageByTitle.Query("%" + keyword + "%", length, offset)
+	r, err := searchPassageByTitle.Query("%"+keyword+"%", length, offset)
 	if err != nil {
 		return nil, err
 	}
@@ -147,6 +152,22 @@ func loadPassageList(r *sql.Rows, length uint8) (PassageList, error) {
 			return nil, err
 		}
 		helpSlice = helpSlice[:0]
+	}
+	return goal, nil
+}
+
+func LoadStarPassage(uid int64, length uint8, offset int64) (PassageList, error) {
+	r, err := starPassageByUser.Query(uid, length, offset)
+	if err != nil {
+		return nil, err
+	}
+	goal, err := loadPassageList(r, length)
+	if err != nil {
+		return nil, err
+	}
+	err = r.Close()
+	if err != nil {
+		log.Println(err)
 	}
 	return goal, nil
 }

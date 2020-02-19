@@ -87,4 +87,71 @@ public class PassageListAdapter extends RecyclerView.Adapter {
         return list.list.size() + 2;
     }
 
+    void loadMore() {
+        footHolder.setTip(tips.texts[TipResources.text_foot_onLoading]);
+        TaskService.MyBinder binder = ContextHolder.getBinder();
+        binder.PutTask(new LoadPassageListTask(config.api, config.getFields(list.list.size())) {
+            @Override
+            protected void onSuccess(PassageList passageList, List<UserMini> userMinis) {
+                append(passageList, userMinis);
+                notifyDataSetChanged();
+                footHolder.setTip(tips.texts[TipResources.text_foot_toLoad]);
+            }
+
+            @Override
+            protected void onErrorCode(int errCode) {
+                if (errCode == 702) {
+                    footHolder.setTip(tips.texts[TipResources.text_foot_onNoNew]);
+                } else {
+                    footHolder.setTip(tips.texts[TipResources.text_foot_toLoad]);
+                    Toast.makeText(ContextHolder.getContext(), tips.texts[TipResources.text_foot_onError], Toast.LENGTH_SHORT).show();
+                }
+                notifyItemChanged(list.list.size() + 1);
+            }
+        });
+
+    }
+
+    void refresh() {
+        TaskService.MyBinder binder = ContextHolder.getBinder();
+        binder.PutTask(new LoadPassageListTask(config.api, config.getRefreshFields(lastTime)) {
+            @Override
+            protected void onSuccess(PassageList passageList, List<UserMini> userMinis) {
+                clear();
+                append(passageList, userMinis);
+                lastTime = (new Date()).getTime();
+                notifyDataSetChanged();
+                father.swipe.setRefreshing(false);
+            }
+
+            @Override
+            protected void onErrorCode(int errCode) {
+                if (errCode == 702) {
+                    Toast.makeText(ContextHolder.getContext(), tips.texts[TipResources.text_refresh_onNoNew], Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(ContextHolder.getContext(), tips.texts[TipResources.text_refresh_onError], Toast.LENGTH_SHORT).show();
+                }
+                father.swipe.setRefreshing(false);
+            }
+        });
+
+    }
+
+    private void append(PassageList passageList, List<UserMini> userMinis) {
+        list.append(passageList);
+        this.userMinis.addAll(userMinis);
+    }
+
+    private void clear() {
+        list.list.clear();
+        userMinis.clear();
+    }
+    int size() {
+        return list.list.size();
+    }
+
+    @Override
+    public void onRefresh() {
+        refresh();
+    }
 }

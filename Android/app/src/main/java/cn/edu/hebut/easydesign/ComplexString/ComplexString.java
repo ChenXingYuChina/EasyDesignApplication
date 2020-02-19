@@ -2,6 +2,7 @@ package cn.edu.hebut.easydesign.ComplexString;
 
 import android.content.Context;
 import android.text.SpannableString;
+import android.text.method.LinkMovementMethod;
 import android.text.style.BackgroundColorSpan;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.ImageSpan;
@@ -12,12 +13,15 @@ import android.text.style.SuperscriptSpan;
 import android.text.style.URLSpan;
 import android.text.style.UnderlineSpan;
 import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,7 +29,7 @@ import cn.edu.hebut.easydesign.Activity.ContextHelp.ContextHolder;
 import cn.edu.hebut.easydesign.R;
 import cn.edu.hebut.easydesign.TaskWorker.Condition;
 
-public class ComplexString {
+public class ComplexString implements Serializable {
     int[] position = null;
     int[] width = null;
     int[] resourcesId = null;
@@ -41,7 +45,7 @@ public class ComplexString {
         this.string = new SpannableString(string);
     }
 
-    ComplexString(SpannableString string) {
+    public ComplexString(SpannableString string) {
         this.string = string;
     }
 
@@ -178,7 +182,6 @@ public class ComplexString {
     }
 
 
-
     public static final int UNDERLINE = 0;
     public static final int STRIKE_THROUGH = 1;
     public static final int SUPERSCRIPT = 2;
@@ -197,7 +200,7 @@ public class ComplexString {
     public static final int GREEN_COLOR = 3;
     public static final int PURPLE_COLOR = 4;
 
-    static Object getSpanFromId(long id, String url) {
+    public static Object getSpanFromId(long id, final String url) {
         Context ctx = ContextHolder.getContext();
         if (ctx == null) {
             return null;
@@ -205,7 +208,7 @@ public class ComplexString {
         if (id <= HYPERLINK) {
             switch ((int) id) {
                 case HYPERLINK:
-                    return new URLSpan(url);
+                    return new myUrlSpan(url);
                 case UNDERLINE:
                     return new UnderlineSpan();
                 case FONT_SIZE_BASE + SMALL_FONT_SIZE:
@@ -253,5 +256,33 @@ public class ComplexString {
             throw new IllegalArgumentException();
         }
         this.string.setSpan(getSpanFromId(id, url), start, width + start, SpannableString.SPAN_INCLUSIVE_EXCLUSIVE);
+    }
+
+    private TextView textView;
+
+    public void SetToTextView(TextView textView) {
+        textView.setText(GetSpannableString());
+        this.textView = textView;
+        textView.setMovementMethod(LinkMovementMethod.getInstance());
+    }
+
+    void refresh() {
+        if (textView != null) {
+            textView.setText(GetSpannableString());
+        }
+    }
+
+    static class myUrlSpan extends URLSpan {
+
+        public myUrlSpan(String url) {
+            super(url);
+        }
+
+        @Override
+        public void onClick(View widget) {
+            // TODO: 2020/2/17 增加其他可行的协议，直接导到对应位置
+            Log.i("cs", "onClick: " + widget);
+            super.onClick(widget);
+        }
     }
 }

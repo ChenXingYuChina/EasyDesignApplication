@@ -31,7 +31,7 @@ func TestSignUpDesignerInCmd(t *testing.T) {
 
 func TestLogin(t *testing.T) {
 	pw := Password(GenPasswordInBack("hello world"))
-	u, state := LoginById(36, pw)
+	u, state := LoginById(50, pw)
 	if state != 0 {
 		t.Fatal(state)
 	}
@@ -40,7 +40,8 @@ func TestLogin(t *testing.T) {
 
 func TestLoginByEmail(t *testing.T) {
 	pw := Password(GenPasswordInBack("hello world"))
-	e := Email("abc@abc.com")
+	fmt.Println(string(pw))
+	e := Email("2@designer.com")
 	u, s := LoginByEmail(e, pw)
 	if s != 0 {
 		t.Log(s)
@@ -75,4 +76,8 @@ func TestChangePassword(t *testing.T) {
 	if !u.ChangePassword(pw, Password(GenPasswordInBack("hello world"))) {
 		t.Error("fall")
 	}
+}
+
+func TestDescription(t *testing.T) {
+
 }

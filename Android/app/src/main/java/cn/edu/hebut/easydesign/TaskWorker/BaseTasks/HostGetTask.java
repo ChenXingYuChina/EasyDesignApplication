@@ -1,7 +1,5 @@
 package cn.edu.hebut.easydesign.TaskWorker.BaseTasks;
 
-import java.io.InputStream;
-
 import cn.edu.hebut.easydesign.HttpClient.Client;
 import cn.edu.hebut.easydesign.TaskWorker.Condition;
 import cn.edu.hebut.easydesign.TaskWorker.Task;
@@ -32,7 +30,10 @@ public abstract class HostGetTask<T> extends Task<String, T> {
             c.condition = 700;
             return true;
         } catch (Exception e) {
-            c.condition = 700;
+
+            e.printStackTrace();
+            c.condition = 701;
+
         } finally {
             if (r != null) {
                 r.close();

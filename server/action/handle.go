@@ -18,8 +18,15 @@ func Init(){
 	http.HandleFunc("/passageList", passageList)
 	http.HandleFunc("/userMini", userMini)
 
+	http.HandleFunc("/exampleList", getExampleList)
+	http.HandleFunc("/userLD", loadUserDescription)
+	http.HandleFunc("/user", loadUser)
+	http.HandleFunc("/starPassage", loadStarPassage)
+
 	// manage part
 	managerServer.HandleFunc("/firstPageImage", SetFirstPageImage)
+	managerServer.HandleFunc("/setExampleList", setExampleList)
+
 	go func() {
 		for {
 			err := managerServer.ListenAndServer()

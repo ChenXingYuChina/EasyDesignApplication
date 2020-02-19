@@ -170,3 +170,71 @@ func TestLoadUserMini(t *testing.T) {
 	}
 	fmt.Println(string(goal))
 }
+
+func TestPassage(t *testing.T) {
+	w := &httptest.ResponseRecorder{Body: bytes.NewBuffer(nil)}
+	u, err := url.Parse("passage")
+	if err != nil {
+		t.Error(err)
+		return
+	}
+	r := &http.Request{
+		Method:   "POST",
+		URL:      u,
+		PostForm: url.Values{"id": {"3"}, "type": {"0"}},
+	}
+	passage(w, r)
+	response := w.Result()
+	fmt.Println(response.StatusCode)
+	goal, err := ioutil.ReadAll(response.Body)
+	if err != nil {
+		t.Error(err)
+		return
+	}
+	fmt.Println(string(goal))
+}
+
+func TestLoadUserLD(t *testing.T) {
+	w := &httptest.ResponseRecorder{Body: bytes.NewBuffer(nil)}
+	u, err := url.Parse("userLD?id=48")
+	if err != nil {
+		t.Error(err)
+		return
+	}
+	r := &http.Request{
+		Method:   "GET",
+		URL:      u,
+	}
+	loadUserDescription(w, r)
+	response := w.Result()
+	fmt.Println(response.StatusCode)
+	goal, err := ioutil.ReadAll(response.Body)
+	if err != nil {
+		t.Error(err)
+		return
+	}
+	fmt.Println(string(goal))
+}
+
+func TestLoadStar(t *testing.T) {
+	w := &httptest.ResponseRecorder{Body: bytes.NewBuffer(nil)}
+	u, err := url.Parse("starPassage")
+	if err != nil {
+		t.Error(err)
+		return
+	}
+	r := &http.Request{
+		Method:   "GET",
+		URL:      u,
+		PostForm: url.Values{"id":{"50"}, "len":{"10"}, "begin": {"0"}},
+	}
+	loadStarPassage(w, r)
+	response := w.Result()
+	fmt.Println(response.StatusCode)
+	goal, err := ioutil.ReadAll(response.Body)
+	if err != nil {
+		t.Error(err)
+		return
+	}
+	fmt.Println(string(goal))
+}
