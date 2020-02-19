@@ -17,11 +17,4 @@ public abstract class HoldContextAppCompatActivity extends AppCompatActivity {
         super.onResume();
         ContextHolder.setContext(this);
     }
-
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        ContextHolder.setContext(null);
-    }
 }

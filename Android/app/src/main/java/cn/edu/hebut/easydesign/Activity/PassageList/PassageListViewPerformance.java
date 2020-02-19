@@ -2,11 +2,8 @@ package cn.edu.hebut.easydesign.Activity.PassageList;
 
 import android.util.AttributeSet;
 
-import org.json.JSONObject;
-
 import androidx.annotation.LayoutRes;
 import cn.edu.hebut.easydesign.R;
-import cn.edu.hebut.easydesign.Tools.ResourcesTools;
 
 import static android.view.View.NO_ID;
 
@@ -27,16 +24,9 @@ public class PassageListViewPerformance {
         return new PassageListViewPerformance(card, head, layout);
     }
 
-    public PassageListViewPerformance(JSONObject object) throws Exception {
-        card = ResourcesTools.getResFromString(object.getString("card"), ResourcesTools.RES_LAYOUT);
-        layout = object.getInt("layout");
-        head = ResourcesTools.getResFromString(object.getString("head"), ResourcesTools.RES_LAYOUT);
-    }
-
     public PassageListViewPerformance(@LayoutRes int card, @LayoutRes int head, int layout) {
         this.card = card;
         this.head = head;
         this.layout = layout;
     }
-
 }

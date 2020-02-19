@@ -8,8 +8,4 @@
     <color name="yellowForComplexString">#ffff00</color>
     <color name="greenForComplexString">#00FF00</color>
     <color name="purpleForComplexString">#FF00FF</color>
-    <color name="category_text_unselected">#000000</color>
-    <color name="category_text_selected">#ffffff</color>
-    <color name="category_radio_button_selected">#13AAD8</color>
-    <color name="category_radio_button_unselected">#E0DEDE</color>
 </resources>

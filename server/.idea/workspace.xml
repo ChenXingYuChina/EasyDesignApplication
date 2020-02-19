@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+
     <list default="true" id="54da2308-b95c-40ae-9a28-a3d3ac1f19d6" name="Default Changelist" comment="" />
+
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +21,7 @@
     <option name="HIDDEN_KINDS">
       <set />
     </option>
+
     <expand>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
@@ -75,6 +78,7 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
+
         <entry file="file://$PROJECT_DIR$/action/starPassage.go">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1050">
@@ -94,30 +98,36 @@
                 <element signature="n#!!block;n#signUpStudentInCmd#0" />
                 <element signature="n#!!block;n#signUpDesignerInCmd#0" />
                 <element signature="n#!!block;n#userMini#0" />
+
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+
         <entry file="file://$PROJECT_DIR$/base/user/UserFull.go">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="233">
               <caret line="44" column="34" selection-start-line="44" selection-start-column="34" selection-end-line="44" selection-end-column="34" />
+
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+
         <entry file="file://$PROJECT_DIR$/base/ComplexString/complexString.go">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="23">
               <caret line="87" column="5" selection-start-line="87" selection-start-column="5" selection-end-line="87" selection-end-column="5" />
+
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+
         <entry file="file://$PROJECT_DIR$/action/inCmd_test.go">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="527">
@@ -125,11 +135,13 @@
               <folding>
                 <element signature="e#16#125#0" expanded="true" />
               </folding>
+
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+
         <entry file="file://$PROJECT_DIR$/action/http_test.go">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="5490">
@@ -137,23 +149,28 @@
               <folding>
                 <element signature="n#!!block;n#TestImageType#0" />
                 <element signature="n#!!block;n#TestHotPassageList#0" />
+
               </folding>
             </state>
           </provider>
         </entry>
       </file>
+
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/action/session/session_test.go">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-357">
               <caret line="107" column="51" selection-start-line="107" selection-start-column="51" selection-end-line="107" selection-end-column="51" />
+
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+
         <entry file="file://$PROJECT_DIR$/action/controlPlatform/prepare.go">
           <provider selected="true" editor-type-id="text-editor" />
+
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -220,6 +237,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+
         <option value="$PROJECT_DIR$/base/MultiMedia/multiMedia_test.go" />
         <option value="$PROJECT_DIR$/base/user/password.go" />
         <option value="$PROJECT_DIR$/base/others.go" />
@@ -235,6 +253,7 @@
         <option value="$PROJECT_DIR$/base/Passage/PassageBase.go" />
         <option value="$PROJECT_DIR$/base/MultiMedia/MultiMediaResource.go" />
         <option value="$PROJECT_DIR$/base/comment/CommentBase.go" />
+        <option value="$PROJECT_DIR$/base/comment/SubComment.go" />
         <option value="$PROJECT_DIR$/base/comment/comment_test.go" />
         <option value="$PROJECT_DIR$/base/comment/prepare.go" />
         <option value="$PROJECT_DIR$/action/session/session.go" />
@@ -251,10 +270,13 @@
         <option value="$PROJECT_DIR$/action/image.go" />
         <option value="$PROJECT_DIR$/base/Passage/passage_test.go" />
         <option value="$PROJECT_DIR$/middle/prepare.go" />
+        <option value="$PROJECT_DIR$/action/http_test.go" />
+        <option value="$PROJECT_DIR$/action/handle.go" />
         <option value="$PROJECT_DIR$/main.go" />
         <option value="$PROJECT_DIR$/action/passageList.go" />
         <option value="$PROJECT_DIR$/middle/residentContent.go" />
         <option value="$PROJECT_DIR$/middle/passageLoader.go" />
+
         <option value="$PROJECT_DIR$/middle/residentContent_test.go" />
         <option value="$PROJECT_DIR$/action/exampleList.go" />
         <option value="$PROJECT_DIR$/action/Passage.go" />
@@ -279,6 +301,7 @@
     <option name="y" value="-8" />
     <option name="width" value="976" />
     <option name="height" value="1096" />
+
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -302,7 +325,9 @@
               <item name="server" type="b2602c69:ProjectViewProjectNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
               <item name="action" type="462c0819:PsiDirectoryNode" />
+
               <item name="httpTools" type="462c0819:PsiDirectoryNode" />
+
             </path>
             <path>
               <item name="server" type="b2602c69:ProjectViewProjectNode" />
@@ -333,7 +358,6 @@
     <property name="DefaultGoTemplateProperty" value="Go File" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="database.console.LAST_STATE" value="false" />
     <property name="go.gopath.indexing.explicitly.defined" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="last_opened_file_path" value="$USER_HOME$" />
@@ -377,7 +401,9 @@
       <directory value="$PROJECT_DIR$/" />
       <method v="2" />
     </configuration>
+
     <configuration name="TestLoadStar in EasyDesignApplication/server/action" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+
       <module name="server" />
       <working_directory value="$PROJECT_DIR$/action" />
       <framework value="gotest" />
@@ -385,10 +411,12 @@
       <package value="EasyDesignApplication/server/action" />
       <directory value="$PROJECT_DIR$/" />
       <filePath value="$PROJECT_DIR$/" />
+
       <pattern value="^TestLoadStar$" />
       <method v="2" />
     </configuration>
     <configuration name="TestLogin in EasyDesignApplication/server/action" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+
       <module name="server" />
       <working_directory value="$PROJECT_DIR$/action" />
       <framework value="gotest" />
@@ -396,10 +424,12 @@
       <package value="EasyDesignApplication/server/action" />
       <directory value="$PROJECT_DIR$/" />
       <filePath value="$PROJECT_DIR$/" />
+
       <pattern value="^TestLogin$" />
       <method v="2" />
     </configuration>
     <configuration name="TestLoginByEmail in EasyDesignApplication/server/action" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+
       <module name="server" />
       <working_directory value="$PROJECT_DIR$/action" />
       <framework value="gotest" />
@@ -407,7 +437,9 @@
       <package value="EasyDesignApplication/server/action" />
       <directory value="$PROJECT_DIR$/" />
       <filePath value="$PROJECT_DIR$/" />
+
       <pattern value="^TestLoginByEmail$" />
+
       <method v="2" />
     </configuration>
     <configuration name="TestMarshal in EasyDesignApplication/server/base/ComplexString" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
@@ -424,16 +456,20 @@
     <recent_temporary>
       <list>
         <item itemvalue="Go Build.go build main.go" />
+
         <item itemvalue="Go Test.TestLoadStar in EasyDesignApplication/server/action" />
         <item itemvalue="Go Test.TestMarshal in EasyDesignApplication/server/base/ComplexString" />
         <item itemvalue="Go Test.TestLogin in EasyDesignApplication/server/action" />
         <item itemvalue="Go Test.TestLoginByEmail in EasyDesignApplication/server/action" />
+
       </list>
     </recent_temporary>
   </component>
   <component name="TestHistory">
+
     <history-entry file="TestPassword_CheckRight_in_EasyDesignApplication_server_base_user - 2020.02.14 at 23h 23m 02s.xml">
       <configuration name="TestPassword_CheckRight in EasyDesignApplication/server/base/user" configurationId="GoTestRunConfiguration" />
+
     </history-entry>
     <history-entry file="TestPassword_CheckRight_in_EasyDesignApplication_server_base_user - 2020.02.14 at 23h 24m 21s.xml">
       <configuration name="TestPassword_CheckRight in EasyDesignApplication/server/base/user" configurationId="GoTestRunConfiguration" />
@@ -447,6 +483,7 @@
     <history-entry file="TestPassword_CheckRight_in_EasyDesignApplication_server_base_user - 2020.02.14 at 23h 25m 59s.xml">
       <configuration name="TestPassword_CheckRight in EasyDesignApplication/server/base/user" configurationId="GoTestRunConfiguration" />
     </history-entry>
+
     <history-entry file="TestLoginByEmail_in_EasyDesignApplication_server_action - 2020.02.14 at 23h 26m 29s.xml">
       <configuration name="TestLoginByEmail in EasyDesignApplication/server/action" configurationId="GoTestRunConfiguration" />
     </history-entry>
@@ -462,20 +499,26 @@
     <history-entry file="TestLoadStar_in_EasyDesignApplication_server_action - 2020.02.19 at 10h 22m 06s.xml">
       <configuration name="TestLoadStar in EasyDesignApplication/server/action" configurationId="GoTestRunConfiguration" />
     </history-entry>
+
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
+    <editor active="true" />
     <layout>
+
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17857143" />
+
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="DB Browser" order="2" />
       <window_info id="Project Explorer" order="3" />
       <window_info id="Job Explorer" order="4" />
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
+
       <window_info anchor="bottom" id="Find" order="1" weight="0.32952183" />
       <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.33471933" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39874083" />
+
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -487,7 +530,6 @@
       <window_info anchor="bottom" id="Terminal" order="12" />
       <window_info anchor="bottom" id="Event Log" order="13" side_tool="true" />
       <window_info anchor="bottom" id="Compute Code Lines" order="14" />
-      <window_info anchor="bottom" id="Database Console" order="15" weight="0.32952183" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -582,6 +624,7 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+
     <entry file="file://C:/Go1.11/go/src/mime/type.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="655">
@@ -610,6 +653,7 @@
         </state>
       </provider>
     </entry>
+
     <entry file="file://$PROJECT_DIR$/action/image.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2490">
@@ -662,6 +706,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/action/inCmd_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1148">
+          <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
+          <folding>
+            <element signature="e#16#125#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://C:/Go1.11/go/src/net/http/request.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="205">
@@ -672,6 +726,7 @@
     <entry file="file://$PROJECT_DIR$/testData/im/0.img">
       <provider selected="true" editor-type-id="images" />
     </entry>
+
     <entry file="file://$PROJECT_DIR$/main.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
@@ -690,16 +745,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/middle/dataManager.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4470">
-          <caret line="154" column="5" selection-start-line="154" selection-start-column="5" selection-end-line="154" selection-end-column="5" />
-          <folding>
-            <element signature="e#16#218#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/Go1.11/go/src/net/http/server.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51660">
@@ -707,10 +752,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/Go1.11/go/src/runtime/panic.go">
+
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15240">
-          <caret line="512" selection-start-line="512" selection-end-line="512" />
+        <state relative-caret-position="870">
+          <caret line="34" column="12" selection-start-line="34" selection-start-column="12" selection-end-line="34" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/middle/dataManager.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4470">
+          <caret line="154" column="5" selection-start-line="154" selection-start-column="5" selection-end-line="154" selection-end-column="5" />
+          <folding>
+            <element signature="e#16#218#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -725,6 +780,7 @@
         </state>
       </provider>
     </entry>
+
     <entry file="file://$PROJECT_DIR$/middle/residentContent_test.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1500">
@@ -842,6 +898,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/base/ComplexString/ComplexString_test.go">
+
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="729">
           <caret line="61" selection-start-line="61" selection-end-line="61" />
@@ -861,6 +918,7 @@
         </state>
       </provider>
     </entry>
+
     <entry file="file://$PROJECT_DIR$/action/handle.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
@@ -956,13 +1014,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5490">
           <caret line="230" column="20" selection-start-line="230" selection-start-column="20" selection-end-line="230" selection-end-column="20" />
+
           <folding>
-            <element signature="n#!!block;n#TestImageType#0" />
-            <element signature="n#!!block;n#TestHotPassageList#0" />
+            <element signature="n#!!block;n#TestLoadFullPassage#0" />
           </folding>
         </state>
       </provider>
     </entry>
+
     <entry file="file://$PROJECT_DIR$/action/session/session_test.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-357">

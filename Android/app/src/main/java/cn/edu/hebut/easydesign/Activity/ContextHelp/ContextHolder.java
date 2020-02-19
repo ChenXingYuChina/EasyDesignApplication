@@ -1,7 +1,6 @@
 package cn.edu.hebut.easydesign.Activity.ContextHelp;
 
 import android.content.Context;
-import android.util.Log;
 
 import cn.edu.hebut.easydesign.TaskWorker.TaskService;
 
