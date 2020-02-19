@@ -20,9 +20,14 @@ android {
     sourceSets {
         main {
             res.srcDirs = [
-                "src/main/res/layout/home_page",
-                "src/main/res/layout/passageList",
-                "src/main/res"
+
+                    "src/main/res",
+                    "src/main/res/layout/home_page",
+                    "src/main/res/layout/passageList",
+                    "src/main/res/layout/examplePage",
+                    "src/main/res/layout/user_page",
+                    "src/main/res/layout/PassageActivity"
+
             ]
         }
     }

@@ -42,16 +42,31 @@ public class Comment {
         return goal;
     }
 
-    public ArrayList<SubComment> getSubComments(){
-        return  subComments;
+    public ArrayList<SubComment> getSubComments() {
+        return subComments;
     }
-    public ComplexString getContent(){
-        return this.content;}
-    public int getPosition(){return this.position;}
-    public ArrayList<SubComment> getReplayList() {return this.subComments;}
+
+    public ComplexString getContent() {
+        return this.content;
+    }
+
+    public int getPosition() {
+        return this.position;
+    }
+
+    public ArrayList<SubComment> getReplayList() {
+        return this.subComments;
+    }
+
     public void setReplyList(ArrayList<SubComment> replyList) {
         this.subComments = replyList;
     }
-    public int getLikeNumber(){return this.like;}
-    public int getSubComNumber(){return this.subCommentNumber;}
+
+    public int getLikeNumber() {
+        return this.like;
+    }
+
+    public int getSubComNumber() {
+        return this.subCommentNumber;
+    }
 }

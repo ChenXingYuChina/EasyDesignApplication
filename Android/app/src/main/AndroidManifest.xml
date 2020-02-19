@@ -78,8 +78,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activity.PassageActivity" />
-        <activity android:name=".Activity.SearchResultActivity" />
+
+        <activity android:name=".Comment.AllComment" />
+        <activity android:name=".Comment.CommentActivity" />
+
 
         <service android:name=".TaskWorker.TaskService" />
     </application>
