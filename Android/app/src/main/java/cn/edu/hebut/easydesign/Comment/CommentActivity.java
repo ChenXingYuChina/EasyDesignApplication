@@ -20,6 +20,7 @@ import android.widget.Toast;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -28,6 +29,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import cn.edu.hebut.easydesign.ComplexString.ComplexString;
 import cn.edu.hebut.easydesign.R;
 import cn.edu.hebut.easydesign.Resources.Passage.Comment;
@@ -35,6 +37,7 @@ import cn.edu.hebut.easydesign.Resources.Passage.Passage;
 import cn.edu.hebut.easydesign.Resources.Passage.SubComment;
 
 public class CommentActivity extends AppCompatActivity implements View.OnClickListener {
+
     private BottomSheetDialog dialog;
     private Adapter adapter;
     private TextView bt_comment;
@@ -259,7 +262,6 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-
                 } else {
                     Toast.makeText(CommentActivity.this, "回复内容不能为空", Toast.LENGTH_SHORT).show();
                 }
@@ -323,9 +325,7 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
             @Override
             public void onGroupExpand(int groupPosition) {
                 Toast.makeText(CommentActivity.this, "展开第" + groupPosition + "个分组", Toast.LENGTH_SHORT).show();
-
             }
         });
-
     }
 }

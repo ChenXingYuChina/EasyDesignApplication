@@ -2,6 +2,7 @@ package cn.edu.hebut.easydesign.Comment;
 
 import android.content.Context;
 import android.graphics.Color;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +13,9 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+
 import cn.edu.hebut.easydesign.R;
+
 import cn.edu.hebut.easydesign.Resources.Passage.Comment;
 import cn.edu.hebut.easydesign.Resources.Passage.SubComment;
 
@@ -21,7 +24,9 @@ public class Adapter extends BaseExpandableListAdapter {
     private Context context;
     private ArrayList<ArrayList<SubComment>> SubCommentList;
 
+
     public Adapter(Context context, List<Comment> commentBeanList, ArrayList<ArrayList<SubComment>> subComments) {
+
         this.context = context;
         this.CommentList = commentBeanList;
         this.SubCommentList = subComments;
@@ -29,6 +34,7 @@ public class Adapter extends BaseExpandableListAdapter {
 
     @Override
     public int getGroupCount() {
+
         if (this.CommentList == null) {
             return 0;
         } else {
@@ -42,6 +48,7 @@ public class Adapter extends BaseExpandableListAdapter {
             return 0;
         } else {
             return CommentList.get(i).getSubComments().size() > 0 ? CommentList.get(i).getSubComments().size() : 0;
+
         }
 
     }
@@ -77,11 +84,13 @@ public class Adapter extends BaseExpandableListAdapter {
     public View getGroupView(final int groupPosition, boolean isExpand, View convertView, ViewGroup viewGroup) {
         final GroupHolder groupHolder;
 
+
         if (convertView == null) {
             convertView = LayoutInflater.from(context).inflate(R.layout.comment_item_layout, viewGroup, false);
             groupHolder = new GroupHolder(convertView);
             convertView.setTag(groupHolder);
         } else {
+
             groupHolder = (GroupHolder) convertView.getTag();
         }
         groupHolder.comment_content.setText(CommentList.get(groupPosition).getContent().GetSpannableString());
@@ -89,12 +98,16 @@ public class Adapter extends BaseExpandableListAdapter {
         groupHolder.comment_like.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 if (isLike) {
+
                     isLike = false;
                     Integer number_dislike = Integer.parseInt(groupHolder.comment_like_number.getText().toString().trim());
                     groupHolder.comment_like.setColorFilter(Color.parseColor("#aaaaaa"));
                     groupHolder.comment_like_number.setText(String.valueOf(--number_dislike));
+
                 } else {
+
                     isLike = true;
                     Integer number_like = Integer.parseInt(groupHolder.comment_like_number.getText().toString().trim());
                     groupHolder.comment_like.setColorFilter(Color.parseColor("#FF5C5C"));
@@ -109,6 +122,7 @@ public class Adapter extends BaseExpandableListAdapter {
     @Override
     public View getChildView(final int groupPosition, int childPosition, boolean b, View convertView, ViewGroup viewGroup) {
         final ChildHolder childHolder;
+
         if (convertView == null) {
             convertView = LayoutInflater.from(context).inflate(R.layout.comment_reply_item_layout, viewGroup, false);
             childHolder = new ChildHolder(convertView);
@@ -118,18 +132,22 @@ public class Adapter extends BaseExpandableListAdapter {
         }
         childHolder.replay_like_number.setText(String.valueOf(CommentList.get(groupPosition).getSubComments().get(childPosition).getLikeNumber()));
         if (CommentList.get(groupPosition).getSubComments() != null) {
+
             childHolder.reply_content.setText(CommentList.get(groupPosition).getSubComments().get(childPosition).getContent());
         }
         childHolder.reply_like.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 if (isLike) {
+
                     isLike = false;
                     Integer number_dislike = Integer.parseInt(childHolder.replay_like_number.getText().toString().trim());
                     childHolder.replay_like_number.setText(String.valueOf(--number_dislike));
                     childHolder.reply_like.setColorFilter(Color.parseColor("#aaaaaa"));
 
                 } else {
+
                     isLike = true;
                     Integer number_like = Integer.parseInt(childHolder.replay_like_number.getText().toString().trim());
                     childHolder.replay_like_number.setText(String.valueOf(++number_like));
@@ -174,17 +192,21 @@ public class Adapter extends BaseExpandableListAdapter {
             CommentList.add(comment);
             notifyDataSetChanged();
         } else {
+
             throw new IllegalArgumentException("评论数据为空!");
         }
     }
 
     public void addTheReplyData(SubComment subComment, int groupPosition) {
         if (subComment != null) {
+
             ArrayList<SubComment> SubList;
             SubList = SubCommentList.get(groupPosition);
             SubList.add(subComment);
             notifyDataSetChanged();
+
         } else {
+
             throw new IllegalArgumentException("回复数据为空!");
         }
 

@@ -19,6 +19,7 @@ import android.widget.Toast;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -27,6 +28,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import cn.edu.hebut.easydesign.ComplexString.ComplexString;
 import cn.edu.hebut.easydesign.R;
 import cn.edu.hebut.easydesign.Resources.Passage.Comment;
@@ -34,6 +36,7 @@ import cn.edu.hebut.easydesign.Resources.Passage.Passage;
 import cn.edu.hebut.easydesign.Resources.Passage.SubComment;
 
 public class AllComment extends AppCompatActivity implements View.OnClickListener {
+
     private BottomSheetDialog dialog;
     private Adapter adapter;
     private TextView do_comment;
@@ -63,6 +66,7 @@ public class AllComment extends AppCompatActivity implements View.OnClickListene
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(AllComment.this, CommentActivity.class);
+
                 startActivity(intent);
             }
         });
@@ -72,6 +76,7 @@ public class AllComment extends AppCompatActivity implements View.OnClickListene
             subComments.add(comment.getReplayList());
         }
         initExpandableListView(commentsList, subComments);
+
     }
 
     private List<Comment> generateTestData() throws Exception {
@@ -88,7 +93,9 @@ public class AllComment extends AppCompatActivity implements View.OnClickListene
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+
         if (item.getItemId() == android.R.id.home) {
+
             finish();
             return true;
         }
@@ -105,6 +112,7 @@ public class AllComment extends AppCompatActivity implements View.OnClickListene
     private void showCommentDialog() {
         dialog = new BottomSheetDialog(this);
         View commentView = LayoutInflater.from(this).inflate(R.layout.comment_dialog_layout, null);
+
         final EditText commentText = (EditText) commentView.findViewById(R.id.dialog_comment_et);
         final Button bt_comment = (Button) commentView.findViewById(R.id.dialog_comment_bt);
         dialog.setContentView(commentView);
@@ -113,7 +121,9 @@ public class AllComment extends AppCompatActivity implements View.OnClickListene
          */
         View parent = (View) commentView.getParent();
         BottomSheetBehavior behavior = BottomSheetBehavior.from(parent);
+
         commentView.measure(0, 0);
+
         behavior.setPeekHeight(commentView.getMeasuredHeight());
 
         bt_comment.setOnClickListener(new View.OnClickListener() {
@@ -121,13 +131,16 @@ public class AllComment extends AppCompatActivity implements View.OnClickListene
             @Override
             public void onClick(View view) {
                 String commentContent = commentText.getText().toString().trim();
+
                 if (!TextUtils.isEmpty(commentContent)) {
+
                     ComplexString complexContent = new ComplexString(commentContent);
                     //commentOnWork(commentContent);
                     dialog.dismiss();
                     JSONObject CommentObject = new JSONObject();
                     JSONArray SubComments = new JSONArray();
                     try {
+
                         CommentObject.put("content", complexContent);
                         CommentObject.put("passage", passage.GetId());
                         CommentObject.put("position", 0);
@@ -137,13 +150,16 @@ public class AllComment extends AppCompatActivity implements View.OnClickListene
                         Comment mComment = new Comment(CommentObject, SubComments);
                         adapter.addTheCommentData(mComment);
                         Toast.makeText(AllComment.this, "评论成功", Toast.LENGTH_SHORT).show();
+
                     } catch (JSONException e) {
                         e.printStackTrace();
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
+
                 } else {
                     Toast.makeText(AllComment.this, "评论内容不能为空", Toast.LENGTH_SHORT).show();
+
                 }
             }
         });
@@ -158,6 +174,7 @@ public class AllComment extends AppCompatActivity implements View.OnClickListene
                 if (!TextUtils.isEmpty(charSequence) && charSequence.length() > 2) {
                     bt_comment.setBackgroundColor(Color.parseColor("#FFB568"));
                 } else {
+
                     bt_comment.setBackgroundColor(Color.parseColor("#D8D8D8"));
                 }
             }
@@ -264,7 +281,6 @@ public class AllComment extends AppCompatActivity implements View.OnClickListene
             @Override
             public void onGroupExpand(int groupPosition) {
                 Toast.makeText(AllComment.this, "展开第" + groupPosition + "个分组", Toast.LENGTH_SHORT).show();
-
             }
         });
 

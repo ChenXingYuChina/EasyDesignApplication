@@ -12,12 +12,13 @@ import org.json.JSONObject;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import cn.edu.hebut.easydesign.Activity.ContextHelp.ContextHolder;
 import cn.edu.hebut.easydesign.Activity.ContextHelp.HoldContextAppCompatActivity;
+
 import cn.edu.hebut.easydesign.Activity.Fragment.UserPage.UserDescriptionPage;
 import cn.edu.hebut.easydesign.Activity.Fragment.UserPage.UserFragment;
 import cn.edu.hebut.easydesign.ComplexString.ComplexStringLoader;
+
 import cn.edu.hebut.easydesign.DataManagement.DataManagement;
 import cn.edu.hebut.easydesign.DataManagement.DataType;
 import cn.edu.hebut.easydesign.R;
@@ -33,6 +34,7 @@ public class TestActivity extends HoldContextAppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.test_activity);
+
         try {
             DataManagement.getInstance().RegisterLoader(DataType.UserMini, UserMiniLoader.class);
             DataManagement.getInstance().Start(this);
@@ -42,6 +44,7 @@ public class TestActivity extends HoldContextAppCompatActivity {
         connection = new ServiceConnection() {
             @Override
             public void onServiceConnected(ComponentName name, IBinder service) {
+
                 TaskService.MyBinder binder = (TaskService.MyBinder) service;
                 ContextHolder.setBinder(binder);
                 try {

@@ -41,8 +41,6 @@ public abstract class PassageItemCard extends FrameLayout implements FrameLayout
 
     public void cancelLoad() {
         cancel.condition = true;
-        cancel = new Condition<>(false);
-        reset();
     }
 
     protected abstract void setItem(PassageListItem item, UserMini userMini);

@@ -3,6 +3,8 @@ package cn.edu.hebut.easydesign.Resources.Passage;
 import android.os.Build;
 import android.util.Log;
 
+import androidx.annotation.RequiresApi;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -26,7 +28,6 @@ public class Passage implements Data {
 
     public Passage(JSONObject passage, boolean full) throws Exception {
         try {
-            Log.i("Test", "Here2");
             content = ComplexStringLoader.getInstance().LoadFromNet(passage.getJSONObject("body"));
         } catch (Exception ignored) {
         }
@@ -75,6 +76,7 @@ public class Passage implements Data {
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     public ArrayList<Comment> GetCommentList() {
+
         ArrayList<Comment> commentList = this.comments;
         commentList.sort(new Comparator<Comment>() {
             @Override
@@ -84,6 +86,7 @@ public class Passage implements Data {
                 } else {
                     return -1;
                 }
+
             }
         });
         return commentList;

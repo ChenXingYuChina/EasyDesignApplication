@@ -4,44 +4,31 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
-import java.util.Date;
-import java.util.LinkedList;
 import java.util.List;
 
 import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import cn.edu.hebut.easydesign.Activity.ContextHelp.ContextHolder;
 import cn.edu.hebut.easydesign.Activity.PassageList.Cards.CardFactory;
 import cn.edu.hebut.easydesign.R;
-import cn.edu.hebut.easydesign.Resources.PassageList.LoadPassageListTask;
 import cn.edu.hebut.easydesign.Resources.PassageList.PassageList;
 import cn.edu.hebut.easydesign.Resources.UserMini.UserMini;
-import cn.edu.hebut.easydesign.TaskWorker.TaskService;
 
-public class PassageListAdapter extends RecyclerView.Adapter implements SwipeRefreshLayout.OnRefreshListener {
-    private @LayoutRes
-    int cardLayout;
-    private @LayoutRes
-    int headLayout;
-    private PassageListViewConfig config;
+public class PassageListAdapter extends RecyclerView.Adapter {
+    private @LayoutRes int cardLayout;
+    private @LayoutRes int headLayout;
     private PassageList list;
     private List<UserMini> userMinis;
-    private PassageListContainer father;
-    private TipResources tips;
-    private long lastTime = -1;
+    private PassageListView father;
 
-    PassageListAdapter(PassageListViewPerformance performance, PassageListContainer father, PassageListViewConfig config, TipResources tipResources) {
+    PassageListAdapter(PassageListViewPerformance performance, PassageListView father, PassageList list, List<UserMini> userMinis) {
         this.cardLayout = performance.card;
-        this.list = new PassageList();
-        this.userMinis = new LinkedList<>();
+        this.list = list;
+        this.userMinis = userMinis;
         this.father = father;
         this.headLayout = performance.head;
-        this.config = config;
-        tips = tipResources;
     }
 
     @Override
@@ -62,7 +49,7 @@ public class PassageListAdapter extends RecyclerView.Adapter implements SwipeRef
                 return new ItemHolder(CardFactory.makeCard(cardLayout, parent));
             case foot:
                 Log.i("adapter", "foot");
-                footHolder = new FootHolder((LinearLayout) LayoutInflater.from(ContextHolder.getContext()).inflate(R.layout.passage_list_foot, parent, false), this);
+                footHolder = new FootHolder((LinearLayout) LayoutInflater.from(ContextHolder.getContext()).inflate(R.layout.passage_list_foot, parent, false), father);
                 return footHolder;
             case head:
                 headHolder = new HeadHolder(headLayout, parent);
@@ -74,7 +61,7 @@ public class PassageListAdapter extends RecyclerView.Adapter implements SwipeRef
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         if (position <= list.list.size() && position != 0) {
-            ((ItemHolder) holder).card.putItem(list.list.get(position - 1), userMinis.get(position - 1));
+            ((ItemHolder)holder).card.putItem(list.list.get(position-1), userMinis.get(position-1));
         } else if (holder instanceof HeadHolder) {
             if (holder.itemView instanceof OnHeadBind) {
                 ((OnHeadBind) holder.itemView).onHeadBind(father);
@@ -85,7 +72,6 @@ public class PassageListAdapter extends RecyclerView.Adapter implements SwipeRef
     private final static int normal = 0;
     private final static int foot = 1;
     private final static int head = 2;
-
     @Override
     public int getItemViewType(int position) {
         if (position == 0) {

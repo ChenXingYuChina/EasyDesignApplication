@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_gravity="top"
+        android:adjustViewBounds="true" />
+
+    <LinearLayout
+        android:id="@+id/points"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_marginTop="-10dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+    </LinearLayout>
+
+
+    <cn.edu.hebut.easydesign.Activity.commonComponents.SearchBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:id="@+id/tubiao"
+        android:layout_width="match_parent"
+        android:layout_height="79dp"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <cn.edu.hebut.easydesign.Activity.commonComponents.ImageWithTextView
+            android:id="@+id/home_card_first"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            app:image="@drawable/shubiao"
+            app:text="@string/home_page_first" />
+
+        <cn.edu.hebut.easydesign.Activity.commonComponents.ImageWithTextView
+            android:id="@+id/home_card_second"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            app:image="@drawable/weixin"
+            app:text="@string/home_page_second" />
+
+        <cn.edu.hebut.easydesign.Activity.commonComponents.ImageWithTextView
+            android:id="@+id/home_card_third"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            app:image="@drawable/huojian"
+            app:text="@string/home_page_third" />
+
+        <cn.edu.hebut.easydesign.Activity.commonComponents.ImageWithTextView
+            android:id="@+id/home_card_forth"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            app:image="@drawable/bi"
+            app:text="@string/home_page_forth" />
+
+    </LinearLayout>
+
+</LinearLayout>
