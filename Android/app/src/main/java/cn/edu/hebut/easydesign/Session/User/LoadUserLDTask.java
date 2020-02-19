@@ -18,7 +18,11 @@ public abstract class LoadUserLDTask extends HostGetTask<ComplexString> {
     protected int HandleInput(String string) {
         try {
             Session session = Session.getSession();
-            session.longDescription = ComplexStringLoader.getInstance().LoadFromNet(new JSONObject(string));
+            if (string.equals("null")) {
+                session.longDescription = Session.defaultDescription;
+            } else {
+                session.longDescription = ComplexStringLoader.getInstance().LoadFromNet(new JSONObject(string));
+            }
             data2 = session.longDescription;
         } catch (Exception e) {
             Log.i("LULDT", "HandleInput: ");

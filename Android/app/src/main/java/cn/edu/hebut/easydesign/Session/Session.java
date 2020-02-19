@@ -18,6 +18,7 @@ public class Session {
     public User user = null;
     public ComplexString longDescription = null;
     public DataNetClient dataNetClient = null;
+    public static ComplexString defaultDescription = new ComplexString("没有简介");
     public boolean login(JSONObject session) {
         try {
             sessionKey = session.getLong("session_key");

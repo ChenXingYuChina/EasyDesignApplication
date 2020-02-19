@@ -6,10 +6,7 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.IBinder;
-import android.util.Log;
 import android.view.View;
-
-import org.json.JSONObject;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -20,10 +17,10 @@ import cn.edu.hebut.easydesign.Activity.ContextHelp.HoldContextAppCompatActivity
 import cn.edu.hebut.easydesign.Activity.Fragment.ExamplePage.ExampleFragment;
 import cn.edu.hebut.easydesign.Activity.Fragment.HomePage.HomeFragment;
 import cn.edu.hebut.easydesign.Activity.Fragment.ThinkingFragment;
+import cn.edu.hebut.easydesign.Activity.Fragment.UserPage.UserFragment;
 import cn.edu.hebut.easydesign.DataManagement.DataManagement;
 import cn.edu.hebut.easydesign.DataManagement.DataType;
 import cn.edu.hebut.easydesign.R;
-import cn.edu.hebut.easydesign.Resources.Passage.Passage;
 import cn.edu.hebut.easydesign.Resources.UserMini.UserMiniLoader;
 import cn.edu.hebut.easydesign.TaskWorker.TaskService;
 
@@ -141,7 +138,14 @@ public class MainActivity extends HoldContextAppCompatActivity implements View.O
                 nowPage = R.id.example_page;
                 break;
             case R.id.user_page:
-//                nowPage = R.id.user_page;
+                if (userPage == null) {
+                    backFragment(null);
+                    userPage = UserFragment.getInstance(UserFragment.NOW_USER);
+                    transaction.add(R.id.main_content, userPage);
+                } else {
+                    backFragment(userPage);
+                }
+                nowPage = R.id.user_page;
                 break;
         }
         transaction.commit();

@@ -45,7 +45,7 @@ public class ComplexString implements Serializable {
         this.string = new SpannableString(string);
     }
 
-    ComplexString(SpannableString string) {
+    public ComplexString(SpannableString string) {
         this.string = string;
     }
 
@@ -200,7 +200,7 @@ public class ComplexString implements Serializable {
     public static final int GREEN_COLOR = 3;
     public static final int PURPLE_COLOR = 4;
 
-    static Object getSpanFromId(long id, final String url) {
+    public static Object getSpanFromId(long id, final String url) {
         Context ctx = ContextHolder.getContext();
         if (ctx == null) {
             return null;

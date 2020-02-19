@@ -24,8 +24,8 @@ public abstract class LoadPassageListTask extends HostPostTask {
     private PassageList passageList;
     private List<UserMini> userMiniList;
     private FormField[] fields;
-    public LoadPassageListTask(FormField[] fields) {
-        super("passageList");
+    public LoadPassageListTask(String api, FormField[] fields) {
+        super(api);
         this.fields = fields;
     }
 
@@ -95,7 +95,8 @@ public abstract class LoadPassageListTask extends HostPostTask {
         Hot("hot"),
         Keyword("keyword"),
         LastRefreshTime("refresh"),
-        Workshop("workshop");
+        Workshop("workshop"),
+        Star("star");
         field(String name){
             fieldName = name;
         }
