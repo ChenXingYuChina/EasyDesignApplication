@@ -22,4 +22,12 @@ public class SubComment {
         this.position = (short) subComment.getInt("position");
     }
 
+    public String getContent() {
+        return this.content;
+    }
+
+    public int getLikeNumber() {
+        return this.like;
+    }
+
 }

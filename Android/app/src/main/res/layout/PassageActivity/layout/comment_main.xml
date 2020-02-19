@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:fitsSystemWindows="true"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="cn.edu.hebut.easydesign.Comment.CommentActivity">
+
+    <TextView
+        android:id="@+id/detail_page_story"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:textSize="14sp"
+        android:textColor="#6e6e6e" />
+
+    <ExpandableListView
+        android:id="@+id/detail_page_lv_comment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="20dp"
+        android:divider="@null"
+        android:layout_marginBottom="64dp"
+        android:listSelector="@android:color/transparent"
+        android:scrollbars="none" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@android:color/white"
+        android:elevation="1dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/detail_page_do_comment"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="0.6"
+            android:textColor="#696969"
+            android:textSize="20sp"
+            android:text="说点什么吧..."
+            android:background="@drawable/comment_bt_selector"
+            android:gravity="center_vertical" />
+
+        <TextView
+            android:id="@+id/show_all_comments"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="0.4"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:text="显示全部评论"
+            android:background="@drawable/comment_bt_selector"
+            android:gravity="center" />
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

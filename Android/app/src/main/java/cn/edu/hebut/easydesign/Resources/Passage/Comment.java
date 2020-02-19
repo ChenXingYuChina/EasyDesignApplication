@@ -10,7 +10,7 @@ import cn.edu.hebut.easydesign.ComplexString.ComplexStringLoader;
 
 public class Comment {
     public long passage, owner;
-    public int like, position;
+    public int like, position, subCommentNumber;
     public ArrayList<SubComment> subComments;
     public ComplexString content;
 
@@ -27,6 +27,7 @@ public class Comment {
         this.content = ComplexStringLoader.getInstance().LoadFromNet(comment.getJSONObject("content"));
         this.like = comment.getInt("like");
         this.position = comment.getInt("position");
+        this.subCommentNumber = comment.getInt("sub_com_number");
         this.owner = comment.getLong("owner");
         this.passage = comment.getLong("passage");
     }
@@ -40,4 +41,31 @@ public class Comment {
         return goal;
     }
 
+    public ArrayList<SubComment> getSubComments() {
+        return subComments;
+    }
+
+    public ComplexString getContent() {
+        return this.content;
+    }
+
+    public int getPosition() {
+        return this.position;
+    }
+
+    public ArrayList<SubComment> getReplayList() {
+        return this.subComments;
+    }
+
+    public void setReplyList(ArrayList<SubComment> replyList) {
+        this.subComments = replyList;
+    }
+
+    public int getLikeNumber() {
+        return this.like;
+    }
+
+    public int getSubComNumber() {
+        return this.subCommentNumber;
+    }
 }

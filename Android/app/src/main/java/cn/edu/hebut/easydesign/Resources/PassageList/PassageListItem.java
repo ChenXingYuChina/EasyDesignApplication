@@ -26,6 +26,3 @@ public class PassageListItem implements Serializable {
         type = (short) item.getInt("type");
     }
 }
-
-
-
