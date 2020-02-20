@@ -22,7 +22,6 @@ import cn.edu.hebut.easydesign.Tools.ResourcesTools;
 import static cn.edu.hebut.easydesign.ComplexString.ComplexString.HYPERLINK;
 
 public class ComplexStringLoader {
-
     private static ComplexStringLoader instance = new ComplexStringLoader();
 
     public static ComplexStringLoader getInstance() {
@@ -34,7 +33,6 @@ public class ComplexStringLoader {
     }
 
     public ComplexString LoadFromNet(JSONObject complexString) throws Exception {
-        Log.i("Test","Here1");
         SpannableString string = new SpannableString(complexString.getString("content"));
         JSONArray positions, widths, resources;
         positions = complexString.getJSONArray("position");
@@ -42,7 +40,6 @@ public class ComplexStringLoader {
             widths = complexString.getJSONArray("width");
             resources = complexString.getJSONArray("resources");
         } catch (Exception e) {
-            Log.i("Test","Here2");
             return new ComplexString(string);
         }
         ComplexString goal = new ComplexString(string);

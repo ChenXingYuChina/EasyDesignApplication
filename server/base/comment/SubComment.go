@@ -25,11 +25,11 @@ type SubComment struct {
 
 func prepareSubCommentSQL() (uint8, error) {
 	var err error
-	loadSubComment, err = SQLPrepare("select content, position, like_number from subcomment where passage_id = $1 and father = $2 order by position desc limit $4 offset $3")
+	loadSubComment, err = SQLPrepare("select content, position, like_number, owner from subcomment where passage_id = $1 and father = $2 order by position desc limit $4 offset $3")
 	if err != nil {
 		return 0, err
 	}
-	loadSubCommentHot, err = Database.Prepare("select content, position, like_number from subcomment where passage_id = $1 and father = $2 order by like_number desc limit 3")
+	loadSubCommentHot, err = Database.Prepare("select content, position, like_number, owner from subcomment where passage_id = $1 and father = $2 order by like_number desc limit 3")
 	if err != nil {
 		return 3, err
 	}
@@ -68,7 +68,7 @@ func LoadSubCommentByPosition(passageId int64, fatherPosition uint32, begin uint
 	goal := make([]*SubComment, 0, length)
 	for r.Next() {
 		c := &SubComment{}
-		err = r.Scan(&(c.Content), &(c.Position), &(c.Like))
+		err = r.Scan(&(c.Content), &(c.Position), &(c.Like), &(c.Owner))
 		if err != nil {
 			return nil, err
 		}
@@ -87,7 +87,7 @@ func LoadHotSubComment(passageId int64, fatherPosition uint32) ([]*SubComment, e
 	goal := make([]*SubComment, 0, 3)
 	for r.Next() {
 		c := &SubComment{}
-		err = r.Scan(&(c.Content), &(c.Position), &(c.Like))
+		err = r.Scan(&(c.Content), &(c.Position), &(c.Like), &(c.Owner))
 		if err != nil {
 			return nil, err
 		}
