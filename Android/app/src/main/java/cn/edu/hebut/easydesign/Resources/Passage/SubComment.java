@@ -26,12 +26,5 @@ public class SubComment {
     public String getContent(){return this.content;}
     public int getLikeNumber(){return this.like;}
 
-    public String getContent() {
-        return this.content;
-    }
-
-    public int getLikeNumber() {
-        return this.like;
-    }
 
 }

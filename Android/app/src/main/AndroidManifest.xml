@@ -67,6 +67,9 @@
 <!--                <category android:name="android.intent.category.LAUNCHER" />-->
 <!--            </intent-filter>-->
         </activity>
+        <activity android:name=".Comment.AllComment" />
+        <activity android:name=".Comment.CommentActivity" />
+        <activity android:name=".Activity.Passage.PassageActivity" />
 
         <service android:name=".TaskWorker.TaskService" />
     </application>

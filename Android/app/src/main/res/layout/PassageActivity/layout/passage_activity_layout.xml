@@ -7,15 +7,15 @@
     tools:context="cn.edu.hebut.easydesign.Comment.CommentActivity">
 
     <TextView
-        android:id="@+id/detail_page_story"
-        android:layout_width="wrap_content"
+        android:id="@+id/passage_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ellipsize="end"
         android:textSize="14sp"
         android:textColor="#6e6e6e" />
 
     <ExpandableListView
-        android:id="@+id/detail_page_lv_comment"
+        android:id="@+id/passage_comments"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="20dp"

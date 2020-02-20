@@ -29,13 +29,14 @@ import java.util.List;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import cn.edu.hebut.easydesign.Activity.ContextHelp.HoldContextAppCompatActivity;
 import cn.edu.hebut.easydesign.ComplexString.ComplexString;
 import cn.edu.hebut.easydesign.R;
 import cn.edu.hebut.easydesign.Resources.Passage.Comment;
 import cn.edu.hebut.easydesign.Resources.Passage.Passage;
 import cn.edu.hebut.easydesign.Resources.Passage.SubComment;
 
-public class AllComment extends AppCompatActivity implements View.OnClickListener {
+public class AllComment extends HoldContextAppCompatActivity implements View.OnClickListener {
 
     private BottomSheetDialog dialog;
     private Adapter adapter;

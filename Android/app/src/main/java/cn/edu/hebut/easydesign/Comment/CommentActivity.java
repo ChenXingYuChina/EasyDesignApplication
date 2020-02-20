@@ -28,15 +28,14 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import cn.edu.hebut.easydesign.Activity.ContextHelp.HoldContextAppCompatActivity;
 import cn.edu.hebut.easydesign.ComplexString.ComplexString;
 import cn.edu.hebut.easydesign.R;
 import cn.edu.hebut.easydesign.Resources.Passage.Comment;
 import cn.edu.hebut.easydesign.Resources.Passage.Passage;
 import cn.edu.hebut.easydesign.Resources.Passage.SubComment;
 
-public class CommentActivity extends AppCompatActivity implements View.OnClickListener {
+public class CommentActivity extends HoldContextAppCompatActivity implements View.OnClickListener {
 
     private BottomSheetDialog dialog;
     private Adapter adapter;
@@ -48,54 +47,11 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
     private ArrayList<ArrayList<SubComment>> subComments;
     private Passage passage;
 
-    private String json = "{\"body\":{\"content\":\"content\",\"position\":[],\"width\":[],\"resources\":[]},\"id\":3,\"media\":null," +
-            "\"com\":[{\"content\":{\"content\":\"RealComment1\",\"position\":[],\"width\":[],\"resources\":[]},\"passage\":3,\"owner\":48,\"like\":0,\"position\":0,\"sub_com_number\":2}," +
-            "{\"content\":{\"content\":\"RealComment2\",\"position\":[],\"width\":[],\"resources\":[]},\"passage\":3,\"owner\":48,\"like\":1,\"position\":0,\"sub_com_number\":2}," +
-            "{\"content\":{\"content\":\"RealComment3\",\"position\":[],\"width\":[],\"resources\":[]},\"passage\":3,\"owner\":48,\"like\":2,\"position\":0,\"sub_com_number\":2}," +
-            "{\"content\":{\"content\":\"RealComment4\",\"position\":[],\"width\":[],\"resources\":[]},\"passage\":3,\"owner\":48,\"like\":3,\"position\":0,\"sub_com_number\":2}," +
-            "{\"content\":{\"content\":\"RealComment5\",\"position\":[],\"width\":[],\"resources\":[]},\"passage\":3,\"owner\":48,\"like\":4,\"position\":0,\"sub_com_number\":2}," +
-            "{\"content\":{\"content\":\"RealComment6\",\"position\":[],\"width\":[],\"resources\":[]},\"passage\":3,\"owner\":48,\"like\":5,\"position\":0,\"sub_com_number\":0}," +
-            "{\"content\":{\"content\":\"RealComment7\",\"position\":[],\"width\":[],\"resources\":[]},\"passage\":3,\"owner\":48,\"like\":6,\"position\":0,\"sub_com_number\":0}," +
-            "{\"content\":{\"content\":\"RealComment8\",\"position\":[],\"width\":[],\"resources\":[]},\"passage\":3,\"owner\":48,\"like\":7,\"position\":0,\"sub_com_number\":0}," +
-            "{\"content\":{\"content\":\"RealComment9\",\"position\":[],\"width\":[],\"resources\":[]},\"passage\":3,\"owner\":48,\"like\":8,\"position\":0,\"sub_com_number\":1}," +
-            "{\"content\":{\"content\":\"RealComment10\",\"position\":[],\"width\":[],\"resources\":[]},\"passage\":3,\"owner\":48,\"like\":9,\"position\":0,\"sub_com_number\":0}," +
-            "{\"content\":{\"content\":\"RealComment11\",\"position\":[],\"width\":[],\"resources\":[]},\"passage\":3,\"owner\":48,\"like\":5,\"position\":0,\"sub_com_number\":0}," +
-            "{\"content\":{\"content\":\"RealComment12\",\"position\":[],\"width\":[],\"resources\":[]},\"passage\":3,\"owner\":48,\"like\":156,\"position\":0,\"sub_com_number\":4}]," +
-            "\"sub_com\":[" +
-            "[" +
-            "{\"passage\":3,\"owner\":48,\"content\":\"subcomment11\",\"like\":1,\"father\":1,\"position\":0}," +
-            "{\"passage\":3,\"owner\":48,\"content\":\"subcomment12\",\"like\":0,\"father\":1,\"position\":0}" +
-            "]," +
-            "[" +
-            "{\"passage\":3,\"owner\":48,\"content\":\"subcomment21\",\"like\":1,\"father\":1,\"position\":0}," +
-            "{\"passage\":3,\"owner\":48,\"content\":\"subcomment22\",\"like\":0,\"father\":1,\"position\":0}" +
-            "]," +
-            "[{\"passage\":3,\"owner\":48,\"content\":\"subcomment31\",\"like\":1,\"father\":1,\"position\":0}," +
-            "{\"passage\":3,\"owner\":48,\"content\":\"subcomment32\",\"like\":0,\"father\":1,\"position\":0}" +
-            "]," +
-            "[" +
-            "{\"passage\":3,\"owner\":48,\"content\":\"subcomment41\",\"like\":1,\"father\":1,\"position\":0}," +
-            "{\"passage\":3,\"owner\":48,\"content\":\"subcomment42\",\"like\":0,\"father\":1,\"position\":0}" +
-            "]," +
-            "[{\"passage\":3,\"owner\":48,\"content\":\"subcomment51\",\"like\":1,\"father\":1,\"position\":0}," +
-            "{\"passage\":3,\"owner\":48,\"content\":\"subcomment52\",\"like\":0,\"father\":1,\"position\":0}" +
-            "]," +
-            "[],[],[]," +
-            "[" +
-            "{\"passage\":3,\"owner\":48,\"content\":\"subcomment91\",\"like\":1,\"father\":1,\"position\":0}" +
-            "]," +
-            "[],[]," +
-            "[" +
-            "{\"passage\":3,\"owner\":48,\"content\":\"subcomment12_1\",\"like\":1,\"father\":1,\"position\":0}," +
-            "{\"passage\":3,\"owner\":48,\"content\":\"subcomment12_2\",\"like\":0,\"father\":1,\"position\":0}," +
-            "{\"passage\":3,\"owner\":48,\"content\":\"subcomment12_3\",\"like\":1,\"father\":1,\"position\":0}," +
-            "{\"passage\":3,\"owner\":48,\"content\":\"subcomment12_4\",\"like\":0,\"father\":1,\"position\":0}" +
-            "]],\"full\":true}";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.comment_main);
+        setContentView(R.layout.passage_activity_layout);
         try {
             initView();
         } catch (Exception e) {
@@ -105,7 +61,7 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
 
     private void initView() throws Exception {
         show_all_comments = findViewById(R.id.show_all_comments);
-        expandableListView = findViewById(R.id.detail_page_lv_comment);
+        expandableListView = findViewById(R.id.passage_comments);
         bt_comment = findViewById(R.id.detail_page_do_comment);
         bt_comment.setOnClickListener(this);
         commentsList = generateTestData();
@@ -117,7 +73,7 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(CommentActivity.this, AllComment.class);
-                intent.putExtra("passage", json);
+//                intent.putExtra("passage", json);
                 startActivity(intent);
             }
         });
@@ -126,8 +82,8 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
 
     private List<Comment> generateTestData() throws Exception {
         try {
-            detail_page_story = findViewById(R.id.detail_page_story);
-            passage = new Passage(new JSONObject(json), true);
+            detail_page_story = findViewById(R.id.passage_content);
+//            passage = new Passage(new JSONObject(json), true);
             detail_page_story.setText(passage.GetContent().GetSpannableString());
         } catch (Exception e) {
             e.printStackTrace();
