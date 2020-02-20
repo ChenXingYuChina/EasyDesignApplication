@@ -3,8 +3,6 @@ package cn.edu.hebut.easydesign.Resources.Passage;
 import android.os.Build;
 import android.util.Log;
 
-import androidx.annotation.RequiresApi;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -16,8 +14,8 @@ import java.util.Comparator;
 import androidx.annotation.RequiresApi;
 import cn.edu.hebut.easydesign.ComplexString.ComplexString;
 import cn.edu.hebut.easydesign.ComplexString.ComplexStringLoader;
-import cn.edu.hebut.easydesign.DataManagement.Data;
-import cn.edu.hebut.easydesign.DataManagement.DataType;
+import cn.edu.hebut.easydesign.DataManager.Data;
+import cn.edu.hebut.easydesign.DataManager.DataType;
 import cn.edu.hebut.easydesign.Resources.Media.MultiMedia.MultiMedia;
 
 public class Passage implements Data {

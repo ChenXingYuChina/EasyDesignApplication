@@ -15,7 +15,6 @@ import androidx.annotation.Nullable;
 import cn.edu.hebut.easydesign.Activity.ActivityTask.DelayJumpTask;
 import cn.edu.hebut.easydesign.Activity.ContextHelp.ContextHolder;
 import cn.edu.hebut.easydesign.Activity.ContextHelp.HoldContextActivity;
-import cn.edu.hebut.easydesign.DataManagement.DataManagement;
 import cn.edu.hebut.easydesign.HttpClient.Client;
 import cn.edu.hebut.easydesign.R;
 import cn.edu.hebut.easydesign.Resources.Media.Image.ImageHostLoadTask;
@@ -34,8 +33,6 @@ public class FirstPage extends HoldContextActivity {
         setContentView(R.layout.first_page);
         final ImageView view = findViewById(R.id.helloImage);
         view.setImageResource(R.drawable.yindao1);
-        DataManagement.getInstance().Start(this);
-//        DataManagement.getInstance().Clear();
         startService(new Intent(this, TaskService.class));
         connection = new ServiceConnection() {
             @Override

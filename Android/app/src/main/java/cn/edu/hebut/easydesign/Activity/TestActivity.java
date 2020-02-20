@@ -18,10 +18,7 @@ import cn.edu.hebut.easydesign.Activity.ContextHelp.HoldContextAppCompatActivity
 import cn.edu.hebut.easydesign.Activity.Fragment.UserPage.UserDescriptionPage;
 import cn.edu.hebut.easydesign.Activity.Fragment.UserPage.UserFragment;
 import cn.edu.hebut.easydesign.ComplexString.ComplexStringLoader;
-import cn.edu.hebut.easydesign.DataManagement.DataManagement;
-import cn.edu.hebut.easydesign.DataManagement.DataType;
 import cn.edu.hebut.easydesign.R;
-import cn.edu.hebut.easydesign.Resources.UserMini.UserMiniLoader;
 import cn.edu.hebut.easydesign.Session.Session;
 import cn.edu.hebut.easydesign.Session.User.User;
 import cn.edu.hebut.easydesign.TaskWorker.TaskService;
@@ -33,12 +30,6 @@ public class TestActivity extends HoldContextAppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.test_activity);
-        try {
-            DataManagement.getInstance().RegisterLoader(DataType.UserMini, UserMiniLoader.class);
-            DataManagement.getInstance().Start(this);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
         connection = new ServiceConnection() {
             @Override
             public void onServiceConnected(ComponentName name, IBinder service) {

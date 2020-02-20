@@ -4,14 +4,12 @@ import android.util.Log;
 
 import org.json.JSONObject;
 
-import java.io.IOException;
-
-import cn.edu.hebut.easydesign.TaskWorker.BaseTasks.HostPostTask;
 import cn.edu.hebut.easydesign.HttpClient.Client;
 import cn.edu.hebut.easydesign.HttpClient.Form.EmailField;
 import cn.edu.hebut.easydesign.HttpClient.Form.Form;
 import cn.edu.hebut.easydesign.HttpClient.Form.PasswordField;
 import cn.edu.hebut.easydesign.HttpClient.Form.TextField;
+import cn.edu.hebut.easydesign.TaskWorker.BaseTasks.HostPostTask;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
 
@@ -35,7 +33,7 @@ public abstract class LoginTask extends HostPostTask {
 
     @Override
     protected int makeForm(Form form) {
-        form.AddFields(account).AddFields(pw);
+        form.addFields(account).addFields(pw);
         return 0;
     }
 

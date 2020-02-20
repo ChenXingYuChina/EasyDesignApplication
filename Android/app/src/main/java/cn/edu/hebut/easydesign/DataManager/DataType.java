@@ -1,4 +1,4 @@
-package cn.edu.hebut.easydesign.DataManagement;
+package cn.edu.hebut.easydesign.DataManager;
 
 import androidx.annotation.NonNull;
 

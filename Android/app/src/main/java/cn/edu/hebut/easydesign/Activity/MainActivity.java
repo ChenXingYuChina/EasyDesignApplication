@@ -18,10 +18,7 @@ import cn.edu.hebut.easydesign.Activity.Fragment.ExamplePage.ExampleFragment;
 import cn.edu.hebut.easydesign.Activity.Fragment.HomePage.HomeFragment;
 import cn.edu.hebut.easydesign.Activity.Fragment.ThinkingFragment;
 import cn.edu.hebut.easydesign.Activity.Fragment.UserPage.UserFragment;
-import cn.edu.hebut.easydesign.DataManagement.DataManagement;
-import cn.edu.hebut.easydesign.DataManagement.DataType;
 import cn.edu.hebut.easydesign.R;
-import cn.edu.hebut.easydesign.Resources.UserMini.UserMiniLoader;
 import cn.edu.hebut.easydesign.TaskWorker.TaskService;
 
 public class MainActivity extends HoldContextAppCompatActivity implements View.OnClickListener {
@@ -38,13 +35,7 @@ public class MainActivity extends HoldContextAppCompatActivity implements View.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_page);
         fm = getSupportFragmentManager();
-        try {
-            DataManagement.getInstance().RegisterLoader(DataType.UserMini, UserMiniLoader.class);
-            DataManagement.getInstance().Start(this);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        ServiceConnection connection = new ServiceConnection() {
+        connection = new ServiceConnection() {
             @Override
             public void onServiceConnected(ComponentName name, IBinder service) {
                 ContextHolder.setBinder((TaskService.MyBinder) service);

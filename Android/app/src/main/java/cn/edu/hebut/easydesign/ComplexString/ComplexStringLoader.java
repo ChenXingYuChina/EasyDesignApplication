@@ -19,8 +19,6 @@ import cn.edu.hebut.easydesign.Resources.Media.Image.ImageHostLoadTask;
 import cn.edu.hebut.easydesign.TaskWorker.Condition;
 import cn.edu.hebut.easydesign.Tools.ResourcesTools;
 
-import static cn.edu.hebut.easydesign.ComplexString.ComplexString.HYPERLINK;
-
 public class ComplexStringLoader {
     private static ComplexStringLoader instance = new ComplexStringLoader();
 
@@ -111,22 +109,7 @@ public class ComplexStringLoader {
     public ComplexString LoadFromCache(InputStream stream) throws Exception {
         ObjectInputStream objectInputStream = new ObjectInputStream(stream);
         ComplexString complexString = (ComplexString) objectInputStream.readObject();
-        SpannableString goal = new SpannableString(complexString.content);
-        int c = 0;
-        Condition<Boolean> condition = new Condition<>(false);
-        for (int i : complexString.position) {
-            int start = complexString.position[i];
-            int end = start + complexString.width[i];
-            long rid = complexString.resourcesId[i];
-            try {
-                AddSpan(condition, complexString, rid, complexString.urls.get(c), start, end);
-                if (rid == HYPERLINK) c++;
-            } catch (Exception e) {
-                Log.i("PASS", "LoadComplexStringFromCache: pass resource's id: " + rid);
-            }
-        }
-        complexString.content = goal;
-        complexString.cancelLoadImage = condition;
+
         return complexString;
     }
 

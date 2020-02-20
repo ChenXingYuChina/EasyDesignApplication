@@ -2,8 +2,6 @@ package cn.edu.hebut.easydesign.Resources.UserMini;
 
 import android.graphics.Bitmap;
 
-import cn.edu.hebut.easydesign.DataManagement.DataManagement;
-import cn.edu.hebut.easydesign.DataManagement.DataType;
 import cn.edu.hebut.easydesign.Resources.Media.Image.ImageManager;
 import cn.edu.hebut.easydesign.TaskWorker.Condition;
 import cn.edu.hebut.easydesign.TaskWorker.Task;
@@ -28,7 +26,7 @@ public abstract class LoadUserMiniTask extends Task<Bitmap, UserMini> {
 
     @Override
     protected boolean doOnService() {
-        data2 = DataManagement.getInstance().LoadData(DataType.UserMini, id);
+        data2 = UserMiniLoader.getInstance().load(id);
         try {
             if (!cancel.condition) {
                 data1 = ImageManager.getInstance().LoadImage(data2.headImage);

@@ -20,7 +20,6 @@ import android.widget.Toast;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -61,8 +60,8 @@ public class CommentActivity extends HoldContextAppCompatActivity implements Vie
 
     private void initView() throws Exception {
         show_all_comments = findViewById(R.id.show_all_comments);
-        expandableListView = findViewById(R.id.passage_comments);
-        bt_comment = findViewById(R.id.detail_page_do_comment);
+//        expandableListView = findViewById(R.id.passage_comments);
+        bt_comment = findViewById(R.id.do_comment);
         bt_comment.setOnClickListener(this);
         commentsList = generateTestData();
         subComments = new ArrayList<>();
@@ -104,7 +103,7 @@ public class CommentActivity extends HoldContextAppCompatActivity implements Vie
 
     @Override
     public void onClick(View view) {
-        if (view.getId() == R.id.detail_page_do_comment) {
+        if (view.getId() == R.id.do_comment) {
             showCommentDialog();
         }
     }

@@ -13,10 +13,7 @@ import androidx.fragment.app.FragmentTransaction;
 import cn.edu.hebut.easydesign.Activity.ContextHelp.ContextHolder;
 import cn.edu.hebut.easydesign.Activity.ContextHelp.HoldContextAppCompatActivity;
 import cn.edu.hebut.easydesign.Activity.Fragment.UserPage.UserFragment;
-import cn.edu.hebut.easydesign.DataManagement.DataManagement;
-import cn.edu.hebut.easydesign.DataManagement.DataType;
 import cn.edu.hebut.easydesign.R;
-import cn.edu.hebut.easydesign.Resources.UserMini.UserMiniLoader;
 import cn.edu.hebut.easydesign.TaskWorker.TaskService;
 
 public class UserInformationActivity extends HoldContextAppCompatActivity {
@@ -29,12 +26,6 @@ public class UserInformationActivity extends HoldContextAppCompatActivity {
         final long id = intent.getLongExtra("id", 50);
         if (id == 0) {
             throw new IllegalArgumentException();
-        }
-        try {
-            DataManagement.getInstance().RegisterLoader(DataType.UserMini, UserMiniLoader.class);
-            DataManagement.getInstance().Start(this);
-        } catch (Exception e) {
-            e.printStackTrace();
         }
         fm = getSupportFragmentManager();
         setContentView(R.layout.user_information_activity_layout);

@@ -19,15 +19,12 @@ import android.widget.Toast;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 import cn.edu.hebut.easydesign.Activity.ContextHelp.HoldContextAppCompatActivity;
 import cn.edu.hebut.easydesign.ComplexString.ComplexString;
@@ -105,7 +102,7 @@ public class AllComment extends HoldContextAppCompatActivity implements View.OnC
 
     @Override
     public void onClick(View view) {
-        if (view.getId() == R.id.detail_page_do_comment) {
+        if (view.getId() == R.id.do_comment) {
             showCommentDialog();
         }
     }

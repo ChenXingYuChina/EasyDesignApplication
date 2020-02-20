@@ -1,6 +1,7 @@
 package action
 
 import (
+	"EasyDesignApplication/server/action/httpTools"
 	"EasyDesignApplication/server/base/MultiMedia"
 	"EasyDesignApplication/server/middle"
 	"bytes"
@@ -9,7 +10,6 @@ import (
 	"log"
 	"net/http"
 	"os"
-	"strconv"
 )
 
 var firstPageImage int64 = 18
@@ -23,17 +23,14 @@ func firstPage(w http.ResponseWriter, r *http.Request) {
 
 func getImage(w http.ResponseWriter, r *http.Request) {
 	log.Println("call image")
-	ids, has := r.URL.Query()["id"]
-	if !has {
-		w.WriteHeader(400)
-		return
-	}
-	if len(ids) == 0 {
-		w.WriteHeader(400)
-		return
-	}
-	id, err := strconv.ParseInt(ids[0], 10, 64)
+	err := r.ParseForm()
 	if err != nil {
+		w.WriteHeader(400)
+		return
+	}
+	log.Println(r.Form)
+	id, has := httpTools.GetInt64FromForm(r.Form, "id")
+	if !has {
 		w.WriteHeader(400)
 		return
 	}

@@ -2,24 +2,10 @@ package cn.edu.hebut.easydesign.DataManagement;
 
 import android.content.Context;
 import android.net.Uri;
-import android.os.IBinder;
 import android.util.Log;
 
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.PipedInputStream;
-import java.io.PipedOutputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.nio.Buffer;
-import java.nio.ByteBuffer;
-import java.nio.channels.ByteChannel;
-import java.nio.channels.FileChannel;
 
 public class DataManagement {
     private static DataManagement instance = new DataManagement();
@@ -31,7 +17,6 @@ public class DataManagement {
 
     private DataManagement() {
         loader = new DataLoader[DataType.values().length];
-
     }
 
     public static DataManagement getInstance() {
@@ -76,7 +61,7 @@ public class DataManagement {
     if you can not get Data form here, and a message can see in the logcat
     please register the loader first.
      */
-    public <D extends Data> D LoadData(DataType type, long id) {
+    public <D extends Data> D LoadData(DataType type, long id, Object... extraArgs) {
         DataLoader loader = this.loader[type.ordinal()];
         if (loader == null) {
             Log.d("easyDesign_Bug", "LoadData: do not register DataLoader for type: " + type.path);
@@ -99,7 +84,7 @@ public class DataManagement {
         String r = net.Load(type, id);
         if (r != null) {
             try {
-                D goal = loader.LoadFromNet(r, id);
+                D goal = loader.LoadFromNet(r, id, extraArgs);
                 Log.i("DATA", "goal: " + goal);
                 local.cacheData(goal);
                 return goal;

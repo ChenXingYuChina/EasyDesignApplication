@@ -21,6 +21,7 @@ func Init(){
 	http.HandleFunc("/userLD", loadUserDescription)
 	http.HandleFunc("/user", loadUser)
 	http.HandleFunc("/starPassage", loadStarPassage)
+	http.HandleFunc("/passage", passage)
 
 	// manage part
 	managerServer.HandleFunc("/firstPageImage", SetFirstPageImage)
