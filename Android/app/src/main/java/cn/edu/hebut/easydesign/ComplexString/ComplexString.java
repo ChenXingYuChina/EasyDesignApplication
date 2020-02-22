@@ -45,7 +45,7 @@ public class ComplexString implements Serializable {
         this.string = new SpannableString(string);
     }
 
-    ComplexString(SpannableString string) {
+    public ComplexString(SpannableString string) {
         this.string = string;
     }
 
@@ -200,7 +200,7 @@ public class ComplexString implements Serializable {
     public static final int GREEN_COLOR = 3;
     public static final int PURPLE_COLOR = 4;
 
-    static Object getSpanFromId(long id, final String url) {
+    public static Object getSpanFromId(long id, final String url) {
         Context ctx = ContextHolder.getContext();
         if (ctx == null) {
             return null;
@@ -256,6 +256,10 @@ public class ComplexString implements Serializable {
             throw new IllegalArgumentException();
         }
         this.string.setSpan(getSpanFromId(id, url), start, width + start, SpannableString.SPAN_INCLUSIVE_EXCLUSIVE);
+    }
+
+    public void RemoveSpan(long id, String url){
+        this.string.removeSpan(getSpanFromId(id, url));
     }
 
     private TextView textView;
