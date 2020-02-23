@@ -26,4 +26,9 @@
     <declare-styleable name="ExampleCategoryButton">
         <attr name="buttonText" format="string" />
     </declare-styleable>
+
+    <declare-styleable name="RichTextEditor">
+        <attr name="historyEnable" format="reference|boolean"/>
+        <attr name="historySize" format="reference|integer"/>
+    </declare-styleable>
 </resources>

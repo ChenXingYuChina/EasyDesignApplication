@@ -36,8 +36,10 @@ public class RichTextEditor extends AppCompatEditText implements TextWatcher {
     public static final int TEXT_BACKGROUND_COLOR_YELLOW = ComplexString.BACKGROUND_BASE + ComplexString.YELLOW_COLOR;
 
     // 这是撤回操作所需要的变量，截至2020/2/22 该功能尚未完成，以后很快会更新
+    private boolean historyEnable = true;
     private List<Editable> historyList = new ArrayList<>();
     private boolean historyWorking = false;
+    private int historySize = 100;
     private int historyCursor = 0;
 
     private SpannableStringBuilder inputBefore;
@@ -687,7 +689,10 @@ public class RichTextEditor extends AppCompatEditText implements TextWatcher {
      */
     @Override
     public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
+        if(!historyEnable || historyWorking){
+            return ;
+        }
+        inputBefore = new SpannableStringBuilder(s);
     }
 
     /**
@@ -704,7 +709,7 @@ public class RichTextEditor extends AppCompatEditText implements TextWatcher {
      */
     @Override
     public void onTextChanged(CharSequence s, int start, int before, int count) {
-
+        //什么也不用做
     }
 
     /**
@@ -725,6 +730,76 @@ public class RichTextEditor extends AppCompatEditText implements TextWatcher {
      */
     @Override
     public void afterTextChanged(Editable s) {
+        if(!historyEnable || historyWorking){
+            return ;
+        }
 
+        inputLast = new SpannableStringBuilder(s);
+        if(s !=null && s.toString().equals(inputBefore.toString())){
+            return ;
+        }
+
+        if (historyList.size() >= historySize) {
+            historyList.remove(0);
+        }
+
+        historyList.add(inputBefore);
+        historyCursor = historyList.size();
     }
+
+    public void redo(){
+        if(!redoValid()){
+            return ;
+        }
+
+        historyWorking = true;
+
+        if(historyCursor >= historyList.size()-1){
+            historyCursor = historyList.size();
+            setText(inputLast);
+        }else{
+            historyCursor++;
+            setText(historyList.get(historyCursor));
+        }
+        setSelection(getEditableText().length());
+        historyWorking = false;
+    }
+
+    public void undo(){
+        if (!undoValid()) {
+            return;
+        }
+
+        historyWorking = true;
+
+        historyCursor--;
+        setText(historyList.get(historyCursor));
+        setSelection(getEditableText().length());
+
+        historyWorking = false;
+    }
+
+    private boolean undoValid() {
+        if (!historyEnable || historySize <= 0 || historyWorking) {
+            return false;
+        }
+
+        return historyList.size() > 0 && historyCursor > 0;
+    }
+
+    private boolean redoValid() {
+        if (!historyEnable || historySize <= 0 || historyList.size() <= 0 || historyWorking) {
+            return false;
+        }
+
+        return historyCursor < historyList.size() - 1 || inputLast != null;
+    }
+
+    public void clearHistory() {
+        if (historyList != null) {
+            historyList.clear();
+        }
+    }
+
+
 }
