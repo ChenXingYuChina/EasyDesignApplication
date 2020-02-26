@@ -31,7 +31,7 @@ public class Form {
     }
 
     // it will not check if a field which now exists has the same name with the new one.
-    public Form AddFields(FormField field) {
+    public Form addFields(FormField field) {
         multiPart = field.ifMultiPart();
         fields.add(field);
         return this;

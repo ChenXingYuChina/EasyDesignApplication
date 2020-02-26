@@ -4,11 +4,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-import cn.edu.hebut.easydesign.DataManagement.Data;
-import cn.edu.hebut.easydesign.DataManagement.DataType;
+import cn.edu.hebut.easydesign.DataManager.Data;
+import cn.edu.hebut.easydesign.DataManager.DataType;
 
 public class UserMini implements Data {
     public long headImage;

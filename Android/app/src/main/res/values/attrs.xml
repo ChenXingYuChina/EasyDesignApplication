@@ -26,4 +26,12 @@
     <declare-styleable name="ExampleCategoryButton">
         <attr name="buttonText" format="string" />
     </declare-styleable>
+
+    <declare-styleable name="HalfAboveDialog">
+        <!-- 优先度高 -->
+        <attr name="dialog_height_percent" format="float" />
+        <!--优先度低-->
+        <attr name="dialog_height_dp" format="integer" />
+        <attr name="auto_gone" format="boolean" />
+    </declare-styleable>
 </resources>

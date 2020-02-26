@@ -1,6 +1,5 @@
 package cn.edu.hebut.easydesign.Activity;
 
-import android.app.Activity;
 import android.app.Service;
 import android.content.ComponentName;
 import android.content.Intent;
@@ -11,8 +10,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 import cn.edu.hebut.easydesign.Activity.ContextHelp.HoldContextAppCompatActivity;
 import cn.edu.hebut.easydesign.R;
@@ -52,10 +49,8 @@ public class login2 extends HoldContextAppCompatActivity {
                         try {
                             binder.PutTask(new LoginTask(accountString, passwordString) {
                                 @Override
-                                protected void doOnMain() {
-                                    if (condition.condition == 0) {
-                                        startActivity(new Intent(login2.this, MainActivity.class));
-                                    }
+                                protected void doOnMainNormal() {
+                                    startActivity(new Intent(login2.this, MainActivity.class));
                                 }
                             });
                         } catch (Exception e) {

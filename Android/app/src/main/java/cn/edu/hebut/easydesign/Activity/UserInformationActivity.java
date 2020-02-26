@@ -13,10 +13,7 @@ import androidx.fragment.app.FragmentTransaction;
 import cn.edu.hebut.easydesign.Activity.ContextHelp.ContextHolder;
 import cn.edu.hebut.easydesign.Activity.ContextHelp.HoldContextAppCompatActivity;
 import cn.edu.hebut.easydesign.Activity.Fragment.UserPage.UserFragment;
-import cn.edu.hebut.easydesign.DataManagement.DataManagement;
-import cn.edu.hebut.easydesign.DataManagement.DataType;
 import cn.edu.hebut.easydesign.R;
-import cn.edu.hebut.easydesign.Resources.UserMini.UserMiniLoader;
 import cn.edu.hebut.easydesign.TaskWorker.TaskService;
 
 public class UserInformationActivity extends HoldContextAppCompatActivity {
@@ -30,18 +27,13 @@ public class UserInformationActivity extends HoldContextAppCompatActivity {
         if (id == 0) {
             throw new IllegalArgumentException();
         }
-        try {
-            DataManagement.getInstance().RegisterLoader(DataType.UserMini, UserMiniLoader.class);
-            DataManagement.getInstance().Start(this);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
         fm = getSupportFragmentManager();
         setContentView(R.layout.user_information_activity_layout);
         connection = new ServiceConnection() {
             @Override
             public void onServiceConnected(ComponentName name, IBinder service) {
                 ContextHolder.setBinder((TaskService.MyBinder) service);
+                binder = (TaskService.MyBinder) service;
                 FragmentTransaction transaction = fm.beginTransaction();
                 transaction.add(R.id.user_content, UserFragment.getInstance(id));
                 transaction.commit();

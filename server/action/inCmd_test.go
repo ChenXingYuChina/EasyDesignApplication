@@ -1,10 +1,12 @@
 package action
 
 import (
+	"EasyDesignApplication/server/action/session"
 	"EasyDesignApplication/server/base"
 	. "EasyDesignApplication/server/base/user"
 	"fmt"
 	"testing"
+	"time"
 )
 
 func TestMain(m *testing.M) {
@@ -14,6 +16,8 @@ func TestMain(m *testing.M) {
 	}
 	base.DataDir = "../testData"
 	base.Prepare()
+	session.InitSessionDir()
+	session.InitSessionTable(session.Config{KeepTime: int64(1*time.Hour), SessionKeySeed: 12324})
 	m.Run()
 }
 

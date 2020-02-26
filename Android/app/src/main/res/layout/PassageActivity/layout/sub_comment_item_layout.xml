@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#F6F6F6"
+    android:orientation="horizontal"
+    android:paddingBottom="6dp">
+
+    <TextView
+        android:minWidth="30dp"
+        android:id="@id/user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="name" />
+
+    <TextView
+        android:id="@id/comment_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="16dp"
+        android:layout_toRightOf="@id/user_name"
+        android:layout_alignTop="@id/user_name"
+        android:layout_alignParentRight="true"
+        android:textColor="#949494" />
+
+    <ImageView
+        android:id="@id/like_label"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:gravity="bottom"
+        android:layout_below="@id/user_name"
+        android:src="@drawable/icon_comment_like"
+        android:theme="?android:selectableItemBackgroundBorderless" />
+
+    <TextView
+        android:id="@id/like_number"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/user_name"
+        android:layout_alignRight="@id/user_name"
+        android:layout_toRightOf="@id/like_label"
+        android:ellipsize="end"
+        android:gravity="bottom"
+        android:text="10"
+        android:textAlignment="center"
+        android:textColor="#484848"
+        android:textSize="8sp" />
+
+
+</RelativeLayout>

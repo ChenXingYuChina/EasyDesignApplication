@@ -9,7 +9,6 @@ import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.NestedScrollingParent;
-import androidx.core.view.NestedScrollingParentHelper;
 import cn.edu.hebut.easydesign.Activity.NestedScrollParentHelper;
 
 public class NestedScrollParent extends LinearLayout implements NestedScrollingParent {
