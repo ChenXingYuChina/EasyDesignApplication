@@ -98,7 +98,7 @@ public class FirstPage extends HoldContextActivity {
                 try {
                     ((TaskService.MyBinder) service).PutTask(new LoginTask(id, pw) {
                         @Override
-                        protected void doOnMain() {
+                        protected void doOnMainNormal() {
                             if (c.condition != 1) {
                                 c.condition = this.condition.condition;
                             }

@@ -7,7 +7,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -58,7 +57,7 @@ public class ExampleFragment extends Fragment {
                         cache.putLong("exampleConfigLastTime", (new Date()).getTime());
                         cache.putString("exampleConfig", result.toString());
                         cache.apply();
-                        // todo save the config
+                        // save the config
                     } catch (Exception e) {
                         Log.e("EF", e.toString());
                         Toast.makeText(ContextHolder.getContext(), R.string.error, Toast.LENGTH_SHORT).show();

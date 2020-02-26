@@ -6,7 +6,9 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.view.KeyEvent;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -39,6 +41,7 @@ public class MainActivity extends HoldContextAppCompatActivity implements View.O
             @Override
             public void onServiceConnected(ComponentName name, IBinder service) {
                 ContextHolder.setBinder((TaskService.MyBinder) service);
+                MainActivity.this.binder = (TaskService.MyBinder) service;
                 if (savedInstanceState == null) {
                     FragmentTransaction transaction = fm.beginTransaction();
                     transaction.add(R.id.main_content, HomeFragment.getInstance());
@@ -84,6 +87,26 @@ public class MainActivity extends HoldContextAppCompatActivity implements View.O
         findViewById(R.id.publish_page).setOnClickListener(this);
         findViewById(R.id.example_page).setOnClickListener(this);
         findViewById(R.id.user_page).setOnClickListener(this);
+    }
+
+    long clickTime = 0;
+
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            exit();
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+    private void exit() {
+        if ((System.currentTimeMillis() - clickTime) > 2000) {
+            Toast.makeText(getApplicationContext(), "再次点击退出", Toast.LENGTH_SHORT).show();
+            clickTime = System.currentTimeMillis();
+        } else {
+            this.finish();
+            System.exit(0);
+        }
     }
 
     int nowPage = R.id.home_page;
@@ -141,6 +164,7 @@ public class MainActivity extends HoldContextAppCompatActivity implements View.O
         }
         transaction.commit();
     }
+
 }
 
 

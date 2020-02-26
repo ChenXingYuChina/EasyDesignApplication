@@ -10,6 +10,7 @@ import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.List;
 
 import androidx.annotation.RequiresApi;
 import cn.edu.hebut.easydesign.ComplexString.ComplexString;
@@ -22,7 +23,7 @@ public class Passage implements Data {
     public ComplexString content;
     public MultiMedia media;
     public long id;
-    public transient ArrayList<Comment> comments;
+    public transient List<Comment> comments;
 
     public Passage(JSONObject passage, boolean full) throws Exception {
         try {
@@ -73,13 +74,13 @@ public class Passage implements Data {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
-    public ArrayList<Comment> GetCommentList() {
+    public List<Comment> GetCommentList() {
 
-        ArrayList<Comment> commentList = this.comments;
+        List<Comment> commentList = this.comments;
         commentList.sort(new Comparator<Comment>() {
             @Override
             public int compare(Comment o1, Comment o2) {
-                if (o1.getLikeNumber() <= o2.getLikeNumber()) {
+                if (o1.likeNumber() <= o2.likeNumber()) {
                     return 1;
                 } else {
                     return -1;
@@ -98,4 +99,5 @@ public class Passage implements Data {
         this.comments.add(comment);
 
     }
+
 }

@@ -33,6 +33,7 @@ public class UserInformationActivity extends HoldContextAppCompatActivity {
             @Override
             public void onServiceConnected(ComponentName name, IBinder service) {
                 ContextHolder.setBinder((TaskService.MyBinder) service);
+                binder = (TaskService.MyBinder) service;
                 FragmentTransaction transaction = fm.beginTransaction();
                 transaction.add(R.id.user_content, UserFragment.getInstance(id));
                 transaction.commit();

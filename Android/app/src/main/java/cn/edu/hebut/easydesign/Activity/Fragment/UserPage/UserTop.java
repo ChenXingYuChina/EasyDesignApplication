@@ -30,7 +30,7 @@ public class UserTop extends FrameLayout {
         super(context, attrs);
         inflate(context, R.layout.user_top_layout, this);
         back = findViewById(R.id.user_back);
-        head = findViewById(R.id.user_head);
+        head = findViewById(R.id.user_head_image);
         name = findViewById(R.id.user_name);
         identity = findViewById(R.id.identify);
         passageNumber = findViewById(R.id.passage_number);
@@ -45,21 +45,11 @@ public class UserTop extends FrameLayout {
         cancel = new Condition<>(false);
         binder.PutTask(new ImageHostLoadTask(user.backImage, cancel) {
             @Override
-            protected long getId() {
-                return 0;
-            }
-
-            @Override
             protected void setImage(Bitmap bitmap) {
                 back.setImageBitmap(bitmap);
             }
         });
         binder.PutTask(new ImageHostLoadTask(user.headImage, cancel) {
-            @Override
-            protected long getId() {
-                return 0;
-            }
-
             @Override
             protected void setImage(Bitmap bitmap) {
                 head.setImageBitmap(bitmap);

@@ -68,7 +68,7 @@ func TestLoadComment(t *testing.T) {
 
 func TestSubCommentTo(t *testing.T) {
 	err := base.InTransaction(func(tx *sql.Tx) ([]string, error) {
-		return nil, SubCommentTo(tx, 3, 1, "subcomment2", 48)
+		return nil, SubCommentTo(tx, 3, 1, "test sub comment", 48)
 	})
 	if err != nil {
 		t.Error(err)

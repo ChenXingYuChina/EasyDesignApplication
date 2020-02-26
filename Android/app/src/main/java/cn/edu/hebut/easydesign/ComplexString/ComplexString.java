@@ -138,6 +138,7 @@ public class ComplexString implements Serializable {
     public SpannableString GetSpannableString() {
         if (string == null) {
             SpannableString goal = new SpannableString(content);
+            cancelLoadImage = new Condition<>(false);
             int c = 0;
             Condition<Boolean> condition = new Condition<>(false);
             for (int i : position) {
@@ -282,6 +283,10 @@ public class ComplexString implements Serializable {
         textView.setMovementMethod(LinkMovementMethod.getInstance());
     }
 
+    public void cancel() {
+        if (cancelLoadImage != null)
+            cancelLoadImage.condition = true;
+    }
     void refresh() {
         if (textView != null) {
             textView.setText(GetSpannableString());

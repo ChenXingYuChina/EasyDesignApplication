@@ -108,7 +108,8 @@ public class PassageListAdapter extends RecyclerView.Adapter implements SwipeRef
             @Override
             protected void onSuccess(PassageList passageList, List<UserMini> userMinis) {
                 append(passageList, userMinis);
-                notifyDataSetChanged();
+                int length = userMinis.size();
+                notifyItemRangeInserted(PassageListAdapter.this.userMinis.size() - length + 1, length);
                 footHolder.setTip(tips.texts[TipResources.text_foot_toLoad]);
             }
 

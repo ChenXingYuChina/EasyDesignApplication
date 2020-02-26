@@ -13,7 +13,7 @@ import (
 	"time"
 )
 
-func SignUpInControlPlatform(w http.ResponseWriter, r *http.Request) {
+func signUpInControlPlatform(w http.ResponseWriter, r *http.Request) {
 	err := r.ParseForm()
 	if err != nil {
 		w.WriteHeader(400)

@@ -9,10 +9,8 @@ import android.os.IBinder;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.SearchView;
 
 import androidx.annotation.Nullable;
-
 import cn.edu.hebut.easydesign.Activity.ContextHelp.ContextHolder;
 import cn.edu.hebut.easydesign.Activity.ContextHelp.HoldContextAppCompatActivity;
 import cn.edu.hebut.easydesign.Activity.PassageList.Config.Search;
@@ -28,7 +26,7 @@ public class SearchResultActivity extends HoldContextAppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.search_page);
-        Intent search = getIntent();
+        final Intent search = getIntent();
         final String keyword;
         if (search.hasExtra("keyword")) {
             keyword = search.getStringExtra("keyword");
@@ -43,6 +41,7 @@ public class SearchResultActivity extends HoldContextAppCompatActivity {
             @Override
             public void onServiceConnected(ComponentName name, IBinder service) {
                 ContextHolder.setBinder((TaskService.MyBinder) service);
+                SearchResultActivity.this.binder = (TaskService.MyBinder) service;
                 listView.init(new Search(keyword));
                 listView.disableRefresh();
             }

@@ -16,6 +16,7 @@ import (
 	"testing"
 )
 
+
 func TestMultipartRead(t *testing.T) {
 	http.ListenAndServe("localhost:80", nil)
 }
@@ -237,4 +238,55 @@ func TestLoadStar(t *testing.T) {
 		return
 	}
 	fmt.Println(string(goal))
+}
+
+func TestComment(t *testing.T) {
+	w := &httptest.ResponseRecorder{Body: bytes.NewBuffer(nil)}
+	u, err := url.Parse("comment")
+	if err != nil {
+		t.Error(err)
+		return
+	}
+	r := &http.Request{
+		Method:   "GET",
+		URL:      u,
+		PostForm: url.Values{"id":{"3"}, "len":{"10"}, "begin": {"0"}, "hot": {"false"}},
+	}
+	loadComment(w, r)
+	response := w.Result()
+	fmt.Println(response.StatusCode)
+	goal, err := ioutil.ReadAll(response.Body)
+	if err != nil {
+		t.Error(err)
+		return
+	}
+	fmt.Println(string(goal))
+}
+
+func TestSubComment(t *testing.T) {
+	r := &http.Request{
+		Method:   "GET",
+		PostForm: url.Values{"pid":{"3"}, "position":{"1"}},
+	}
+	testTool(t, "subComment", r, loadSubComment)
+}
+
+func testTool(t *testing.T, urlString string, r *http.Request, handlerFunc http.HandlerFunc) string {
+	w := &httptest.ResponseRecorder{Body: bytes.NewBuffer(nil)}
+	u, err := url.Parse(urlString)
+	if err != nil {
+		t.Error(err)
+		return ""
+	}
+	r.URL = u
+	handlerFunc(w, r)
+	response := w.Result()
+	fmt.Println(response.StatusCode)
+	goal, err := ioutil.ReadAll(response.Body)
+	if err != nil {
+		t.Error(err)
+		return ""
+	}
+	fmt.Println(string(goal))
+	return string(goal)
 }

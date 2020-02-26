@@ -51,6 +51,8 @@ public abstract class ImageHostLoadTask extends Task<Long, Bitmap> {
     /*
             if give a id so this method can has an empty implement.
              */
-    protected abstract long getId();
+    protected long getId() {
+        return 0;
+    }
     protected abstract void setImage(Bitmap bitmap);
 }

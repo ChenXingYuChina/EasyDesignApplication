@@ -23,6 +23,12 @@ func Init(){
 	http.HandleFunc("/starPassage", loadStarPassage)
 	http.HandleFunc("/passage", passage)
 
+	http.HandleFunc("/comment", loadComment)
+	http.HandleFunc("/subComment", loadSubComment)
+	http.HandleFunc("/likeSubComment", session.NeedLogin(likeSubComment))
+	http.HandleFunc("/likeComment", session.NeedLogin(likeComment))
+	http.HandleFunc("/likePassage", session.NeedLogin(likePassage))
+
 	// manage part
 	managerServer.HandleFunc("/firstPageImage", SetFirstPageImage)
 	managerServer.HandleFunc("/setExampleList", setExampleList)

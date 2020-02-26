@@ -36,7 +36,7 @@ public abstract class DataLoader<T extends Data> {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            return goal;
+            if (goal != null) return goal;
         }
         try {
             Response response = Client.getInstance().PostToHost(type.path, makeForm(type, id, extraArgs));

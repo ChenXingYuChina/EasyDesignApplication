@@ -50,3 +50,15 @@ func GetPasswordFromForm(form url.Values, name string) (Password, bool) {
 	}
 	return pw, true
 }
+
+func GetBoolFromForm(form url.Values, name string) (bool, bool) {
+	nameString, has := GetDataFromForm(form, name)
+	if !has {
+		return false, false
+	}
+	goal, err := strconv.ParseBool(nameString)
+	if err != nil {
+		return false, false
+	}
+	return goal, true
+}
