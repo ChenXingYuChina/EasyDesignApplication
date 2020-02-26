@@ -22,7 +22,6 @@ public class NestedScrollParentHelper extends NestedScrollingParentHelper {
     protected int lastY;
     protected int topHeight;
     protected int fixedHeight = -1;
-    protected int cacheFixedHeight;
     protected VelocityTracker tracker;
     protected ViewGroup viewGroup;
     protected boolean shouldIntercept;
@@ -50,18 +49,9 @@ public class NestedScrollParentHelper extends NestedScrollingParentHelper {
                 @Override
                 public void onGlobalLayout() {
                     fixedHeight = fixedView.getHeight();
-                    Log.i("helper", "" + viewGroup.getHeight() + " " + topHeight + " " + fixedHeight + " " + contentView.getHeight() + " " + ((ViewGroup) topView).getChildAt(0).getHeight());
-                    if (fixedHeight != 0) {
-                        cacheFixedHeight = fixedHeight;
-                    }
+
                     if (fixedHeight != fixedView.getMeasuredHeight() || topHeight != topView.getHeight()) {
                         topHeight = topView.getHeight();
-                        topHeightTrue = ((ViewGroup) topView).getChildAt(0).getHeight();
-                        if (fixedHeight == 0) {
-                            ViewGroup.LayoutParams lp = fixedView.getLayoutParams();
-                            lp.height = cacheFixedHeight;
-                            fixedView.setLayoutParams(lp);
-                        }
                         ViewGroup.LayoutParams lp = contentView.getLayoutParams();
                         lp.height = viewGroup.getHeight() - fixedView.getHeight();
                         contentView.setLayoutParams(lp);

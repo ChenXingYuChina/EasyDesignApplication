@@ -14,6 +14,7 @@ import cn.edu.hebut.easydesign.Activity.NestedScrollParentHelper;
 
 public class PassageNestedScrollParentHelper extends NestedScrollParentHelper {
     protected NestedScrollView topView;
+    protected int cacheFixedHeight;
     private final static String TAG = "PNSPH";
 
     /**

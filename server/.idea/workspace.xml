@@ -2,99 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3a4c1ff6-ab43-4fc2-a46e-ddb92db95cc2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/Passage/CommentHolder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/Passage/CommentListAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/Passage/CommentListFullAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/Passage/CommentListHotAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/Passage/FootHolder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/Passage/FullSubComment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/Passage/LoadCommentTask.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/Passage/LoadSubCommentTask.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/Passage/PassageFixedPart.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/Passage/PassageNestedScrollLayout.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/Passage/PassageNestedScrollParentHelper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/Passage/SubCommentHolder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/commonComponents/HalfAboveDialog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/commonComponents/ViewHelper/CommentHelper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/commonComponents/ViewHelper/LikeAble.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/commonComponents/ViewHelper/PassageMetaHelper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/commonComponents/ViewHelper/SubCommentHelper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/commonComponents/ViewHelper/UserMiniHelper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/commonComponents/ViewHelper/ViewHelper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Session/NeedSessionTask/NoReplySessionHostPostTask.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/TaskWorker/BaseTasks/CancelableHostPostTask.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/TaskWorker/BaseTasks/StringHostPostTask.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/res/layout/PassageActivity/layout/comment_foot_layout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/res/layout/PassageActivity/layout/full_sub_comment.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/res/layout/PassageActivity/layout/passage_fixed_part_layout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/res/layout/half_above_dialog_layout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/res/values/ids.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/action/comment.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/action/http_2_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/action/session/inSession.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/ContextHelp/HoldContextActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/ContextHelp/HoldContextActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/ContextHelp/HoldContextAppCompatActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/ContextHelp/HoldContextAppCompatActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/FirstPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/FirstPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/Fragment/ExamplePage/ExampleFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/Fragment/ExamplePage/ExampleFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/Fragment/HomePage/HomeFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/Fragment/HomePage/HomeFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/Fragment/UserPage/UserTop.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/Fragment/UserPage/UserTop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/NestedScrollParentHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/NestedScrollParentHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/Passage/PassageActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/Passage/PassageActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/PassageList/Cards/ImageMainCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/PassageList/Cards/ImageMainCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/PassageList/Cards/TitleMainCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/PassageList/Cards/TitleMainCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/PassageList/NestedScrollParent.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/PassageList/NestedScrollParent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/PassageList/PassageListAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/PassageList/PassageListAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/SearchResultActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/SearchResultActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/UserInformationActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/UserInformationActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/login2.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/login2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Comment/Adapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Comment/Adapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Comment/CommentActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Comment/CommentActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/ComplexString/ComplexString.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/ComplexString/ComplexString.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/ComplexString/ComplexStringLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/ComplexString/ComplexStringLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/DataManagement/Data.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/DataManagement/DataLoader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/DataManagement/DataManagement.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/DataManagement/DataType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/DataManagement/HttpSource.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/DataManagement/LocalSource.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/DataManagement/怎么用.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/DataManager/DataLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/DataManager/DataLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Resources/Media/Image/ImageHostLoadTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Resources/Media/Image/ImageHostLoadTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Resources/Media/Image/ImageManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Resources/Passage/Comment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Resources/Passage/Comment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Resources/Passage/Passage.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Resources/Passage/Passage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Resources/Passage/SubComment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Resources/Passage/SubComment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Resources/PassageList/PassageListItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Resources/PassageList/PassageListItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Resources/UserMini/LoadUserMiniTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Resources/UserMini/LoadUserMiniTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Session/LoginTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Session/LoginTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Session/SessionHostPostTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Session/NeedSessionTask/SessionHostPostTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/res/layout/PassageActivity/layout/comment_item_layout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/res/layout/PassageActivity/layout/comment_item_layout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/res/layout/PassageActivity/layout/comment_reply_item_layout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/res/layout/PassageActivity/layout/sub_comment_item_layout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/res/layout/PassageActivity/layout/passage_activity_layout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/res/layout/PassageActivity/layout/passage_activity_layout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/res/layout/activity_main.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/res/layout/activity_main_old.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/res/layout/fragment_item_list_dialog.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/res/layout/fragment_item_list_dialog_item.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/res/layout/passageList/layout/image_main_list_card_frame.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/res/layout/passageList/layout/image_main_list_card_frame.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/res/layout/passageList/layout/title_main_list_card_frame.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/res/layout/passageList/layout/title_main_list_card_frame.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/res/layout/user_page/layout/user_top_layout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/res/layout/user_page/layout/user_top_layout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/res/values/attrs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/res/values/attrs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/res/values/strings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/action/Passage.go" beforeDir="false" afterPath="$PROJECT_DIR$/action/Passage.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/action/handle.go" beforeDir="false" afterPath="$PROJECT_DIR$/action/handle.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/action/httpTools/tools.go" beforeDir="false" afterPath="$PROJECT_DIR$/action/httpTools/tools.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/action/http_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/action/http_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/action/inCmd_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/action/inCmd_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/action/session/sessionTable.go" beforeDir="false" afterPath="$PROJECT_DIR$/action/session/sessionTable.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/action/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/action/user.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/comment/CommentBase.go" beforeDir="false" afterPath="$PROJECT_DIR$/base/comment/CommentBase.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/comment/SubComment.go" beforeDir="false" afterPath="$PROJECT_DIR$/base/comment/SubComment.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/comment/comment_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/base/comment/comment_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testData/im/12.img" beforeDir="false" afterPath="$PROJECT_DIR$/testData/im/12.img" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testData/im/13.img" beforeDir="false" afterPath="$PROJECT_DIR$/testData/im/13.img" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testData/pb/3.cs" beforeDir="false" afterPath="$PROJECT_DIR$/testData/pb/3.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -247,8 +155,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/base/user/User.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="384" column="27" lean-forward="true" selection-start-line="384" selection-start-column="27" selection-end-line="384" selection-end-column="27" />
+            <state relative-caret-position="480">
+              <caret line="390" column="22" lean-forward="true" selection-start-line="390" selection-start-column="22" selection-end-line="390" selection-end-column="22" />
               <folding>
                 <element signature="e#128#183#0" />
                 <element signature="e#199#226#0" />
@@ -356,7 +264,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-7" />
     <option name="width" value="974" />
     <option name="height" value="1087" />
@@ -573,7 +481,7 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="974" height="1087" extended-state="0" />
+    <frame x="-7" y="0" width="974" height="1087" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21115974" />
@@ -1051,8 +959,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/base/user/User.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="384" column="27" lean-forward="true" selection-start-line="384" selection-start-column="27" selection-end-line="384" selection-end-column="27" />
+        <state relative-caret-position="480">
+          <caret line="390" column="22" lean-forward="true" selection-start-line="390" selection-start-column="22" selection-end-line="390" selection-end-column="22" />
           <folding>
             <element signature="e#128#183#0" />
             <element signature="e#199#226#0" />
