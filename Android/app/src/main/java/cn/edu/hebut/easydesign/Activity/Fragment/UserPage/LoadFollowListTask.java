@@ -1,5 +1,7 @@
 package cn.edu.hebut.easydesign.Activity.Fragment.UserPage;
 
+import android.util.Log;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -32,10 +34,11 @@ public abstract class LoadFollowListTask extends StringHostPostTask {
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject object = jsonArray.getJSONObject(i);
                 if (object.isNull("user_mini")) {
-                    UserMini userMini = UserMiniLoader.getInstance().load(object.getLong("who"));
+                    UserMini userMini = UserMiniLoader.getInstance().load(object.getLong("id"));
                     if (userMini != null) {
                         userMiniList.add(userMini);
                     } else {
+                        Log.i("follow", "handleResult: " + 702);
                         return 702;
                     }
                 } else {
@@ -43,6 +46,7 @@ public abstract class LoadFollowListTask extends StringHostPostTask {
                 }
             }
         } catch (JSONException e) {
+            e.printStackTrace();
             return 702;
         }
 

@@ -132,10 +132,10 @@ public class UserFragment extends Fragment implements UserDescriptionPage.reload
                         public void onClick(View v) {
                             if (followList == null) {
                                 followList = new FollowList(ContextHolder.getContext());
-                            } else {
-                                followList.setWho(userID, new Condition<Boolean>(false));
                             }
-                            dialog.show(new FollowList(ContextHolder.getContext()));
+                            followList.setWho(userID, new Condition<>(false));
+
+                            dialog.show(followList);
                             dialog.setOnClose(new HalfAboveDialog.onClose() {
                                 @Override
                                 public void onClose(View content) {

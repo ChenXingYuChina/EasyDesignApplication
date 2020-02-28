@@ -1,6 +1,7 @@
 package cn.edu.hebut.easydesign.Activity.Fragment.UserPage;
 
 import android.content.Context;
+import android.util.Log;
 import android.widget.FrameLayout;
 
 import java.util.List;
@@ -36,6 +37,7 @@ public class FollowList extends FrameLayout {
             @Override
             protected void handleResult(List<UserMini> userMinis) {
                 if (adapter == null) {
+                    Log.i("Follow", "handleResult: ");
                     adapter = new FollowListAdapter(userMinis);
                     recyclerView.setAdapter(adapter);
                 } else {
