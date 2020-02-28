@@ -1,10 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<cn.edu.hebut.easydesign.Activity.PassageList.PassageMultiListView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:card="@layout/title_main_card"
-    app:head="@layout/nil_head"
-    app:top="@layout/user_top"
-    app:layout_manager="Linear"
-    app:text_refresh_onNoNew="已是最新"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" />
+    android:layout_height="match_parent">
+
+    <cn.edu.hebut.easydesign.Activity.PassageList.PassageMultiListView
+        android:id="@+id/user_page_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:card="@layout/title_main_card"
+        app:head="@layout/nil_head"
+        app:layout_manager="Linear"
+        app:text_refresh_onNoNew="已是最新"
+        app:top="@layout/user_top" />
+
+    <cn.edu.hebut.easydesign.Activity.commonComponents.HalfAboveDialog
+        android:id="@+id/user_dialog"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:dialog_height_percent="0.9"/>
+</RelativeLayout>

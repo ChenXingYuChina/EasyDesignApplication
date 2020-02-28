@@ -97,6 +97,7 @@ func LoginWithId(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(400)
 		return
 	}
+	log.Println(r.Form)
 	id, ok := httpTools.GetInt64FromForm(r.Form, "id")
 	if !ok {
 		w.WriteHeader(400)

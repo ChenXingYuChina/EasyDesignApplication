@@ -38,7 +38,6 @@ public class HalfAboveDialog extends FrameLayout {
         take = ResourcesTools.dp2px(take);
         float takePercent = attrs.getAttributeFloatValue("http://schemas.android.com/apk/res-auto", "dialog_height_percent", 0);
         if (takePercent != 0) {
-            Point windowSize = new Point();
             DisplayMetrics defaultDisplay = context.getResources().getDisplayMetrics();
             take = (int) (defaultDisplay.heightPixels * takePercent);
         }

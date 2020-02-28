@@ -18,12 +18,14 @@ import cn.edu.hebut.easydesign.Activity.PassageList.Config.UserLastByType;
 import cn.edu.hebut.easydesign.Activity.PassageList.Page.Page;
 import cn.edu.hebut.easydesign.Activity.PassageList.Page.PassageListPage;
 import cn.edu.hebut.easydesign.Activity.PassageList.PassageMultiListView;
+import cn.edu.hebut.easydesign.Activity.commonComponents.HalfAboveDialog;
 import cn.edu.hebut.easydesign.ComplexString.ComplexString;
 import cn.edu.hebut.easydesign.R;
 import cn.edu.hebut.easydesign.Session.Session;
 import cn.edu.hebut.easydesign.Session.User.LoadUserLDTask;
 import cn.edu.hebut.easydesign.Session.User.LoadUserTask;
 import cn.edu.hebut.easydesign.Session.User.User;
+import cn.edu.hebut.easydesign.TaskWorker.Condition;
 import cn.edu.hebut.easydesign.TaskWorker.Task;
 import cn.edu.hebut.easydesign.TaskWorker.TaskService;
 
@@ -34,11 +36,15 @@ public class UserFragment extends Fragment implements UserDescriptionPage.reload
     private UserDescriptionPage descriptionPage;
     private UserFixedPart fixedPart;
     private PassageMultiListView list;
+    private HalfAboveDialog dialog;
+    private FollowList followList;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         descriptionPage = new UserDescriptionPage();
-        list = (PassageMultiListView) inflater.inflate(R.layout.user_fragment, container, false);
+        View page = inflater.inflate(R.layout.user_fragment, container, false);
+        list = page.findViewById(R.id.user_page_list);
+        dialog = page.findViewById(R.id.user_dialog);
         fixedPart = new UserFixedPart(ContextHolder.getContext());
         List<Page> pages = new ArrayList<>(4);
         pages.add(descriptionPage);
@@ -54,7 +60,7 @@ public class UserFragment extends Fragment implements UserDescriptionPage.reload
             loadLongDescription();
         }
         initData(list);
-        return list;
+        return page;
     }
 
     public final static int NOW_USER = -1;
@@ -121,6 +127,23 @@ public class UserFragment extends Fragment implements UserDescriptionPage.reload
                     UserTop top = (UserTop) list.getHead();
                     top.setUser(user);
                     descriptionPage.setLongDescription(new UserDescriptionPage.userFull(user, longDescription));
+                    top.setFollowOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            if (followList == null) {
+                                followList = new FollowList(ContextHolder.getContext());
+                            } else {
+                                followList.setWho(userID, new Condition<Boolean>(false));
+                            }
+                            dialog.show(new FollowList(ContextHolder.getContext()));
+                            dialog.setOnClose(new HalfAboveDialog.onClose() {
+                                @Override
+                                public void onClose(View content) {
+
+                                }
+                            });
+                        }
+                    });
                 }
             }
 

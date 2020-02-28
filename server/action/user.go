@@ -56,14 +56,14 @@ func signUpStudentInCmd(e Email, password string) (*UserBase, uint8) {
 			{
 				Public:  true,
 				Diploma: 1,
-				Country: "china",
-				Name:    "tjhs",
+				Country: "中国",
+				Name:    "河北工业大学",
 			},
 			{
 				Public:  false,
 				Diploma: 2,
-				Country: "china",
-				Name:    "hebut",
+				Country: "中国",
+				Name:    "天津大学",
 			},
 		}}}
 	s := u.SignUp()

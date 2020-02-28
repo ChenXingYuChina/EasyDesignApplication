@@ -23,6 +23,7 @@ func follow(s *session.Session, w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	if user.Follow(s.User.ID, doee) {
+		log.Println("follow success")
 		w.WriteHeader(200)
 	} else {
 		w.WriteHeader(400)

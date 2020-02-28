@@ -24,6 +24,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import cn.edu.hebut.easydesign.Activity.ContextHelp.ContextHolder;
 import cn.edu.hebut.easydesign.Activity.ContextHelp.HoldContextAppCompatActivity;
 import cn.edu.hebut.easydesign.Activity.MainActivity;
+import cn.edu.hebut.easydesign.Activity.Passage.PassageTask.FollowUser;
 import cn.edu.hebut.easydesign.Activity.Passage.PassageTask.LoadCommentTask;
 import cn.edu.hebut.easydesign.Activity.Passage.PassageTask.StarPassageTask;
 import cn.edu.hebut.easydesign.Activity.commonComponents.HalfAboveDialog;
@@ -77,6 +78,7 @@ public class PassageActivity extends HoldContextAppCompatActivity implements Com
         userHeadCopy = findViewById(R.id.user_head_copy);
         userNameCopy = findViewById(R.id.user_name_copy);
         contentPart = findViewById(R.id.content_part);
+        followWriter = findViewById(R.id.follow);
 
         fullSubComment = new FullSubComment(ContextHolder.getContext());
 
@@ -112,6 +114,7 @@ public class PassageActivity extends HoldContextAppCompatActivity implements Com
                 passageMetaHelper = new PassageMetaHelper(contentPart, item, cancel, true);
                 loadUserHead();
                 initPage(binder);
+                setupActions();
             }
 
             @Override
@@ -241,11 +244,28 @@ public class PassageActivity extends HoldContextAppCompatActivity implements Com
         }
     }
 
+    boolean stared = false;
+    boolean followed = false;
+
     public void setupActions() {
         starPassage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ContextHolder.getBinder().PutTask(new StarPassageTask(item.id));
+                if (!stared) {
+                    ContextHolder.getBinder().PutTask(new StarPassageTask(item.id));
+                    // TODO: 2020/2/28 改图标
+                    stared = true;
+                }
+            }
+        });
+        followWriter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!followed) {
+                    ContextHolder.getBinder().PutTask(new FollowUser(userMini.id));
+                    // TODO: 2020/2/28 改图标
+                    followed = true;
+                }
             }
         });
     }

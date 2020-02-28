@@ -3,6 +3,7 @@ package cn.edu.hebut.easydesign.Activity.Fragment.UserPage;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.util.AttributeSet;
+import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -19,9 +20,8 @@ import cn.edu.hebut.easydesign.TaskWorker.TaskService;
 
 // TODO: 2020/2/15 add click listener to finish edit and other things.
 public class UserTop extends FrameLayout {
-    ImageView back, head;
-    TextView name, identity, passageNumber, followNumber, coinNumber, fansNumber;
-    ImageView editDescription;
+    ImageView back, head, editDescription;
+    TextView name, identity, passageNumber, followNumber, coinNumber, fansNumber, followLabel;
     User user;
     TaskService.MyBinder binder;
     Condition<Boolean> cancel;
@@ -38,6 +38,7 @@ public class UserTop extends FrameLayout {
         coinNumber = findViewById(R.id.coin_number);
         fansNumber = findViewById(R.id.fans_number);
         editDescription = findViewById(R.id.edit_description);
+        followLabel = findViewById(R.id.follow);
     }
 
     void setUser(User user) {
@@ -67,4 +68,8 @@ public class UserTop extends FrameLayout {
         if (cancel != null) cancel.condition = true;
     }
 
+    public void setFollowOnClickListener(OnClickListener listener) {
+        followNumber.setOnClickListener(listener);
+        followLabel.setOnClickListener(listener);
+    }
 }

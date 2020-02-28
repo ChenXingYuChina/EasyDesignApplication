@@ -9,8 +9,15 @@ import (
 	"time"
 )
 
+const remote = true
+
 func TestMain(m *testing.M) {
-	err := base.SqlInit("postgres", "easyDesign", "easyDesign2019", "easyDesigner", "127.0.0.1")
+	var err error
+	if !remote {
+		err = base.SqlInit("postgres", "easyDesign", "easyDesign2019", "easyDesigner", "127.0.0.1")
+	} else  {
+		err = base.SqlInit("postgres", "appdb", "12345678", "app_dev", "175.24.76.161")
+	}
 	if err != nil {
 		fmt.Println(err)
 	}

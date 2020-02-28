@@ -70,6 +70,7 @@ func starPassage(s *session.Session, w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(400)
 	}
 	if Passage.StarPassage(pid, s.User.ID) {
+		log.Println("star passage success")
 		w.WriteHeader(200)
 	} else {
 		w.WriteHeader(500)

@@ -42,8 +42,8 @@ func follow(tx *sql.Tx, doer, doee int64) (err error) {
 		return errors.New("")
 	}
 	stepInsert := tx.Stmt(followUserStepInsert)
-	stepFollow := tx.Stmt(followUserStepUpdateFans)
-	stepFans := tx.Stmt(followUserStepUpdateFollow)
+	stepFollow := tx.Stmt(followUserStepUpdateFollow)
+	stepFans := tx.Stmt(followUserStepUpdateFans)
 	_, err = stepInsert.Exec(doer, doee)
 	if err != nil {
 		return

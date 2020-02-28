@@ -92,7 +92,8 @@ public class FirstPage extends HoldContextActivity {
                     }
                 });
                 SharedPreferences read = getSharedPreferences("loginInformation", MODE_PRIVATE);
-                long id = read.getLong("id", 50);
+                long id = read.getLong("id", 3);
+//                long id = 3;
                 String pw = read.getString("pw", "hello world");
                 Log.i("ED", "loginInformation " + id +" " + pw);
                 try {

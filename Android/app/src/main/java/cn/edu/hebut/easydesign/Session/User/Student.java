@@ -12,7 +12,7 @@ public class Student extends Identity implements Serializable {
     public List<School> schools;
 
     public Student(JSONObject identity) throws Exception {
-        JSONArray array = identity.getJSONArray("school");
+        JSONArray array = identity.getJSONArray("schools");
         schools = new ArrayList<>(array.length());
         for (int i = 0; i < array.length(); i++) {
             schools.add(new School(array.getJSONObject(i)));
