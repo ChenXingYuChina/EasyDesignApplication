@@ -1,5 +1,7 @@
 package cn.edu.hebut.easydesign.Resources.Passage;
 
+import android.util.Log;
+
 import org.json.JSONObject;
 
 import cn.edu.hebut.easydesign.Activity.commonComponents.ViewHelper.LikeAble;
@@ -15,7 +17,7 @@ public class SubComment implements LikeAble {
     public long passage, owner;
     public int like, father;
     public short position;
-    public boolean liked = false;
+    private boolean liked = false;
 
     public SubComment(JSONObject subComment) throws Exception {
         this.content = subComment.getString("content");
@@ -25,16 +27,16 @@ public class SubComment implements LikeAble {
         this.father = subComment.getInt("father");
         this.position = (short) subComment.getInt("position");
     }
-    public String getContent(){return this.content;}
-    public int getLikeNumber(){return this.like;}
 
     @Override
     public boolean isLiked() {
+        Log.i("onLike", "isLiked: " + this + liked);
         return liked;
     }
 
     @Override
     public void setLiked() {
+        Log.i("onLike", "setLiked: " + this + liked);
         liked = true;
     }
 
@@ -53,7 +55,6 @@ public class SubComment implements LikeAble {
             this.passageId = passage;
             this.father = SubComment.this.father;
             this.position = SubComment.this.position;
-            liked = true;
         }
 
         @Override

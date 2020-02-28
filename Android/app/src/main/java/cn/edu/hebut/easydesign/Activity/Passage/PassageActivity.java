@@ -24,6 +24,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import cn.edu.hebut.easydesign.Activity.ContextHelp.ContextHolder;
 import cn.edu.hebut.easydesign.Activity.ContextHelp.HoldContextAppCompatActivity;
 import cn.edu.hebut.easydesign.Activity.MainActivity;
+import cn.edu.hebut.easydesign.Activity.Passage.PassageTask.LoadCommentTask;
+import cn.edu.hebut.easydesign.Activity.Passage.PassageTask.StarPassageTask;
 import cn.edu.hebut.easydesign.Activity.commonComponents.HalfAboveDialog;
 import cn.edu.hebut.easydesign.Activity.commonComponents.ViewHelper.PassageMetaHelper;
 import cn.edu.hebut.easydesign.Activity.commonComponents.ViewHelper.UserMiniHelper;
@@ -39,7 +41,7 @@ import cn.edu.hebut.easydesign.TaskWorker.TaskService;
 
 public class PassageActivity extends HoldContextAppCompatActivity implements CommentListAdapter.getDialog {
 
-    private TextView content, doComment, starPassage, retry, userNameCopy;
+    private TextView content, doComment, starPassage, retry, userNameCopy, followWriter;
     private ViewGroup contentPart;
     private RecyclerView commentList;
     private HalfAboveDialog dialog;
@@ -47,6 +49,8 @@ public class PassageActivity extends HoldContextAppCompatActivity implements Com
     private UserMiniHelper userMiniHelper;
     private PassageMetaHelper passageMetaHelper;
     private ImageView userHeadCopy;
+    private PassageFixedPart typeSelector;
+
     private Bundle startBundle;
 
     private UserMini userMini;
@@ -55,7 +59,6 @@ public class PassageActivity extends HoldContextAppCompatActivity implements Com
     private ServiceConnection connection;
     private Condition<Boolean> cancel = new Condition<>(false);
     private Passage passage = null;
-    private PassageFixedPart typeSelector;
     private CommentListAdapter hotAdapter;
     private CommentListAdapter lastAdapter;
 
@@ -106,7 +109,7 @@ public class PassageActivity extends HoldContextAppCompatActivity implements Com
                 PassageActivity.this.binder = binder;
                 ContextHolder.setBinder(binder);
                 userNameCopy.setText(userMini.name);
-                passageMetaHelper = new PassageMetaHelper(contentPart, item, cancel);
+                passageMetaHelper = new PassageMetaHelper(contentPart, item, cancel, true);
                 loadUserHead();
                 initPage(binder);
             }
@@ -236,6 +239,15 @@ public class PassageActivity extends HoldContextAppCompatActivity implements Com
         if (passage != null) {
             passage.content.cancel();
         }
+    }
+
+    public void setupActions() {
+        starPassage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ContextHolder.getBinder().PutTask(new StarPassageTask(item.id));
+            }
+        });
     }
 
     @Override

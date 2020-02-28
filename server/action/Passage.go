@@ -37,7 +37,8 @@ func passage(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	p, f := middle.LoadFullPassageFromCache(int16(t), id)
-	fullPassage := FullPassage{FullPassage:p}
+	fullPassage := FullPassage{FullPassage: p}
+	log.Println(p)
 	if p != nil {
 		fullPassage.Full = true
 	} else {

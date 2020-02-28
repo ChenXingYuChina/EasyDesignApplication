@@ -8,11 +8,11 @@ import (
 	"net/http"
 )
 
-func Init(){
+func Init() {
 	// product part
 	http.HandleFunc("/loginId", session.LoginWithId)
 	http.HandleFunc("/loginEmail", session.LoginByEmail)
-	http.HandleFunc("logout", session.Logout)
+	http.HandleFunc("/logout", session.Logout)
 	http.HandleFunc("/image", getImage)
 	http.HandleFunc("/firstPageImage", firstPage)
 	http.HandleFunc("/passageList", passageList)
@@ -28,6 +28,9 @@ func Init(){
 	http.HandleFunc("/likeSubComment", session.NeedLogin(likeSubComment))
 	http.HandleFunc("/likeComment", session.NeedLogin(likeComment))
 	http.HandleFunc("/likePassage", session.NeedLogin(likePassage))
+	http.HandleFunc("/starThePassage", session.NeedLogin(starPassage))
+	http.HandleFunc("/follow", session.NeedLogin(follow))
+	http.HandleFunc("/loadFollow", loadFollow)
 
 	// manage part
 	managerServer.HandleFunc("/firstPageImage", SetFirstPageImage)
@@ -40,5 +43,4 @@ func Init(){
 	}()
 }
 
-var managerServer = &controlPlatform.HttpServer{Address: net.TCPAddr{IP:net.ParseIP("127.0.0.1"), Port:55555}}
-
+var managerServer = &controlPlatform.HttpServer{Address: net.TCPAddr{IP: net.ParseIP("127.0.0.1"), Port: 55555}}

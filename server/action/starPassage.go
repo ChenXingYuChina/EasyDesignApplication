@@ -2,6 +2,7 @@ package action
 
 import (
 	"EasyDesignApplication/server/action/httpTools"
+	"EasyDesignApplication/server/action/session"
 	"EasyDesignApplication/server/base/Passage"
 	"encoding/json"
 	"log"
@@ -44,7 +45,7 @@ func loadStarPassage(w http.ResponseWriter, r *http.Request) {
 		}
 		return
 	}
-	passageList := fullPassageList{PassageList:list}
+	passageList := fullPassageList{PassageList: list}
 	goal, err := json.Marshal(passageList)
 	if err != nil {
 		w.WriteHeader(500)
@@ -54,5 +55,23 @@ func loadStarPassage(w http.ResponseWriter, r *http.Request) {
 	_, err = w.Write(goal)
 	if err != nil {
 		log.Println(err)
+	}
+}
+
+func starPassage(s *session.Session, w http.ResponseWriter, r *http.Request) {
+	log.Println("call star passage")
+	err := r.ParseForm()
+	if err != nil {
+		w.WriteHeader(400)
+		return
+	}
+	pid, has := httpTools.GetInt64FromForm(r.Form, "pid")
+	if !has {
+		w.WriteHeader(400)
+	}
+	if Passage.StarPassage(pid, s.User.ID) {
+		w.WriteHeader(200)
+	} else {
+		w.WriteHeader(500)
 	}
 }

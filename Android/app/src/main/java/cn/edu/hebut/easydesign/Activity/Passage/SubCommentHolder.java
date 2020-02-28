@@ -25,11 +25,15 @@ class SubCommentHolder extends RecyclerView.ViewHolder {
     private SubCommentHolder(@NonNull View itemView) {
         super(itemView);
         userMiniHelper = new UserMiniHelper((ViewGroup) itemView);
-        subCommentHelper = new SubCommentHelper((ViewGroup) itemView);
     }
 
     void setData(final SubComment data, final TaskService.MyBinder binder, final Condition<Boolean> cancel) {
-        subCommentHelper.setData(data);
+        if (subCommentHelper != null) {
+            subCommentHelper.setData(data);
+        } else {
+            subCommentHelper = new SubCommentHelper((ViewGroup) itemView, data, true);
+            subCommentHelper.setLikeImage(R.drawable.ic_like, R.drawable.ic_like_2);
+        }
         binder.PutTask(new LoadUserMiniTask(data.owner, cancel, false) {
             @Override
             protected void putInformation(UserMini userMini, Bitmap userHeadImage) {

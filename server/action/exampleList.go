@@ -2,7 +2,7 @@ package action
 
 import (
 	"encoding/json"
-	"go/src/log"
+	"log"
 	"net/http"
 	"sync"
 	"sync/atomic"
@@ -10,28 +10,28 @@ import (
 )
 
 type exampleConfig struct {
-	NameList []string `json:"names"`
-	Config []passageListConfig `json:"config"`
+	NameList []string            `json:"names"`
+	Config   []passageListConfig `json:"config"`
 }
 
 type passageListConfig struct {
-	Type int16 `json:"type"`
-	Layout int16 `json:"layout"`
-	Card string `json:"card"`
-	Head string `json:"head"`
+	Type   int16  `json:"type"`
+	Layout int16  `json:"layout"`
+	Card   string `json:"card"`
+	Head   string `json:"head"`
 }
 
 const (
 	titleMainCard = "title_main_card"
 	ImageMainCard = "image_main_card"
-	linear = 0
-	grid = 1
-	nilHead = "nil_head"
+	linear        = 0
+	grid          = 1
+	nilHead       = "nil_head"
 )
 
 var defaultExampleConfig = &exampleConfig{
-	NameList:[]string{"1", "2"},
-	Config:[]passageListConfig{{Type:0, Card:titleMainCard, Layout:linear, Head:nilHead}, {Type:1, Card:titleMainCard, Layout:linear, Head:nilHead}},
+	NameList: []string{"1", "2"},
+	Config:   []passageListConfig{{Type: 0, Card: titleMainCard, Layout: linear, Head: nilHead}, {Type: 1, Card: titleMainCard, Layout: linear, Head: nilHead}},
 }
 var defaultExampleConfigJson []byte
 var pDefaultExampleConfigJson = &defaultExampleConfigJson
@@ -44,14 +44,16 @@ func getExampleList(w http.ResponseWriter, r *http.Request) {
 		if err != nil {
 			log.Fatal(err)
 		}
-	}   
+	}
 	_, _ = w.Write(defaultExampleConfigJson)
 
 }
+
 var lock sync.Mutex
+
 func setExampleList(w http.ResponseWriter, r *http.Request) {
 
-	switch r.Method{
+	switch r.Method {
 	case http.MethodPost:
 		if config, has := r.PostForm["config"]; has {
 			if len(config) > 0 {

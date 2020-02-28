@@ -5,6 +5,7 @@ import (
 	"EasyDesignApplication/server/base/Passage"
 	. "EasyDesignApplication/server/base/comment"
 	"EasyDesignApplication/server/base/user"
+	"log"
 	"sync"
 	"sync/atomic"
 	"time"
@@ -67,12 +68,14 @@ type residentContentList struct {
 func (t *residentContentList) refresh(gapTime int64) (err error) {
 	now := time.Now().Unix()
 	if now-atomic.LoadInt64(&(t.lastUpdateTime)) < gapTime {
+		log.Println("too short")
 		return nil
 	}
 	t.lock.Lock()
 	defer t.lock.Unlock()
 	now = time.Now().Unix()
 	if now-atomic.LoadInt64(&(t.lastUpdateTime)) < gapTime {
+		log.Println("too short")
 		return nil
 	}
 	defer atomic.StoreInt64(&(t.lastUpdateTime), time.Now().Unix())
@@ -83,15 +86,11 @@ func (t *residentContentList) refresh(gapTime int64) (err error) {
 	fullList := map[int64]*FullPassage{}
 	userMiniFunctionList := make([]GetFunction, len(passageList))
 	for i, v := range passageList {
-		if fp, ok := t.fullPassages[v.Id]; ok {
-			fullList[v.Id] = fp
-		} else {
-			fp, err = loadFullPassage(v.Id)
-			if err != nil {
-				return
-			}
-			fullList[v.Id] = fp
+		fp, err := loadFullPassage(v.Id)
+		if err != nil {
+			return err
 		}
+		fullList[v.Id] = fp
 		userMiniFunctionList[i] = LoadUserMini(v.Owner)
 	}
 	userMiniList, err := GetUserMinisFromFunctions(userMiniFunctionList)
@@ -144,6 +143,8 @@ var hotTable *residentContentTable
 var lastTable *residentContentTable
 
 func prepareResidentContentTable() {
+	// fixme open this for test
+	//hotTable = &residentContentTable{gapTime: time.Second / time.Second, lists: make([]*residentContentList, typeNum)}
 	hotTable = &residentContentTable{gapTime: time.Hour / time.Second, lists: make([]*residentContentList, typeNum)}
 	lastTable = &residentContentTable{gapTime: time.Second * 10 / time.Second, lists: make([]*residentContentList, typeNum)}
 	for i := 0; i < typeNum; i++ {

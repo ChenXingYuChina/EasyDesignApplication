@@ -2,6 +2,7 @@ package cn.edu.hebut.easydesign.Session.NeedSessionTask;
 
 import android.util.Log;
 
+import cn.edu.hebut.easydesign.Session.LoginTask;
 import okhttp3.Response;
 
 public abstract class NoReplySessionHostPostTask extends SessionHostPostTask {
@@ -10,16 +11,13 @@ public abstract class NoReplySessionHostPostTask extends SessionHostPostTask {
     }
 
     @Override
-    protected int onPostFinish(Response response) {
-        int status = response.code();
-        if (status == 200)
-            return 0;
-        else return status;
+    protected int onPostSuccess(Response response) {
+        return 0;
     }
 
     @Override
     protected void doOnMain() {
-        if (condition.condition == 0) {
+        if (condition.condition != 0) {
             onError(condition.condition);
         } else {
             onSuccess();

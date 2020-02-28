@@ -1,5 +1,6 @@
 package cn.edu.hebut.easydesign.Activity.commonComponents.ViewHelper;
 
+import android.util.Log;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -23,6 +24,9 @@ public class SubCommentHelper extends ViewHelper {
         this(target);
         this.subComment = subComment;
         this.canLike = canLike;
+        setupData();
+        setupLike();
+        Log.i("SCH", "SubCommentHelper: ");
     }
 
     public SubCommentHelper(ViewGroup target) {
@@ -41,11 +45,13 @@ public class SubCommentHelper extends ViewHelper {
     }
 
     private void setupLike() {
+        Log.i("SCH", "setupLike: " +subComment + subComment.isLiked());
         if (canLike)
             setupLike(likeLabel, likeNumber, subComment, subComment.new likeSubComment(), ContextHolder.getBinder());
     }
 
     public void setData(SubComment subComment) {
+        Log.i("SCH", "setData: ");
         this.subComment = subComment;
         setupData();
         setupLike();

@@ -25,5 +25,9 @@ func init() {
 		if err != nil {
 			panic(fmt.Sprint("user base sql fail: ", err, p))
 		}
+		p, err = prepareUserAction()
+		if err != nil {
+			panic(fmt.Sprint("user base sql fail: ", err, p))
+		}
 	})
 }

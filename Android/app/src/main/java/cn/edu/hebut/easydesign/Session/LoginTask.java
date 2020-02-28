@@ -12,18 +12,21 @@ import cn.edu.hebut.easydesign.TaskWorker.Condition;
 public abstract class LoginTask extends StringHostPostTask {
     private TextField account;
     private PasswordField pw;
+    private String cachedPassword;
     public LoginTask(long id, String pw) throws Exception {
         super("loginId", new Condition<Boolean>(false));
         if (id == 0) {
             throw new IllegalArgumentException();
         }
         this.account = new TextField("id", id+"");
+        cachedPassword = pw;
         this.pw = new PasswordField("pw", pw);
     }
 
     public LoginTask(String email, String pw) throws Exception {
         super("loginEmail", new Condition<Boolean>(false));
         this.account = new EmailField("email", email);
+        cachedPassword = pw;
         this.pw = new PasswordField("pw", pw);
     }
 
@@ -36,7 +39,7 @@ public abstract class LoginTask extends StringHostPostTask {
     @Override
     protected int handleResult(String result) {
         try {
-            if (!Session.getSession().login(new JSONObject(result))) {
+            if (!Session.getSession().login(new JSONObject(result), cachedPassword)) {
                 return 703;
             }
         } catch (Exception e) {

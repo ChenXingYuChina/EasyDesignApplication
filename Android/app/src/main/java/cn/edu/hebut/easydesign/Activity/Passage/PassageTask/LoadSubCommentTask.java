@@ -1,4 +1,4 @@
-package cn.edu.hebut.easydesign.Activity.Passage;
+package cn.edu.hebut.easydesign.Activity.Passage.PassageTask;
 
 import org.json.JSONArray;
 

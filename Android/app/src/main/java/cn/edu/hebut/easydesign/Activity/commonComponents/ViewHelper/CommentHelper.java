@@ -97,4 +97,8 @@ public class CommentHelper extends ViewHelper {
         subCommentLayout.setVisibility(View.VISIBLE);
         subCommentLayout.addView(view);
     }
+
+    public TextView getCommentContent() {
+        return commentContent;
+    }
 }

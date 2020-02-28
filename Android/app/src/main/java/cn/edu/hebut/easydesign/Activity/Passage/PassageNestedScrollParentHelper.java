@@ -29,17 +29,17 @@ public class PassageNestedScrollParentHelper extends NestedScrollParentHelper {
         this.viewGroup = viewGroup;
         scroller = new OverScroller(viewGroup.getContext());
         topView = (NestedScrollView) viewGroup.getChildAt(0);
-        Log.i("helper", "top: " + topView);
+//        Log.i("helper", "top: " + topView);
         fixedView = viewGroup.getChildAt(1);
-        Log.i("helper", "fixed: " + fixedView);
+//        Log.i("helper", "fixed: " + fixedView);
         contentView = viewGroup.getChildAt(2);
-        Log.i("helper", "content: " + contentView);
+//        Log.i("helper", "content: " + contentView);
         topView.getViewTreeObserver().addOnGlobalLayoutListener(
                 new ViewTreeObserver.OnGlobalLayoutListener() {
                     @Override
                     public void onGlobalLayout() {
                         fixedHeight = fixedView.getHeight();
-                        Log.i("helper", "" + viewGroup.getHeight() + " " + topHeight + " " + fixedHeight + " " + contentView.getHeight() + " " + topView.getChildAt(0).getHeight());
+//                        Log.i("helper", "" + viewGroup.getHeight() + " " + topHeight + " " + fixedHeight + " " + contentView.getHeight() + " " + topView.getChildAt(0).getHeight());
                         if (fixedHeight != 0) {
                             cacheFixedHeight = fixedHeight;
                         }
@@ -82,24 +82,24 @@ public class PassageNestedScrollParentHelper extends NestedScrollParentHelper {
 
     @Override
     public boolean onStartNestedScroll(View child, View target, int nestedScrollAxes) {
-        Log.i(TAG, "onStartNestedScroll: " + target);
+//        Log.i(TAG, "onStartNestedScroll: " + target);
         return super.onStartNestedScroll(child, target, nestedScrollAxes);
     }
 
     @Override
     public void onNestedPreScroll(View target, int dx, int dy, int[] consumed) {
-        Log.i(TAG, "onNestedPreScroll: ");
+//        Log.i(TAG, "onNestedPreScroll: ");
         super.onNestedPreScroll(target, dx, dy, consumed);
     }
 
     @Override
     public void onNestedScroll(View target, int dxConsumed, int dyConsumed, int dxUnconsumed, int dyUnconsumed) {
-        Log.i(TAG, "onNestedScroll: ");
+//        Log.i(TAG, "onNestedScroll: ");
         super.onNestedScroll(target, dxConsumed, dyConsumed, dxUnconsumed, dyUnconsumed);
     }
 
     public boolean onTouchEvent(MotionEvent event) {
-        Log.i(TAG, "onTouchEvent: " + event.getAction());
+//        Log.i(TAG, "onTouchEvent: " + event.getAction());
 
         if (tracker == null) {
             tracker = VelocityTracker.obtain();
@@ -183,7 +183,7 @@ public class PassageNestedScrollParentHelper extends NestedScrollParentHelper {
     private boolean topCatch = false;
 
     public boolean onInterceptTouchEvent(MotionEvent ev) {
-        Log.i(TAG, "onInterceptTouchEvent: " + ev.getAction());
+//        Log.i(TAG, "onInterceptTouchEvent: " + ev.getAction());
         switch (ev.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 lastX = (int) ev.getRawX();
@@ -201,10 +201,10 @@ public class PassageNestedScrollParentHelper extends NestedScrollParentHelper {
 
                 if (isVerticalScroll && isPullUp) {
                     topCatch = viewGroup.getScrollY() <= 0 && topView.canScrollVertically(1);
-                    Log.i(TAG, "onInterceptTouchEvent: up" + topCatch + viewGroup.getScrollY() + " " + topView.canScrollVertically(1));
+//                    Log.i(TAG, "onInterceptTouchEvent: up" + topCatch + viewGroup.getScrollY() + " " + topView.canScrollVertically(1));
                 } else {
                     topCatch = viewGroup.getScrollY() <= 0 && topView.canScrollVertically(-1);
-                    Log.i(TAG, "onInterceptTouchEvent: down" + topCatch + viewGroup.getScrollY() + " " + topView.canScrollVertically(-1));
+//                    Log.i(TAG, "onInterceptTouchEvent: down" + topCatch + viewGroup.getScrollY() + " " + topView.canScrollVertically(-1));
                 }
                 if (topCatch) {
                     shouldIntercept = true;
@@ -237,10 +237,10 @@ public class PassageNestedScrollParentHelper extends NestedScrollParentHelper {
 
                 if (isVerticalScroll && isPullUp) {
                     topCatch = viewGroup.getScrollY() <= 0 && topView.canScrollVertically(1);
-                    Log.i(TAG, "onInterceptTouchEvent: up" + topCatch + viewGroup.getScrollY() + " " + topView.canScrollVertically(1));
+//                    Log.i(TAG, "onInterceptTouchEvent: up" + topCatch + viewGroup.getScrollY() + " " + topView.canScrollVertically(1));
                 } else {
                     topCatch = viewGroup.getScrollY() <= 0 && topView.canScrollVertically(-1);
-                    Log.i(TAG, "onInterceptTouchEvent: down" + topCatch + viewGroup.getScrollY() + " " + topView.canScrollVertically(-1));
+//                    Log.i(TAG, "onInterceptTouchEvent: down" + topCatch + viewGroup.getScrollY() + " " + topView.canScrollVertically(-1));
                 }
                 if (topCatch) {
                     shouldIntercept = true;

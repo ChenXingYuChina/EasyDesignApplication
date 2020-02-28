@@ -4,6 +4,7 @@ import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import cn.edu.hebut.easydesign.Activity.Passage.PassageTask.LoadCommentTask;
 import cn.edu.hebut.easydesign.R;
 import cn.edu.hebut.easydesign.Resources.Passage.Comment;
 

@@ -23,7 +23,7 @@ import cn.edu.hebut.easydesign.Resources.UserMini.UserMini;
 import cn.edu.hebut.easydesign.TaskWorker.Condition;
 import cn.edu.hebut.easydesign.TaskWorker.TaskService;
 
-public class CommentHolder extends RecyclerView.ViewHolder {
+public class CommentHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
     static final int type = 0;
     private UserMiniHelper userMiniHelper;
     private CommentHelper commentHelper;
@@ -33,16 +33,23 @@ public class CommentHolder extends RecyclerView.ViewHolder {
     private TaskService.MyBinder binder;
     private Condition<Boolean> cancel;
     private List<SubCommentHolder> subCommentHolders;
+    private CommentListAdapter adapter;
 
     public CommentHolder(View view) {
         super(view);
         userMiniHelper = new UserMiniHelper((ViewGroup) view);
-        commentHelper = new CommentHelper((ViewGroup) view);
         allSub = view.findViewById(R.id.all_sub);
     }
 
-    public void setData(final Comment comment, final CommentListAdapter adapter) {
-        commentHelper.setData(comment);
+    public void setData(Comment comment, CommentListAdapter adapter) {
+        this.adapter = adapter;
+        this.comment = comment;
+        if (commentHelper != null) {
+            commentHelper.setData(comment);
+        } else {
+            commentHelper = new CommentHelper((ViewGroup) itemView, comment, true, true);
+            commentHelper.setLikeImage(R.drawable.ic_like, R.drawable.ic_like_2);
+        }
         if (binder == null) {
             binder = ContextHolder.getBinder();
         }
@@ -65,19 +72,7 @@ public class CommentHolder extends RecyclerView.ViewHolder {
 //            if (true) {
             if (comment.subCommentNumber > comment.subComments.size()) {
                 allSub.setVisibility(View.VISIBLE);
-                allSub.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        final HalfAboveDialog dialog = adapter.getDialog.dialog();
-                        dialog.show(adapter.fullSubComment.show(comment, owner, adapter));
-                        dialog.setOnClose(new HalfAboveDialog.onClose() {
-                            @Override
-                            public void onClose(View content) {
-                                adapter.fullSubComment.reset();
-                            }
-                        });
-                    }
-                });
+                allSub.setOnClickListener(this);
             } else {
                 allSub.setVisibility(View.GONE);
             }
@@ -86,6 +81,7 @@ public class CommentHolder extends RecyclerView.ViewHolder {
             allSub.setVisibility(View.GONE);
             commentHelper.getSubCommentLayout().setVisibility(View.GONE);
         }
+        commentHelper.getCommentContent().setOnClickListener(this);
     }
 
     static CommentHolder makeHolder(ViewGroup parent) {
@@ -109,5 +105,17 @@ public class CommentHolder extends RecyclerView.ViewHolder {
         } else {
             cancel = new Condition<>(false);
         }
+    }
+
+    @Override
+    public void onClick(View v) {
+        final HalfAboveDialog dialog = adapter.getDialog.dialog();
+        dialog.show(adapter.fullSubComment.show(comment, owner, adapter));
+        dialog.setOnClose(new HalfAboveDialog.onClose() {
+            @Override
+            public void onClose(View content) {
+                adapter.fullSubComment.reset();
+            }
+        });
     }
 }
