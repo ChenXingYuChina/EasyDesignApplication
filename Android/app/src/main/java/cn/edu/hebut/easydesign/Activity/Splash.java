@@ -49,7 +49,7 @@ public class Splash extends AppCompatActivity {
         mViewPager =  findViewById(R.id.viewpager);
         mPoints =  findViewById(R.id.points);
         mPoints.setVisibility(View.GONE);
-        zhuce = findViewById(R.id.zhuce);
+        zhuce = findViewById(R.id.sign_up_label);
         zhuce.setVisibility(View.GONE);
         next = findViewById(R.id.next);
         next.setVisibility(View.GONE);

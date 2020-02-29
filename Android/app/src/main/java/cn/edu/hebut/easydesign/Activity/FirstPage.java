@@ -56,7 +56,7 @@ public class FirstPage extends HoldContextActivity {
                                 intent = new Intent(FirstPage.this, Splash.class);
                                 break;
                             default:
-                                intent = new Intent(FirstPage.this, login2.class);
+                                intent = new Intent(FirstPage.this, LoginPage.class);
                         }
                         startActivity(intent);
                         finish();

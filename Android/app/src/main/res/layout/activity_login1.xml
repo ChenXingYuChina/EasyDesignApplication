@@ -8,7 +8,7 @@
     android:background="@drawable/zhuce">
 
     <ImageView
-        android:id="@+id/next"
+        android:id="@+id/sign_up"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:src="@drawable/next"

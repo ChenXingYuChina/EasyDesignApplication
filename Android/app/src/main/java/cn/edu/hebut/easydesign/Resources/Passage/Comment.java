@@ -1,16 +1,21 @@
 package cn.edu.hebut.easydesign.Resources.Passage;
 
+import android.widget.Toast;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.net.ContentHandler;
 import java.util.ArrayList;
 
+import cn.edu.hebut.easydesign.Activity.ContextHelp.ContextHolder;
 import cn.edu.hebut.easydesign.Activity.commonComponents.ViewHelper.LikeAble;
 import cn.edu.hebut.easydesign.ComplexString.ComplexString;
 import cn.edu.hebut.easydesign.ComplexString.ComplexStringLoader;
 import cn.edu.hebut.easydesign.HttpClient.Form.Form;
 import cn.edu.hebut.easydesign.HttpClient.Form.IntField;
 import cn.edu.hebut.easydesign.HttpClient.Form.LongField;
+import cn.edu.hebut.easydesign.HttpClient.Form.TextField;
 import cn.edu.hebut.easydesign.Session.NeedSessionTask.NoReplySessionHostPostTask;
 import cn.edu.hebut.easydesign.Session.Session;
 
@@ -102,5 +107,25 @@ public class Comment implements LikeAble {
             form.addFields(new LongField("pid", passage)).addFields(new IntField("position", position));
             return 0;
         }
+    }
+
+    public abstract class subCommentTo extends NoReplySessionHostPostTask {
+        String subCommentContent;
+        public subCommentTo(String content) {
+            super("subCommentTo");
+            subCommentContent = content;
+        }
+
+        @Override
+        protected int makeForm(Form form, Session session) {
+            form.addFields(new TextField("content", subCommentContent)).addFields(new LongField("pid", passage)).addFields(new IntField("father", position));
+            return 0;
+        }
+
+        @Override
+        protected abstract void onError(int errCode);
+
+        @Override
+        protected abstract void onSuccess();
     }
 }

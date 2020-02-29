@@ -15,8 +15,8 @@ public class login3 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login3);
-        next = findViewById(R.id.next);
+        setContentView(R.layout.sign_up_base_layout);
+//        next = findViewById(R.id.next);
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

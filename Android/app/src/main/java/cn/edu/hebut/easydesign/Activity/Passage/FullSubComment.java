@@ -1,18 +1,25 @@
 package cn.edu.hebut.easydesign.Activity.Passage;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
 import androidx.annotation.NonNull;
 import cn.edu.hebut.easydesign.Activity.ContextHelp.ContextHolder;
+import cn.edu.hebut.easydesign.Activity.LoginPage;
 import cn.edu.hebut.easydesign.Activity.Passage.PassageTask.LoadSubCommentTask;
 import cn.edu.hebut.easydesign.Activity.commonComponents.ViewHelper.CommentHelper;
 import cn.edu.hebut.easydesign.Activity.commonComponents.ViewHelper.UserMiniHelper;
@@ -72,8 +79,12 @@ public class FullSubComment extends FrameLayout {
                     }
                 });
             } else {
-                setup(comment.subComments);
+                List<SubComment> comments = (ArrayList<SubComment>) comment.subComments.clone();
+                Collections.reverse(comments);
+                setup(comments);
             }
+        } else {
+            setup(new LinkedList<SubComment>());
         }
         return this;
     }
@@ -111,6 +122,41 @@ public class FullSubComment extends FrameLayout {
             this.subComments.addView(holder.itemView);
             subCommentHolders.add(holder);
         }
+        send.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i("FSC", "onClick: ");
+                sendSubComment();
+            }
+        });
     }
 
+    private void sendSubComment() {
+        String subCommentContent = input.getText().toString();
+        if (subCommentContent.length() != 0) {
+            send.setClickable(false);
+            ContextHolder.getBinder().PutTask(comment.new subCommentTo(subCommentContent) {
+                @Override
+                protected void onError(int errCode) {
+                    if (errCode == 401) {
+                        Context context = ContextHolder.getContext();
+                        context.startActivity(new Intent(context, LoginPage.class));
+                    }
+                }
+
+                @Override
+                protected void onSuccess() {
+                    Toast.makeText(ContextHolder.getContext(), "评论成功", Toast.LENGTH_SHORT).show();
+                    send.setClickable(true);
+                    input.setText("");
+                }
+            });
+        }
+    }
+    public String getInput() {
+        return input.getText().toString();
+    }
+    public void setInput(String input) {
+        this.input.setText(input);
+    }
 }

@@ -21,11 +21,10 @@
     <string name="loading_list">正在加载更多</string>
     <string name="finish_list">没有更多了</string>
     <string name="no_news">没有新的内容</string>
-    <array name="logindengji">
-        <item name = "xiaobai">建筑小白</item>
-        <item name = "nuli">正在努力</item>
-        <item name = "xiaocheng">小有成就</item>
-        <item name = "dashen">建筑大神</item>
+    <array name="identity_type">
+        <item name = "public">公众</item>
+        <item name = "student">学生</item>
+        <item name = "designer">设计师</item>
     </array>
     <string name="isNew">已经是最新内容了</string>
     <string name="error">出错了</string>

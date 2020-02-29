@@ -10,36 +10,39 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import cn.edu.hebut.easydesign.Activity.ContextHelp.HoldContextAppCompatActivity;
 import cn.edu.hebut.easydesign.R;
 import cn.edu.hebut.easydesign.Session.LoginTask;
 import cn.edu.hebut.easydesign.TaskWorker.TaskService;
 
-public class login2 extends HoldContextAppCompatActivity {
+public class LoginPage extends HoldContextAppCompatActivity {
     private Button login;
-    private ImageView next;
-    private EditText account;
-    private EditText password;
-    ServiceConnection connection;
+    private ImageView signUp;
+    private EditText account, password;
+    private TextView forgetPassword, visitor;
+    private ServiceConnection connection;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login2);
-        next = findViewById(R.id.next);
+        setContentView(R.layout.login_layout);
+        signUp = findViewById(R.id.sign_up);
+        forgetPassword = findViewById(R.id.foget_password);
+        visitor = findViewById(R.id.visitor);
         login = findViewById(R.id.denglu);
-        next.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(login2.this,login3.class);
-                startActivity(intent);
-            }
-        });
+//        signup.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(LoginPage.this,login3.class);
+//                startActivity(intent);
+//            }
+//        });
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                account = findViewById(R.id.zhanghao);
-                password = findViewById(R.id.mima);
+                account = findViewById(R.id.name);
+                password = findViewById(R.id.email);
                 final String accountString = account.getText().toString();
                 final String passwordString = password.getText().toString();
                 connection = new ServiceConnection() {
@@ -50,7 +53,7 @@ public class login2 extends HoldContextAppCompatActivity {
                             binder.PutTask(new LoginTask(accountString, passwordString) {
                                 @Override
                                 protected void doOnMainNormal() {
-                                    startActivity(new Intent(login2.this, MainActivity.class));
+                                    startActivity(new Intent(LoginPage.this, MainActivity.class));
                                 }
                             });
                         } catch (Exception e) {
@@ -63,9 +66,7 @@ public class login2 extends HoldContextAppCompatActivity {
 
                     }
                 };
-                bindService(new Intent(login2.this, TaskService.class), connection, Service.BIND_AUTO_CREATE);
-                System.out.println(accountString);
-                System.out.println(passwordString);
+                bindService(new Intent(LoginPage.this, TaskService.class), connection, Service.BIND_AUTO_CREATE);
             }
         });
     }

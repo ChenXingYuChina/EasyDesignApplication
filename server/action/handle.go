@@ -31,6 +31,7 @@ func Init() {
 	http.HandleFunc("/starThePassage", session.NeedLogin(starPassage))
 	http.HandleFunc("/follow", session.NeedLogin(follow))
 	http.HandleFunc("/loadFollow", loadFollow)
+	http.HandleFunc("/subCommentTo", session.NeedLogin(subCommentTo))
 
 	// manage part
 	managerServer.HandleFunc("/firstPageImage", SetFirstPageImage)

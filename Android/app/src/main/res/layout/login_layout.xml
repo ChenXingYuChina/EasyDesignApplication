@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="cn.edu.hebut.easydesign.Activity.login2"
+    tools:context="cn.edu.hebut.easydesign.Activity.LoginPage"
     android:background="@drawable/beijing1">
 
 
     <ImageView
-        android:id="@+id/logo"
+        android:id="@+id/head_image"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:src="@drawable/logo"
@@ -24,7 +24,7 @@
     </ImageView>
 
     <EditText
-        android:id="@+id/zhanghao"
+        android:id="@+id/name"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:hint="账号"
@@ -34,11 +34,11 @@
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/logo"
+        app:layout_constraintTop_toBottomOf="@id/head_image"
         />
 
     <EditText
-        android:id="@+id/mima"
+        android:id="@+id/email"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:hint="密码"
@@ -48,7 +48,7 @@
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/zhanghao"
+        app:layout_constraintTop_toBottomOf="@id/name"
         />
 
     <Button
@@ -61,7 +61,7 @@
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/mima"
+        app:layout_constraintTop_toBottomOf="@id/email"
         />
 
     <LinearLayout
@@ -75,7 +75,7 @@
         app:layout_constraintTop_toBottomOf="@id/denglu">
 
         <TextView
-        android:id="@+id/wangji"
+        android:id="@+id/foget_password"
         android:text="忘记密码"
         android:layout_width="0dp"
         android:layout_weight="5"
@@ -92,7 +92,7 @@
             android:gravity="center"/>
 
         <TextView
-            android:id="@+id/youke"
+            android:id="@+id/visitor"
             android:text="随便逛逛"
             android:layout_width="0dp"
             android:layout_weight="5"
@@ -140,7 +140,7 @@
 
 
     <ImageView
-        android:id="@+id/next"
+        android:id="@+id/sign_up"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:src="@drawable/next"
@@ -152,17 +152,16 @@
         app:layout_constraintVertical_bias="0.94"
         app:layout_constraintHorizontal_bias="0.86"/>
 
-        <TextView
-            android:id="@+id/zhuce"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="立即注册"
-            android:textSize="20dp"
+    <TextView
+        android:id="@+id/sign_up_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="立即注册"
+        android:textSize="20dp"
 
-            app:layout_constraintEnd_toEndOf="@id/next"
-            app:layout_constraintStart_toStartOf="@id/next"
-            app:layout_constraintTop_toBottomOf="@id/next"
-            />
+        app:layout_constraintEnd_toEndOf="@id/sign_up"
+        app:layout_constraintStart_toStartOf="@id/sign_up"
+        app:layout_constraintTop_toBottomOf="@id/sign_up" />
 
 
 

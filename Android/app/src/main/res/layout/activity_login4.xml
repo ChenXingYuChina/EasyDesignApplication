@@ -8,7 +8,7 @@
     android:background="@drawable/beijing1">
 
     <ImageView
-        android:id="@+id/logo"
+        android:id="@+id/head_image"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:src="@drawable/logo"
@@ -23,71 +23,71 @@
     </ImageView>
 
     <EditText
-        android:id="@+id/nicheng"
+        android:id="@+id/name"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:hint="昵称"
         android:textSize="20dp"
         android:background="@drawable/round_corner"
-        android:layout_below="@+id/logo"
+        android:layout_below="@+id/head_image"
         android:layout_marginTop="50dp"
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/logo"
+        app:layout_constraintTop_toBottomOf="@id/head_image"
         />
 
     <EditText
-        android:id="@+id/shengri"
+        android:id="@+id/email"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:hint="生日"
         android:textSize="20dp"
         android:layout_marginTop="30dp"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/zhanghao"
+        android:layout_below="@+id/name"
         android:background="@drawable/round_corner"
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/nicheng"
+        app:layout_constraintTop_toBottomOf="@id/name"
         />
 
     <EditText
-        android:id="@+id/buzhidao"
+        android:id="@+id/password"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:hint="不知道"
         android:textSize="20dp"
         android:layout_marginTop="30dp"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/zhanghao"
+        android:layout_below="@+id/name"
         android:background="@drawable/round_corner"
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/shengri"
+        app:layout_constraintTop_toBottomOf="@id/email"
         />
 
     <EditText
-        android:id="@+id/xingqu"
+        android:id="@+id/identity"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:hint="兴趣？"
         android:textSize="20dp"
         android:layout_marginTop="30dp"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/zhanghao"
+        android:layout_below="@+id/name"
         android:background="@drawable/round_corner"
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/buzhidao"
+        app:layout_constraintTop_toBottomOf="@id/password"
         />
 
 
     <ImageView
-        android:id="@+id/next"
+        android:id="@+id/sign_up"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:src="@drawable/next"
@@ -100,7 +100,7 @@
         app:layout_constraintHorizontal_bias="0.86"/>
 
     <TextView
-        android:id="@+id/zhuce"
+        android:id="@+id/sign_up_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="下一步"
