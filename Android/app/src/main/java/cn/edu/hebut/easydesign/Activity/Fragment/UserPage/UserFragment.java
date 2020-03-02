@@ -159,5 +159,6 @@ public class UserFragment extends Fragment implements UserDescriptionPage.reload
         loadUser();
         loadLongDescription();
         initData(list);
+        list.closeRefresh();
     }
 }

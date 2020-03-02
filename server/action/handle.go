@@ -22,6 +22,7 @@ func Init() {
 	http.HandleFunc("/user", loadUser)
 	http.HandleFunc("/starPassage", loadStarPassage)
 	http.HandleFunc("/passage", passage)
+	http.HandleFunc("/signUp", signUp)
 
 	http.HandleFunc("/comment", loadComment)
 	http.HandleFunc("/subComment", loadSubComment)

@@ -84,4 +84,8 @@ public class PassageMultiListView extends PassageListContainer {
         return top;
     }
 
+    public void closeRefresh() {
+        swipe.setRefreshing(false);
+    }
+
 }

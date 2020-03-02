@@ -45,7 +45,7 @@ public class UserDescriptionPage implements Page<PassageMultiListView> {
         return canRefresh;
     }
 
-    UserTop top;
+    private UserTop top;
     @Override
     public void bind(@NonNull PassageMultiListView father) {
         top = (UserTop) father.getHead();

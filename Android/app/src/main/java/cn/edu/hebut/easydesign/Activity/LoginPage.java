@@ -13,24 +13,28 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import cn.edu.hebut.easydesign.Activity.ContextHelp.HoldContextAppCompatActivity;
+import cn.edu.hebut.easydesign.Activity.SignUp.SignUpBase;
 import cn.edu.hebut.easydesign.R;
 import cn.edu.hebut.easydesign.Session.LoginTask;
 import cn.edu.hebut.easydesign.TaskWorker.TaskService;
 
-public class LoginPage extends HoldContextAppCompatActivity {
+public class LoginPage extends HoldContextAppCompatActivity implements View.OnClickListener {
     private Button login;
     private ImageView signUp;
     private EditText account, password;
-    private TextView forgetPassword, visitor;
+    private TextView forgetPassword, visitor, signUpLabel;
     private ServiceConnection connection;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_layout);
         signUp = findViewById(R.id.sign_up);
+        signUpLabel = findViewById(R.id.sign_up_label);
         forgetPassword = findViewById(R.id.foget_password);
         visitor = findViewById(R.id.visitor);
         login = findViewById(R.id.denglu);
+        signUpLabel.setOnClickListener(this);
+        signUp.setOnClickListener(this);
 //        signup.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
@@ -54,6 +58,7 @@ public class LoginPage extends HoldContextAppCompatActivity {
                                 @Override
                                 protected void doOnMainNormal() {
                                     startActivity(new Intent(LoginPage.this, MainActivity.class));
+                                    finish();
                                 }
                             });
                         } catch (Exception e) {
@@ -75,5 +80,11 @@ public class LoginPage extends HoldContextAppCompatActivity {
     protected void onPause() {
         super.onPause();
         unbindService(connection);
+    }
+
+    @Override
+    public void onClick(View v) {
+        startActivity(new Intent(this, SignUpBase.class));
+        finish();
     }
 }

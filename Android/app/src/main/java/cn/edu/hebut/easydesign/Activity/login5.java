@@ -16,7 +16,7 @@ public class login5 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login5);
-        next = findViewById(R.id.next);
+//        next = findViewById(R.id.next);
 //        textureView = (TextureView) findViewById(R.id.textureView);
         next.setOnClickListener(new View.OnClickListener() {
             @Override

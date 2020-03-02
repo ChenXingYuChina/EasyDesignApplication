@@ -55,6 +55,8 @@
         <activity android:name=".Activity.UserInformationActivity" />
         <activity android:name=".Activity.Passage.PassageActivity" />
         <activity android:name=".Activity.SignUp" />
+        <activity android:name=".Activity.SignUp.SignUpDetail" />
+        <activity android:name=".Activity.SignUp.SignUpBase" />
 
         <service android:name=".TaskWorker.TaskService" />
     </application>

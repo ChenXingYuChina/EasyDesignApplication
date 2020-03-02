@@ -10,4 +10,5 @@ public class EmailField extends TextField {
             throw new Exception();
         }
     }
+
 }
