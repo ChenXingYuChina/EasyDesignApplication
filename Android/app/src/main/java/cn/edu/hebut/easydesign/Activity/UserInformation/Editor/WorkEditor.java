@@ -8,6 +8,6 @@ import androidx.annotation.NonNull;
 public class WorkEditor extends FrameLayout {
     public WorkEditor(@NonNull Context context) {
         super(context);
-        inflate(context)
+//        inflate(context)
     }
 }
