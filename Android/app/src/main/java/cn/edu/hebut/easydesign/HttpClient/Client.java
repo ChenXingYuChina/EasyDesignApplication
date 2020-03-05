@@ -1,17 +1,9 @@
 package cn.edu.hebut.easydesign.HttpClient;
 
-import android.util.Log;
-
-import java.io.IOException;
-import java.io.InputStream;
 import java.net.URL;
-import java.util.List;
-import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
-import cn.edu.hebut.easydesign.DataManagement.DataManagement;
 import cn.edu.hebut.easydesign.HttpClient.Form.Form;
-import okhttp3.Cache;
 import okhttp3.Cookie;
 import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
@@ -19,6 +11,9 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 public class Client {
+    public static final String netAddress = "192.168.31.216";
+//    public static final String netAddress = "175.24.76.161";
+
     private static Client instance = new Client();
     private Client(){
         client = new OkHttpClient.Builder().readTimeout(3, TimeUnit.SECONDS).cookieJar(cookieJar).build();
@@ -27,7 +22,7 @@ public class Client {
         return instance;
     }
     public OkHttpClient client;
-    private HttpUrl host = new HttpUrl.Builder().scheme("http").host(DataManagement.netAddress).build();
+    private HttpUrl host = new HttpUrl.Builder().scheme("http").host(netAddress).build();
     private MyCookieJar cookieJar = new MyCookieJar();
 
     public void setCookie(Cookie cookie) {

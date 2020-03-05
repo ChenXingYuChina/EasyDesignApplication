@@ -29,6 +29,7 @@ func (t *sessionTable) get(id int64) *Session {
 	defer t.lock[p].RUnlock()
 	m := t.table[p]
 	if s, ok := m[id]; ok {
+		s.lastActive = time.Now().Unix()
 		return s
 	}
 	return nil
@@ -36,16 +37,16 @@ func (t *sessionTable) get(id int64) *Session {
 
 func (t *sessionTable) put(session *Session) {
 	p := uint8(session.User.ID)
-	t.lock[p].RLock()
+	t.lock[p].Lock()
 	t.table[p][session.User.ID] = session
-	t.lock[p].RUnlock()
+	t.lock[p].Unlock()
 }
 
 func (t *sessionTable) del(id int64) {
 	p := uint8(id)
-	t.lock[p].RLock()
+	t.lock[p].Lock()
 	delete(t.table[p], id)
-	t.lock[p].RUnlock()
+	t.lock[p].Unlock()
 }
 
 func (t *sessionTable) cleaner() {
@@ -96,6 +97,7 @@ func LoginWithId(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(400)
 		return
 	}
+	log.Println(r.Form)
 	id, ok := httpTools.GetInt64FromForm(r.Form, "id")
 	if !ok {
 		w.WriteHeader(400)
@@ -125,8 +127,6 @@ func LoginWithId(w http.ResponseWriter, r *http.Request) {
 			log.Println(err)
 		}
 		st.put(session)
-	} else {
-		session.lastActive = time.Now().Unix()
 	}
 	session.SessionKey = int64(rand.Uint64())
 	g, err := json.Marshal(session)
@@ -140,6 +140,7 @@ func LoginWithId(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(500)
 		return
 	}
+	log.Println("login success")
 	http.SetCookie(w, &http.Cookie{Name:"sessionKey", Value:strconv.FormatInt(session.SessionKey, 16), HttpOnly:true})
 }
 
@@ -248,4 +249,8 @@ func InitSessionTable(config Config) {
 		st.lock[i] = new(sync.RWMutex)
 	}
 	st.stopTime = config.KeepTime >> 8
+}
+
+func GetSession(sessionId int64) *Session {
+	return st.get(sessionId)
 }

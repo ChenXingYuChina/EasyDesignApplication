@@ -16,7 +16,7 @@ import cn.edu.hebut.easydesign.Activity.ContextHelp.ContextHolder;
 import cn.edu.hebut.easydesign.Activity.PassageList.Config.HotByType;
 import cn.edu.hebut.easydesign.Activity.PassageList.Page.Page;
 import cn.edu.hebut.easydesign.Activity.PassageList.Page.PassageListPage;
-import cn.edu.hebut.easydesign.Activity.PassageList.PassageListView;
+import cn.edu.hebut.easydesign.Activity.PassageList.PassageListViewPerformance;
 import cn.edu.hebut.easydesign.Activity.PassageList.PassageMultiListView;
 import cn.edu.hebut.easydesign.R;
 
@@ -29,7 +29,7 @@ public class HomeFragment extends Fragment {
         listView = home.findViewById(R.id.hot_list);
         List<Page> pages = new ArrayList<>(4);
         pages.add(new PassageListPage(new HotByType((short) 0)));
-        pages.add(new PassageListPage(new HotByType((short) 1)));
+        pages.add(new PassageListPage(new PassageListViewPerformance(R.layout.title_main_card, R.layout.nil_head, PassageListViewPerformance.Linear), new HotByType((short) 1), null));
         pages.add(new PassageListPage(new HotByType((short) 2)));
         pages.add(new PassageListPage(new HotByType((short) 3)));
         listView.init(pages, new HomeFixedPart(ContextHolder.getContext()));

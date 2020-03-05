@@ -40,7 +40,6 @@ public abstract class HostPostTask extends Task<String, Form> {
         } finally {
             if (r != null) {
                 r.close();
-
                 Log.i("HPT", "do2");
             }
         }

@@ -38,7 +38,7 @@
     <Spinner
         android:layout_width="200dp"
         android:layout_height="30dp"
-        android:entries="@array/logindengji"
+        android:entries="@array/identity_type"
         android:layout_marginTop="200dp"
         android:background="@drawable/round_corner"
         app:layout_constraintEnd_toEndOf="parent"
@@ -47,7 +47,7 @@
         />
 
     <ImageView
-        android:id="@+id/next"
+        android:id="@+id/sign_up"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:src="@drawable/next"
@@ -60,15 +60,15 @@
         app:layout_constraintHorizontal_bias="0.86"/>
 
     <TextView
-        android:id="@+id/zhuce"
+        android:id="@+id/sign_up_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="完成"
         android:textSize="20dp"
 
-        app:layout_constraintEnd_toEndOf="@id/next"
-        app:layout_constraintStart_toStartOf="@id/next"
-        app:layout_constraintTop_toBottomOf="@id/next"
+        app:layout_constraintEnd_toEndOf="@id/sign_up"
+        app:layout_constraintStart_toStartOf="@id/sign_up"
+        app:layout_constraintTop_toBottomOf="@id/sign_up"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

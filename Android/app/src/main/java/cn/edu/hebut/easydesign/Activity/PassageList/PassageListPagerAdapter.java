@@ -11,9 +11,14 @@ import cn.edu.hebut.easydesign.Activity.PassageList.Page.Page;
 
 public class PassageListPagerAdapter extends PagerAdapter {
     private List<Page> pages;
+    private boolean[] firstRefresh;
 
     PassageListPagerAdapter(List<Page> pages) {
         this.pages = pages;
+        firstRefresh = new boolean[pages.size()];
+        for (int i = 0; i < firstRefresh.length; i ++) {
+            firstRefresh[i] = true;
+        }
     }
 
     @NonNull
@@ -21,7 +26,10 @@ public class PassageListPagerAdapter extends PagerAdapter {
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
         Page page = pages.get(position);
         container.addView(page.getView());
-        page.onRefresh();
+        if (firstRefresh[position]) {
+            page.onRefresh();
+            firstRefresh[position] = false;
+        }
         return page.getView();
     }
 

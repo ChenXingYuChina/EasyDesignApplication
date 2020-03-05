@@ -3,19 +3,14 @@ package cn.edu.hebut.easydesign.HttpClient.Form;
 import android.util.Log;
 
 import java.security.MessageDigest;
-import java.util.Arrays;
-import java.util.Calendar;
 import java.util.Date;
 
-import androidx.annotation.VisibleForTesting;
 import okhttp3.FormBody;
 import okhttp3.MultipartBody;
-import okio.ByteString;
 
 public class PasswordField implements FormField {
     private String fieldName;
-    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
-    public String pw;
+    private String pw;
     private boolean md5;
     public static final char[] hex = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
 

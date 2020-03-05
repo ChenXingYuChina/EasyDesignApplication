@@ -15,7 +15,6 @@ import androidx.annotation.Nullable;
 import cn.edu.hebut.easydesign.Activity.ActivityTask.DelayJumpTask;
 import cn.edu.hebut.easydesign.Activity.ContextHelp.ContextHolder;
 import cn.edu.hebut.easydesign.Activity.ContextHelp.HoldContextActivity;
-import cn.edu.hebut.easydesign.DataManagement.DataManagement;
 import cn.edu.hebut.easydesign.HttpClient.Client;
 import cn.edu.hebut.easydesign.R;
 import cn.edu.hebut.easydesign.Resources.Media.Image.ImageHostLoadTask;
@@ -34,8 +33,6 @@ public class FirstPage extends HoldContextActivity {
         setContentView(R.layout.first_page);
         final ImageView view = findViewById(R.id.helloImage);
         view.setImageResource(R.drawable.yindao1);
-        DataManagement.getInstance().Start(this);
-//        DataManagement.getInstance().Clear();
         startService(new Intent(this, TaskService.class));
         connection = new ServiceConnection() {
             @Override
@@ -43,8 +40,8 @@ public class FirstPage extends HoldContextActivity {
                 final Condition<Integer> c = new Condition<>();
                 ContextHolder.setBinder((TaskService.MyBinder) service);
 
-//                c.condition = checkVersion()?2:1;
-                c.condition = 2;
+                c.condition = checkVersion()?2:1;
+//                c.condition = 2;
 
                 ((TaskService.MyBinder)service).PutTask(new DelayJumpTask(3 * 1000, c) {
                     @Override
@@ -59,7 +56,7 @@ public class FirstPage extends HoldContextActivity {
                                 intent = new Intent(FirstPage.this, Splash.class);
                                 break;
                             default:
-                                intent = new Intent(FirstPage.this, login2.class);
+                                intent = new Intent(FirstPage.this, LoginPage.class);
                         }
                         startActivity(intent);
                         finish();
@@ -95,13 +92,14 @@ public class FirstPage extends HoldContextActivity {
                     }
                 });
                 SharedPreferences read = getSharedPreferences("loginInformation", MODE_PRIVATE);
-                int id = read.getInt("id", 50);
+//                long id = read.getLong("id", 50);
+                long id = 3;
                 String pw = read.getString("pw", "hello world");
                 Log.i("ED", "loginInformation " + id +" " + pw);
                 try {
                     ((TaskService.MyBinder) service).PutTask(new LoginTask(id, pw) {
                         @Override
-                        protected void doOnMain() {
+                        protected void doOnMainNormal() {
                             if (c.condition != 1) {
                                 c.condition = this.condition.condition;
                             }
@@ -128,11 +126,14 @@ public class FirstPage extends HoldContextActivity {
 
     // if not match return false, else return true
     boolean checkVersion() {
-        SharedPreferences read = getSharedPreferences("last_version", MODE_PRIVATE);
-        int lastVersion = read.getInt("version", 0);
+        SharedPreferences lastVersionSP = getSharedPreferences("last_version", MODE_PRIVATE);
+        int lastVersion = lastVersionSP.getInt("version", 0);
         int version = 0;
         try {
             version = getVersion(this);
+            SharedPreferences.Editor editor = lastVersionSP.edit();
+            editor.putInt("version", version);
+            editor.apply();
         } catch (Exception e) {
             Log.e("firstPage", "checkVersion: ", e);
         }

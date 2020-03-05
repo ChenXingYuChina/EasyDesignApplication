@@ -1,19 +1,30 @@
 package action
 
 import (
+	"EasyDesignApplication/server/action/session"
 	"EasyDesignApplication/server/base"
 	. "EasyDesignApplication/server/base/user"
 	"fmt"
 	"testing"
+	"time"
 )
 
+const remote = false
+
 func TestMain(m *testing.M) {
-	err := base.SqlInit("postgres", "easyDesign", "easyDesign2019", "easyDesigner", "127.0.0.1")
+	var err error
+	if !remote {
+		err = base.SqlInit("postgres", "easyDesign", "easyDesign2019", "easyDesigner", "127.0.0.1")
+	} else  {
+		err = base.SqlInit("postgres", "appdb", "12345678", "app_dev", "175.24.76.161")
+	}
 	if err != nil {
 		fmt.Println(err)
 	}
 	base.DataDir = "../testData"
 	base.Prepare()
+	session.InitSessionDir()
+	session.InitSessionTable(session.Config{KeepTime: int64(1*time.Hour), SessionKeySeed: 12324})
 	m.Run()
 }
 
@@ -76,4 +87,8 @@ func TestChangePassword(t *testing.T) {
 	if !u.ChangePassword(pw, Password(GenPasswordInBack("hello world"))) {
 		t.Error("fall")
 	}
+}
+
+func TestDescription(t *testing.T) {
+
 }

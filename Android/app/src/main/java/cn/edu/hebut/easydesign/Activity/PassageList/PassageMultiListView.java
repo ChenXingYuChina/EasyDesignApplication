@@ -20,6 +20,7 @@ public class PassageMultiListView extends PassageListContainer {
     private CategoryGroup group;
     private List<Page> pages;
     private FrameLayout head;
+    private View top;
     public PassageMultiListView(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         inflate(context, R.layout.passage_mulit_list_view, this);
@@ -29,7 +30,8 @@ public class PassageMultiListView extends PassageListContainer {
         int publicHead = attrs.getAttributeResourceValue("http://schemas.android.com/apk/res-auto", "top", R.layout.nil_head);
         head = findViewById(R.id.top_view);
         inflate(context, publicHead, head);
-        View top = head.getChildAt(0);
+        top = head.getChildAt(0);
+        Log.i("PMLV", "top: " + top);
         if (top instanceof OnHeadBind) {
             ((OnHeadBind) top).onHeadBind(this);
         }
@@ -67,6 +69,7 @@ public class PassageMultiListView extends PassageListContainer {
         group.setOnSelectedChangeListener(new CategoryGroup.onSelectedChangeListener() {
             @Override
             public void onChange(int position) {
+                Log.i("PMLV", "the new select: " + position);
                 Page page = pages.get(position);
                 pager.setCurrentItem(position);
                 swipe.setEnabled(page.canRefresh());
@@ -78,7 +81,11 @@ public class PassageMultiListView extends PassageListContainer {
     }
 
     public View getHead() {
-        return head.getChildAt(0);
+        return top;
+    }
+
+    public void closeRefresh() {
+        swipe.setRefreshing(false);
     }
 
 }

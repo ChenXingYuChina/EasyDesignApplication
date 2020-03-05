@@ -33,6 +33,7 @@ public class TextField implements FormField {
         return false;
     }
 
+
     public void setData(String data) {
         this.data = data;
         Log.i("build", this.data);

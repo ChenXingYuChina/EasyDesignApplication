@@ -26,4 +26,8 @@ public class ObjectHolder {
     public <T> T get(String key) {
         return (T) objects.get(key);
     }
+
+    public boolean has(String key) {
+        return objects.containsKey(key);
+    }
 }

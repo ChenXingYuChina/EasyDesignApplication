@@ -23,7 +23,7 @@ type CommentBase struct {
 
 func prepareCommentSQL() (uint8, error) {
 	var err error
-	loadCommentBase, err = SQLPrepare("select position, like_number, sub_comment, owner from comment where passage_id = $1 order by position asc limit $3 offset $2")
+	loadCommentBase, err = SQLPrepare("select position, like_number, sub_comment, owner from comment where passage_id = $1 order by position desc limit $3 offset $2")
 	if err != nil {
 		return 0, err
 	}

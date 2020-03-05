@@ -1,8 +1,0 @@
-1. 需要缓存的对象实现Data接口并在DataType中添加该类型对应的枚举，并设置其path为url访问路径（暂时与类型名相同）。
-2. 为所有的Data类补充实现了DataLoader的类，分别实现如何从缓存中加载和从网络中加载。
-3. 一般使用DataManagement的LoadData函数其自动缓存。
-4. 需要的时候，可以通过DataManagement中的GetUriOf函数找到对应资源的Uri（可能是文件或者是网址）。
-5. 扩展，如果需要更多的数据源那么可以通过将DataManagement中的DataLoader的个数增加来扩展，使用数组循环实现优先级，但保留local项作为缓存位置。
-6. 使用之前需要先使用Start进行启动。
-7. 每种类型的资源需要在使用之前需要使用RegisterLoader注册Loader。
-8. Clear可以清理缓存。

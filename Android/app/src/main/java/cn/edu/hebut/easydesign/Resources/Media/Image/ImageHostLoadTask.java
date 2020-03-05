@@ -1,13 +1,8 @@
 package cn.edu.hebut.easydesign.Resources.Media.Image;
 
 import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
-import android.net.Uri;
 import android.util.Log;
 
-import cn.edu.hebut.easydesign.DataManagement.Data;
-import cn.edu.hebut.easydesign.DataManagement.DataManagement;
-import cn.edu.hebut.easydesign.DataManagement.DataType;
 import cn.edu.hebut.easydesign.TaskWorker.Condition;
 import cn.edu.hebut.easydesign.TaskWorker.Task;
 import cn.edu.hebut.easydesign.TaskWorker.TaskService;
@@ -45,7 +40,7 @@ public abstract class ImageHostLoadTask extends Task<Long, Bitmap> {
 //        data2 = DataManagement.getInstance().Cache(DataType.Image, data1);
         try {
             if (!cancel.condition) {
-                data2 = ImageManager.getInstance().LoadImage(data1);
+                data2 = ImageLoader.getInstance().load(data1);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -56,6 +51,8 @@ public abstract class ImageHostLoadTask extends Task<Long, Bitmap> {
     /*
             if give a id so this method can has an empty implement.
              */
-    protected abstract long getId();
+    protected long getId() {
+        return 0;
+    }
     protected abstract void setImage(Bitmap bitmap);
 }

@@ -9,10 +9,9 @@ import android.widget.FrameLayout;
 
 import androidx.annotation.NonNull;
 import cn.edu.hebut.easydesign.Activity.ContextHelp.ContextHolder;
-import cn.edu.hebut.easydesign.Activity.PassageActivity;
+import cn.edu.hebut.easydesign.Activity.Passage.PassageActivity;
 import cn.edu.hebut.easydesign.Resources.UserMini.UserMini;
 import cn.edu.hebut.easydesign.TaskWorker.Condition;
-import cn.edu.hebut.easydesign.TaskWorker.TaskService;
 
 public abstract class PassageItemCard extends FrameLayout implements FrameLayout.OnClickListener {
     protected PassageListItem item = null;

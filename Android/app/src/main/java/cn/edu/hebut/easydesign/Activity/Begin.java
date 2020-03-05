@@ -14,11 +14,11 @@ public class Begin extends HoldContextAppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login1);
-        next = findViewById(R.id.next);
+//        next = findViewById(R.id.next);
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Begin.this,login2.class);
+                Intent intent = new Intent(Begin.this, LoginPage.class);
                 startActivity(intent);
             }
         });

@@ -65,7 +65,12 @@ func LoadSubCommentByPosition(passageId int64, fatherPosition uint32, begin uint
 	if err != nil {
 		return nil, err
 	}
-	goal := make([]*SubComment, 0, length)
+	var goal []*SubComment
+	if length >= 3 {
+		goal = make([]*SubComment, 0, 3)
+	} else {
+		goal = make([]*SubComment, 0, length)
+	}
 	for r.Next() {
 		c := &SubComment{}
 		err = r.Scan(&(c.Content), &(c.Position), &(c.Like), &(c.Owner))

@@ -8,11 +8,13 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+import androidx.annotation.NonNull;
+
 public class Student extends Identity implements Serializable {
     public List<School> schools;
 
     public Student(JSONObject identity) throws Exception {
-        JSONArray array = identity.getJSONArray("school");
+        JSONArray array = identity.getJSONArray("schools");
         schools = new ArrayList<>(array.length());
         for (int i = 0; i < array.length(); i++) {
             schools.add(new School(array.getJSONObject(i)));
@@ -35,6 +37,7 @@ public class Student extends Identity implements Serializable {
 
     public static final String[] diplomaNames = new String[]{"小学", "初中", "高中", "大学", "研究生", "博士"};
 
+    @NonNull
     @Override
     public String toString() {
         int last = -1;

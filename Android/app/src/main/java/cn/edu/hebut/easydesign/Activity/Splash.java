@@ -10,14 +10,13 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.viewpager.widget.ViewPager;
-
-import cn.edu.hebut.easydesign.Activity.Adapter.SplashAdapter;
-import cn.edu.hebut.easydesign.R;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
+import cn.edu.hebut.easydesign.Activity.Adapter.SplashAdapter;
+import cn.edu.hebut.easydesign.R;
 
 public class Splash extends AppCompatActivity {
     private List<View> mViews = new ArrayList<>();
@@ -49,9 +48,9 @@ public class Splash extends AppCompatActivity {
         mViewPager =  findViewById(R.id.viewpager);
         mPoints =  findViewById(R.id.points);
         mPoints.setVisibility(View.GONE);
-        zhuce = findViewById(R.id.zhuce);
+        zhuce = findViewById(R.id.sign_up_label);
         zhuce.setVisibility(View.GONE);
-        next = findViewById(R.id.next);
+//        next = findViewById(R.id.next);
         next.setVisibility(View.GONE);
         btn =  findViewById(R.id.btn);
         btn.setVisibility(View.GONE);

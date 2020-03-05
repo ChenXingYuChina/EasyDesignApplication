@@ -13,18 +13,19 @@ import androidx.core.view.NestedScrollingChild;
 import androidx.core.view.NestedScrollingParentHelper;
 
 public class NestedScrollParentHelper extends NestedScrollingParentHelper {
-    private View target;
-    private OverScroller scroller;
-    private View topView;
-    private View fixedView;
-    private View contentView;
-    private int lastX;
-    private int lastY;
-    private int topHeight;
-    private int fixedHeight;
-    private VelocityTracker tracker;
-    private ViewGroup viewGroup;
-    private boolean shouldIntercept;
+    protected View target;
+    protected OverScroller scroller;
+    protected View topView;
+    protected View fixedView;
+    protected View contentView;
+    protected int lastX;
+    protected int lastY;
+    protected int topHeight;
+    protected int fixedHeight = -1;
+    protected VelocityTracker tracker;
+    protected ViewGroup viewGroup;
+    protected boolean shouldIntercept;
+    protected int topHeightTrue;
 
     /**
      * Construct a new helper for a given ViewGroup
@@ -38,20 +39,23 @@ public class NestedScrollParentHelper extends NestedScrollingParentHelper {
         this.viewGroup = viewGroup;
         scroller = new OverScroller(viewGroup.getContext());
         topView = viewGroup.getChildAt(0);
+        Log.i("helper", "top: " + topView);
         fixedView = viewGroup.getChildAt(1);
+        Log.i("helper", "fixed: " + fixedView);
         contentView = viewGroup.getChildAt(2);
+        Log.i("helper", "content: " + contentView);
         topView.getViewTreeObserver().addOnGlobalLayoutListener(
             new ViewTreeObserver.OnGlobalLayoutListener() {
                 @Override
                 public void onGlobalLayout() {
-                    Log.i("helper", "" + viewGroup.getHeight() + " " + fixedHeight + " " + contentView.getHeight());
-                    if (fixedHeight != fixedView.getMeasuredHeight()) {
-                        topHeight = topView.getMeasuredHeight();
+                    fixedHeight = fixedView.getHeight();
+
+                    if (fixedHeight != fixedView.getMeasuredHeight() || topHeight != topView.getHeight()) {
+                        topHeight = topView.getHeight();
                         ViewGroup.LayoutParams lp = contentView.getLayoutParams();
                         lp.height = viewGroup.getHeight() - fixedView.getHeight();
                         contentView.setLayoutParams(lp);
                     }
-                    fixedHeight = fixedView.getMeasuredHeight();
 
                 }
             }
@@ -64,6 +68,7 @@ public class NestedScrollParentHelper extends NestedScrollingParentHelper {
 
     public boolean onStartNestedScroll(View child, View target, int nestedScrollAxes) {
         this.target = target;
+        Log.i("target", "" + target);
         return target instanceof NestedScrollingChild;
     }
 
@@ -80,7 +85,7 @@ public class NestedScrollParentHelper extends NestedScrollingParentHelper {
 
     public void onNestedScroll(View target, int dxConsumed, int dyConsumed, int dxUnconsumed, int dyUnconsumed) {
         Log.e("cys", "onNestedScroll-> dyUnconsumed:" + dyUnconsumed + " dyConsumed:" + dyConsumed);
-        Log.i("NS", (target == this.target) + "");
+//        Log.i("NS", (target == this.target) + "");
         if (dyUnconsumed > 0 && this.target.canScrollVertically(1)) {
             if (viewGroup.getScrollY() == 0) {
                 //向下滑动mTarget带动parent完全划出,继续向下滑需要划出parent的parent
@@ -136,7 +141,7 @@ public class NestedScrollParentHelper extends NestedScrollingParentHelper {
         return topHeight;
     }
 
-    private void fling(int velocityY) {
+    protected void fling(int velocityY) {
         if (topView.isShown()) {
             scroller.fling(0, viewGroup.getScrollY(), 0, velocityY, 0, 0, 0, topHeight);
             viewGroup.invalidate();
@@ -153,6 +158,8 @@ public class NestedScrollParentHelper extends NestedScrollingParentHelper {
 
 
     public boolean onTouchEvent(MotionEvent event) {
+//        Log.i("NSPH", "on touch");
+
         if (tracker == null) {
             tracker = VelocityTracker.obtain();
         }
@@ -167,6 +174,7 @@ public class NestedScrollParentHelper extends NestedScrollingParentHelper {
                 break;
             //移动
             case MotionEvent.ACTION_MOVE:
+//                Log.i("NSPH", "when move");
                 int y = (int) (event.getRawY());
                 int dy = y - lastY;
                 lastY = y;
@@ -175,7 +183,7 @@ public class NestedScrollParentHelper extends NestedScrollingParentHelper {
                     if (!target.canScrollVertically(-1)) {
                         viewGroup.scrollBy(0, -dy); //mTarget处于顶部不能继续下滑的时候才能滑该View自己
                     } else {
-                        Log.e("cys", "scrollBy 需要传给mTarget");
+//                        Log.e("cys", "scrollBy 需要传给mTarget");
                         target.onTouchEvent(event);
                         break;
                     }
@@ -185,6 +193,7 @@ public class NestedScrollParentHelper extends NestedScrollingParentHelper {
                         target.onTouchEvent(event);
                     }
                 } else {
+//                    Log.i("NSPH", "scroll");
                     viewGroup.scrollBy(0, -dy);
                 }
 
@@ -196,7 +205,7 @@ public class NestedScrollParentHelper extends NestedScrollingParentHelper {
                 if (null != target) {
                     //解决当该View已经拦截了事件,飞划mTarget有效果
                     if (shouldIntercept && viewGroup.getScrollY() == topHeight) {
-                        Log.e("cys", "ACTION_UP 需要传给mTarget");
+//                        Log.e("cys", "ACTION_UP 需要传给mTarget");
                         target.onTouchEvent(event);
                         break;
                     }
@@ -227,6 +236,7 @@ public class NestedScrollParentHelper extends NestedScrollingParentHelper {
 
                 if (isVerticalScroll && topView.isShown()) {
                     if (isPullUp) { //上拉
+//                        Log.i("NSPH", "top: " +topHeight + " scroll y: " + viewGroup.getScrollY() + " target: " + target);
                         if (viewGroup.getScrollY() >= 0 && viewGroup.getScrollY() < topHeight) {
                             //target到顶不能往下滑动时,让父View拦截
                             shouldIntercept = null == target || !target.canScrollVertically(-1);
@@ -245,8 +255,11 @@ public class NestedScrollParentHelper extends NestedScrollingParentHelper {
                 shouldIntercept = false;
                 break;
         }
-        Log.e("cys", "onInterceptTouchEvent->" + shouldIntercept);
+//        Log.e("cys", "onInterceptTouchEvent->" + shouldIntercept);
         return shouldIntercept;
     }
 
+    public int getTopHeightTrue() {
+        return topHeightTrue;
+    }
 }

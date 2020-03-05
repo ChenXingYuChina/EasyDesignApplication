@@ -72,7 +72,7 @@ func userSQLPrepare() (uint8, error) {
 	}
 	position++
 
-	getStudentIdentity, err = SQLPrepare("select school.country, school.name, school_link.public from school_link, school where school_link.user_id = $1 and school_link.school_id = school.id")
+	getStudentIdentity, err = SQLPrepare("select school.country, school.name, school_link.public, diploma from school_link, school where school_link.user_id = $1 and school_link.school_id = school.id")
 	if err != nil {
 		return position, err //6
 	}
@@ -381,12 +381,13 @@ func loadIdentity(identityType uint8, id int64) (goal Identity, state uint8) {
 		for r.Next() {
 			var country, name string
 			var public bool
-			err = r.Scan(&country, &name, &public)
+			var diploma uint8
+			err = r.Scan(&country, &name, &public, &diploma)
 			if err != nil {
 				log.Println(err)
 				return nil, 255
 			}
-			student.Schools = append(student.Schools, School{Country:country, Name:name, Public:public})
+			student.Schools = append(student.Schools, School{Country:country, Name:name, Public:public, Diploma:diploma})
 		}
 		goal = student
 	case PublicType:

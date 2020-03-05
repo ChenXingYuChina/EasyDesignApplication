@@ -10,6 +10,7 @@ public abstract class PassageListViewConfig {
     protected TextField[] fields;
     protected TextField[] refreshFields;
     protected byte length = 10;
+    protected String api = "passageList";
     protected abstract FormField[] getFields(int begin);
     protected abstract FormField[] getRefreshFields(long lastTime);
 

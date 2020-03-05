@@ -12,8 +12,8 @@ import (
 )
 
 type fullPassageList struct {
-	PassageList Passage.PassageList `json:"passage_list"`
-	UserMiniList []*user.UserMini `json:"user_mini_list"`
+	PassageList  Passage.PassageList `json:"passage_list"`
+	UserMiniList []*user.UserMini    `json:"user_mini_list"`
 }
 
 var nilPassage = func() []byte {
@@ -69,7 +69,7 @@ func passageList(w http.ResponseWriter, r *http.Request) {
 			w.WriteHeader(500)
 			return
 		}
-		
+
 	} else if workshop, has := httpTools.GetInt64FromForm(r.Form, "workshop"); has {
 		// load passage by workshop
 		passageList, err = Passage.LoadPassageListByWorkshopLast(workshop, uint8(length), begin)
@@ -116,6 +116,7 @@ func passageList(w http.ResponseWriter, r *http.Request) {
 				}
 			}
 			if hot {
+				log.Println("hot")
 				passageList, userMinis, err = middle.LoadHotPassageList(int16(t), int64(begin), uint8(length))
 			} else {
 				passageList, userMinis, err = middle.LoadLastPassageListByType(int16(t), int64(begin), uint8(length))
@@ -126,7 +127,7 @@ func passageList(w http.ResponseWriter, r *http.Request) {
 			}
 		}
 	}
-	goal, err := json.Marshal(fullPassageList{PassageList: passageList, UserMiniList:userMinis})
+	goal, err := json.Marshal(fullPassageList{PassageList: passageList, UserMiniList: userMinis})
 	if err != nil {
 		w.WriteHeader(500)
 		return

@@ -14,7 +14,6 @@ func init() {
 	})
 }
 
-
 func prepare() (s uint8, err error) {
 	preparePassageDir()
 	s, err = preparePassageSQL()
@@ -26,6 +25,10 @@ func prepare() (s uint8, err error) {
 		return
 	}
 	s, err = preparePassageBodySQL()
+	if err != nil {
+		return
+	}
+	s, err = preparePassageAction()
 	if err != nil {
 		return
 	}

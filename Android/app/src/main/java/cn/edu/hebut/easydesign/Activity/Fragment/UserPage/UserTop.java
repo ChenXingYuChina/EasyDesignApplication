@@ -3,6 +3,7 @@ package cn.edu.hebut.easydesign.Activity.Fragment.UserPage;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.util.AttributeSet;
+import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -19,18 +20,17 @@ import cn.edu.hebut.easydesign.TaskWorker.TaskService;
 
 // TODO: 2020/2/15 add click listener to finish edit and other things.
 public class UserTop extends FrameLayout {
-    ImageView back, head;
-    TextView name, identity, passageNumber, followNumber, coinNumber, fansNumber;
-    ImageView editDescription;
+    ImageView back, head, editDescription;
+    TextView name, identity, passageNumber, followNumber, coinNumber, fansNumber, followLabel;
     User user;
     TaskService.MyBinder binder;
     Condition<Boolean> cancel;
 
     public UserTop(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-        inflate(context, R.layout.home_top_layout, this);
+        inflate(context, R.layout.user_top_layout, this);
         back = findViewById(R.id.user_back);
-        head = findViewById(R.id.user_head);
+        head = findViewById(R.id.user_head_image);
         name = findViewById(R.id.user_name);
         identity = findViewById(R.id.identify);
         passageNumber = findViewById(R.id.passage_number);
@@ -38,28 +38,19 @@ public class UserTop extends FrameLayout {
         coinNumber = findViewById(R.id.coin_number);
         fansNumber = findViewById(R.id.fans_number);
         editDescription = findViewById(R.id.edit_description);
+        followLabel = findViewById(R.id.follow);
     }
 
-    private void setUser(User user) {
+    void setUser(User user) {
         binder = ContextHolder.getBinder();
         cancel = new Condition<>(false);
         binder.PutTask(new ImageHostLoadTask(user.backImage, cancel) {
-            @Override
-            protected long getId() {
-                return 0;
-            }
-
             @Override
             protected void setImage(Bitmap bitmap) {
                 back.setImageBitmap(bitmap);
             }
         });
         binder.PutTask(new ImageHostLoadTask(user.headImage, cancel) {
-            @Override
-            protected long getId() {
-                return 0;
-            }
-
             @Override
             protected void setImage(Bitmap bitmap) {
                 head.setImageBitmap(bitmap);
@@ -70,11 +61,15 @@ public class UserTop extends FrameLayout {
         passageNumber.setText(String.valueOf(user.passageNumber));
         followNumber.setText(String.valueOf(user.followNumber));
         coinNumber.setText(String.valueOf(user.coin));
-        fansNumber.setText(String.valueOf(fansNumber));
+        fansNumber.setText(String.valueOf(user.fansNumber));
     }
 
     public void cancel() {
         if (cancel != null) cancel.condition = true;
     }
 
+    public void setFollowOnClickListener(OnClickListener listener) {
+        followNumber.setOnClickListener(listener);
+        followLabel.setOnClickListener(listener);
+    }
 }

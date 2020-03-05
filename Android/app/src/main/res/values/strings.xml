@@ -21,13 +21,43 @@
     <string name="loading_list">正在加载更多</string>
     <string name="finish_list">没有更多了</string>
     <string name="no_news">没有新的内容</string>
-    <array name="logindengji">
-        <item name="xiaobai">建筑小白</item>
-        <item name="nuli">正在努力</item>
-        <item name="xiaocheng">小有成就</item>
-        <item name="dashen">建筑大神</item>
+    <array name="identity_type">
+        <item name = "student">学生</item>
+        <item name = "designer">设计师</item>
+        <item name="public">公众</item>
     </array>
     <string name="isNew">已经是最新内容了</string>
     <string name="error">出错了</string>
     <string name="load">点击加载</string>
+    <string-array name="industry">
+        <item>计算机/互联网</item>
+        <item>医疗</item>
+    </string-array>
+    <string-array name="position_it">
+        <item>测试</item>
+        <item>开发</item>
+    </string-array>
+    <string-array name="position_medical">
+        <item>内科医师</item>
+        <item>外科护士</item>
+    </string-array>
+    <string-array name="diploma_names">
+        <item>小学</item>
+        <item>初中</item>
+        <item>高中</item>
+        <item>大学</item>
+        <item>研究生</item>
+        <item>博士</item>
+    </string-array>
+    <string-array name="school_countries">
+        <item>中国</item>
+        <item>新西兰</item>
+    </string-array>
+    <string-array name="chinese_school">
+        <item>河北工业大学</item>
+        <item>天津大学</item>
+    </string-array>
+    <string-array name="nz_school">
+        <item>梅西大学</item>
+    </string-array>
 </resources>

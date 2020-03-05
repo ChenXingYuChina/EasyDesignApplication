@@ -10,8 +10,15 @@ import (
 	"testing"
 )
 
+const remote = true
+
 func TestMain(m *testing.M) {
-	err := SqlInit("postgres", "easyDesign", "easyDesign2019", "easyDesigner", "127.0.0.1")
+	var err error
+	if !remote {
+		err = SqlInit("postgres", "easyDesign", "easyDesign2019", "easyDesigner", "127.0.0.1")
+	} else  {
+		err = SqlInit("postgres", "appdb", "12345678", "app_dev", "175.24.76.161")
+	}
 	if err != nil {
 		panic(err)
 	}
@@ -21,7 +28,7 @@ func TestMain(m *testing.M) {
 }
 
 func TestNewPassage(t *testing.T) {
-	p, err := NewPassage(&ComplexString.ComplexString{Content:"content"}, 0, 48, "test", 0, nil, 0)
+	p, err := NewPassage(&ComplexString.ComplexString{Content:"content"}, 0, 3, "test", 0, nil, 0)
 	if err != nil {
 		t.Error(err)
 		return

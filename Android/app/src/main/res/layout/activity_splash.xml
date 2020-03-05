@@ -24,7 +24,7 @@
         android:text="进入应用"></Button>
 
     <ImageView
-        android:id="@+id/next"
+        android:id="@+id/sign_up"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:src="@drawable/next"
@@ -36,7 +36,7 @@
     </ImageView>
 
     <TextView
-        android:id="@+id/zhuce"
+        android:id="@+id/sign_up_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="15sp"

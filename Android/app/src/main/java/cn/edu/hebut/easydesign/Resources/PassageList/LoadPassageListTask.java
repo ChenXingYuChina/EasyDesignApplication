@@ -10,12 +10,11 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-import cn.edu.hebut.easydesign.DataManagement.DataManagement;
-import cn.edu.hebut.easydesign.DataManagement.DataType;
 import cn.edu.hebut.easydesign.HttpClient.Form.Form;
 import cn.edu.hebut.easydesign.HttpClient.Form.FormField;
 import cn.edu.hebut.easydesign.HttpClient.Form.TextField;
 import cn.edu.hebut.easydesign.Resources.UserMini.UserMini;
+import cn.edu.hebut.easydesign.Resources.UserMini.UserMiniLoader;
 import cn.edu.hebut.easydesign.TaskWorker.BaseTasks.HostPostTask;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
@@ -24,15 +23,15 @@ public abstract class LoadPassageListTask extends HostPostTask {
     private PassageList passageList;
     private List<UserMini> userMiniList;
     private FormField[] fields;
-    public LoadPassageListTask(FormField[] fields) {
-        super("passageList");
+    public LoadPassageListTask(String api, FormField[] fields) {
+        super(api);
         this.fields = fields;
     }
 
     @Override
     protected int makeForm(Form form) {
         for (FormField f : fields) {
-            form.AddFields(f);
+            form.addFields(f);
         }
         return 0;
     }
@@ -62,7 +61,7 @@ public abstract class LoadPassageListTask extends HostPostTask {
             }
             Log.i("LPL", "before load user");
             for (; i < passageList.list.size(); i++) {
-                userMiniList.add((UserMini) DataManagement.getInstance().LoadData(DataType.UserMini, passageList.list.get(i).owner));
+                userMiniList.add(UserMiniLoader.getInstance().load(passageList.list.get(i).owner));
             }
             Log.i("LPL", "after load user");
         } catch (JSONException e) {
@@ -95,7 +94,8 @@ public abstract class LoadPassageListTask extends HostPostTask {
         Hot("hot"),
         Keyword("keyword"),
         LastRefreshTime("refresh"),
-        Workshop("workshop");
+        Workshop("workshop"),
+        Star("star");
         field(String name){
             fieldName = name;
         }

@@ -34,11 +34,11 @@ public class ComplexString implements Serializable {
     int[] width = null;
     int[] resourcesId = null;
     ArrayList<String> urls = null;
-    transient private ArrayList<String> imageUrls = null;
-    transient private ArrayList<byte[]> data = null;
-    CharSequence content = null;
-    transient private SpannableString string = null;
+    private transient ArrayList<String> imageUrls = null;
+    private transient ArrayList<byte[]> data = null;
+    String content = null;
     transient volatile Condition<Boolean> cancelLoadImage;
+    transient SpannableString string = null;
     public long id;
 
     public ComplexString(String string) {
@@ -56,8 +56,8 @@ public class ComplexString implements Serializable {
         if (content != null) {
             return;
         }
-        content = string.subSequence(0, string.length());
-        Object[] spans = string.getSpans(0, string.length(), null);
+        content = string.subSequence(0, string.length()).toString();
+        Object[] spans = string.getSpans(0, string.length(), Object.class);
         int length = spans.length;
         position = new int[length];
         width = new int[length];
@@ -136,6 +136,23 @@ public class ComplexString implements Serializable {
     }
 
     public SpannableString GetSpannableString() {
+        if (string == null) {
+            SpannableString goal = new SpannableString(content);
+            cancelLoadImage = new Condition<>(false);
+            int c = 0;
+            Condition<Boolean> condition = new Condition<>(false);
+            for (int i : position) {
+                long rid = resourcesId[i];
+                try {
+                    AddSpan(position[i], width[i], rid, urls.get(c));
+                    if (rid == HYPERLINK) c++;
+                } catch (Exception e) {
+                    Log.i("PASS", "LoadComplexStringFromCache: pass resource's id: " + rid);
+                }
+            }
+            string = goal;
+            cancelLoadImage = condition;
+        }
         return string;
     }
 
@@ -262,7 +279,7 @@ public class ComplexString implements Serializable {
         this.string.removeSpan(getSpanFromId(id, url));
     }
 
-    private TextView textView;
+    private transient TextView textView;
 
     public void SetToTextView(TextView textView) {
         textView.setText(GetSpannableString());
@@ -270,6 +287,10 @@ public class ComplexString implements Serializable {
         textView.setMovementMethod(LinkMovementMethod.getInstance());
     }
 
+    public void cancel() {
+        if (cancelLoadImage != null)
+            cancelLoadImage.condition = true;
+    }
     void refresh() {
         if (textView != null) {
             textView.setText(GetSpannableString());
