@@ -25,7 +25,8 @@ android {
                     "src/main/res/layout/passageList",
                     "src/main/res/layout/examplePage",
                     "src/main/res/layout/user_page",
-                    "src/main/res/layout/PassageActivity"
+                    "src/main/res/layout/PassageActivity",
+                    "src/main/res/UserInformation"
             ]
         }
     }

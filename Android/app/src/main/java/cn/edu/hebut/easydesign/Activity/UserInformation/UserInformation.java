@@ -1,17 +1,22 @@
-package cn.edu.hebut.easydesign.Activity.SignUp;
+package cn.edu.hebut.easydesign.Activity.UserInformation;
 
+import cn.edu.hebut.easydesign.Activity.UserInformation.CachedIdentity.DesignerCached;
+import cn.edu.hebut.easydesign.Activity.UserInformation.CachedIdentity.PublicCached;
+import cn.edu.hebut.easydesign.Activity.UserInformation.CachedIdentity.StudentCached;
 import cn.edu.hebut.easydesign.HttpClient.Form.EmailField;
 import cn.edu.hebut.easydesign.HttpClient.Form.FormField;
 import cn.edu.hebut.easydesign.HttpClient.Form.IntField;
 import cn.edu.hebut.easydesign.HttpClient.Form.JsonField;
 import cn.edu.hebut.easydesign.HttpClient.Form.PasswordField;
 import cn.edu.hebut.easydesign.HttpClient.Form.TextField;
-import cn.edu.hebut.easydesign.Session.User.Identity;
 import cn.edu.hebut.easydesign.Session.User.User;
 
-class UserInformation extends User {
+public class UserInformation extends User {
     int identityType;
     private String password;
+    private PublicCached publicCached;
+    private StudentCached studentCached;
+    private DesignerCached designerCached;
 
     private static final int Password = 0;
     private static final int Name = 1;
@@ -40,12 +45,40 @@ class UserInformation extends User {
         formFields[Email] = new EmailField("email", email);
     }
 
-    void setIdentity(Identity identity) throws Exception {
-        this.identity = identity;
+    void useStudent() throws Exception {
+        this.identity = studentCached.student;
         formFields[Identity] = new JsonField("identity", identity.toJson());
     }
+
+    void usePublic() throws Exception {
+        identity = publicCached.goal;
+        formFields[Identity] = new JsonField("identity", identity.toJson());
+    }
+
+    void userDesigner() throws Exception {
+        identity = designerCached.designer;
+        formFields[Identity] = new JsonField("identity", identity.toJson());
+    }
+
 
     FormField[] getFormFields() {
         return formFields;
     }
+
+    public void setPublicCached(PublicCached publicCached) {
+        this.publicCached = publicCached;
+    }
+
+    public void setStudentCached(StudentCached studentCached) {
+        this.studentCached = studentCached;
+    }
+
+    public void setDesignerCached(DesignerCached designerCached) {
+        this.designerCached = designerCached;
+    }
+
+    public static class publicCached {
+
+    }
+
 }

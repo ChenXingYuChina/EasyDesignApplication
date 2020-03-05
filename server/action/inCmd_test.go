@@ -9,7 +9,7 @@ import (
 	"time"
 )
 
-const remote = true
+const remote = false
 
 func TestMain(m *testing.M) {
 	var err error

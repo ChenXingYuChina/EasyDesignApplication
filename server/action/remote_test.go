@@ -4,6 +4,6 @@ import (
 	"testing"
 )
 
-func TestSignUp(t *testing.T) {
+func TestSignUpRemote(t *testing.T) {
 	signUpStudentInCmd("a@b.com", "hello world")
 }

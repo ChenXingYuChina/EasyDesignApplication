@@ -12,7 +12,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
@@ -131,6 +130,13 @@ public class FullSubComment extends FrameLayout {
         });
     }
 
+    private void addSubComment(SubComment subComment) {
+        SubCommentHolder holder = adapter.makeSubCommentHolder();
+        holder.setData(subComment, ContextHolder.getBinder(), cancel);
+        this.subComments.addView(holder.itemView, 0);
+        subCommentHolders.add(holder);
+    }
+
     private void sendSubComment() {
         String subCommentContent = input.getText().toString();
         if (subCommentContent.length() != 0) {
@@ -147,6 +153,7 @@ public class FullSubComment extends FrameLayout {
                 @Override
                 protected void onSuccess() {
                     Toast.makeText(ContextHolder.getContext(), "评论成功", Toast.LENGTH_SHORT).show();
+
                     send.setClickable(true);
                     input.setText("");
                 }

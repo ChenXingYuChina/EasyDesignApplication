@@ -8,6 +8,10 @@ public class School implements Serializable {
     public boolean publicSchool;
     public String country, name;
     public int diploma;
+
+    public School() {
+    }
+
     public School(boolean publicSchool, String country, String name, int diploma) {
         this.publicSchool = publicSchool;
         this.country = country;

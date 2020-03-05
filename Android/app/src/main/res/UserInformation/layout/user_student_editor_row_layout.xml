@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@id/order_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="显示优先级"
+        app:layout_constraintBottom_toBottomOf="@id/change_school"
+        app:layout_constraintStart_toEndOf="@id/school_public"
+        app:layout_constraintTop_toTopOf="@id/change_school" />
+
+    <TextView
+        android:id="@id/order"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:ems="1"
+        android:gravity="center"
+        android:inputType="number"
+        android:text="1"
+        app:layout_constraintBottom_toBottomOf="@+id/order_label"
+        app:layout_constraintStart_toEndOf="@+id/order_label"
+        app:layout_constraintTop_toTopOf="@+id/order_label" />
+
+    <TextView
+        android:id="@id/school_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="河北工业大学"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/diploma_label"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@id/diploma_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="学历："
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/diploma"
+        app:layout_constraintTop_toBottomOf="@id/school_name" />
+
+    <TextView
+        android:id="@id/diploma"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="本科"
+        app:layout_constraintLeft_toRightOf="@id/diploma_label"
+        app:layout_constraintRight_toLeftOf="@id/country_label"
+        app:layout_constraintTop_toTopOf="@id/diploma_label" />
+
+    <TextView
+        android:id="@id/country_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="国家："
+        app:layout_constraintEnd_toStartOf="@id/school_country"
+        app:layout_constraintTop_toTopOf="@+id/diploma" />
+
+    <TextView
+        android:id="@id/school_country"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="64dp"
+        android:text="中国"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/diploma_label" />
+
+    <TextView
+        android:id="@+id/public_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="公开状态："
+        app:layout_constraintBottom_toBottomOf="@id/change_school"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/diploma_label" />
+
+    <TextView
+        android:id="@id/school_public"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="公开"
+        app:layout_constraintBottom_toBottomOf="@+id/change_school"
+        app:layout_constraintStart_toEndOf="@+id/public_label"
+        app:layout_constraintTop_toTopOf="@+id/change_school" />
+
+    <Button
+        android:id="@+id/change_school"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="编辑"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/school_country" />
+</androidx.constraintlayout.widget.ConstraintLayout>

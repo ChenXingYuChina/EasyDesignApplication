@@ -33,3 +33,18 @@ func TestLikeSubComment(t *testing.T) {
 	}
 	testTool(t, "likeSubComment", r, session.NeedLogin(likeSubComment))
 }
+
+func TestSignUp(t *testing.T) {
+	r := &http.Request{
+		Method: "POST",
+		PostForm: url.Values{
+			"name":         {"test"},
+			"pw":           {user.MakePasswordInFront("hello world")},
+			"email":        {"test@test.com"},
+			"identityType": {"0"},
+			"quick":        {"false"},
+			"identity": {`{"schools": [{"public":true, "diploma":3, "country": "中国", "name": "河北工业大学"}]}`},
+		},
+	}
+	testTool(t, "signUp", r, signUp)
+}

@@ -13,4 +13,9 @@
     <item name="comment_content" type="id" />
     <item name="sub_comment_layout" type="id" />
 
+    <item name="school_name" type="id" />
+    <item name="diploma" type="id" />
+    <item name="school_country" type="id" />
+    <item name="school_public" type="id" />
+
 </resources>

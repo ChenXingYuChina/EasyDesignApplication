@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/linearLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="16dp">
 
     <TextView
-        android:id="@+id/school_name"
+        android:id="@id/school_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="河北工业大学"
@@ -29,7 +28,7 @@
         app:layout_constraintTop_toBottomOf="@id/school_name" />
 
     <TextView
-        android:id="@+id/diploma"
+        android:id="@id/diploma"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="本科"
@@ -42,11 +41,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="国家："
-        app:layout_constraintEnd_toStartOf="@id/country"
+        app:layout_constraintEnd_toStartOf="@id/school_country"
         app:layout_constraintTop_toTopOf="@+id/diploma" />
 
     <TextView
-        android:id="@+id/country"
+        android:id="@id/school_country"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:minWidth="64dp"

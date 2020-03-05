@@ -13,7 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import cn.edu.hebut.easydesign.Activity.ContextHelp.HoldContextAppCompatActivity;
-import cn.edu.hebut.easydesign.Activity.SignUp.SignUpBase;
+import cn.edu.hebut.easydesign.Activity.UserInformation.SignUpBase;
 import cn.edu.hebut.easydesign.R;
 import cn.edu.hebut.easydesign.Session.LoginTask;
 import cn.edu.hebut.easydesign.TaskWorker.TaskService;

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/industry_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="行业" />
+
+    <Spinner
+
+        android:id="@+id/industry_input"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_toRightOf="@id/industry_label"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/round_corner"
+        android:entries="@array/industry" />
+
+    <TextView
+        android:id="@id/position_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/position_input"
+        android:layout_alignParentLeft="true"
+        android:text="职业" />
+
+    <Spinner
+        android:id="@+id/position_input"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_below="@id/industry_input"
+        android:layout_toRightOf="@id/position_label"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/round_corner" />
+
+</RelativeLayout>

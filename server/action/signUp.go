@@ -3,6 +3,7 @@ package action
 import (
 	"EasyDesignApplication/server/action/httpTools"
 	"EasyDesignApplication/server/base/user"
+	"encoding/json"
 	"log"
 	"net/http"
 )
@@ -30,7 +31,7 @@ func signUp(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(400)
 		return
 	}
-	identity, has := httpTools.GetInt64FromForm(r.Form, "identityType")
+	identityType, has := httpTools.GetInt64FromForm(r.Form, "identityType")
 	if !has {
 		w.WriteHeader(400)
 		return
@@ -41,48 +42,76 @@ func signUp(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	log.Println("parse success")
-	if !quick {
-		switch identity {
-		case user.DesignerType:
-		case user.StudentType:
-		case user.PublicType:
-		}
-	} else {
-		_, err = w.Write([]byte(signUpQuick(pw, email, name, identity)))
-		if err != nil {
-			w.WriteHeader(500)
-			log.Println(err)
-			return
-		}
-		log.Println("quick sign up success")
-	}
-}
-
-func signUpQuick(pw user.Password, email user.Email, name string, identity int64) string {
 	u := user.UserBase{
 		Password:pw,
 		Email:email,
 		UserName:name,
 	}
-	switch identity {
-	case user.PublicType:
-		u.Identity = &user.Public{
-			Industry: "未填写",
-			Position: "未填写"}
-	case user.StudentType:
-		u.Identity = &user.Student{}
-	case user.DesignerType:
-		u.Identity = &user.Designer{}
+	if !quick {
+		identityJson, has := httpTools.GetDataFromForm(r.Form, "identity")
+		if !has {
+			w.WriteHeader(400)
+			return
+		}
+		switch identityType {
+		case user.DesignerType:
+			var designer user.Designer
+			err = json.Unmarshal([]byte(identityJson), &designer)
+			if err != nil {
+				w.WriteHeader(400)
+				return
+			}
+			u.Identity = &designer
+		case user.StudentType:
+			var student user.Student
+			err = json.Unmarshal([]byte(identityJson), &student)
+			if err != nil {
+				log.Println(err)
+				w.WriteHeader(400)
+				return
+			}
+			u.Identity = &student
+		case user.PublicType:
+			var public user.Public
+			err = json.Unmarshal([]byte(identityJson), &public)
+			if err != nil {
+				w.WriteHeader(400)
+				return
+			}
+			u.Identity = &public
+		}
+
+		log.Println("full sign up success")
+	} else {
+		switch identityType {
+		case user.PublicType:
+			u.Identity = &user.Public{
+				Industry: "未填写",
+				Position: "未填写"}
+		case user.StudentType:
+			u.Identity = &user.Student{}
+		case user.DesignerType:
+			u.Identity = &user.Designer{}
+		}
 	}
 	s := u.SignUp()
-	log.Println(s)
+	message := ""
 	switch s {
 	case 0:
-		return "注册成功，欢迎到用户页编辑资料"
+		message = "注册成功，欢迎到用户页编辑资料"
 	case 1:
-		return "该邮箱已被注册"
+		message = "该邮箱已被注册"
 	case 255:
-		return "内部错误"
+		message = "内部错误"
+	default:
+		w.WriteHeader(500)
+		return
 	}
-	return "非法"
+	_, err = w.Write([]byte(message))
+	if err != nil {
+		w.WriteHeader(500)
+		log.Println(err)
+		return
+	}
+	log.Println("sign up success")
 }

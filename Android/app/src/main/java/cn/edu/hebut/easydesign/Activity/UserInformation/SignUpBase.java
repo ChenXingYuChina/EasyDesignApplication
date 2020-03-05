@@ -1,4 +1,4 @@
-package cn.edu.hebut.easydesign.Activity.SignUp;
+package cn.edu.hebut.easydesign.Activity.UserInformation;
 
 import android.content.ComponentName;
 import android.content.Context;
