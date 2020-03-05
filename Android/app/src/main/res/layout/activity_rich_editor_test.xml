@@ -69,6 +69,14 @@
                     android:layout_height="48dp"
                     android:text="字体大小"
                     android:textAlignment="center"/>
+            <Button
+                android:id="@+id/ImageChoose"
+                android:layout_width="96dp"
+                android:layout_height="48dp"
+                android:text="选择图片"
+                android:textAlignment="center"
+                />
+
 
 
         </LinearLayout>
@@ -91,6 +99,7 @@
             android:background="@android:color/transparent">
 
     </cn.edu.hebut.easydesign.RichTextEditor.RichTextEditor>
+
 
     <TextView
             android:id="@+id/TextViewForComplexString"

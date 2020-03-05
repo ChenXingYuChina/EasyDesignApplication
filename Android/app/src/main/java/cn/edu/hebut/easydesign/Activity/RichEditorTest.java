@@ -2,6 +2,10 @@ package cn.edu.hebut.easydesign.Activity;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.MenuItem;
@@ -12,6 +16,8 @@ import cn.edu.hebut.easydesign.ComplexString.ComplexString;
 import cn.edu.hebut.easydesign.R;
 import cn.edu.hebut.easydesign.RichTextEditor.RichTextEditor;
 
+import java.io.FileNotFoundException;
+
 
 /**
  * 这个是一个富文本编辑器使用的例子
@@ -19,6 +25,7 @@ import cn.edu.hebut.easydesign.RichTextEditor.RichTextEditor;
  */
 
 public class RichEditorTest extends HoldContextActivity implements View.OnClickListener {
+    private static final String TAG = "RichTextEditor";
     private RichTextEditor richTextEditor;
 
     private Button superscriptButton;
@@ -29,6 +36,7 @@ public class RichEditorTest extends HoldContextActivity implements View.OnClickL
     private Button foregroundColorButton;
     private Button hyperlinkButton;
     private Button fontSizeButton;
+    private Button imageButton;
     private TextView testView;
     private int lastBackgroundColor = -1;
     private int lastForegroundColor = -1;
@@ -54,6 +62,7 @@ public class RichEditorTest extends HoldContextActivity implements View.OnClickL
         foregroundColorButton = findViewById(R.id.ForegroundColor);
         hyperlinkButton = findViewById(R.id.Hyperlink);
         fontSizeButton = findViewById(R.id.FontSized);
+        imageButton = findViewById(R.id.ImageChoose);
         testView = findViewById(R.id.TextViewForComplexString);
         testView.setBackgroundColor(getResources().getColor(R.color.category_radio_button_unselected));
 
@@ -65,6 +74,7 @@ public class RichEditorTest extends HoldContextActivity implements View.OnClickL
         foregroundColorButton.setOnClickListener(this);
         hyperlinkButton.setOnClickListener(this);
         fontSizeButton.setOnClickListener(this);
+        imageButton.setOnClickListener(this);
         testView.setOnClickListener(this);
 
     }
@@ -106,8 +116,35 @@ public class RichEditorTest extends HoldContextActivity implements View.OnClickL
                 break;
             case R.id.FontSized:
                 showFontSizeMenu(v);
+                break;
+            case R.id.ImageChoose:
+                toPictureChooser();
+                break;
             case R.id.TextViewForComplexString:
                 richTextEditor.getComplexString().SetToTextView(testView);
+        }
+    }
+
+    private void toPictureChooser() {
+        Intent intent = new Intent(Intent.ACTION_PICK);  //跳转到 ACTION_IMAGE_CAPTURE
+        intent.setType("image/*");
+        startActivityForResult(intent,100);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode != 0){
+            switch (requestCode){
+                case 100:
+                    Uri uri01 = data.getData();
+                    try {
+                        Bitmap bitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(uri01));
+                        richTextEditor.imageSpanAdd(bitmap);
+
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                    }
+            }
         }
     }
 

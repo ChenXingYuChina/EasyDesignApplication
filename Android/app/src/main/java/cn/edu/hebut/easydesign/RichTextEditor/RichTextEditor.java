@@ -1,6 +1,7 @@
 package cn.edu.hebut.easydesign.RichTextEditor;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.text.*;
 import android.text.style.*;
 import android.util.AttributeSet;
@@ -84,9 +85,8 @@ public class RichTextEditor extends AppCompatEditText implements TextWatcher {
      */
 
     /**
-     *
      * @param styleId ComplexString规定的样式，只有下划线，上角标，下角标，删除线被接受
-     * @param ifAble true的时候启用样式，false的时候删除样式
+     * @param ifAble  true的时候启用样式，false的时候删除样式
      */
     public void commonFontStyle(int styleId, boolean ifAble) {
 //        Log.d(TAG, "commonFontStyle: Being Click");
@@ -100,9 +100,10 @@ public class RichTextEditor extends AppCompatEditText implements TextWatcher {
 
     /**
      * 该方法是 commonFontStyle 方法的辅助，用来启用传入的样式
-     * @param styleId ComplexString规定的样式，只有下划线，上角标，下角标，删除线被接受
+     *
+     * @param styleId        ComplexString规定的样式，只有下划线，上角标，下角标，删除线被接受
      * @param selectionStart 字符串的开始
-     * @param selectionEnd 字符串的结束
+     * @param selectionEnd   字符串的结束
      */
 
     private void styleEnable(int styleId, int selectionStart, int selectionEnd) {
@@ -129,9 +130,10 @@ public class RichTextEditor extends AppCompatEditText implements TextWatcher {
 
     /**
      * 该方法是 commonFontStyle 方法的辅助，用来删除传入的样式
-     * @param styleId ComplexString规定的样式，只有下划线，上角标，下角标，删除线被接受
+     *
+     * @param styleId        ComplexString规定的样式，只有下划线，上角标，下角标，删除线被接受
      * @param selectionStart 字符串的开始
-     * @param selectionEnd 字符串的结束
+     * @param selectionEnd   字符串的结束
      */
     private void styleDisable(int styleId, int selectionStart, int selectionEnd) {
         switch (styleId) {
@@ -249,6 +251,7 @@ public class RichTextEditor extends AppCompatEditText implements TextWatcher {
 
     /**
      * 简化了输入，将检测范围默认为用户所选
+     *
      * @param styleId ComplexString规定的样式，只有下划线，上角标，下角标，删除线被接受
      * @return boolean 是否含有规定的样式
      */
@@ -258,11 +261,11 @@ public class RichTextEditor extends AppCompatEditText implements TextWatcher {
 
     /**
      * 该方法用来检测规定的文本中有没有传入的样式
-     * @param styleId ComplexString规定的样式，只有下划线，上角标，下角标，删除线被接受
-     * @param start 规定检测范围的开始
-     * @param end 规定检测范围的结束
-     * @return boolean 是否含有规定的样式
      *
+     * @param styleId ComplexString规定的样式，只有下划线，上角标，下角标，删除线被接受
+     * @param start   规定检测范围的开始
+     * @param end     规定检测范围的结束
+     * @return boolean 是否含有规定的样式
      */
     public boolean containCommonStyle(int styleId, int start, int end) {
         switch (styleId) {
@@ -380,8 +383,9 @@ public class RichTextEditor extends AppCompatEditText implements TextWatcher {
 
     /**
      * 确定的文字背景颜色的样式
+     *
      * @param colorId ComplexString中规定的文字背景颜色样式
-     * @param ifAble true：设置样式，false：取消样式
+     * @param ifAble  true：设置样式，false：取消样式
      */
     public void backgroundColor(int colorId, boolean ifAble) {
         switch (colorId) {
@@ -436,21 +440,24 @@ public class RichTextEditor extends AppCompatEditText implements TextWatcher {
         getEditableText().setSpan(ComplexString.getSpanFromId(colorId, null),
                 selectionStart, selectionEnd, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
     }
+
     /**
      * 简化了输入，将检测范围默认为用户所选
+     *
      * @param colorId ComplexString规定的样式，只有下划线，上角标，下角标，删除线被接受
      * @return boolean 是否含有规定的样式
      */
     public boolean containBackgroundColor(int colorId) {
         return containBackgroundColor(colorId, getSelectionStart(), getSelectionEnd());
     }
+
     /**
      * 该方法用来检测规定的文本中有没有传入的样式
-     * @param colorId ComplexString规定的样式，只有相关的值被接受
-     * @param start 规定检测范围的开始
-     * @param end 规定检测范围的结束
-     * @return boolean 是否含有规定的样式
      *
+     * @param colorId ComplexString规定的样式，只有相关的值被接受
+     * @param start   规定检测范围的开始
+     * @param end     规定检测范围的结束
+     * @return boolean 是否含有规定的样式
      */
     public boolean containBackgroundColor(int colorId, int start, int end) {
         switch (colorId) {
@@ -475,10 +482,12 @@ public class RichTextEditor extends AppCompatEditText implements TextWatcher {
     }
 
     // ForeGround Color +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
     /**
      * 确定的文字颜色的样式
+     *
      * @param colorId ComplexString中规定的文字颜色样式
-     * @param ifAble true：设置样式，false：取消样式
+     * @param ifAble  true：设置样式，false：取消样式
      */
     public void foregroundColor(int colorId, boolean ifAble) {
         switch (colorId) {
@@ -536,9 +545,10 @@ public class RichTextEditor extends AppCompatEditText implements TextWatcher {
 
     /**
      * 该方法用来检测规定的文本中有没有传入的样式
+     *
      * @param colorId ComplexString规定的样式，只有相关的值被接受
-     * @param start 规定检测范围的开始
-     * @param end 规定检测范围的结束
+     * @param start   规定检测范围的开始
+     * @param end     规定检测范围的结束
      * @return boolean 是否含有规定的样式
      */
     private boolean containForegroundColor(int colorId, int start, int end) {
@@ -567,6 +577,7 @@ public class RichTextEditor extends AppCompatEditText implements TextWatcher {
 
     /**
      * 超链接样式
+     *
      * @param urlString 网址，不做规范检查
      */
     public void hyperlink(String urlString) {
@@ -586,6 +597,7 @@ public class RichTextEditor extends AppCompatEditText implements TextWatcher {
 
     /**
      * 设置字体大小，有三种选项
+     *
      * @param sizeId 文字大小， ComplexString中规定的文字大小
      * @param ifAble true：设置样式，false：取消样式
      */
@@ -642,6 +654,7 @@ public class RichTextEditor extends AppCompatEditText implements TextWatcher {
 
     /**
      * 该方法用来检测规定的文本中有没有传入的样式
+     *
      * @return boolean 是否含有规定的样式
      */
     private boolean containFontSizeChange() {
@@ -661,10 +674,18 @@ public class RichTextEditor extends AppCompatEditText implements TextWatcher {
         return builder.toString().equals(getEditableText().subSequence(start, end).toString());
     }
 
+    // ImageSpan +++++++++++++++++++++++++
+    public void imageSpanAdd(Bitmap bm) {
+        getEditableText().append("\n图片加载中\n");
+        getEditableText().setSpan(new ImageSpan(getContext(), bm),
+                getSelectionEnd()-6 , getSelectionEnd()-1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+    }
+
+
     // 将全文转换为ComplexString的类型的变量
 
     /**
-     *
      * @return 返回一个ComplexString对象
      */
     public ComplexString getComplexString() {
@@ -674,7 +695,9 @@ public class RichTextEditor extends AppCompatEditText implements TextWatcher {
         return complexString;
     }
 
+
     //以下部分是做撤销用的
+
     /**
      * This method is called to notify you that, within <code>s</code>,
      * the <code>count</code> characters beginning at <code>start</code>
@@ -689,8 +712,8 @@ public class RichTextEditor extends AppCompatEditText implements TextWatcher {
      */
     @Override
     public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-        if(!historyEnable || historyWorking){
-            return ;
+        if (!historyEnable || historyWorking) {
+            return;
         }
         inputBefore = new SpannableStringBuilder(s);
     }
@@ -730,13 +753,13 @@ public class RichTextEditor extends AppCompatEditText implements TextWatcher {
      */
     @Override
     public void afterTextChanged(Editable s) {
-        if(!historyEnable || historyWorking){
-            return ;
+        if (!historyEnable || historyWorking) {
+            return;
         }
 
         inputLast = new SpannableStringBuilder(s);
-        if(s !=null && s.toString().equals(inputBefore.toString())){
-            return ;
+        if (s != null && s.toString().equals(inputBefore.toString())) {
+            return;
         }
 
         if (historyList.size() >= historySize) {
@@ -747,17 +770,17 @@ public class RichTextEditor extends AppCompatEditText implements TextWatcher {
         historyCursor = historyList.size();
     }
 
-    public void redo(){
-        if(!redoValid()){
-            return ;
+    public void redo() {
+        if (!redoValid()) {
+            return;
         }
 
         historyWorking = true;
 
-        if(historyCursor >= historyList.size()-1){
+        if (historyCursor >= historyList.size() - 1) {
             historyCursor = historyList.size();
             setText(inputLast);
-        }else{
+        } else {
             historyCursor++;
             setText(historyList.get(historyCursor));
         }
@@ -765,7 +788,7 @@ public class RichTextEditor extends AppCompatEditText implements TextWatcher {
         historyWorking = false;
     }
 
-    public void undo(){
+    public void undo() {
         if (!undoValid()) {
             return;
         }
