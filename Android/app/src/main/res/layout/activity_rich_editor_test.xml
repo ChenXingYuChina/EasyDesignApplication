@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <HorizontalScrollView
+            android:id="@+id/tools"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:scrollbars="horizontal">
+
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            <Button
+                    android:id="@+id/Underline"
+                    android:layout_width="96dp"
+                    android:layout_height="48dp"
+                    android:text="下划线"
+                    android:textAlignment="center"/>
+
+            <Button
+                    android:id="@+id/Subscript"
+                    android:layout_width="96dp"
+                    android:layout_height="48dp"
+                    android:text="下角标"
+                    android:textAlignment="center"/>
+
+            <Button
+                    android:id="@+id/Superscript"
+                    android:layout_width="96dp"
+                    android:layout_height="48dp"
+                    android:text="上角标"
+                    android:textAlignment="center"/>
+
+            <Button
+                    android:id="@+id/Strikethrough"
+                    android:layout_width="96dp"
+                    android:layout_height="48dp"
+                    android:text="删除线"
+                    android:textAlignment="center"/>
+
+            <Button
+                    android:id="@+id/BackgroundColor"
+                    android:layout_width="96dp"
+                    android:layout_height="48dp"
+                    android:text="文字背景色"
+                    android:textAlignment="center"/>
+
+            <Button
+                    android:id="@+id/ForegroundColor"
+                    android:layout_width="96dp"
+                    android:layout_height="49dp"
+                    android:text="文字前景色"
+                    android:textAlignment="center"/>
+            <Button
+                    android:id="@+id/Hyperlink"
+                    android:layout_width="96dp"
+                    android:layout_height="48dp"
+                    android:text="超链接"
+                    android:textAlignment="center"/>
+
+            <Button
+                    android:id="@+id/FontSized"
+                    android:layout_width="96dp"
+                    android:layout_height="48dp"
+                    android:text="字体大小"
+                    android:textAlignment="center"/>
+            <Button
+                android:id="@+id/ImageChoose"
+                android:layout_width="96dp"
+                android:layout_height="48dp"
+                android:text="选择图片"
+                android:textAlignment="center"
+                />
+
+
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
+    <cn.edu.hebut.easydesign.RichTextEditor.RichTextEditor
+            android:id="@+id/RichTextEditor"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_above="@+id/tools"
+            android:paddingTop="16dp"
+            android:paddingLeft="16dp"
+            android:paddingStart="16dp"
+            android:paddingRight="16dp"
+            android:paddingEnd="16dp"
+            android:gravity="top|start"
+            android:scrollbars="vertical"
+            android:background="@android:color/transparent">
+
+    </cn.edu.hebut.easydesign.RichTextEditor.RichTextEditor>
+
+
+    <TextView
+            android:id="@+id/TextViewForComplexString"
+            android:layout_width="match_parent"
+            android:layout_height="96dp"
+            android:layout_above="@+id/tools"
+            android:clickable="true"
+            android:focusable="true"
+            />
+
+</RelativeLayout>

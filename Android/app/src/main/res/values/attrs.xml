@@ -9,8 +9,10 @@
             <enum name="Linear" value="0" />
             <enum name="Grid" value="1" />
         </attr>
-        <attr name="card" format="reference" /> <!-- need a layout -->
-        <attr name="head" format="reference" /> <!-- need a layout -->
+        <attr name="card" format="reference" />
+        <!-- need a layout -->
+        <attr name="head" format="reference" />
+        <!-- need a layout -->
         <attr name="text_foot_onError" format="string" />
         <attr name="text_foot_onNoNew" format="string" />
         <attr name="text_foot_onLoading" format="string" />
@@ -27,6 +29,11 @@
         <attr name="buttonText" format="string" />
     </declare-styleable>
 
+    <declare-styleable name="RichTextEditor">
+        <attr name="historyEnable" format="reference|boolean"/>
+        <attr name="historySize" format="reference|integer"/>
+    </declare-styleable>
+    
     <declare-styleable name="HalfAboveDialog">
         <!-- 优先度高 -->
         <attr name="dialog_height_percent" format="float" />

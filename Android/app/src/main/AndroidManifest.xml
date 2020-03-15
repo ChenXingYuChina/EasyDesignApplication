@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="cn.edu.hebut.easydesign">
+          xmlns:tools="http://schemas.android.com/tools"
+          package="cn.edu.hebut.easydesign">
 
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.CAMERA"/>
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.camera.autofocus"/>
+
+    <uses-permission android:name="android.permission.WEITE_EXTERNAL_STORAGE"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -22,8 +29,8 @@
         <activity android:name=".Activity.LoginPage" />
         <activity android:name=".Activity.Begin" />
         <meta-data
-            android:name="com.google.android.actions"
-            android:resource="@xml/actions" />
+                android:name="com.google.android.actions"
+                android:resource="@xml/actions"/>
 
         <activity android:name=".Activity.FirstPage">
             <intent-filter>
@@ -33,6 +40,9 @@
             </intent-filter>
         </activity>
 
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+        </activity>
         <activity
             android:name=".Activity.MainActivity"
             android:launchMode="singleInstance" android:windowSoftInputMode="adjustPan"/>
@@ -57,10 +67,7 @@
         <activity android:name=".Activity.UserInformation.SignUpBase" />
         <activity android:name=".Activity.UserInformation.SignUp" />
 
-        <service android:name=".TaskWorker.TaskService" />
+        <service android:name=".TaskWorker.TaskService"/>
     </application>
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-feature android:name="android.hardware.camera" />
-    <uses-feature android:name="android.hardware.camera.autofocus" />
-    <uses-permission android:name="android.permission.WEITE_EXTERNAL_STORAGE" />
+
 </manifest>

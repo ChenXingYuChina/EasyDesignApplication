@@ -282,6 +282,9 @@ public class ComplexString implements Serializable {
         ImageSpan imageSpan = new ImageSpan(ContextHolder.getContext(), uri);
         this.string.setSpan(imageSpan, start, width + start, SpannableString.SPAN_INCLUSIVE_EXCLUSIVE);
     }
+    public void RemoveSpan(long id, String url){
+        this.string.removeSpan(getSpanFromId(id, url));
+    }
 
     private transient TextView textView;
 
