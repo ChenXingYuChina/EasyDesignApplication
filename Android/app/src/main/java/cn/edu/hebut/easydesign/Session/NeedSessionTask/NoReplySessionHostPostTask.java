@@ -11,7 +11,8 @@ public abstract class NoReplySessionHostPostTask extends SessionHostPostTask {
 
     @Override
     protected int onPostSuccess(Response response) {
-        return 0;
+        int code = response.code();
+        return code == 200 ? 0 : code;
     }
 
     @Override

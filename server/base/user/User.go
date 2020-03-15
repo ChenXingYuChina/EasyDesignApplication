@@ -320,14 +320,17 @@ func (u *UserBase) changeIdentity(tx *sql.Tx) (err error) {
 			return
 		}
 	case *Designer:
+		log.Println(identity)
 		_, err = tx.Stmt(deleteDesignerInfo).Exec(u.ID)
 		if err != nil {
+			log.Println(err)
 			return
 		}
 		isi := tx.Stmt(newDesignerInfo)
 		for _, v := range identity.Works {
-			_, err = isi.Exec(u.ID, v.Start, v.End, v.Company, v.Industry, v.Position)
+			_, err = isi.Exec(u.ID, time.Time(v.Start), time.Time(v.End), v.Company, v.Industry, v.Position)
 			if err != nil {
+				log.Println(err)
 				return
 			}
 

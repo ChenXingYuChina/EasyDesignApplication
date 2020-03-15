@@ -54,13 +54,16 @@ func updateIdentity(s *session.Session, w http.ResponseWriter, r *http.Request) 
 		w.WriteHeader(400)
 		return
 	}
+	log.Println(r.Form)
 	err := json.Unmarshal([]byte(identity), s.User.Identity)
 	if err != nil {
 		w.WriteHeader(400)
 		return
 	}
-	if !s.User.UpdateIdentity() {
+	log.Println(s.User.Identity)
+	if s.User.UpdateIdentity() {
 		w.WriteHeader(200)
+		log.Println("update success")
 	} else {
 		w.WriteHeader(400)
 	}
