@@ -34,4 +34,7 @@
         <attr name="dialog_height_dp" format="integer" />
         <attr name="auto_gone" format="boolean" />
     </declare-styleable>
+    <declare-styleable name="ImageSelect">
+        <attr name="use_api" format="string"/>
+    </declare-styleable>
 </resources>

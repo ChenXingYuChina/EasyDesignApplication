@@ -37,7 +37,7 @@ func signUpInControlPlatform(w http.ResponseWriter, r *http.Request) {
 }
 
 func signUpPublicInCmd(e Email, password string) (*UserBase, uint8) {
-	u := &UserBase{Email: e, Password: Password(GenPasswordInBack(password)), Identity: &Public{Industry: "it", Position: "tester"}}
+	u := &UserBase{Email: e, Password: Password(GenPasswordInBack(password)), Identity: &Public{Industry: 0, Position: 0}}
 	s := u.SignUp()
 	if s != 0 {
 		return nil, s
@@ -56,14 +56,14 @@ func signUpStudentInCmd(e Email, password string) (*UserBase, uint8) {
 			{
 				Public:  true,
 				Diploma: 1,
-				Country: "中国",
-				Name:    "河北工业大学",
+				Country: 0,
+				Name:    0,
 			},
 			{
 				Public:  false,
 				Diploma: 2,
-				Country: "中国",
-				Name:    "天津大学",
+				Country: 1,
+				Name:    0,
 			},
 		}}}
 	s := u.SignUp()
@@ -83,18 +83,18 @@ func signUpDesignerInCmd(e Email, password string) (*UserBase, uint8) {
 		Password: Password(GenPasswordInBack(password)),
 		Identity: &Designer{Works: []Work{
 			{
-				Start:    time.Now(),
-				End:      time.Now(),
+				Start:    TimeJson(time.Now()),
+				End:      TimeJson(time.Now()),
 				Company:  "abc",
-				Industry: "it",
-				Position: "tester",
+				Industry: 0,
+				Position: 0,
 			},
 			{
-				Start:    time.Now(),
-				End:      time.Now(),
+				Start:    TimeJson(time.Now()),
+				End:      TimeJson(time.Now()),
 				Company:  "abcd",
-				Industry: "it",
-				Position: "tester",
+				Industry: 0,
+				Position: 0,
 			},
 		}},
 	}

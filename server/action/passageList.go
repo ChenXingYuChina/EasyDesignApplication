@@ -116,7 +116,7 @@ func passageList(w http.ResponseWriter, r *http.Request) {
 				}
 			}
 			if hot {
-				log.Println("hot")
+				//log.Println("hot")
 				passageList, userMinis, err = middle.LoadHotPassageList(int16(t), int64(begin), uint8(length))
 			} else {
 				passageList, userMinis, err = middle.LoadLastPassageListByType(int16(t), int64(begin), uint8(length))

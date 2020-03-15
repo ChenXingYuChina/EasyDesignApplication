@@ -8,6 +8,7 @@ import android.graphics.Point;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -59,8 +60,12 @@ public class HalfAboveDialog extends FrameLayout {
     }
 
     public void show(View content) {
-        contentView = content;
-        dialog.addView(content);
+        if (contentView != content) {
+            // FIXME: 2020/3/11 
+            contentView = content;
+            dialog.removeAllViews();
+            dialog.addView(content);
+        }
         ValueAnimator animator = ValueAnimator.ofInt(10, take);
         animator.setDuration(100);
         animator.addListener(new AnimatorListenerAdapter() {
@@ -85,9 +90,7 @@ public class HalfAboveDialog extends FrameLayout {
         animator.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {
-                dialog.removeAllViews();
                 setVisibility(GONE);
-                dialog.removeAllViews();
                 if (onClose != null) {
                     onClose.onClose(contentView);
                     onClose = null;

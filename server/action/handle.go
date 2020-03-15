@@ -2,6 +2,7 @@ package action
 
 import (
 	"EasyDesignApplication/server/action/controlPlatform"
+	"EasyDesignApplication/server/action/httpTools"
 	"EasyDesignApplication/server/action/session"
 	"log"
 	"net"
@@ -23,9 +24,9 @@ func Init() {
 	http.HandleFunc("/starPassage", loadStarPassage)
 	http.HandleFunc("/passage", passage)
 	http.HandleFunc("/signUp", signUp)
-
 	http.HandleFunc("/comment", loadComment)
 	http.HandleFunc("/subComment", loadSubComment)
+
 	http.HandleFunc("/likeSubComment", session.NeedLogin(likeSubComment))
 	http.HandleFunc("/likeComment", session.NeedLogin(likeComment))
 	http.HandleFunc("/likePassage", session.NeedLogin(likePassage))
@@ -33,6 +34,13 @@ func Init() {
 	http.HandleFunc("/follow", session.NeedLogin(follow))
 	http.HandleFunc("/loadFollow", loadFollow)
 	http.HandleFunc("/subCommentTo", session.NeedLogin(subCommentTo))
+	http.HandleFunc("/changePassword", session.NeedLogin(changePassword))
+	http.HandleFunc("/updateIdentity", session.NeedLogin(updateIdentity))
+	http.HandleFunc("/changeUserName", session.NeedLogin(changeUserName))
+	http.HandleFunc("/setHeadImage", httpTools.TransformMultiPartToNormalForm(session.NeedLogin(setHeadImage)))
+	//http.HandleFunc("/setHeadImage", httpTools.JustRead)
+	http.HandleFunc("/setBackImage", httpTools.TransformMultiPartToNormalForm(session.NeedLogin(setBackImage)))
+	//http.HandleFunc("/setBackImage", httpTools.JustRead)
 
 	// manage part
 	managerServer.HandleFunc("/firstPageImage", SetFirstPageImage)

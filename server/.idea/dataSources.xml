@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="easyDesign@localhost" uuid="5b7b800b-37a9-4419-b3a2-bfc18e3f6bb3">
+    <data-source source="LOCAL" name="easyDesignNew@localhost" uuid="e4ec4754-f988-4c03-8760-24ffb1641012">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://localhost:5432/easyDesign</jdbc-url>
+      <jdbc-url>jdbc:postgresql://localhost:5432/easyDesignNew</jdbc-url>
     </data-source>
   </component>
 </project>

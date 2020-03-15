@@ -9,6 +9,9 @@ public class EmailField extends TextField {
         if (data == null) {
             throw new Exception();
         }
+        /*
+         * 检查邮箱格式是否正确，错误时抛出异常不附加原因
+         */
     }
 
 }

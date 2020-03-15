@@ -18,4 +18,8 @@
     <item name="school_country" type="id" />
     <item name="school_public" type="id" />
 
+    <item name="industry" type="id" />
+    <item name="position" type="id" />
+    <item name="work_time" type="id" />
+    <item name="company" type="id" />
 </resources>

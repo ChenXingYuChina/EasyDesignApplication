@@ -3,7 +3,6 @@ package cn.edu.hebut.easydesign.Activity.Fragment.UserPage;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.util.AttributeSet;
-import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -11,16 +10,18 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import cn.edu.hebut.easydesign.Activity.ContextHelp.ContextHolder;
+import cn.edu.hebut.easydesign.Activity.commonComponents.FinishActivity;
 import cn.edu.hebut.easydesign.R;
 import cn.edu.hebut.easydesign.Resources.Media.Image.ImageHostLoadTask;
+import cn.edu.hebut.easydesign.Session.Session;
 import cn.edu.hebut.easydesign.Session.User.User;
 import cn.edu.hebut.easydesign.TaskWorker.Condition;
 import cn.edu.hebut.easydesign.TaskWorker.TaskService;
 
 
-// TODO: 2020/2/15 add click listener to finish edit and other things.
+// TODO: 2020/2/15 add click listener to finish other things.
 public class UserTop extends FrameLayout {
-    ImageView back, head, editDescription;
+    ImageView back, head, editInformation;
     TextView name, identity, passageNumber, followNumber, coinNumber, fansNumber, followLabel;
     User user;
     TaskService.MyBinder binder;
@@ -37,11 +38,12 @@ public class UserTop extends FrameLayout {
         followNumber = findViewById(R.id.follow_number);
         coinNumber = findViewById(R.id.coin_number);
         fansNumber = findViewById(R.id.fans_number);
-        editDescription = findViewById(R.id.edit_description);
+        editInformation = findViewById(R.id.edit_information);
         followLabel = findViewById(R.id.follow);
     }
 
     void setUser(User user) {
+        this.user = user;
         binder = ContextHolder.getBinder();
         cancel = new Condition<>(false);
         binder.PutTask(new ImageHostLoadTask(user.backImage, cancel) {
@@ -71,5 +73,14 @@ public class UserTop extends FrameLayout {
     public void setFollowOnClickListener(OnClickListener listener) {
         followNumber.setOnClickListener(listener);
         followLabel.setOnClickListener(listener);
+    }
+
+    public void setEditInformationOnClickListener(OnClickListener listener) {
+        if (Session.getSession().isTheLoginUser(user.id)) {
+            editInformation.setVisibility(VISIBLE);
+            editInformation.setOnClickListener(listener);
+        } else {
+            editInformation.setVisibility(GONE);
+        }
     }
 }

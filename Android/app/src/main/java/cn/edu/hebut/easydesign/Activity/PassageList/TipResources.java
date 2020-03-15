@@ -1,7 +1,9 @@
 package cn.edu.hebut.easydesign.Activity.PassageList;
 
+import android.content.Context;
 import android.util.AttributeSet;
 
+import cn.edu.hebut.easydesign.Activity.ContextHelp.ContextHolder;
 import cn.edu.hebut.easydesign.R;
 import cn.edu.hebut.easydesign.Tools.AttributeSetTools;
 
@@ -15,12 +17,12 @@ public class TipResources {
     static final int text_refresh_onNoNew = 5;
 
     TipResources(AttributeSet attrs) {
-
-        texts[text_foot_onError] = AttributeSetTools.getStringFromAttrs(attrs, "text_foot_onError", R.string.error);
-        texts[text_foot_onNoNew] = AttributeSetTools.getStringFromAttrs(attrs, "text_foot_onNoNew", R.string.finish_list);
-        texts[text_foot_onLoading] = AttributeSetTools.getStringFromAttrs(attrs, "text_foot_onLoading", R.string.loading_list);
-        texts[text_foot_toLoad] = AttributeSetTools.getStringFromAttrs(attrs, "text_foot_toLoad", R.string.load);
-        texts[text_refresh_onError] = AttributeSetTools.getStringFromAttrs(attrs, "text_refresh_onError", R.string.error);
-        texts[text_refresh_onNoNew] = AttributeSetTools.getStringFromAttrs(attrs, "text_refresh_onNoNew", R.string.no_news);
+        Context context = ContextHolder.getContext();
+        texts[text_foot_onError] = AttributeSetTools.getStringFromAttrs(context, attrs, "text_foot_onError", R.string.error);
+        texts[text_foot_onNoNew] = AttributeSetTools.getStringFromAttrs(context, attrs, "text_foot_onNoNew", R.string.finish_list);
+        texts[text_foot_onLoading] = AttributeSetTools.getStringFromAttrs(context, attrs, "text_foot_onLoading", R.string.loading_list);
+        texts[text_foot_toLoad] = AttributeSetTools.getStringFromAttrs(context, attrs, "text_foot_toLoad", R.string.load);
+        texts[text_refresh_onError] = AttributeSetTools.getStringFromAttrs(context, attrs, "text_refresh_onError", R.string.error);
+        texts[text_refresh_onNoNew] = AttributeSetTools.getStringFromAttrs(context, attrs, "text_refresh_onNoNew", R.string.no_news);
     }
 }

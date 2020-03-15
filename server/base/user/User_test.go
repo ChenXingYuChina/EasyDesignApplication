@@ -10,7 +10,7 @@ import (
 )
 
 func TestMain(m *testing.M) {
-	err := base.SqlInit("postgres", "easyDesign", "easyDesign2019", "easyDesigner", "127.0.0.1")
+	err := base.SqlInit("postgres", "easyDesignNew", "easyDesign2019", "easyDesigner", "127.0.0.1")
 	if err != nil {
 		panic(err)
 	}
@@ -20,7 +20,7 @@ func TestMain(m *testing.M) {
 }
 
 func TestSignUp_Public(t *testing.T) {
-	u := &UserBase{Email:Email("1234@123.com"), Password:Password(GenPasswordInBack("123")), Identity:&Public{Industry:"it", Position:"tester"}}
+	u := &UserBase{Email:Email("1234@123.com"), Password:Password(GenPasswordInBack("123")), Identity:&Public{Industry:0, Position:0}}
 	s := u.SignUp()
 	if s != 0 {
 		t.Fail()
@@ -37,7 +37,7 @@ func TestSignUp_Designer(t *testing.T) {
 }
 
 func SignUpADesigner(email Email) (*UserBase, uint8) {
-	u := &UserBase{Email:email, Password:Password(GenPasswordInBack("123")), Identity:&Designer{Works:[]Work{{Industry:"it", Position:"tester"}}}}
+	u := &UserBase{Email:email, Password:Password(GenPasswordInBack("123")), Identity:&Designer{Works:[]Work{{Industry:0, Position:0}}}}
 	return u, u.SignUp()
 }
 
@@ -48,14 +48,14 @@ func TestSignUp_Student(t *testing.T) {
 			{
 				Public:true,
 				Diploma:1,
-				Country:"china",
-				Name:"tjhs",
+				//Country:"china",
+				//Name:"tjhs",
 			},
 			{
 				Public:false,
 				Diploma:2,
-				Country:"china",
-				Name:"hebut",
+				//Country:"china",
+				//Name:"hebut",
 			},
 		}}}
 	s := u.SignUp()
@@ -93,7 +93,7 @@ func TestSaveUsersLongDescription(t *testing.T) {
 }
 
 func TestUserBase_Update(t *testing.T) {
-	u := &UserBase{ID: 48, Email:Email("designer@123.com"), Password:Password(GenPasswordInBack("123")), UserName: "test", Identity:&Designer{Works:[]Work{{Industry:"it", Position:"tester"}}}}
+	u := &UserBase{ID: 48, Email:Email("designer@123.com"), Password:Password(GenPasswordInBack("123")), UserName: "test", Identity:&Designer{Works:[]Work{{Industry:0, Position:0}}}}
 	s := u.Update()
 	if s != 0 {
 		t.Error(s)
@@ -101,8 +101,8 @@ func TestUserBase_Update(t *testing.T) {
 }
 
 func TestUserBase_ChangeIdentity(t *testing.T) {
-	u := &UserBase{ID: 48, Email:Email("designer@123.com"), Password:Password(GenPasswordInBack("123")), UserName: "test", Identity:&Designer{Works:[]Work{{Id:8, Industry:"it", Position:"tester"}}}}
-	if !u.ChangeIdentity(&Designer{Works:[]Work{{Industry:"it", Position:"programmer", Company:"a"}, {Industry:"it", Position:"tester", Company:"x"}}}) {
+	u := &UserBase{ID: 48, Email:Email("designer@123.com"), Password:Password(GenPasswordInBack("123")), UserName: "test", Identity:&Designer{Works:[]Work{{Industry:0, Position:0}}}}
+	if !u.UpdateIdentity(&Designer{Works: []Work{{Industry: 0, Position:1, Company:"a"}, {Industry: 0, Position:0, Company:"x"}}}) {
 		t.Fail()
 	}
 }
@@ -130,7 +130,7 @@ func TestUnauthorized(t *testing.T) {
 }
 
 func TestUserBase_ToMini(t *testing.T) {
-	u := &UserBase{Email:Email("abc@abc.com"), Password:Password(GenPasswordInBack("123")), Identity:&Designer{Works:[]Work{{Industry:"it", Position:"tester"}}}}
+	u := &UserBase{Email:Email("abc@abc.com"), Password:Password(GenPasswordInBack("123")), Identity:&Designer{Works:[]Work{{Industry:0, Position:0}}}}
 	fmt.Println(u.ToMini())
 }
 
@@ -157,11 +157,11 @@ func TestGetUserMini(t *testing.T) {
 
 func TestDateJson(t *testing.T) {
 	d := `{"t":"2020-02-14"}`
-	var g struct{T time.Time `json:"t"`}
+	var g struct{T TimeJson `json:"t"`}
 	err := json.Unmarshal([]byte(d), &g)
 	if err != nil {
 		t.Error(err)
 		return
 	}
-	fmt.Println(g.T.String())
+	fmt.Println(time.Time(g.T).Format("2006-01-02"))
 }

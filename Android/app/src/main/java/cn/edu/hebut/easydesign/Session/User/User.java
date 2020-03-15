@@ -16,7 +16,6 @@ public class User implements Serializable {
     public User(JSONObject user) throws Exception {
         id = user.getLong("id");
         name = user.getString("name");
-        phone = user.getString("phone");
         email = user.getString("email");
         coin = user.getLong("coin");
         fansNumber = user.getLong("fans_number");

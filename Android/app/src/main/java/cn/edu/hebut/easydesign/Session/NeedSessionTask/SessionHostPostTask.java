@@ -61,7 +61,12 @@ public abstract class SessionHostPostTask extends HostPostTask {
         }
 
         @Override
-        protected void doOnMainNormal() {
+        protected void loginSuccess() {
+
+        }
+
+        @Override
+        protected void loginFail(int code) {
 
         }
     }

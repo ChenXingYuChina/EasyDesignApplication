@@ -20,10 +20,12 @@ import cn.edu.hebut.easydesign.Activity.Fragment.ExamplePage.ExampleFragment;
 import cn.edu.hebut.easydesign.Activity.Fragment.HomePage.HomeFragment;
 import cn.edu.hebut.easydesign.Activity.Fragment.ThinkingFragment;
 import cn.edu.hebut.easydesign.Activity.Fragment.UserPage.UserFragment;
+import cn.edu.hebut.easydesign.Activity.commonComponents.AlbumImage.SelectImageFromAlbumHelper;
+import cn.edu.hebut.easydesign.Activity.commonComponents.FinishActivity;
 import cn.edu.hebut.easydesign.R;
 import cn.edu.hebut.easydesign.TaskWorker.TaskService;
 
-public class MainActivity extends HoldContextAppCompatActivity implements View.OnClickListener {
+public class MainActivity extends HoldContextAppCompatActivity implements View.OnClickListener, FinishActivity {
     private ServiceConnection connection;
     private FragmentManager fm;
     private FragmentTransaction transaction;
@@ -37,6 +39,7 @@ public class MainActivity extends HoldContextAppCompatActivity implements View.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_page);
         fm = getSupportFragmentManager();
+        ContextHolder.setSelectImageFromAlbum(helper);
         connection = new ServiceConnection() {
             @Override
             public void onServiceConnected(ComponentName name, IBinder service) {
@@ -165,6 +168,18 @@ public class MainActivity extends HoldContextAppCompatActivity implements View.O
         transaction.commit();
     }
 
+    SelectImageFromAlbumHelper helper = new SelectImageFromAlbumHelper(this);
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        helper.handleResult(requestCode, resultCode, data);
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
+
+    @Override
+    public void finishActivity() {
+        finish();
+    }
 }
 
 

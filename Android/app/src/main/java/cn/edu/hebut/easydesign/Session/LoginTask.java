@@ -24,7 +24,7 @@ public abstract class LoginTask extends StringHostPostTask {
     }
 
     public LoginTask(String email, String pw) throws Exception {
-        super("loginEmail", new Condition<Boolean>(false));
+        super("loginEmail", new Condition<>(false));
         this.account = new EmailField("email", email);
         cachedPassword = pw;
         this.pw = new PasswordField("pw", pw);
@@ -48,4 +48,16 @@ public abstract class LoginTask extends StringHostPostTask {
         return 0;
     }
 
+    @Override
+    protected void doOnMainNormal() {
+        if (condition.condition == 0) {
+            loginSuccess();
+        } else {
+            loginFail(condition.condition);
+        }
+    }
+
+    protected abstract void loginSuccess();
+
+    protected abstract void loginFail(int code);
 }

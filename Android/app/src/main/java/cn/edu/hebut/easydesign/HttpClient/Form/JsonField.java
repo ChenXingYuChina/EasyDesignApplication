@@ -1,5 +1,7 @@
 package cn.edu.hebut.easydesign.HttpClient.Form;
 
+import android.util.Log;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -30,6 +32,7 @@ public class JsonField implements FormField {
 
     @Override
     public void addToFormBuilder(FormBody.Builder builder) throws Exception {
+        Log.i("signUp", "addToFormBuilder: " + (dataArray == null));
         builder.add(fieldName, dataArray == null ? dataObject.toString() : dataArray.toString());
     }
 

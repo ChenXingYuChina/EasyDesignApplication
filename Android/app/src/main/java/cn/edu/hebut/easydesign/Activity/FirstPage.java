@@ -92,18 +92,24 @@ public class FirstPage extends HoldContextActivity {
                     }
                 });
                 SharedPreferences read = getSharedPreferences("loginInformation", MODE_PRIVATE);
-//                long id = read.getLong("id", 50);
-                long id = 3;
+                long id = read.getLong("id", 0);
+//                long id = -1;
                 String pw = read.getString("pw", "hello world");
                 Log.i("ED", "loginInformation " + id +" " + pw);
                 try {
                     ((TaskService.MyBinder) service).PutTask(new LoginTask(id, pw) {
+
                         @Override
-                        protected void doOnMainNormal() {
+                        protected void loginSuccess() {
                             if (c.condition != 1) {
                                 c.condition = this.condition.condition;
                             }
                             Log.i("firstPage", c.condition + "");
+                        }
+
+                        @Override
+                        protected void loginFail(int code) {
+
                         }
                     });
                 } catch (Exception e) {

@@ -32,10 +32,10 @@ public class Student extends Identity implements Serializable {
         for (int i = 0; i < schools.size(); i++) {
             array.put(schools.get(i).toJson());
         }
-        return goal;
+        return goal.put("schools", array);
     }
 
-    public static final String[] diplomaNames = new String[]{"小学", "初中", "高中", "大学", "研究生", "博士"};
+    public static final String[] diplomaNames = new String[]{"小学", "初中", "高中", "本科", "研究生", "博士"};
 
     @NonNull
     @Override
@@ -54,6 +54,12 @@ public class Student extends Identity implements Serializable {
         if (lastDiploma == -1) {
             return "未公开";
         }
-        return schools.get(last).name + "/" + diplomaNames[lastDiploma];
+        School c = schools.get(last);
+        return UserStringResources.getSchoolNames().get(c.country)[c.name] + "/" + diplomaNames[lastDiploma];
+    }
+
+    @Override
+    public int getType() {
+        return 0;
     }
 }

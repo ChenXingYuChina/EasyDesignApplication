@@ -4,16 +4,18 @@ import org.json.JSONObject;
 
 import java.io.Serializable;
 
+import androidx.annotation.NonNull;
+
 public class Public extends Identity implements Serializable {
-    public String industry, position;
-    public Public(String industry, String position) {
+    public int industry, position;
+    public Public(int industry, int position) {
         this.industry = industry;
         this.position = position;
     }
 
     public Public(JSONObject identity) throws Exception {
-        industry = identity.getString("industry");
-        position = identity.getString("position");
+        industry = identity.getInt("industry");
+        position = identity.getInt("position");
     }
     @Override
     public JSONObject toJson() throws Exception {
@@ -23,8 +25,14 @@ public class Public extends Identity implements Serializable {
         return goal;
     }
 
+    @NonNull
     @Override
     public String toString() {
-        return industry + "/" + position;
+        return UserStringResources.getIndustryNames()[industry] + "/" + UserStringResources.getPositionNames().get(industry)[position];
+    }
+
+    @Override
+    public int getType() {
+        return 2;
     }
 }

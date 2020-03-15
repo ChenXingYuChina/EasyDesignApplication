@@ -6,13 +6,13 @@ import java.io.Serializable;
 
 public class School implements Serializable {
     public boolean publicSchool;
-    public String country, name;
+    public int country, name;
     public int diploma;
 
     public School() {
     }
 
-    public School(boolean publicSchool, String country, String name, int diploma) {
+    public School(boolean publicSchool, int country, int name, int diploma) {
         this.publicSchool = publicSchool;
         this.country = country;
         this.name = name;
@@ -21,8 +21,8 @@ public class School implements Serializable {
     public School(JSONObject school) throws Exception {
         publicSchool = school.getBoolean("public");
         diploma = school.getInt("diploma");
-        country = school.getString("country");
-        name = school.getString("name");
+        country = school.getInt("country");
+        name = school.getInt("name");
     }
     public JSONObject toJson() throws Exception {
         JSONObject goal = new JSONObject();
@@ -37,5 +37,10 @@ public class School implements Serializable {
 
     public String getDiploma() {
         return diplomaNames[diploma];
+    }
+
+    @Override
+    public int hashCode() {
+        return (((diploma << 8) | country) << 16) | name;
     }
 }

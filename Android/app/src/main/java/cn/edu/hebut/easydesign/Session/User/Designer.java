@@ -18,7 +18,7 @@ public class Designer extends Identity implements Serializable {
     public Designer(JSONObject identity) throws Exception {
         JSONArray array = identity.getJSONArray("works");
         works = new ArrayList<>(identity.length());
-        for (int i = 0; i < identity.length(); i++) {
+        for (int i = 0; i < array.length(); i++) {
             works.add(new Work(array.getJSONObject(i)));
         }
     }
@@ -36,6 +36,11 @@ public class Designer extends Identity implements Serializable {
     @Override
     public String toString() {
         Work first = works.get(0);
-        return first.industry + "/" + first.position;
+        return UserStringResources.getIndustryNames()[first.industry] + "/" + UserStringResources.getPositionNames().get(first.industry)[first.position];
+    }
+
+    @Override
+    public int getType() {
+        return 1;
     }
 }

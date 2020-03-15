@@ -5,6 +5,7 @@ import android.util.Log;
 import java.security.MessageDigest;
 import java.util.Date;
 
+import androidx.annotation.Nullable;
 import okhttp3.FormBody;
 import okhttp3.MultipartBody;
 
@@ -21,7 +22,10 @@ public class PasswordField implements FormField {
     }
 
     private void check() throws Exception {
-        // todo check if the password is right throw Exception means wrong
+        /* todo check if the password is right throw Exception means wrong
+        * 长度超过6小于20非全数字，仅字母数字以及 . , ; _ - + ! @ # $ % ^ & *这几种英文特殊符号
+        * 出现问题时抛出 new Exception("(具体问题描述)")；
+        */
     }
 
     private void toMD5() {
@@ -39,7 +43,7 @@ public class PasswordField implements FormField {
         for (int i = 0; i < 15; i++) {
             mid[15] ^= mid[i];
         }
-        int minute = (int) (new Date().getTime() / (60000));
+        int minute = (int) (new Date().getTime() / (60000L));
 //        System.out.println(minute);
         char[] goal = new char[32];
         for (int i = 0; i < 16; i++) {

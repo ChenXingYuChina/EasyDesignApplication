@@ -3,58 +3,35 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/beijing1"
+    android:layout_height="wrap_content"
     tools:context="cn.edu.hebut.easydesign.Activity.login3">
-
-    <TextView
-        android:id="@+id/pass_sign_up_detail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="16dp"
-        android:text="快速注册"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/logo"
-
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.1"
-        app:srcCompat="@drawable/logo" />
 
     <EditText
         android:id="@+id/user_name_input"
-        android:layout_width="200dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/round_corner"
+
         android:hint="昵称"
         android:textSize="16dp"
-
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/logo" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/err_tip" />
 
     <EditText
         android:id="@+id/email_input"
-        android:layout_width="200dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
         android:background="@drawable/round_corner"
         android:hint="电子邮箱"
-        android:textSize="16dp"
         android:inputType="textEmailAddress"
+        android:textSize="16dp"
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -62,7 +39,7 @@
 
     <EditText
         android:id="@+id/password"
-        android:layout_width="200dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
@@ -77,7 +54,7 @@
 
     <EditText
         android:id="@+id/password_copy"
-        android:layout_width="200dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
@@ -92,47 +69,27 @@
 
     <Spinner
         android:id="@+id/identity_select"
-        android:layout_width="200dp"
+        android:layout_width="0dp"
         android:layout_height="20dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/round_corner"
         android:entries="@array/identity_type"
         android:hint="身份"
         android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/password_copy" />
 
     <TextView
+        android:id="@+id/err_tip"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:visibility="gone"
         app:layout_constraintLeft_toLeftOf="@id/identity_select"
         app:layout_constraintRight_toRightOf="@id/identity_select"
-        app:layout_constraintTop_toBottomOf="@id/identity_select"
-        android:id="@+id/err_tip"
-        android:visibility="gone" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/to_detail"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:src="@drawable/next"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.86"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.94" />
-
-    <TextView
-        android:id="@+id/to_detail_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="编辑详细信息"
-        android:textSize="20dp"
-
-        app:layout_constraintEnd_toEndOf="@id/to_detail"
-        app:layout_constraintStart_toStartOf="@id/to_detail"
-        app:layout_constraintTop_toBottomOf="@id/to_detail" />
 </androidx.constraintlayout.widget.ConstraintLayout>

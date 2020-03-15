@@ -15,7 +15,7 @@ public class Form {
 
     public RequestBody parse() throws Exception {
         if (multiPart) {
-            MultipartBody.Builder builder = new MultipartBody.Builder();
+            MultipartBody.Builder builder = new MultipartBody.Builder().setType(MultipartBody.FORM);
             for (FormField f : fields) {
                 f.addToFormBuilder(builder);
             }
@@ -37,8 +37,26 @@ public class Form {
         return this;
     }
 
-    public void Replace(FormField oldField, FormField newField) {
+    public Form addFields(List<FormField> fields) {
+        for (FormField field : fields) {
+            addFields(field);
+        }
+        return this;
+    }
+
+    public Form addFields(FormField[] fields) {
+        for (FormField field : fields) {
+            addFields(field);
+        }
+        return this;
+    }
+
+    public void replace(FormField oldField, FormField newField) {
         fields.remove(oldField);
         fields.add(newField);
+    }
+
+    public void remove(FormField field) {
+        fields.remove(field);
     }
 }

@@ -16,7 +16,7 @@ public class MD5_test {
         try {
             PasswordField field = new PasswordField("pw", "hello world");
             field.addToFormBuilder(new MultipartBody.Builder());
-            System.out.println(field.pw);
+//            System.out.println(field.pw);
         } catch (Exception e) {
             e.printStackTrace();
         }

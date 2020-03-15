@@ -1,6 +1,7 @@
 package cn.edu.hebut.easydesign.ComplexString;
 
 import android.content.Context;
+import android.net.Uri;
 import android.text.SpannableString;
 import android.text.method.LinkMovementMethod;
 import android.text.style.BackgroundColorSpan;
@@ -80,11 +81,13 @@ public class ComplexString implements Serializable {
                 throw new Exception();
             } else if (span instanceof ImageSpan) {
                 ImageSpan imageSpan = (ImageSpan) span;
-                if (imageSpan.getSource() == null) {
+                Uri u = Uri.parse(imageSpan.getSource());
+                String path = u.getPath();
+                if (path == null) {
                     Log.i("PASS", "ComplexString: pass an image at" + position[i]);
                     continue;
                 }
-                BufferedInputStream inputStream = new BufferedInputStream(new FileInputStream(imageSpan.getSource()));
+                BufferedInputStream inputStream = new BufferedInputStream(new FileInputStream(path));
                 byte[] data = new byte[inputStream.available()];
                 inputStream.read(data);
                 this.data.add(data);
@@ -273,6 +276,11 @@ public class ComplexString implements Serializable {
             throw new IllegalArgumentException();
         }
         this.string.setSpan(getSpanFromId(id, url), start, width + start, SpannableString.SPAN_INCLUSIVE_EXCLUSIVE);
+    }
+
+    public void AddImageSpan(int start, int width, Uri uri) {
+        ImageSpan imageSpan = new ImageSpan(ContextHolder.getContext(), uri);
+        this.string.setSpan(imageSpan, start, width + start, SpannableString.SPAN_INCLUSIVE_EXCLUSIVE);
     }
 
     private transient TextView textView;

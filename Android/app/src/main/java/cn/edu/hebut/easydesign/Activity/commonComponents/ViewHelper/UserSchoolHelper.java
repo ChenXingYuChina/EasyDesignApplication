@@ -13,6 +13,7 @@ import java.util.List;
 import cn.edu.hebut.easydesign.Activity.ContextHelp.ContextHolder;
 import cn.edu.hebut.easydesign.R;
 import cn.edu.hebut.easydesign.Session.User.School;
+import cn.edu.hebut.easydesign.Session.User.UserStringResources;
 
 public class UserSchoolHelper<name extends View, diploma extends View, country extends View, publicSchool extends View> {
     protected name name;
@@ -20,10 +21,6 @@ public class UserSchoolHelper<name extends View, diploma extends View, country e
     protected publicSchool publicSchool;
     protected diploma diploma;
     protected ViewGroup cachedGroup;
-
-    public static String[] countryNames;
-    public static List<String[]> schoolNames;
-    private static int[] schoolNameIds = new int[]{R.array.chinese_school, R.array.nz_school};
 
     public UserSchoolHelper(ViewGroup viewGroup) {
         initView(viewGroup);
@@ -40,34 +37,19 @@ public class UserSchoolHelper<name extends View, diploma extends View, country e
         if (cachedGroup != viewGroup) {
             initView(viewGroup);
         }
-        int selectedCountry = 0;
         if (country != null) {
-//            if (country instanceof Spinner) {
-//                prepareResources();
-//                for (int i = 0; i < countryNames.length; i++) {
-//                    if (countryNames[i].equals(school.country)) {
-//                        selectedCountry = i;
-//                        break;
-//                    }
-//                }
-//                ((Spinner) country).setSelection(selectedCountry);
-//            } else
-            if (country instanceof TextView) {
-                ((TextView) country).setText(school.country);
+            if (country instanceof Spinner) {
+                ((Spinner) country).setSelection(school.country);
+            } else if (country instanceof TextView) {
+                ((TextView) country).setText(UserStringResources.getCountryNames()[school.country]);
             }
         }
 
         if (name != null) {
-//            if (name instanceof Spinner) {
-//                String[] schoolNamesForCountry = schoolNames.get(selectedCountry);
-//                for (int i = 0; i < schoolNamesForCountry.length; i++) {
-//                    if (schoolNamesForCountry[i].equals(school.name)) {
-//                        ((Spinner) name).setSelection(i);
-//                    }
-//                }
-//            } else
-            if (name instanceof TextView) {
-                ((TextView) name).setText(school.name);
+            if (name instanceof Spinner) {
+                ((Spinner) name).setSelection(school.name);
+            } else if (name instanceof TextView) {
+                ((TextView) name).setText(UserStringResources.getSchoolNames().get(school.country)[school.name]);
             }
         }
         if (diploma != null) {
@@ -118,17 +100,5 @@ public class UserSchoolHelper<name extends View, diploma extends View, country e
         return publicSchool;
     }
 
-    private void prepareResources() {
-        if (countryNames == null) {
-            synchronized (UserSchoolHelper.class) {
-                if (countryNames == null) {
-                    Resources resources = ContextHolder.getContext().getResources();
-                    countryNames = resources.getStringArray(R.array.school_countries);
-                    for (int id : schoolNameIds) {
-                        schoolNames.add(resources.getStringArray(id));
-                    }
-                }
-            }
-        }
-    }
+
 }

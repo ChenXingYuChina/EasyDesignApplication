@@ -7,4 +7,6 @@ public abstract class Identity {
     public abstract JSONObject toJson() throws Exception;
 
     public abstract String toString();
+
+    public abstract int getType();
 }

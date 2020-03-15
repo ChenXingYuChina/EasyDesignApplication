@@ -14,7 +14,7 @@ import (
 
 func main()  {
 	// prepare all the package.
-	err := base.SqlInit("postgres", "easyDesign", "easyDesign2019", "easyDesigner", "127.0.0.1")
+	err := base.SqlInit("postgres", "easyDesignNew", "easyDesign2019", "easyDesigner", "127.0.0.1")
 	if err != nil {
 		panic(err)
 	}

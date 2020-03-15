@@ -21,6 +21,7 @@ import cn.edu.hebut.easydesign.Session.User.Public;
 import cn.edu.hebut.easydesign.Session.User.School;
 import cn.edu.hebut.easydesign.Session.User.Student;
 import cn.edu.hebut.easydesign.Session.User.User;
+import cn.edu.hebut.easydesign.Session.User.UserStringResources;
 import cn.edu.hebut.easydesign.Session.User.Work;
 import cn.edu.hebut.easydesign.Tools.ObjectHolder;
 
@@ -49,15 +50,6 @@ public class UserDescriptionPage implements Page<PassageMultiListView> {
     @Override
     public void bind(@NonNull PassageMultiListView father) {
         top = (UserTop) father.getHead();
-        top.editDescription.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (user != null && longDescription != null) {
-                    ObjectHolder.getInstance().put("editUser", new userFull(user, longDescription));
-//                Intent intent = new Intent(ContextHolder.getContext(), )
-                }
-            }
-        });
     }
 
     @Override
@@ -91,8 +83,7 @@ public class UserDescriptionPage implements Page<PassageMultiListView> {
     }
 
     @SuppressLint("SetTextI18n")
-    public void setErrorCode(int errorCode, reloadDescription retry) {
-        this.retry = retry;
+    public void setErrorCode(int errorCode) {
         TextView textView = new TextView(ContextHolder.getContext());
         textView.setText("加载错误，错误代码：" + errorCode + " 点击重试。");
         view.removeAllViews();
@@ -103,6 +94,10 @@ public class UserDescriptionPage implements Page<PassageMultiListView> {
                 onRefresh();
             }
         });
+    }
+
+    public void setRetry(reloadDescription retry) {
+        this.retry = retry;
     }
 
     public static interface reloadDescription {
@@ -138,8 +133,8 @@ public class UserDescriptionPage implements Page<PassageMultiListView> {
         ViewGroup page = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.user_description_public_page_layout, view);
         TextView industry = page.findViewById(R.id.industry);
         TextView position = page.findViewById(R.id.position);
-        industry.setText(p.industry);
-        position.setText(p.position);
+        industry.setText(p.industry == -1 ? "未填写" : UserStringResources.getIndustryNames()[p.industry]);
+        position.setText(p.position == -1 ? "未填写" : UserStringResources.getPositionNames().get(p.industry)[p.position]);
         return page.findViewById(R.id.description);
     }
 

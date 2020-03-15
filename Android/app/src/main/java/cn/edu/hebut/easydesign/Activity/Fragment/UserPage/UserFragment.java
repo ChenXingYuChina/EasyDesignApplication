@@ -14,10 +14,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import cn.edu.hebut.easydesign.Activity.ContextHelp.ContextHolder;
+import cn.edu.hebut.easydesign.Activity.Fragment.UserPage.ChangeInformation.EditSelections;
 import cn.edu.hebut.easydesign.Activity.PassageList.Config.UserLastByType;
 import cn.edu.hebut.easydesign.Activity.PassageList.Page.Page;
 import cn.edu.hebut.easydesign.Activity.PassageList.Page.PassageListPage;
 import cn.edu.hebut.easydesign.Activity.PassageList.PassageMultiListView;
+import cn.edu.hebut.easydesign.Activity.commonComponents.FinishActivity;
 import cn.edu.hebut.easydesign.Activity.commonComponents.HalfAboveDialog;
 import cn.edu.hebut.easydesign.ComplexString.ComplexString;
 import cn.edu.hebut.easydesign.R;
@@ -38,10 +40,12 @@ public class UserFragment extends Fragment implements UserDescriptionPage.reload
     private PassageMultiListView list;
     private HalfAboveDialog dialog;
     private FollowList followList;
+    private EditSelections informationEditor;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         descriptionPage = new UserDescriptionPage();
+        descriptionPage.setRetry(this);
         View page = inflater.inflate(R.layout.user_fragment, container, false);
         list = page.findViewById(R.id.user_page_list);
         dialog = page.findViewById(R.id.user_dialog);
@@ -91,7 +95,7 @@ public class UserFragment extends Fragment implements UserDescriptionPage.reload
             @Override
             protected void onError(int errCode) {
                 user = null;
-                descriptionPage.setErrorCode(errCode, UserFragment.this);
+                descriptionPage.setErrorCode(errCode);
                 Toast.makeText(getContext(), R.string.error, Toast.LENGTH_LONG).show();
             }
         });
@@ -112,11 +116,34 @@ public class UserFragment extends Fragment implements UserDescriptionPage.reload
             @Override
             protected void onError(int errCode) {
                 longDescription = null;
-                descriptionPage.setErrorCode(errCode, UserFragment.this);
+                descriptionPage.setErrorCode(errCode);
                 Toast.makeText(getContext(), R.string.error, Toast.LENGTH_LONG).show();
             }
         });
     }
+
+    private View.OnClickListener showFollowList = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            if (followList == null) {
+                followList = new FollowList(ContextHolder.getContext());
+                followList.setWho(userID, new Condition<>(false));
+            }
+            dialog.show(followList);
+            dialog.setOnClose(null);
+        }
+    };
+
+    private View.OnClickListener showEditUserInformation = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            if (informationEditor == null) {
+                informationEditor = new EditSelections(ContextHolder.getContext());
+            }
+            dialog.show(informationEditor);
+            dialog.setOnClose(null);
+        }
+    };
 
     private void initData(final PassageMultiListView list) {
         TaskService.MyBinder binder = ContextHolder.getBinder();
@@ -127,23 +154,8 @@ public class UserFragment extends Fragment implements UserDescriptionPage.reload
                     UserTop top = (UserTop) list.getHead();
                     top.setUser(user);
                     descriptionPage.setLongDescription(new UserDescriptionPage.userFull(user, longDescription));
-                    top.setFollowOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            if (followList == null) {
-                                followList = new FollowList(ContextHolder.getContext());
-                            }
-                            followList.setWho(userID, new Condition<>(false));
-
-                            dialog.show(followList);
-                            dialog.setOnClose(new HalfAboveDialog.onClose() {
-                                @Override
-                                public void onClose(View content) {
-
-                                }
-                            });
-                        }
-                    });
+                    top.setFollowOnClickListener(showFollowList);
+                    top.setEditInformationOnClickListener(showEditUserInformation);
                 }
             }
 
@@ -160,5 +172,9 @@ public class UserFragment extends Fragment implements UserDescriptionPage.reload
         loadLongDescription();
         initData(list);
         list.closeRefresh();
+    }
+
+    public void setFinishActivity(FinishActivity finishActivity) {
+        informationEditor.setFinishActivity(finishActivity);
     }
 }

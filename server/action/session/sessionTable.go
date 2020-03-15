@@ -141,15 +141,18 @@ func LoginWithId(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	log.Println("login success")
+	log.Println(string(g))
 	http.SetCookie(w, &http.Cookie{Name:"sessionKey", Value:strconv.FormatInt(session.SessionKey, 16), HttpOnly:true})
 }
 
 func LoginByEmail(w http.ResponseWriter, r *http.Request) {
+	log.Println("call login by email")
 	err := r.ParseForm()
 	if err != nil {
 		w.WriteHeader(400)
 		return
 	}
+	log.Println(r.Form)
 	email, ok := httpTools.GetEmailFromForm(r.Form, "email")
 	if !ok {
 		w.WriteHeader(400)
@@ -179,22 +182,24 @@ func LoginByEmail(w http.ResponseWriter, r *http.Request) {
 			log.Println(err)
 		}
 		st.put(session)
-	} else {
-		session.lastActive = time.Now().Unix()
 	}
 	session.SessionKey = int64(rand.Uint64())
 	g, err := json.Marshal(session)
 	if err != nil {
+		log.Println(err)
 		w.WriteHeader(500)
 		return
 	}
+	log.Println(session)
+	log.Println("login success mid")
 	_, err = w.Write(g)
 	if err != nil {
 		log.Println(err)
 		w.WriteHeader(500)
 		return
 	}
-	http.SetCookie(w, &http.Cookie{Name:"sessionKey", Value:strconv.FormatInt(session.SessionKey, 16), HttpOnly:true})
+	log.Println(string(g))
+	log.Println("login success")
 }
 
 func Logout(w http.ResponseWriter, r *http.Request) {

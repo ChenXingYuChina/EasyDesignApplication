@@ -2,7 +2,6 @@ package cn.edu.hebut.easydesign.Session.NeedSessionTask;
 
 import android.util.Log;
 
-import cn.edu.hebut.easydesign.Session.LoginTask;
 import okhttp3.Response;
 
 public abstract class NoReplySessionHostPostTask extends SessionHostPostTask {

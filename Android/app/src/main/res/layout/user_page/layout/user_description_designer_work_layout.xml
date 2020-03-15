@@ -31,7 +31,7 @@
         app:layout_constraintTop_toTopOf="@id/top_guide" />
 
     <TextView
-        android:id="@+id/company"
+        android:id="@id/company"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
@@ -53,7 +53,7 @@
         app:layout_constraintTop_toBottomOf="@id/company_label" />
 
     <TextView
-        android:id="@+id/industry"
+        android:id="@id/industry"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="设计"
@@ -71,7 +71,7 @@
         app:layout_constraintTop_toTopOf="@id/industry_label" />
 
     <TextView
-        android:id="@+id/position"
+        android:id="@id/position"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
@@ -93,7 +93,7 @@
         app:layout_constraintRight_toLeftOf="@id/work_time" />
 
     <TextView
-        android:id="@+id/work_time"
+        android:id="@id/work_time"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"

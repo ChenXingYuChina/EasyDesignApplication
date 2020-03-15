@@ -1,6 +1,8 @@
 package cn.edu.hebut.easydesign.Activity.ContextHelp;
 
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,15 +14,25 @@ public abstract class HoldContextAppCompatActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ContextHolder.setContext(this);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+        Log.i("holder", "onResume: " + this);
         ContextHolder.setContext(this);
         ContextHolder.setBinder(binder);
     }
 
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.i("holder", "onRestart: ");
+        ContextHolder.setContext(this);
+        ContextHolder.setBinder(binder);
+    }
 
     @Override
     protected void onPause() {

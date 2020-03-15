@@ -60,4 +60,10 @@
     <string-array name="nz_school">
         <item>梅西大学</item>
     </string-array>
+    <string name="set_back_image">
+        setBackImage
+    </string>
+    <string name="set_head_image">
+        setHeadImage
+    </string>
 </resources>
