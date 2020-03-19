@@ -34,7 +34,7 @@ public class ContextHolder {
         holder.selectImageFromAlbum = selectImageFromAlbum;
     }
 
-    public static void bindUseAlbumImage(UseAlbumImage use) {
+    public static void selectAlbumImage(UseAlbumImage use) {
         holder.selectImageFromAlbum.setInteractionObject(use);
         holder.selectImageFromAlbum.openAlbum();
     }

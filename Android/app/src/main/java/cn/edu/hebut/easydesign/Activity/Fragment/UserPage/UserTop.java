@@ -19,7 +19,7 @@ import cn.edu.hebut.easydesign.TaskWorker.Condition;
 import cn.edu.hebut.easydesign.TaskWorker.TaskService;
 
 
-// TODO: 2020/2/15 add click listener to finish other things.
+// TODO: 2020/2/15 action click listener to finish other things.
 public class UserTop extends FrameLayout {
     ImageView back, head, editInformation;
     TextView name, identity, passageNumber, followNumber, coinNumber, fansNumber, followLabel;

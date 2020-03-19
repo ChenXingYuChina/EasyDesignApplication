@@ -27,7 +27,7 @@ public class Passage implements Data {
 
     public Passage(JSONObject passage, boolean full) throws Exception {
         try {
-            content = ComplexStringLoader.getInstance().LoadFromNet(passage.getJSONObject("body"));
+            content = ComplexStringLoader.LoadFromNet(passage.getJSONObject("body"));
         } catch (Exception ignored) {
         }
         try {

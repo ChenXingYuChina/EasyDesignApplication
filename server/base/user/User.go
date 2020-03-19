@@ -320,7 +320,7 @@ func (u *UserBase) changeIdentity(tx *sql.Tx) (err error) {
 			return
 		}
 	case *Designer:
-		log.Println(identity)
+		//log.Println(identity)
 		_, err = tx.Stmt(deleteDesignerInfo).Exec(u.ID)
 		if err != nil {
 			log.Println(err)

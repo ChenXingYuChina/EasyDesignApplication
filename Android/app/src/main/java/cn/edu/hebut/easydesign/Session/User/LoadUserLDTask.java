@@ -21,7 +21,7 @@ public abstract class LoadUserLDTask extends HostGetTask<ComplexString> {
             if (string.equals("null")) {
                 session.longDescription = Session.defaultDescription;
             } else {
-                session.longDescription = ComplexStringLoader.getInstance().LoadFromNet(new JSONObject(string));
+                session.longDescription = ComplexStringLoader.LoadFromNet(new JSONObject(string));
             }
             data2 = session.longDescription;
         } catch (Exception e) {

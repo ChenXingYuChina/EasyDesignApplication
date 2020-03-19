@@ -3,7 +3,7 @@ package cn.edu.hebut.easydesign.DataManager;
 import androidx.annotation.NonNull;
 
 /*
-add the other resources which need to cache to here.
+action the other resources which need to cache to here.
  */
 public enum DataType {
     Image("image", 0),

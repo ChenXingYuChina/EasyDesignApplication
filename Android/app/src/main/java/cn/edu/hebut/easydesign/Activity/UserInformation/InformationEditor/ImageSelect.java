@@ -63,7 +63,7 @@ public class ImageSelect extends FrameLayout implements InformationEditor, UseAl
 
     @Override
     public void onClick(View v) {
-        ContextHolder.bindUseAlbumImage(this);
+        ContextHolder.selectAlbumImage(this);
     }
 
     @Override

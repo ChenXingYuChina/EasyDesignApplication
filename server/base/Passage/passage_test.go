@@ -10,12 +10,12 @@ import (
 	"testing"
 )
 
-const remote = true
+const remote = false
 
 func TestMain(m *testing.M) {
 	var err error
 	if !remote {
-		err = SqlInit("postgres", "easyDesign", "easyDesign2019", "easyDesigner", "127.0.0.1")
+		err = SqlInit("postgres", "easyDesignNew", "easyDesign2019", "easyDesigner", "127.0.0.1")
 	} else  {
 		err = SqlInit("postgres", "appdb", "12345678", "app_dev", "175.24.76.161")
 	}
@@ -28,7 +28,7 @@ func TestMain(m *testing.M) {
 }
 
 func TestNewPassage(t *testing.T) {
-	p, err := NewPassage(&ComplexString.ComplexString{Content:"content"}, 0, 3, "test", 0, nil, 0)
+	p, err := NewPassage(&ComplexString.ComplexString{Content:"content"}, 0, 49, "test", 0, nil, 0)
 	if err != nil {
 		t.Error(err)
 		return
@@ -72,7 +72,7 @@ func TestLoadPassageFromDisk(t *testing.T) {
 }
 
 func TestNewPassage2(t *testing.T) {
-	p, err := NewPassage(&ComplexString.ComplexString{Content:"content"}, 1, 48, "test", 3, &MultiMedia.MultiMediaMetadata{Length:10, Type:1, DataIds:[]int64{0}}, 0)
+	p, err := NewPassage(&ComplexString.ComplexString{Content:"content"}, 0, 49, "test", 0, &MultiMedia.MultiMediaMetadata{Length:10, Type:1, DataIds:[]int64{0}}, 0)
 	if err != nil {
 		t.Error(err)
 		return

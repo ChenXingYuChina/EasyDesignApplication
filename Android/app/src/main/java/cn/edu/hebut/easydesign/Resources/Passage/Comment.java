@@ -36,7 +36,7 @@ public class Comment implements LikeAble {
                 this.subComments.add(new SubComment(subComments.getJSONObject(i)));
             }
         }
-        this.content = ComplexStringLoader.getInstance().LoadFromNet(comment.getJSONObject("content"));
+        this.content = ComplexStringLoader.LoadFromNet(comment.getJSONObject("content"));
         this.like = comment.getInt("like");
         this.position = comment.getInt("position");
         this.subCommentNumber = comment.getInt("sub_com_number");

@@ -1,8 +1,14 @@
 package cn.edu.hebut.easydesign.ComplexString;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Matrix;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.text.Editable;
 import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
 import android.text.method.LinkMovementMethod;
 import android.text.style.BackgroundColorSpan;
 import android.text.style.ForegroundColorSpan;
@@ -18,36 +24,82 @@ import android.view.View;
 import android.widget.TextView;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedInputStream;
-import java.io.FileInputStream;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import cn.edu.hebut.easydesign.Activity.ContextHelp.ContextHolder;
+import cn.edu.hebut.easydesign.ComplexString.RichTextEditor.UndoSystem.EditableProxy;
 import cn.edu.hebut.easydesign.R;
+import cn.edu.hebut.easydesign.Resources.Media.Image.ImageHostLoadTask;
 import cn.edu.hebut.easydesign.TaskWorker.Condition;
+import cn.edu.hebut.easydesign.Tools.ResourcesTools;
 
 public class ComplexString implements Serializable {
-    int[] position = null;
-    int[] width = null;
-    int[] resourcesId = null;
-    ArrayList<String> urls = null;
-    private transient ArrayList<String> imageUrls = null;
-    private transient ArrayList<byte[]> data = null;
-    String content = null;
-    transient volatile Condition<Boolean> cancelLoadImage;
-    transient SpannableString string = null;
+    private int[] start = null;
+    private int[] width = null;
+    private long[] resourcesId = null;
+    private String[] urls = null;
+    private String content = null;
+
     public long id;
 
+//    private transient List<String> imageUrls = null;
+//    private transient List<byte[]> data = null;
+    private transient Map<Integer, String> imagePath = null;
+    private transient Condition<Boolean> cancelLoadImage = null;
+    protected transient Editable string = null;
+
     public ComplexString(String string) {
-        this.string = new SpannableString(string);
+        this.string = new SpannableStringBuilder(string);
     }
 
-    public ComplexString(SpannableString string) {
+    public ComplexString(Editable string) {
         this.string = string;
+    }
+
+    public ComplexString(JSONObject data) throws Exception {
+        content = data.getString("content");
+        JSONArray positions, widths, resources;
+        try {
+            positions = data.getJSONArray("position");
+            widths = data.getJSONArray("width");
+            resources = data.getJSONArray("resources");
+        } catch (Exception e) {
+            return ;
+        }
+        int length = positions.length();
+        start = new int[length];
+        width = new int[length];
+        resourcesId = new long[length];
+        urls = new String[length];
+        for (int i = 0; i < length; i++) {
+            start[i] = positions.getInt(i);
+            width[i] = widths.getInt(i);
+            JSONObject res = resources.getJSONObject(i);
+            resourcesId[i] = res.getLong("id");
+            String url;
+            try {
+                url = res.getString("url");
+            } catch (JSONException e) {
+                url = null;
+            }
+            urls[i] = url;
+        }
+    }
+
+
+    private void makeUp() {
+        int length = start.length;
+        cancelLoadImage = new Condition<>(false);
+        for (int i = 0; i < length; i++) {
+            AddSpan(start[i], width[i], resourcesId[i], urls[i]);
+        }
     }
 
     /*
@@ -57,46 +109,39 @@ public class ComplexString implements Serializable {
         if (content != null) {
             return;
         }
+
         content = string.subSequence(0, string.length()).toString();
         Object[] spans = string.getSpans(0, string.length(), Object.class);
         int length = spans.length;
-        position = new int[length];
+        start = new int[length];
         width = new int[length];
-        resourcesId = new int[length];
-        data = new ArrayList<>(length / 5);
-        imageUrls = new ArrayList<>(length / 5);
+        resourcesId = new long[length];
+        urls = new String[length];
+        imagePath = new HashMap<>();
+
         for (int i = 0; i < length; i++) {
             Object span = spans[i];
-            position[i] = string.getSpanStart(span);
-            width[i] = string.getSpanEnd(span) - position[i];
+            start[i] = string.getSpanStart(span);
+            width[i] = string.getSpanEnd(span) - start[i];
             if (span instanceof RelativeSizeSpan) {
                 RelativeSizeSpan sizeSpan = (RelativeSizeSpan) span;
-                if (sizeSpan.getSizeChange() == 0.5f) {
+                float size = sizeSpan.getSizeChange();
+                if (size == 0.5f) {
                     resourcesId[i] = SMALL_FONT_SIZE + FONT_SIZE_BASE;
-                } else if (sizeSpan.getSizeChange() == 1.5f) {
+                } else if (size == 1.5f) {
                     resourcesId[i] = BIG_FONT_SIZE + FONT_SIZE_BASE;
-                } else if (sizeSpan.getSizeChange() == 2.0f) {
+                } else if (size == 2.0f) {
                     resourcesId[i] = HUGE_FONT_SIZE + FONT_SIZE_BASE;
+                } else {
+                    Log.i("cs", "parseToServerFormat: " + size);
+                    throw new Exception();
                 }
-                throw new Exception();
-            } else if (span instanceof ImageSpan) {
-                ImageSpan imageSpan = (ImageSpan) span;
-                Uri u = Uri.parse(imageSpan.getSource());
-                String path = u.getPath();
-                if (path == null) {
-                    Log.i("PASS", "ComplexString: pass an image at" + position[i]);
-                    continue;
-                }
-                BufferedInputStream inputStream = new BufferedInputStream(new FileInputStream(path));
-                byte[] data = new byte[inputStream.available()];
-                inputStream.read(data);
-                this.data.add(data);
+            } else if (span instanceof myImageSpan) {
+                myImageSpan imageSpan = (myImageSpan) span;
+                imagePath.put(i, imageSpan.path);
                 resourcesId[i] = -1;
             } else if (span instanceof URLSpan) {
-                if (urls == null) {
-                    urls = new ArrayList<>();
-                }
-                urls.add(((URLSpan) span).getURL());
+                urls[i] = ((URLSpan) span).getURL();
                 resourcesId[i] = HYPERLINK;
             } else if (span instanceof UnderlineSpan) {
                 resourcesId[i] = UNDERLINE;
@@ -138,34 +183,13 @@ public class ComplexString implements Serializable {
         }
     }
 
-    public SpannableString GetSpannableString() {
-        if (string == null) {
-            SpannableString goal = new SpannableString(content);
-            cancelLoadImage = new Condition<>(false);
-            int c = 0;
-            Condition<Boolean> condition = new Condition<>(false);
-            for (int i : position) {
-                long rid = resourcesId[i];
-                try {
-                    AddSpan(position[i], width[i], rid, urls.get(c));
-                    if (rid == HYPERLINK) c++;
-                } catch (Exception e) {
-                    Log.i("PASS", "LoadComplexStringFromCache: pass resource's id: " + rid);
-                }
-            }
-            string = goal;
-            cancelLoadImage = condition;
-        }
-        return string;
-    }
-
     public JSONObject toJson() throws Exception {
         if (content == null) {
             parseToServerFormat();
         }
         JSONObject goal = new JSONObject();
-        goal.put("content", content.toString());
-        goal.put("position", listToJsonArray(position));
+        goal.put("content", content);
+        goal.put("position", listToJsonArray(start));
         goal.put("width", listToJsonArray(width));
         JSONObject resources = new JSONObject();
         resources.put("res", listToJsonArray(resourcesId));
@@ -182,15 +206,23 @@ public class ComplexString implements Serializable {
         return array;
     }
 
-    private JSONArray listToJsonArray(List<?> list) {
+    private JSONArray listToJsonArray(long[] list) {
         JSONArray array = new JSONArray();
-        for (Object one : list) {
+        for (long one : list) {
             array.put(one);
         }
         return array;
     }
 
-    public ArrayList<byte[]> getData() {
+    private <T> JSONArray listToJsonArray(T[] list) {
+        JSONArray array = new JSONArray();
+        for (T one : list) {
+            array.put(one);
+        }
+        return array;
+    }
+
+    public Map<Integer, String> getImagePath() {
         if (content == null) {
             try {
                 parseToServerFormat();
@@ -198,7 +230,7 @@ public class ComplexString implements Serializable {
                 return null;
             }
         }
-        return data;
+        return imagePath;
     }
 
 
@@ -268,40 +300,84 @@ public class ComplexString implements Serializable {
         return null;
     }
 
-    /*
-    it will throw Exception if it adds an image span for net.
-     */
-    public void AddSpan(int start, int width, long id, String url) throws IllegalArgumentException {
-        if (id == IMAGE && url.startsWith("http")) {
-            throw new IllegalArgumentException();
+    private void AddSpan(int start, int width, long id, String url) throws IllegalArgumentException {
+        if (id >= IMAGE) {
+            addImageSpanOfHost(id, start, start + width);
         }
-        this.string.setSpan(getSpanFromId(id, url), start, width + start, SpannableString.SPAN_INCLUSIVE_EXCLUSIVE);
+        string.setSpan(getSpanFromId(id, url), start, width + start, SpannableString.SPAN_INCLUSIVE_EXCLUSIVE);
     }
 
-    public void AddImageSpan(int start, int width, Uri uri) {
-        ImageSpan imageSpan = new ImageSpan(ContextHolder.getContext(), uri);
-        this.string.setSpan(imageSpan, start, width + start, SpannableString.SPAN_INCLUSIVE_EXCLUSIVE);
+    private static final int maxWidth = ResourcesTools.dp2px(300);
+
+    private void addImageSpanOfHost(long id, final int start, final int end) {
+        ContextHolder.getBinder().PutTask(new ImageHostLoadTask(id, cancelLoadImage) {
+            @Override
+            protected void setImage(Bitmap bitmap) {
+                Context ctx = ContextHolder.getContext();
+                Log.i("CS", "the context: " + ctx);
+                if (ctx == null) {
+                    return;
+                }
+                string.setSpan(new ImageSpan(ctx, scaleBitMap(bitmap)), start, end, SpannableString.SPAN_INCLUSIVE_EXCLUSIVE);
+//                    complexString.refresh();
+                Log.i("CS", "start " + start + " size " + bitmap.getByteCount());
+            }
+        });
     }
-    public void RemoveSpan(long id, String url){
-        this.string.removeSpan(getSpanFromId(id, url));
+
+    private Bitmap scaleBitMap(Bitmap bitmap) {
+        int oWith = bitmap.getWidth();
+        int oHeight = bitmap.getHeight();
+        int height = oHeight;
+        int width = oWith;
+        if (width > maxWidth) {
+            height = height * maxWidth / width;
+            width = maxWidth;
+        }
+        if (width != oWith) {
+            Matrix translate = new Matrix();
+            translate.preScale(((float) width) / oWith, ((float) height) / oHeight);
+//                        Log.i("cs", width + " " +height);
+            bitmap = Bitmap.createBitmap(bitmap, 0, 0, oWith, oHeight, translate, false);
+        }
+        return bitmap;
+    }
+
+
+    private final static String loading = "\r\n图片正在加载中\r\n";
+    public void addImageSpan(int start, int end, Bitmap bitmap, String path) {
+        SpannableStringBuilder builder = new SpannableStringBuilder(loading);
+        ImageSpan imageSpan = new myImageSpan(ContextHolder.getContext(), scaleBitMap(bitmap), path);
+        builder.setSpan(imageSpan, 2, 9, SpannableString.SPAN_INCLUSIVE_EXCLUSIVE);
+        Log.i(EditableProxy.TAG, "addImageSpan: ");
+
+        string.replace(start, end, builder);
+    }
+
+    public void addSpan(int id, int start, int end, String url) {
+        string.setSpan(getSpanFromId(id, url), start, end, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
     }
 
     private transient TextView textView;
 
     public void SetToTextView(TextView textView) {
-        textView.setText(GetSpannableString());
+        if (textView == this.textView) {
+            return;
+        }
+        if (string != null) {
+            textView.setText(string);
+            return;
+        }
         this.textView = textView;
+        textView.setText(content, TextView.BufferType.EDITABLE);
+        string = textView.getEditableText();
+        makeUp();
         textView.setMovementMethod(LinkMovementMethod.getInstance());
     }
 
     public void cancel() {
         if (cancelLoadImage != null)
             cancelLoadImage.condition = true;
-    }
-    void refresh() {
-        if (textView != null) {
-            textView.setText(GetSpannableString());
-        }
     }
 
     static class myUrlSpan extends URLSpan {
@@ -317,4 +393,13 @@ public class ComplexString implements Serializable {
             super.onClick(widget);
         }
     }
+
+    static class myImageSpan extends ImageSpan {
+        String path;
+        public myImageSpan(@NonNull Context context, Bitmap bitmap, String path) {
+            super(context, bitmap);
+            this.path = path;
+        }
+    }
+
 }

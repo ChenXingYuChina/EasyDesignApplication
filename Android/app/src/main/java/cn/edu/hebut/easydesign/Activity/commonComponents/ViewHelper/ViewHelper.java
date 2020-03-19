@@ -25,7 +25,7 @@ public class ViewHelper {
         this.liked = liked;
     }
 
-    /* add a click listener for provided view and it will send the task on click event, the binder
+    /* action a click listener for provided view and it will send the task on click event, the binder
      * 传入控件和一个任务，点击时将会自动发送任务
      */
     public void setupLike(final ImageView label, final TextView numberLabel, final LikeAble likeAble, final Task task, @Nullable TaskService.MyBinder binder) {

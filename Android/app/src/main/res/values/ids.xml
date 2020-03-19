@@ -22,4 +22,35 @@
     <item name="position" type="id" />
     <item name="work_time" type="id" />
     <item name="company" type="id" />
+
+<!--    complex string editor helper start-->
+    <item name="set_underline" type="id"/>
+    <item name="set_strike_through" type="id"/>
+    <item name="set_superscript" type="id" />
+    <item name="set_subscript" type="id"/>
+    <item name="small_font" type="id" />
+    <item name="huge_font" type="id" />
+    <item name="big_font" type="id"/>
+    <item name="red_text" type="id" />
+    <item name="blue_text" type="id" />
+    <item name="yellow_text" type="id" />
+    <item name="green_text" type="id" />
+    <item name="purple_text" type="id" />
+    <item name="red_background" type="id"/>
+    <item name="blue_background" type="id" />
+    <item name="yellow_background" type="id" />
+    <item name="green_background" type="id" />
+    <item name="purple_background" type="id" />
+    <item name="hyperlink" type="id" />
+    <item name="insert_image" type="id" />
+
+    <item name="text_font_size" type="id" />
+    <item name="text_color" type="id" />
+    <item name="background_color" type="id" />
+
+    <item name="complex_string_editor" type="id"/>
+
+    <item name="redo_action" type="id" />
+    <item name="undo_action" type="id" />
+<!--    complex string editor helper end-->
 </resources>

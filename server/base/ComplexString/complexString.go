@@ -43,6 +43,7 @@ type ComplexString struct {
 
 func (s *ComplexString) SaveComplexStringToFile(fileName string) (err error) {
 	f, err := os.Create(fileName)
+
 	defer func() {
 		err = f.Close()
 	}()

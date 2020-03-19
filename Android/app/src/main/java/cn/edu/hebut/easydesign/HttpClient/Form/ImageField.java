@@ -27,12 +27,12 @@ public class ImageField implements FormField {
     public void addToFormBuilder(MultipartBody.Builder builder) throws Exception {
         RequestBody body = RequestBody.create(MultipartBody.FORM, file);
         builder.addFormDataPart(fieldName, file.getName(), body);
-        Log.i("image", "addToFormBuilder: add success");
+        Log.i("image", "addToFormBuilder: action success");
     }
 
     @Override
     public void addToFormBuilder(FormBody.Builder builder) throws Exception {
-        throw new IllegalArgumentException("add image to the normal form");
+        throw new IllegalArgumentException("action image to the normal form");
     }
 
     @Override

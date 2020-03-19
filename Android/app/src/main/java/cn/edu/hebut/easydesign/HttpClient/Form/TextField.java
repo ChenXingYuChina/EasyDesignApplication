@@ -6,7 +6,7 @@ import okhttp3.FormBody;
 import okhttp3.MultipartBody;
 
 /*
-this can be extends to add a check method to let it meet email or others.
+this can be extends to action a check method to let it meet email or others.
  */
 public class TextField implements FormField {
 

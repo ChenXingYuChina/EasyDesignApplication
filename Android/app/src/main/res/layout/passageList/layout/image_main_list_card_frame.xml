@@ -13,7 +13,7 @@
         android:orientation="vertical">
 
         <ImageView
-            android:id="@id/user_head"
+            android:id="@id/list_image"
             android:layout_width="match_parent"
             android:layout_height="180dp"
             android:padding="10sp"
