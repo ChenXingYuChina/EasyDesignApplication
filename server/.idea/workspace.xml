@@ -2,60 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3a4c1ff6-ab43-4fc2-a46e-ddb92db95cc2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/Passage/MakeComment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/PublicPassageActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/res/layout/PassageActivity/layout/make_comment.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/res/layout/new_passage.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/action/httpTools/complexStringTools.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/androidTest/java/cn/edu/hebut/easydesign/ExampleInstrumentedTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/androidTest/java/cn/edu/hebut/easydesign/ExampleInstrumentedTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/ContextHelp/HoldContextActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/ContextHelp/HoldContextActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/ContextHelp/HoldContextAppCompatActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/ContextHelp/HoldContextAppCompatActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/Fragment/UserPage/UserFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/Fragment/UserPage/UserFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/Fragment/UserPage/UserTop.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/Fragment/UserPage/UserTop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/Passage/PassageActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/Passage/PassageActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/RichEditorTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/UserInformation/InformationEditor/ImageSelect.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/UserInformation/InformationEditor/ImageSelect.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/UserInformation/InformationEditor/UserLongDescriptionEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/UserInformation/InformationEditor/UserLongDescriptionEditor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/commonComponents/HalfAboveDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/commonComponents/HalfAboveDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/commonComponents/TextButtonRichTextEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Activity/commonComponents/TextButtonRichTextEditor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/ComplexString/ComplexString.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/ComplexString/ComplexString.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/ComplexString/ComplexStringField.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/ComplexString/ComplexStringField.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/ComplexString/RichTextEditor/ComplexStringProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/ComplexString/RichTextEditor/ComplexStringProxy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/ComplexString/RichTextEditor/RichTextEditorSimple.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/ComplexString/RichTextEditor/RichTextEditorSimple.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/ComplexString/RichTextEditor/UndoSystem/EditableProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/ComplexString/RichTextEditor/UndoSystem/EditableProxy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/ComplexString/RichTextEditor/UndoSystem/UndoManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/ComplexString/RichTextEditor/UndoSystem/UndoManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/HttpClient/Form/Form.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/HttpClient/Form/Form.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Resources/PassageList/PassageListItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Resources/PassageList/PassageListItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Session/User/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/Session/User/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/playGround/TestActivityOne.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/playGround/TextAdapter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/cn/edu/hebut/easydesign/playGround/TextViewHolder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/res/layout/PassageActivity/layout/passage_activity_layout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/res/layout/PassageActivity/layout/passage_activity_layout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/res/layout/text_button_rich_editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/res/layout/text_button_rich_editor.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/res/layout/user_page/layout/edit_selection_list.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/res/layout/user_page/layout/edit_selection_list.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/res/values/attrs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/res/values/attrs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/action/Passage.go" beforeDir="false" afterPath="$PROJECT_DIR$/action/Passage.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/action/comment.go" beforeDir="false" afterPath="$PROJECT_DIR$/action/comment.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/action/handle.go" beforeDir="false" afterPath="$PROJECT_DIR$/action/handle.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/action/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/action/user.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/action/userInformation.go" beforeDir="false" afterPath="$PROJECT_DIR$/action/userInformation.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/ComplexString/ComplexString_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/base/ComplexString/ComplexString_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/ComplexString/complexString.go" beforeDir="false" afterPath="$PROJECT_DIR$/base/ComplexString/complexString.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/ComplexString/textResources.go" beforeDir="false" afterPath="$PROJECT_DIR$/base/ComplexString/textResources.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/MultiMedia/image.go" beforeDir="false" afterPath="$PROJECT_DIR$/base/MultiMedia/image.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/comment/Comment.go" beforeDir="false" afterPath="$PROJECT_DIR$/base/comment/Comment.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/user/User.go" beforeDir="false" afterPath="$PROJECT_DIR$/base/user/User.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middle/residentContent.go" beforeDir="false" afterPath="$PROJECT_DIR$/middle/residentContent.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/remote_main.go" beforeDir="false" afterPath="$PROJECT_DIR$/remote_main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testData/cb/3_1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/testData/cb/3_1.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testData/im/12.img" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testData/im/13.img" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testData/pb/2.cs" beforeDir="false" afterPath="$PROJECT_DIR$/testData/pb/2.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testData/pb/3.cs" beforeDir="false" afterPath="$PROJECT_DIR$/testData/pb/3.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testData/cb/2_1.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testData/cb/3_1.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testData/cb/3_2.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testData/mm/1.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testData/mm/2.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testData/pb/1.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testData/pb/2.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testData/pb/3.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testData/pb/5.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testData/pb/6.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testData/pb/7.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testData/ss/1.ss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testData/ss/2.ss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testData/ss/24.ss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testData/ss/3.ss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testData/uld/3.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testData/uld/30.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testData/uld/31.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testData/wl/3.cs" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -99,11 +64,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/middle/residentContent.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="407">
-              <caret line="176" column="1" lean-forward="true" selection-start-line="176" selection-start-column="1" selection-end-line="176" selection-end-column="1" />
+            <state relative-caret-position="532">
+              <caret line="176" column="1" selection-start-line="176" selection-start-column="1" selection-end-line="176" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -111,8 +76,35 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="25" selection-start-line="25" selection-end-line="25" />
+            <state relative-caret-position="-518">
+              <caret line="20" column="16" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/action/httpTools/multipartTools.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="390">
+              <caret line="48" column="5" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/action/image.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="346">
+              <caret line="69" column="29" lean-forward="true" selection-start-line="69" selection-start-column="29" selection-end-line="69" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/base/others.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -140,33 +132,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="180">
               <caret line="6" column="7" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../github.com/lib/pq/connector.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1770">
-              <caret line="66" column="19" selection-start-line="66" selection-start-column="19" selection-end-line="66" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://C:/Go1.11/go/src/os/env.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4050">
-              <caret line="138" column="5" selection-start-line="138" selection-start-column="5" selection-end-line="138" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/base/sqlBase.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -235,7 +200,6 @@
         <option value="$PROJECT_DIR$/action/remote_test.go" />
         <option value="$PROJECT_DIR$/action/inCmd_test.go" />
         <option value="$PROJECT_DIR$/action/http_2_test.go" />
-        <option value="$PROJECT_DIR$/main.go" />
         <option value="$PROJECT_DIR$/base/user/User_test.go" />
         <option value="$PROJECT_DIR$/action/passageList.go" />
         <option value="$PROJECT_DIR$/action/signUp.go" />
@@ -258,10 +222,11 @@
         <option value="$PROJECT_DIR$/base/MultiMedia/image.go" />
         <option value="$PROJECT_DIR$/base/user/User.go" />
         <option value="$PROJECT_DIR$/middle/residentContent.go" />
+        <option value="$PROJECT_DIR$/main.go" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-7" />
     <option name="width" value="974" />
     <option name="height" value="1087" />
@@ -323,18 +288,6 @@
               <item name="server" type="b2602c69:ProjectViewProjectNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
               <item name="testData" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="testData" type="462c0819:PsiDirectoryNode" />
-              <item name="cb" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="testData" type="462c0819:PsiDirectoryNode" />
-              <item name="im" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -495,6 +448,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Structure" order="0" side_tool="true" weight="0.25" />
       <window_info id="DB Browser" order="1" />
@@ -681,13 +635,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/action/session/session.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/action/signUp.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-210">
@@ -716,13 +663,6 @@
           <folding>
             <element signature="e#17#226#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/action/image.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1710">
-          <caret line="67" column="9" selection-start-line="67" selection-start-column="9" selection-end-line="73" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -900,13 +840,6 @@
     <entry file="file://$PROJECT_DIR$/action/httpTools/tools.go">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/action/httpTools/multipartTools.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="48" column="5" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/base/Passage/PassageWithBody.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="197">
@@ -1030,13 +963,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="25" selection-start-line="25" selection-end-line="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/base/MultiMedia/image.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
@@ -1076,10 +1002,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/base/others.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/middle/residentContent.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="176" column="1" lean-forward="true" selection-start-line="176" selection-start-column="1" selection-end-line="176" selection-end-column="1" />
+        <state relative-caret-position="532">
+          <caret line="176" column="1" selection-start-line="176" selection-start-column="1" selection-end-line="176" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-518">
+          <caret line="20" column="16" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/action/httpTools/multipartTools.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="48" column="5" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/action/image.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="346">
+          <caret line="69" column="29" lean-forward="true" selection-start-line="69" selection-start-column="29" selection-end-line="69" selection-end-column="29" />
         </state>
       </provider>
     </entry>
