@@ -27,6 +27,7 @@ import cn.edu.hebut.easydesign.Activity.MainActivity;
 import cn.edu.hebut.easydesign.Activity.Passage.PassageTask.FollowUser;
 import cn.edu.hebut.easydesign.Activity.Passage.PassageTask.LoadCommentTask;
 import cn.edu.hebut.easydesign.Activity.Passage.PassageTask.StarPassageTask;
+import cn.edu.hebut.easydesign.Activity.commonComponents.AlbumImage.SelectImageFromAlbumHelper;
 import cn.edu.hebut.easydesign.Activity.commonComponents.HalfAboveDialog;
 import cn.edu.hebut.easydesign.Activity.commonComponents.ViewHelper.PassageMetaHelper;
 import cn.edu.hebut.easydesign.Activity.commonComponents.ViewHelper.UserMiniHelper;
@@ -47,6 +48,7 @@ public class PassageActivity extends HoldContextAppCompatActivity implements Com
     private RecyclerView commentList;
     private HalfAboveDialog dialog;
     private FullSubComment fullSubComment;
+    private MakeComment makeComment;
     private UserMiniHelper userMiniHelper;
     private PassageMetaHelper passageMetaHelper;
     private ImageView userHeadCopy;
@@ -80,7 +82,8 @@ public class PassageActivity extends HoldContextAppCompatActivity implements Com
         contentPart = findViewById(R.id.content_part);
         followWriter = findViewById(R.id.follow);
 
-        fullSubComment = new FullSubComment(ContextHolder.getContext());
+        fullSubComment = new FullSubComment(this);
+        makeComment = new MakeComment(this);
 
         Intent intent = getIntent();
         startBundle = intent.getExtras();
@@ -234,6 +237,13 @@ public class PassageActivity extends HoldContextAppCompatActivity implements Com
         outState.putBundle("last", startBundle);
     }
 
+    private SelectImageFromAlbumHelper helper = new SelectImageFromAlbumHelper(this);
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        helper.handleResult(requestCode, resultCode, data);
+    }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -266,6 +276,13 @@ public class PassageActivity extends HoldContextAppCompatActivity implements Com
                     // TODO: 2020/2/28 改图标
                     followed = true;
                 }
+            }
+        });
+        doComment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                makeComment.setData(item);
+                dialog.show(makeComment);
             }
         });
     }

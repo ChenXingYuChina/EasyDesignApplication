@@ -147,7 +147,8 @@
 
                 <cn.edu.hebut.easydesign.Activity.UserInformation.InformationEditor.UserLongDescriptionEditor
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    app:editor_height_dp="240"
                     android:visibility="gone" />
 
                 <FrameLayout

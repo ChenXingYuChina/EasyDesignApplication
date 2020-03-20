@@ -130,7 +130,6 @@ public class UserFragment extends Fragment implements UserDescriptionPage.reload
                 followList.setWho(userID, new Condition<>(false));
             }
             dialog.show(followList);
-            dialog.setOnClose(null);
         }
     };
 
@@ -141,7 +140,6 @@ public class UserFragment extends Fragment implements UserDescriptionPage.reload
                 informationEditor = new EditSelections(ContextHolder.getContext());
             }
             dialog.show(informationEditor);
-            dialog.setOnClose(null);
         }
     };
 

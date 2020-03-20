@@ -33,39 +33,29 @@
                 android:resource="@xml/actions"/>
 
         <activity android:name=".Activity.FirstPage">
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
-
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
-        </activity>
-
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
-
-        <activity
-            android:name=".Activity.MainActivity"
-            android:launchMode="singleInstance" android:windowSoftInputMode="adjustPan"/>
-        <activity android:name=".Activity.Splash" />
-        <activity android:name=".Activity.TestActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activity.SearchResultActivity" />
-        <activity android:name=".playGround.TestActivityOne" >
+        <activity
+            android:name=".Activity.MainActivity"
+            android:launchMode="singleInstance" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".Activity.Splash" />
+        <activity android:name=".Activity.TestActivity"  android:windowSoftInputMode="adjustResize">
 <!--            <intent-filter>-->
 <!--                <action android:name="android.intent.action.MAIN" />-->
 
 <!--                <category android:name="android.intent.category.LAUNCHER" />-->
 <!--            </intent-filter>-->
         </activity>
+        <activity android:name=".Activity.SearchResultActivity" />
         <activity android:name=".Activity.UserInformationActivity" />
         <activity android:name=".Activity.Passage.PassageActivity" />
         <activity android:name=".Activity.UserInformation.SignUpBase" />
         <activity android:name=".Activity.UserInformation.SignUp" />
+        <activity android:name=".Activity.PublicPassageActivity" />
 
         <service android:name=".TaskWorker.TaskService"/>
     </application>

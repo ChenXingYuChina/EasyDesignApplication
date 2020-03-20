@@ -73,7 +73,7 @@ public class ExampleInstrumentedTest {
         String json = "{\"body\":{\"content\":\"content\",\"position\":[],\"width\":[],\"resources\":[]},\"id\":3,\"media\":null,\"com\":[{\"content\":{\"content\":\"comment\",\"position\":[],\"width\":[],\"resources\":[]},\"passage\":3,\"owner\":48,\"like\":0,\"position\":1,\"sub_com_number\":2},{\"content\":{\"content\":\"comment2\",\"position\":[],\"width\":[],\"resources\":[]},\"passage\":3,\"owner\":48,\"like\":1,\"position\":2,\"sub_com_number\":0}],\"sub_com\":[[{\"passage\":3,\"owner\":48,\"content\":\"subcomment\",\"like\":1,\"father\":1,\"position\":1},{\"passage\":3,\"owner\":48,\"content\":\"subcomment2\",\"like\":0,\"father\":1,\"position\":2}],[]],\"full\":true}";
         try {
             Passage p = new Passage(new JSONObject(json), true);
-            System.out.println(p.content.GetSpannableString().length());
+//            System.out.println(p.content.GetSpannableString().length());
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -22,11 +22,9 @@ type resources struct {
 
 func (r *resources) MarshalJSON() ([]byte, error) {
 	buffer := make([]Resource, 0, len(r.Res))
-	c := 0
-	for _, v := range r.Res {
+	for i, v := range r.Res {
 		if v == TypeUrl {
-			buffer = append(buffer, HyperLink(r.Urls[c]))
-			c++
+			buffer = append(buffer, HyperLink(r.Urls[i]))
 		} else {
 			buffer = append(buffer, LoadResourcesExceptUrl(v))
 		}

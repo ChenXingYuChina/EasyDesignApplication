@@ -44,4 +44,9 @@
     <declare-styleable name="ImageSelect">
         <attr name="use_api" format="string"/>
     </declare-styleable>
+
+    <declare-styleable name="TextButtonRichTextEditor">
+<!--        需要一个dp值-->
+        <attr name="editor_height_dp" format="integer"/>
+    </declare-styleable>
 </resources>

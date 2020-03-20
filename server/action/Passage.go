@@ -4,6 +4,7 @@ import (
 	"EasyDesignApplication/server/action/httpTools"
 	"EasyDesignApplication/server/action/session"
 	"EasyDesignApplication/server/base"
+	"EasyDesignApplication/server/base/MultiMedia"
 	"EasyDesignApplication/server/base/Passage"
 	"EasyDesignApplication/server/middle"
 	"database/sql"
@@ -73,4 +74,38 @@ func likePassage(s *session.Session, w http.ResponseWriter, r *http.Request) {
 	}
 	w.WriteHeader(200)
 	log.Println("like passage success")
+}
+
+func publicPassage(s *session.Session, w http.ResponseWriter, r *http.Request) {
+	cs, ok := httpTools.BuildComplexStringFromForm(r.Form)
+	if !ok {
+		w.WriteHeader(400)
+		return
+	}
+	t, ok := httpTools.GetInt64FromForm(r.Form, "type")
+	if !ok {
+		w.WriteHeader(400)
+		return
+	}
+	title, ok := httpTools.GetDataFromForm(r.Form, "title")
+	if !ok {
+		w.WriteHeader(400)
+		return
+	}
+	imgData, ok := httpTools.GetDataFromForm(r.Form, "listImage")
+	if !ok {
+		w.WriteHeader(400)
+		return
+	}
+	img := MultiMedia.NewImage([]byte(imgData))
+
+	if _, err := Passage.NewPassage(cs, int16(t), s.User.ID, title, 0, nil, img.Id); err == nil {
+		err = MultiMedia.SaveImageData(img)
+		if err != nil {
+			w.WriteHeader(500)
+			return
+		}
+	} else {
+		w.WriteHeader(500)
+	}
 }

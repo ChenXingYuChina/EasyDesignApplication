@@ -39,7 +39,6 @@ var (
 )
 
 func userSQLPrepare() (uint8, error) {
-	// todo use it before start
 	position := uint8(0)
 	var err error
 	signUp, err = SQLPrepare("insert into Users (name, Email, password, identity_type) values ($1, $2, $3, $4) returning id")
@@ -182,7 +181,6 @@ func (u *UserBase) SignUp() uint8 {
 			_ = tx.Rollback()
 			return 1 // email 重复
 		}
-		// todo add other check
 		log.Println(err)
 		_ = tx.Rollback()
 		return 255

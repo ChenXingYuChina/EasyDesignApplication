@@ -11,6 +11,7 @@ public class UndoManager {
     private int undoHead = -1;
     public void clear() {
         actionStack.clear();
+        undoHead = -1;
     }
 
 

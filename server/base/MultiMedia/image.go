@@ -22,8 +22,7 @@ func DeleteImageData(id int64) error {
 	return os.Remove(fmt.Sprintf(imageFileName, id))
 }
 
-// fixme 这个地方的15需要删掉
-var nextIdForImage int64 = ComplexString.TypeImage + 15
+var nextIdForImage int64 = ComplexString.TypeImage
 var lockImage = new(sync.Mutex)
 
 func NewImage(d []byte) *ImageData {

@@ -1,14 +1,11 @@
 package cn.edu.hebut.easydesign.ComplexString.RichTextEditor;
 
-import androidx.annotation.NonNull;
-import cn.edu.hebut.easydesign.ComplexString.ComplexString;
-import cn.edu.hebut.easydesign.ComplexString.RichTextEditor.UndoSystem.EditableProxy;
-
 import android.graphics.Bitmap;
 import android.text.Editable;
-import android.text.InputFilter;
-import android.text.SpannableStringBuilder;
 import android.util.Log;
+
+import cn.edu.hebut.easydesign.ComplexString.ComplexString;
+import cn.edu.hebut.easydesign.ComplexString.RichTextEditor.UndoSystem.EditableProxy;
 
 public class ComplexStringProxy extends EditableProxy{
     private ComplexString complexString;

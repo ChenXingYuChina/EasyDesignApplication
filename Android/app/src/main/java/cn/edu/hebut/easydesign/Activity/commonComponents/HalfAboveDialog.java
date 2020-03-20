@@ -65,6 +65,7 @@ public class HalfAboveDialog extends FrameLayout {
             contentView = content;
             dialog.removeAllViews();
             dialog.addView(content);
+            onClose = null;
         }
         ValueAnimator animator = ValueAnimator.ofInt(10, take);
         animator.setDuration(100);

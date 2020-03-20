@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:translationZ="150dp"
-        app:dialog_height_percent="0.7" />
+        app:dialog_height_percent="0.8" />
 
     <TextView
         android:id="@+id/retry"

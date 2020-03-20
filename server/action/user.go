@@ -157,6 +157,7 @@ func loadUserDescription(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	c, err := LoadUserDescription(id)
+	log.Println(c)
 	goal, err := json.Marshal(c)
 	if err != nil {
 		w.WriteHeader(400)

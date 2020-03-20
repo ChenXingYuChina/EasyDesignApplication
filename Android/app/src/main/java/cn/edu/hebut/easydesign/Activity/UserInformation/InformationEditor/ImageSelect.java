@@ -53,6 +53,7 @@ public class ImageSelect extends FrameLayout implements InformationEditor, UseAl
 
     @Override
     public void setImage(Bitmap image) {
+        Log.i("imageSelect", "setImage: " + image);
         imagePreShow.setImageBitmap(image);
     }
 

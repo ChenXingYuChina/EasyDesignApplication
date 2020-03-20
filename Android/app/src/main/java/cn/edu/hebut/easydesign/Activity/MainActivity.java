@@ -120,7 +120,7 @@ public class MainActivity extends HoldContextAppCompatActivity implements View.O
         if (nowPage == toPage) {
             return;
         } else if (toPage == R.id.publish_page) {
-            // TODO: 2020/2/13 start the publish activity
+            startActivity(new Intent(this, PublicPassageActivity.class));
         }
         transaction = fm.beginTransaction();
         switch (toPage) {

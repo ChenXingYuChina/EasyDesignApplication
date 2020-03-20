@@ -40,7 +40,9 @@ func Init() {
 	http.HandleFunc("/setHeadImage", httpTools.TransformMultiPartToNormalForm(session.NeedLogin(setHeadImage)))
 	//http.HandleFunc("/setHeadImage", httpTools.JustRead)
 	http.HandleFunc("/setBackImage", httpTools.TransformMultiPartToNormalForm(session.NeedLogin(setBackImage)))
-	//http.HandleFunc("/setBackImage", httpTools.JustRead)
+	http.HandleFunc("/changeLongDescription", httpTools.TransformMultiPartToNormalForm(session.NeedLogin(changeLongDescription)))
+	http.HandleFunc("/commentToPassage", httpTools.TransformMultiPartToNormalForm(session.NeedLogin(commentTo)))
+	http.HandleFunc("/publicPassage", httpTools.TransformMultiPartToNormalForm(session.NeedLogin(publicPassage)))
 
 	// manage part
 	managerServer.HandleFunc("/firstPageImage", SetFirstPageImage)

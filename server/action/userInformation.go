@@ -103,8 +103,25 @@ func setImageToUser(w http.ResponseWriter, r *http.Request, u *user.UserBase, wh
 		return nil, nil
 	})
 	if err != nil {
+		log.Println(err)
 		w.WriteHeader(500)
 	} else {
+		log.Println("set user image success")
 		w.WriteHeader(200)
 	}
+}
+
+func changeLongDescription(s *session.Session, w http.ResponseWriter, r * http.Request) {
+	cs, ok := httpTools.BuildComplexStringFromForm(r.Form)
+	if !ok {
+		w.WriteHeader(400)
+		return
+	}
+	log.Println(*cs)
+	err := user.SaveUsersLongDescription(cs, s.User.ID)
+	if err != nil {
+		w.WriteHeader(500)
+		return
+	}
+	w.WriteHeader(200)
 }

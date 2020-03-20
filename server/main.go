@@ -19,7 +19,7 @@ func main()  {
 		panic(err)
 	}
 	if base.DataDir == "./" {
-		base.DataDir = "./testData/"
+		base.DataDir = "./data/"
 	}
 	base.Prepare()
 	dataNet.Prepare("0.0.0.0:9090")

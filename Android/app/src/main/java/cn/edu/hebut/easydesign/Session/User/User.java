@@ -22,6 +22,7 @@ public class User implements Serializable {
         followNumber = user.getLong("follow_number");
         passageNumber = user.getLong("passage_number");
         headImage = user.getLong("head_image");
+        backImage = user.getLong("back_image");
         JSONObject identity = user.getJSONObject("identity");
         if (identity.length() == 2) {
             this.identity = new Public(identity);

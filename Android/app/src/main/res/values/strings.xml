@@ -66,4 +66,8 @@
     <string name="set_head_image">
         setHeadImage
     </string>
+    <string-array name="passage_type">
+        <item>扯犊子</item>
+        <item>再扯一个</item>
+    </string-array>
 </resources>

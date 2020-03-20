@@ -59,14 +59,14 @@ public class EditableProxy extends SpannableStringBuilder {
 
     @Override
     public void clear() {
-        undoManager.clear();
         super.clear();
+        undoManager.clear();
     }
 
     @Override
     public void clearSpans() {
-        undoManager.clear();
         super.clearSpans();
+        undoManager.clear();
     }
 
 

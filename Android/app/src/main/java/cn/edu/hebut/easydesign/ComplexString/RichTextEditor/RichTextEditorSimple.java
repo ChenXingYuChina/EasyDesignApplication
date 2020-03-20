@@ -11,7 +11,6 @@ import cn.edu.hebut.easydesign.ComplexString.ComplexString;
 
 public class RichTextEditorSimple extends AppCompatEditText {
     private ComplexStringProxy text;
-//    private ComplexString complexString;
     public RichTextEditorSimple(Context context) {
         this(context, null);
     }
@@ -48,5 +47,9 @@ public class RichTextEditorSimple extends AppCompatEditText {
 
     public ComplexString toComplexString() {
         return text.toComplexString();
+    }
+    public void clear() {
+        text.clear();
+        text.clearSpans();
     }
 }

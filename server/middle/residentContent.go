@@ -143,7 +143,6 @@ var hotTable *residentContentTable
 var lastTable *residentContentTable
 
 func prepareResidentContentTable() {
-	// fixme open this for test
 	//hotTable = &residentContentTable{gapTime: time.Second / time.Second, lists: make([]*residentContentList, typeNum)}
 	hotTable = &residentContentTable{gapTime: time.Hour / time.Second, lists: make([]*residentContentList, typeNum)}
 	lastTable = &residentContentTable{gapTime: time.Second * 10 / time.Second, lists: make([]*residentContentList, typeNum)}

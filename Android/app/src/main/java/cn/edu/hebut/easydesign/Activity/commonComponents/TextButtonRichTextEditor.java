@@ -13,6 +13,8 @@ import android.widget.TextView;
 import cn.edu.hebut.easydesign.ComplexString.ComplexString;
 import cn.edu.hebut.easydesign.ComplexString.RichTextEditor.RichTextEditorHelper;
 import cn.edu.hebut.easydesign.R;
+import cn.edu.hebut.easydesign.Tools.AttributeSetTools;
+import cn.edu.hebut.easydesign.Tools.ResourcesTools;
 
 public class TextButtonRichTextEditor extends FrameLayout {
     private static final String TAG = "TBRTE";
@@ -24,7 +26,7 @@ public class TextButtonRichTextEditor extends FrameLayout {
         super(context, attrs);
         inflate(context, R.layout.text_button_rich_editor, this);
         helper = new RichTextEditorHelper(this);
-        // 将
+
         for (int i = 0; i < ComplexString.HYPERLINK; i++) {
             if (ComplexString.SMALL_FONT_SIZE + ComplexString.FONT_SIZE_BASE <= i && i <= ComplexString.HUGE_FONT_SIZE + ComplexString.FONT_SIZE_BASE) {
                 continue;
@@ -47,6 +49,14 @@ public class TextButtonRichTextEditor extends FrameLayout {
                 }
             }
         });
+        if (attrs != null) {
+            int editorSize = attrs.getAttributeIntValue("http://schemas.android.com/apk/res-auto", "editor_height_dp", 200);
+            editorSize = ResourcesTools.dp2px(editorSize);
+            ViewGroup group = findViewById(R.id.editor_wrap);
+            ViewGroup.LayoutParams p = group.getLayoutParams();
+            p.height = editorSize;
+            group.setLayoutParams(p);
+        }
     }
 
     private void makeUpLabel(TextView v, int id) {
@@ -62,4 +72,9 @@ public class TextButtonRichTextEditor extends FrameLayout {
     public ComplexString getGoal() {
         return helper.getEditor().toComplexString();
     }
+
+    public void clear() {
+        helper.getEditor().clear();
+    }
+
 }

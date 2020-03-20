@@ -9,6 +9,7 @@ import java.util.List;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import cn.edu.hebut.easydesign.Activity.commonComponents.TextButtonRichTextEditor;
+import cn.edu.hebut.easydesign.ComplexString.ComplexStringField;
 import cn.edu.hebut.easydesign.HttpClient.Form.FormField;
 
 public class UserLongDescriptionEditor extends TextButtonRichTextEditor implements InformationEditor {
@@ -23,6 +24,7 @@ public class UserLongDescriptionEditor extends TextButtonRichTextEditor implemen
 
     @Override
     public void collectData(List<FormField> goal) throws Exception {
-        getGoal();
+        goal.add(new ComplexStringField(getGoal()));
+        clear();
     }
 }

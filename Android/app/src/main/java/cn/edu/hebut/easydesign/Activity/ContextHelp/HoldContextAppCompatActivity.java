@@ -1,5 +1,6 @@
 package cn.edu.hebut.easydesign.Activity.ContextHelp;
 
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.util.Log;
@@ -38,5 +39,12 @@ public abstract class HoldContextAppCompatActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         ContextHolder.setContext(null);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        ContextHolder.setContext(this);
+        ContextHolder.setBinder(binder);
     }
 }

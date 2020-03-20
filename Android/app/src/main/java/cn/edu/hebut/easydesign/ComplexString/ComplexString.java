@@ -3,8 +3,6 @@ package cn.edu.hebut.easydesign.ComplexString;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Matrix;
-import android.graphics.drawable.Drawable;
-import android.net.Uri;
 import android.text.Editable;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
@@ -28,11 +26,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import cn.edu.hebut.easydesign.Activity.ContextHelp.ContextHolder;
 import cn.edu.hebut.easydesign.ComplexString.RichTextEditor.UndoSystem.EditableProxy;
 import cn.edu.hebut.easydesign.R;
@@ -113,25 +113,25 @@ public class ComplexString implements Serializable {
         content = string.subSequence(0, string.length()).toString();
         Object[] spans = string.getSpans(0, string.length(), Object.class);
         int length = spans.length;
-        start = new int[length];
-        width = new int[length];
-        resourcesId = new long[length];
-        urls = new String[length];
+        ArrayList<Integer> startMid = new ArrayList<>();
+        List<Integer> widthMid = new LinkedList<>();
+        List<Long> resourcesIdMid = new LinkedList<>();
+        List<String> urlsMid = new LinkedList<>();
         imagePath = new HashMap<>();
 
         for (int i = 0; i < length; i++) {
             Object span = spans[i];
-            start[i] = string.getSpanStart(span);
-            width[i] = string.getSpanEnd(span) - start[i];
+            String url = null;
+            long id = -1;
             if (span instanceof RelativeSizeSpan) {
                 RelativeSizeSpan sizeSpan = (RelativeSizeSpan) span;
                 float size = sizeSpan.getSizeChange();
                 if (size == 0.5f) {
-                    resourcesId[i] = SMALL_FONT_SIZE + FONT_SIZE_BASE;
+                    id = SMALL_FONT_SIZE + FONT_SIZE_BASE;
                 } else if (size == 1.5f) {
-                    resourcesId[i] = BIG_FONT_SIZE + FONT_SIZE_BASE;
+                    id =BIG_FONT_SIZE + FONT_SIZE_BASE;
                 } else if (size == 2.0f) {
-                    resourcesId[i] = HUGE_FONT_SIZE + FONT_SIZE_BASE;
+                    id = HUGE_FONT_SIZE + FONT_SIZE_BASE;
                 } else {
                     Log.i("cs", "parseToServerFormat: " + size);
                     throw new Exception();
@@ -139,48 +139,72 @@ public class ComplexString implements Serializable {
             } else if (span instanceof myImageSpan) {
                 myImageSpan imageSpan = (myImageSpan) span;
                 imagePath.put(i, imageSpan.path);
-                resourcesId[i] = -1;
+                id = IMAGE + i;
             } else if (span instanceof URLSpan) {
-                urls[i] = ((URLSpan) span).getURL();
-                resourcesId[i] = HYPERLINK;
+                url = ((URLSpan) span).getURL();
+                id = HYPERLINK;
             } else if (span instanceof UnderlineSpan) {
-                resourcesId[i] = UNDERLINE;
+                id = UNDERLINE;
             } else if (span instanceof ForegroundColorSpan) {
                 ForegroundColorSpan colorSpan = (ForegroundColorSpan) span;
                 if (colorSpan.getForegroundColor() == 0xff0000) {
-                    resourcesId[i] = TEXT_COLOR_BASE + RED_COLOR;
+                    id = TEXT_COLOR_BASE + RED_COLOR;
                 } else if (colorSpan.getForegroundColor() == 0x00ff00) {
-                    resourcesId[i] = TEXT_COLOR_BASE + GREEN_COLOR;
+                    id = TEXT_COLOR_BASE + GREEN_COLOR;
                 } else if (colorSpan.getForegroundColor() == 0x0000ff) {
-                    resourcesId[i] = TEXT_COLOR_BASE + BLUE_COLOR;
+                    id = TEXT_COLOR_BASE + BLUE_COLOR;
                 } else if (colorSpan.getForegroundColor() == 0xffff00) {
-                    resourcesId[i] = TEXT_COLOR_BASE + YELLOW_COLOR;
+                    id = TEXT_COLOR_BASE + YELLOW_COLOR;
                 } else if (colorSpan.getForegroundColor() == 0xff00ff) {
-                    resourcesId[i] = TEXT_COLOR_BASE + PURPLE_COLOR;
+                    id = TEXT_COLOR_BASE + PURPLE_COLOR;
                 }
             } else if (span instanceof BackgroundColorSpan) {
                 BackgroundColorSpan colorSpan = (BackgroundColorSpan) span;
                 if (colorSpan.getBackgroundColor() == 0xff0000) {
-                    resourcesId[i] = BACKGROUND_BASE + RED_COLOR;
+                    id = BACKGROUND_BASE + RED_COLOR;
                 } else if (colorSpan.getBackgroundColor() == 0x00ff00) {
-                    resourcesId[i] = BACKGROUND_BASE + GREEN_COLOR;
+                    id = BACKGROUND_BASE + GREEN_COLOR;
                 } else if (colorSpan.getBackgroundColor() == 0x0000ff) {
-                    resourcesId[i] = BACKGROUND_BASE + BLUE_COLOR;
+                    id = BACKGROUND_BASE + BLUE_COLOR;
                 } else if (colorSpan.getBackgroundColor() == 0xffff00) {
-                    resourcesId[i] = BACKGROUND_BASE + YELLOW_COLOR;
+                    id = BACKGROUND_BASE + YELLOW_COLOR;
                 } else if (colorSpan.getBackgroundColor() == 0xff00ff) {
-                    resourcesId[i] = BACKGROUND_BASE + PURPLE_COLOR;
+                    id = BACKGROUND_BASE + PURPLE_COLOR;
                 }
             } else if (span instanceof SuperscriptSpan) {
-                resourcesId[i] = SUPERSCRIPT;
+                id = SUPERSCRIPT;
             } else if (span instanceof SubscriptSpan) {
-                resourcesId[i] = SUBSCRIPT;
+                id = SUBSCRIPT;
             } else if (span instanceof StrikethroughSpan) {
-                resourcesId[i] = STRIKE_THROUGH;
+                id = STRIKE_THROUGH;
             } else {
-                throw new Exception();
+                continue;
             }
+            int startPosition = string.getSpanStart(span);
+            startMid.add(startPosition);
+            widthMid.add(string.getSpanEnd(span) - startPosition);
+            resourcesIdMid.add(id);
+            urlsMid.add(url);
         }
+        start = fromIntegerListToIntArray(startMid);
+        width = fromIntegerListToIntArray(widthMid);
+        resourcesId = fromLongListTo_longArray(resourcesIdMid);
+        urls = urlsMid.toArray(new String[0]);
+    }
+
+    private int[] fromIntegerListToIntArray(List<Integer> list) {
+        int[] goal = new int[list.size()];
+        for (int i = 0; i < list.size() ; i++) {
+            goal[i] = list.get(i);
+        }
+        return goal;
+    }
+    private long[] fromLongListTo_longArray(List<Long> list) {
+        long[] goal = new long[list.size()];
+        for (int i = 0; i < list.size() ; i++) {
+            goal[i] = list.get(i);
+        }
+        return goal;
     }
 
     public JSONObject toJson() throws Exception {
@@ -307,7 +331,7 @@ public class ComplexString implements Serializable {
         string.setSpan(getSpanFromId(id, url), start, width + start, SpannableString.SPAN_INCLUSIVE_EXCLUSIVE);
     }
 
-    private static final int maxWidth = ResourcesTools.dp2px(300);
+    private static int maxWidth = -1;
 
     private void addImageSpanOfHost(long id, final int start, final int end) {
         ContextHolder.getBinder().PutTask(new ImageHostLoadTask(id, cancelLoadImage) {
@@ -330,6 +354,13 @@ public class ComplexString implements Serializable {
         int oHeight = bitmap.getHeight();
         int height = oHeight;
         int width = oWith;
+        if (maxWidth == -1) {
+            synchronized (ComplexString.class) {
+                if (maxWidth == -1) {
+                    maxWidth = ResourcesTools.dp2px(300);
+                }
+            }
+        }
         if (width > maxWidth) {
             height = height * maxWidth / width;
             width = maxWidth;
@@ -366,12 +397,13 @@ public class ComplexString implements Serializable {
         }
         if (string != null) {
             textView.setText(string);
-            return;
+        } else {
+            this.textView = textView;
+            textView.setText(content, TextView.BufferType.EDITABLE);
+            string = textView.getEditableText();
+            makeUp();
         }
-        this.textView = textView;
-        textView.setText(content, TextView.BufferType.EDITABLE);
-        string = textView.getEditableText();
-        makeUp();
+
         textView.setMovementMethod(LinkMovementMethod.getInstance());
     }
 

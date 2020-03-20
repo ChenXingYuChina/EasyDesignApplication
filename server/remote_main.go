@@ -5,6 +5,7 @@ import (
 	"EasyDesignApplication/server/action/session"
 	"EasyDesignApplication/server/base"
 	"EasyDesignApplication/server/dataNet"
+	"github.com/lib/pq"
 	"log"
 	"net/http"
 	"os"
@@ -13,7 +14,8 @@ import (
 )
 
 func main()  {
-	// prepare all the package.
+	// prepare all the package
+	pq.Open()
 	err := base.SqlInit("postgres", "appdb", "12345678", "app_dev", "175.24.76.161")
 	if err != nil {
 		panic(err)

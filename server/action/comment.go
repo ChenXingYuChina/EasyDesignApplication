@@ -195,3 +195,23 @@ func subCommentTo(s *session.Session, w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(200)
 	log.Println("sub comment to success")
 }
+
+func commentTo(s *session.Session, w http.ResponseWriter, r *http.Request) {
+	log.Println("call comment to passage")
+	log.Println(r.Form)
+	cs, ok := httpTools.BuildComplexStringFromForm(r.Form)
+	if !ok {
+		w.WriteHeader(400)
+		return
+	}
+	pid, has := httpTools.GetInt64FromForm(r.Form, "pid")
+	if !has {
+		w.WriteHeader(400)
+		return
+	}
+	if !comment.MakeCommentTo(pid, cs, s.User.ID) {
+		w.WriteHeader(500)
+	}
+	log.Println("comment success")
+	w.WriteHeader(200)
+}

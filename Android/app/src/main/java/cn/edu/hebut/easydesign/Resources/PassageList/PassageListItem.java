@@ -6,6 +6,8 @@ import org.json.JSONObject;
 import java.io.Serializable;
 
 import cn.edu.hebut.easydesign.Activity.commonComponents.ViewHelper.LikeAble;
+import cn.edu.hebut.easydesign.ComplexString.ComplexString;
+import cn.edu.hebut.easydesign.ComplexString.ComplexStringField;
 import cn.edu.hebut.easydesign.HttpClient.Form.Form;
 import cn.edu.hebut.easydesign.HttpClient.Form.LongField;
 import cn.edu.hebut.easydesign.Session.NeedSessionTask.NoReplySessionHostPostTask;
@@ -62,7 +64,19 @@ public class PassageListItem implements Serializable, LikeAble {
             return 0;
         }
     }
+
+    public class commentTo extends  NoReplySessionHostPostTask {
+        ComplexString string;
+        public commentTo(ComplexString string) {
+            super("commentToPassage");
+            this.string = string;
+        }
+
+        @Override
+        protected int makeForm(Form form, Session session) {
+            form.addFields(new ComplexStringField(string));
+            form.addFields(new LongField("pid", id));
+            return 0;
+        }
+    }
 }
-
-
-

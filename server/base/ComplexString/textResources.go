@@ -3,6 +3,7 @@ package ComplexString
 import (
 	"encoding/json"
 	"fmt"
+	"log"
 )
 
 const (
@@ -100,7 +101,10 @@ func (r HyperLink) ResourceID() int64 {
 }
 
 func (r HyperLink) MarshalJSON() ([]byte, error) {
-	return []byte(fmt.Sprintf(hyperlinkModel, r)), nil
+	log.Println(r)
+	mid := fmt.Sprintf(hyperlinkModel, string(r))
+	log.Println(mid)
+	return []byte(mid), nil
 }
 
 

@@ -3,6 +3,7 @@ package cn.edu.hebut.easydesign.Activity.Fragment.UserPage;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -46,9 +47,11 @@ public class UserTop extends FrameLayout {
         this.user = user;
         binder = ContextHolder.getBinder();
         cancel = new Condition<>(false);
+        Log.i("image", "setUser: " + user.backImage);
         binder.PutTask(new ImageHostLoadTask(user.backImage, cancel) {
             @Override
             protected void setImage(Bitmap bitmap) {
+                Log.i("backImage", "setImage: " + bitmap);
                 back.setImageBitmap(bitmap);
             }
         });
