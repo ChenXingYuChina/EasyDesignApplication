@@ -2,25 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3a4c1ff6-ab43-4fc2-a46e-ddb92db95cc2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/testData/cb/2_1.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testData/cb/3_1.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testData/cb/3_2.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testData/mm/1.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testData/mm/2.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testData/pb/1.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testData/pb/2.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testData/pb/3.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testData/pb/5.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testData/pb/6.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testData/pb/7.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testData/ss/1.ss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testData/ss/2.ss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testData/ss/24.ss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testData/ss/3.ss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testData/uld/3.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testData/uld/30.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testData/uld/31.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testData/wl/3.cs" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/package/easyDesign/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package/start.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/action/image.go" beforeDir="false" afterPath="$PROJECT_DIR$/action/image.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/remote_run_main.go" beforeDir="false" afterPath="$PROJECT_DIR$/remote_run_main.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -45,30 +31,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/base/user/User.go">
+        <entry file="file://$PROJECT_DIR$/remote_main.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="167">
-              <caret line="182" column="9" selection-start-line="182" selection-start-column="9" selection-end-line="182" selection-end-column="9" />
-              <folding>
-                <element signature="e#128#183#0" />
-                <element signature="n#!!block;n#UserType#0" />
-                <element signature="n#!!block;n#ChangePassword#0" />
-                <element signature="n#!!block;n#ToMini#0" />
-                <element signature="n#!!block;n#LoadUserBase#0" />
-                <element signature="n#!!block;n#Type#0" />
-                <element signature="n#!!block;n#UnmarshalJSON#0" />
-                <element signature="n#!!block;n#Type#1" />
-                <element signature="n#!!block;n#Type#2" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/middle/residentContent.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="532">
-              <caret line="176" column="1" selection-start-line="176" selection-start-column="1" selection-end-line="176" selection-end-column="1" />
+            <state relative-caret-position="180">
+              <caret line="17" column="9" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -76,8 +42,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-518">
-              <caret line="20" column="16" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
+            <state relative-caret-position="180">
+              <caret line="16" column="17" lean-forward="true" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -91,11 +57,52 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/action/controlPlatform/prepare.go">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/action/handle.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="222">
+              <caret line="51" column="33" selection-start-line="51" selection-start-column="33" selection-end-line="51" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/action/image.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="346">
-              <caret line="69" column="29" lean-forward="true" selection-start-line="69" selection-start-column="29" selection-end-line="69" selection-end-column="29" />
+            <state relative-caret-position="570">
+              <caret line="38" column="22" selection-start-line="38" selection-start-column="22" selection-end-line="38" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/package/easyDesign/Dockerfile">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="6" column="29" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/base/sqlBase.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="21" column="1" lean-forward="true" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/remote_run_main.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -105,42 +112,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="120">
               <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/base/MultiMedia/image.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="23" selection-start-line="23" selection-end-line="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/action/session/mission.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="197">
-              <caret line="43" column="3" selection-start-line="43" selection-start-column="3" selection-end-line="43" selection-end-column="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/base/user/phoneNumber.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="6" column="7" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://C:/Go1.11/go/src/database/sql/sql.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="20400">
-              <caret line="693" column="5" selection-start-line="693" selection-start-column="5" selection-end-line="693" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -172,11 +143,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/5b7b800b-37a9-4419-b3a2-bfc18e3f6bb3/console.sql" />
-        <option value="$PROJECT_DIR$/base/user/UserFull.go" />
-        <option value="$PROJECT_DIR$/base/user/Password_test.go" />
-        <option value="$PROJECT_DIR$/action/image.go" />
-        <option value="$PROJECT_DIR$/action/httpTools/tools.go" />
         <option value="$PROJECT_DIR$/base/comment/SubComment.go" />
         <option value="$PROJECT_DIR$/base/comment/CommentBase.go" />
         <option value="$PROJECT_DIR$/base/comment/comment_test.go" />
@@ -196,7 +162,6 @@
         <option value="$PROJECT_DIR$/base/user/userAction.go" />
         <option value="$PROJECT_DIR$/base/user/prepare.go" />
         <option value="$PROJECT_DIR$/action/remote_run_main.go" />
-        <option value="$PROJECT_DIR$/remote_run_main.go" />
         <option value="$PROJECT_DIR$/action/remote_test.go" />
         <option value="$PROJECT_DIR$/action/inCmd_test.go" />
         <option value="$PROJECT_DIR$/action/http_2_test.go" />
@@ -217,12 +182,18 @@
         <option value="$PROJECT_DIR$/action/Passage.go" />
         <option value="$PROJECT_DIR$/action/handle.go" />
         <option value="$PROJECT_DIR$/action/userInformation.go" />
-        <option value="$PROJECT_DIR$/base/sqlBase.go" />
         <option value="$PROJECT_DIR$/remote_main.go" />
         <option value="$PROJECT_DIR$/base/MultiMedia/image.go" />
         <option value="$PROJECT_DIR$/base/user/User.go" />
         <option value="$PROJECT_DIR$/middle/residentContent.go" />
         <option value="$PROJECT_DIR$/main.go" />
+        <option value="$PROJECT_DIR$/action/image.go" />
+        <option value="$PROJECT_DIR$/start.sh" />
+        <option value="$PROJECT_DIR$/package/easyDesign/Dockerfile" />
+        <option value="$PROJECT_DIR$/package/start.sh" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/938b4f1c-67cd-46df-8a00-6df007e2f934/console.sql" />
+        <option value="$PROJECT_DIR$/remote_run_main.go" />
+        <option value="$PROJECT_DIR$/base/sqlBase.go" />
       </list>
     </option>
   </component>
@@ -287,7 +258,24 @@
             <path>
               <item name="server" type="b2602c69:ProjectViewProjectNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="package" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="package" type="462c0819:PsiDirectoryNode" />
+              <item name="easyDesign" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
               <item name="testData" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="testData" type="462c0819:PsiDirectoryNode" />
+              <item name="im" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -315,18 +303,19 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="G:\GOCode\src\EasyDesignApplication\server\package" />
+      <recent name="G:\GOCode\src\EasyDesignApplication\server" />
+      <recent name="G:\GOCode\src\EasyDesignApplication\server\action\session" />
+      <recent name="G:\GOCode\src\EasyDesignApplication\server\testData" />
+      <recent name="G:\GOCode\src\EasyDesignApplication\server\base\user" />
+    </key>
     <key name="GoMoveDeclarationDialog.RECENT_KEY">
       <recent name="$PROJECT_DIR$/base/Passage" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="G:\GOCode\src\EasyDesignApplication\server\testData\pb" />
       <recent name="G:\GOCode\src\EasyDesignApplication\server\testData\im" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="G:\GOCode\src\EasyDesignApplication\server" />
-      <recent name="G:\GOCode\src\EasyDesignApplication\server\action\session" />
-      <recent name="G:\GOCode\src\EasyDesignApplication\server\testData" />
-      <recent name="G:\GOCode\src\EasyDesignApplication\server\base\user" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -451,7 +440,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Structure" order="0" side_tool="true" weight="0.25" />
-      <window_info id="DB Browser" order="1" />
+      <window_info id="DB Browser" order="1" weight="0.32932165" />
       <window_info id="Project Explorer" order="2" />
       <window_info id="Job Explorer" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
@@ -462,7 +451,7 @@
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3981289" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" visible="true" weight="0.32952183" />
+      <window_info anchor="bottom" id="TODO" order="6" visible="true" weight="0.33367983" />
       <window_info anchor="bottom" id="Console" order="7" />
       <window_info anchor="bottom" id="Docker" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.96881497" />
@@ -476,7 +465,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Database" order="3" weight="0.14232409" />
+      <window_info anchor="right" id="Database" order="3" visible="true" weight="0.14232409" />
     </layout>
     <layout-to-restore>
       <window_info id="Structure" order="0" side_tool="true" weight="0.25" />
@@ -635,44 +624,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/action/signUp.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-210">
-          <caret line="20" column="29" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/base/user/password.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="24" column="15" selection-start-line="24" selection-start-column="15" selection-end-line="24" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testPostFile.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="12" column="7" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/action/session/sessionTable.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4560">
-          <caret line="165" column="23" selection-start-line="165" selection-start-column="23" selection-end-line="165" selection-end-column="23" />
-          <folding>
-            <element signature="e#17#226#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/base/MultiMedia/data.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="423">
-          <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/base/user/prepare.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="145">
@@ -876,13 +827,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/action/handle.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="41" column="103" lean-forward="true" selection-start-line="41" selection-start-column="103" selection-end-line="41" selection-end-column="103" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/action/userInformation.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="352">
@@ -911,13 +855,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/remote_main.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="17" column="9" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../github.com/lib/pq/conn.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="13470">
@@ -932,9 +869,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/action/controlPlatform/prepare.go">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../github.com/lib/pq/connector.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1770">
@@ -946,13 +880,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4050">
           <caret line="138" column="5" selection-start-line="138" selection-start-column="5" selection-end-line="138" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/base/sqlBase.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -1002,24 +929,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/base/others.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/middle/residentContent.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="532">
           <caret line="176" column="1" selection-start-line="176" selection-start-column="1" selection-end-line="176" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-518">
-          <caret line="20" column="16" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -1030,10 +943,75 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/base/prepare.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/others.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/action/handle.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="51" column="33" selection-start-line="51" selection-start-column="33" selection-end-line="51" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/action/controlPlatform/prepare.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package/start.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="6" column="99" lean-forward="true" selection-start-line="6" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/action/image.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="69" column="29" lean-forward="true" selection-start-line="69" selection-start-column="29" selection-end-line="69" selection-end-column="29" />
+        <state relative-caret-position="570">
+          <caret line="38" column="22" selection-start-line="38" selection-start-column="22" selection-end-line="38" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/938b4f1c-67cd-46df-8a00-6df007e2f934/console.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/remote_main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="17" column="9" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package/easyDesign/Dockerfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="6" column="29" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="16" column="17" lean-forward="true" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/sqlBase.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="21" column="1" lean-forward="true" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/remote_run_main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
         </state>
       </provider>
     </entry>

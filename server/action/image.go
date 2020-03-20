@@ -12,7 +12,7 @@ import (
 	"os"
 )
 
-var firstPageImage int64 = 18
+var firstPageImage int64 = 1
 
 func firstPage(w http.ResponseWriter, r *http.Request) {
 	_, err := fmt.Fprintf(w, "%d", firstPageImage)
@@ -89,4 +89,3 @@ func SetFirstPageImage(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 }
-
