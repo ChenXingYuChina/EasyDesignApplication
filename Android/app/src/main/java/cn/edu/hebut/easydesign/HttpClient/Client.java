@@ -11,8 +11,8 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 public class Client {
-    public static final String netAddress = "192.168.31.216";
-//    public static final String netAddress = "175.24.76.161";
+//    public static final String netAddress = "192.168.31.216";
+    public static final String netAddress = "175.24.76.161";
 
     private static Client instance = new Client();
     private Client(){

@@ -5,8 +5,9 @@ public class EmailField extends TextField {
         super(fieldName, data);
         check();
     }
+    private static final String emailFormat = "^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\\.[a-zA-Z0-9_-]+)+$";
     private void check() throws Exception {
-        if (data == null) {
+        if (data == null || data.matches(emailFormat)) {
             throw new Exception();
         }
         /*

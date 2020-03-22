@@ -22,10 +22,45 @@ public class PasswordField implements FormField {
     }
 
     private void check() throws Exception {
-        /* todo check if the password is right throw Exception means wrong
-        * 长度超过6小于20非全数字，仅字母数字以及 . , ; _ - + ! @ # $ % ^ & *这几种英文特殊符号
-        * 出现问题时抛出 new Exception("(具体问题描述)")；
-        */
+        if(pw.length()<6 || pw.length()>20)
+        {
+            throw new Exception("密码长度应在6-20位之间!");
+        }
+        else
+        {
+            char[] chs= pw.toCharArray();
+            int[] index= {0,0,0};
+            String regix = ".,;_-+!@#$%^&*";
+            for(int i = 0;i<chs.length;i++) {
+                if(Character.isLowerCase(chs[i]) || Character.isUpperCase(chs[i]))
+                {
+                    index[0]=1;
+                }
+                else if(Character.isDigit(chs[i]))
+                {
+                    index[1]=1;
+                }
+                else if(regix.contains(String.valueOf(chs[i])))
+                {
+                    index[2]=1;
+                }
+                else {
+                    String warning = "符号'" + chs[i] + "'不合法，特殊符号只能从.,;_-+!@#$%^&*中选择!";
+                    throw new Exception(warning);
+                }
+            }
+            int count=0;
+            for(int j=0;j<index.length;j++)
+            {
+                if(index[j]==1)
+                {
+                    count++;
+                }
+            }
+            if(count<2) {
+                throw new Exception("密码至少由数字、字母、特殊符号中的两种组成!");
+            }
+        }
     }
 
     private void toMD5() {
